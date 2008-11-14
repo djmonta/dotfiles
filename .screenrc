@@ -14,7 +14,7 @@ defscrollback 2000
 
 bindkey "^[Oc" next
 bindkey "^[Od" prev
-bindkey -k kD stuff ﾂ･177
+bindkey -k kD stuff \177
 
 ## http://frexx.de/xterm-256-notes/
 # erase background with current bg color

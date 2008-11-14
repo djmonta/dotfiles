@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/14-09:33:35
+;; Last Modified: 2008/11/14-18:29:58
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -32,6 +32,14 @@
 (setq time-stamp-start "Last Modified: ")
 (setq time-stamp-format "%04y/%02m/%02d-%02H:%02M:%02S")
 (setq time-stamp-end " \\|$")
+
+;;モードライン時間表示
+(progn
+  (setq display-time-24hr-format t)
+  (setq display-time-format "%Y-%m-%d(%a) %H:%M")
+  (setq display-time-day-and-date t)
+  (setq display-time-interval 30)
+  (display-time))
 
 ;;-----------------------------------------------------------------
 ;; psvn.el subversion用

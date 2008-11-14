@@ -68,11 +68,11 @@
 ;; save buffer list
 ;;  http://www.agusa.i.is.nagoya-u.ac.jp/person/sue/download/el/bufferlist/save-buffer-list.el
 (progn
-  (require 'save-buffer-list)
+  (load-file "~/.emacs.d/save-buffer-list.el")
+;  (require 'save-buffer-list)
   (run-with-idle-timer 60 t 'save-current-buffer-list)
-  (load-buffer-list)
+  (load-buffer-list))
 
-;(load-file "~/.emacs.d/save-buffer-list.el")
 
 ;; auto-save-buffers
 ;; http://namazu.org/~satoru/misc/auto-save/

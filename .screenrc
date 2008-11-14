@@ -26,6 +26,6 @@ term xterm-256color
 shelltitle "$ |bash"
 
 # ログ記録
-logfile "窶ｾ/log/screen-%Y%m%d-%H%M%S-%n.log"
+logfile "/home/monta/log/screen-%Y%m%d-%H%M%S-%n.log"
 log on
 deflog on

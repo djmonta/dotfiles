@@ -1,3 +1,5 @@
+# Last Modified: 2008/11/15-04:32:41
+
 escape ^t^t
 autodetach on
 vbell off
@@ -26,6 +28,7 @@ term xterm-256color
 shelltitle "$ |bash"
 
 # ログ記録
-logfile "/home/monta/log/screen-%Y%m%d-%H%M%S-%n.log"
+logfile "/home/monta/log/screen-%Y%m%d-%02c:%s-%n%t.log"
+logtstamp on
 log on
 deflog on

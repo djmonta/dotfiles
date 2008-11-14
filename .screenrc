@@ -1,0 +1,26 @@
+escape ^t^t
+autodetach on
+vbell off
+# hardstatus alwayslastline I%wI
+defhstatus I^En:^EtI
+# hardstatus alwayslastline "%w | %h"
+hardstatus alwayslastline "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d %{=b wb}%c"
+defutf8 on
+defkanji utf-8
+encoding utf-8 utf-8
+defencoding utf-8
+vbell off
+defscrollback 2000
+
+bindkey "^[Oc" next
+bindkey "^[Od" prev
+bindkey -k kD stuff \177
+
+## http://frexx.de/xterm-256-notes/
+# erase background with current bg color
+defbce "on"
+# do not use 'screen-bce'
+term xterm-256color
+
+# ステータス行に各ウィンドウで打ったコマンドを表示
+shelltitle "$ |bash"

@@ -14,7 +14,7 @@ defscrollback 2000
 
 bindkey "^[Oc" next
 bindkey "^[Od" prev
-bindkey -k kD stuff ¥177
+bindkey -k kD stuff ﾂ･177
 
 ## http://frexx.de/xterm-256-notes/
 # erase background with current bg color
@@ -26,6 +26,6 @@ term xterm-256color
 shelltitle "$ |bash"
 
 # ログ記録
-logfile "‾/log/screen-%Y%m%d-%H%M%S-%n.log"
+logfile "窶ｾ/log/screen-%Y%m%d-%H%M%S-%n.log"
 log on
 deflog on

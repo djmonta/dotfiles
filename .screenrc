@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/16-01:14:22
+# Last Modified: 2008/11/16-05:02:53
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -15,8 +15,6 @@ defencoding utf-8
 vbell off
 defscrollback 2000
 
-bindkey "^[Oc" next
-bindkey "^[Od" prev
 bindkey -k kD stuff \177
 
 ## http://frexx.de/xterm-256-notes/

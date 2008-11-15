@@ -1,9 +1,13 @@
-;; Last Modified: 2008/11/15-03:19:11
+;; Last Modified: 2008/11/16-00:36:21
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
   (setq load-path (cons default-directory load-path))
   (normal-top-level-add-subdirs-to-load-path))
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-tty-dark)
 
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)
@@ -112,6 +116,7 @@
  '(transient-mark-mode t))
 (custom-set-faces
  )
+(fringe-mode 0) ;横の余白みたいなやつ消す
 
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
@@ -159,10 +164,6 @@
 (set-keyboard-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-tty-dark)
 
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト

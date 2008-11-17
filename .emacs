@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/17-18:56:22
+;; Last Modified: 2008/11/18-07:34:44
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -87,6 +87,11 @@
 (progn
   (require 'auto-save-buffers)
   (run-with-idle-timer 3 t 'auto-save-buffers))
+
+;; kill-summary
+;; http://mibai.tec.u-ryukyu.ac.jp/%7Eoshiro/Programs/elisp/kill-summary.el
+(autoload 'kill-summary "kill-summary" nil t)
+(global-set-key "\M-y" 'kill-summary)
 
 
 (cond
@@ -188,6 +193,13 @@
 (if (not (memq 'time-stamp write-file-hooks))
     (setq write-file-hooks
     (cons 'time-stamp write-file-hooks)))
+
+;; Using EmacsClient with Screen
+(add-hook 'after-init-hook 'server-start)
+(add-hook 'server-done-hook
+          (lambda ()
+            (shell-command
+             "screen -r -X select `cat ~/tmp/emacsclient-caller`")))
 
 );Linux用設定終わり
 

@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/17-18:53:16
+;; Last Modified: 2008/11/17-18:56:22
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -45,7 +45,7 @@
   (setq display-time-interval 30)
   (display-time))
 
-;;行番号表示01
+;;行番号表示
 (autoload 'setnu-mode "setnu" nil t)
 (global-set-key [f5] 'setnu-mode)
 

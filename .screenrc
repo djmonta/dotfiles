@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/16-05:02:53
+# Last Modified: 2008/11/18-07:30:54
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -31,3 +31,6 @@ logfile "/home/monta/log/screen-%Y%m%d-%02c:%s-%n%t.log"
 logtstamp on
 log on
 deflog on
+
+# Using EmacsClient with screen
+screen -t Emacs 1 /usr/bin/emacs

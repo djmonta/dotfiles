@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/18-07:34:44
+;; Last Modified: 2008/11/18-07:59:33
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -196,10 +196,10 @@
 
 ;; Using EmacsClient with Screen
 (add-hook 'after-init-hook 'server-start)
-(add-hook 'server-done-hook
-          (lambda ()
-            (shell-command
-             "screen -r -X select `cat ~/tmp/emacsclient-caller`")))
+;(add-hook 'server-done-hook
+;          (lambda ()
+;            (shell-command
+;             "screen -r -X select `cat ~/tmp/emacsclient-caller`")))
 
 );Linux用設定終わり
 

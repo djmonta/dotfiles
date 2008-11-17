@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/16-02:52:11
+;; Last Modified: 2008/11/17-18:53:16
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -44,6 +44,10 @@
   (setq display-time-day-and-date t)
   (setq display-time-interval 30)
   (display-time))
+
+;;行番号表示01
+(autoload 'setnu-mode "setnu" nil t)
+(global-set-key [f5] 'setnu-mode)
 
 ;;-----------------------------------------------------------------
 ;; psvn.el subversion用

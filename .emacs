@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/18-14:42:59
+;; Last Modified: 2008/11/18-16:20:10
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -75,11 +75,11 @@
 
 ;; save buffer list
 ;;  http://www.agusa.i.is.nagoya-u.ac.jp/person/sue/download/el/bufferlist/save-buffer-list.el
-(progn
-  (load-file "~/.emacs.d/save-buffer-list.el")
-;  (require 'save-buffer-list)
-  (run-with-idle-timer 60 t 'save-current-buffer-list)
-  (load-buffer-list))
+;(progn
+;  (load-file "~/.emacs.d/save-buffer-list.el")
+;;  (require 'save-buffer-list)
+;  (run-with-idle-timer 60 t 'save-current-buffer-list)
+;  (load-buffer-list))
 
 
 ;; auto-save-buffers

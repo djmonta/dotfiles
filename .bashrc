@@ -80,7 +80,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export CLICOLOR=1 
-export TERM=xterm-256color #この2行でカラー表示
+export TERM=xterm-color #この2行でカラー表示
 
 # iandeth. - bashにて複数端末間でコマンド履歴(history)を共有する方法 <http://iandeth.dyndns.org/mt/ian/archives/000651.html>
 function share_history {

@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/18-08:00:32
+# Last Modified: 2008/11/18-14:32:04
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -32,5 +32,5 @@ logtstamp on
 log on
 deflog on
 
-# Using Emacs 
-#screen -t Emacs 1 /usr/bin/emacs
+# Using EmacsClient
+screen -t Emacs 1 /usr/bin/emacs -nw

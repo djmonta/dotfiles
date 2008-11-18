@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/18-07:59:33
+;; Last Modified: 2008/11/18-14:42:59
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -200,6 +200,8 @@
 ;          (lambda ()
 ;            (shell-command
 ;             "screen -r -X select `cat ~/tmp/emacsclient-caller`")))
+
+(load "emacs-256color.el")
 
 );Linux用設定終わり
 

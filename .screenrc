@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/18-14:51:33
+# Last Modified: 2008/11/18-16:17:43
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -27,7 +27,7 @@ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 # erase background with current bg color
 defbce "on"
 # do not use 'screen-bce'
-term xterm-256color
+term xterm-color
 
 # ステータス行に各ウィンドウで打ったコマンドを表示
 shelltitle "$ |bash"

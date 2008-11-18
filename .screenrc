@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/18-16:36:56
+# Last Modified: 2008/11/19-05:43:37
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -16,6 +16,9 @@ vbell off
 defscrollback 2000
 
 bindkey -k kD stuff \177
+
+# To Use Mouse
+termcapinfo xterm*|kterm* XT
 
 # terminfo and termcap for nice 256 color terminal
 # allow bold colors - necessary for some reason

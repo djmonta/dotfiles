@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/18-14:46:46
+# Last Modified: 2008/11/18-14:50:24
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -39,4 +39,4 @@ log on
 deflog on
 
 # Using EmacsClient
-screen -t Emacs 1 /usr/bin/emacs -nw
+#[screen -t Emacs 1 /usr/bin/emacs -nw

@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/18-14:32:04
+# Last Modified: 2008/11/18-14:46:46
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -16,6 +16,12 @@ vbell off
 defscrollback 2000
 
 bindkey -k kD stuff \177
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 ## http://frexx.de/xterm-256-notes/
 # erase background with current bg color

@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/19-15:08:09
+;; Last Modified: 2008/11/19-18:30:10
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -94,7 +94,7 @@
 (global-set-key "\M-y" 'kill-summary)
 
 ;;ELScreen
-(load "elscreen" "ElScreen" t)
+;(load "elscreen" "ElScreen" t)
 
 
 (cond

@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/19-13:18:14
+# Last Modified: 2008/11/19-13:21:05
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -18,7 +18,7 @@ defscrollback 2000
 bindkey -k kD stuff \177
 
 # To Use Mouse
-termcapinfo xterm*|kterm* XT
+#termcapinfo xterm*|kterm* XT
 termcapinfo xterm* ti@:te@
 
 # terminfo and termcap for nice 256 color terminal

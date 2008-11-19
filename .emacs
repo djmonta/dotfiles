@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/19-18:40:30
+;; Last Modified: 2008/11/19-21:56:22
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -93,9 +93,6 @@
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
 
-;;ELScreen
-(load "elscreen" "ElScreen" t)
-
 
 (cond
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
@@ -160,6 +157,9 @@
 
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)
+
+;;ELScreen
+(load "elscreen" "ElScreen" t)
 
 
 );Mac用設定終わり

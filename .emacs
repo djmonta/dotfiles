@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/19-18:30:10
+;; Last Modified: 2008/11/19-18:32:00
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -93,9 +93,6 @@
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
 
-;;ELScreen
-;(load "elscreen" "ElScreen" t)
-
 
 (cond
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
@@ -158,9 +155,12 @@
 (setenv "XS" "/multi:ssh:monta@192.168.0.4:sudo:root@localhost:")
 ;;C-x C-f $X/path/to/file RET.
 
-
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)
+
+;;ELScreen
+(load "elscreen" "ElScreen" t)
+
 
 );Mac用設定終わり
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Linux用設定

@@ -1,4 +1,4 @@
-;; Last Modified: 2008/11/19-21:56:22
+;; Last Modified: 2010/09/06-21:54:38
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -140,7 +140,7 @@
 
 ;;フォントをbitstream vera sans mono 12ptに
 (set-face-attribute 'default nil
-                    :family "bitstream vera sans mono"
+                    :family "Monaco"
                     :height 120)
 
 ;;optionキーをMetaキーとして利用

@@ -1,4 +1,4 @@
-;; Last Modified: 2010/09/06-23:24:31
+;; Last Modified: 2010/09/07-10:10:58
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
@@ -136,8 +136,7 @@
 
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
-;(setq initial-frame-alist '((width . 180) (height . 82)
-(setq default-frame-alist '((width . 180) (height . 82)
+(setq initial-frame-alist '((width . 180) (height . 82)
 (top . 0) (left . 620)))
 
 ;;Color&Tranceparent

@@ -1,4 +1,4 @@
-;; Last Modified: 2010/09/08-13:40:56
+;; Last Modified: 2010/09/08-13:58:50
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -162,6 +162,10 @@
 
 ;;ツールバーを消す
 (tool-bar-mode 0)
+
+;;メニューバーにファイルパスを表示する
+(setq frame-title-format
+	  (format "%%f - Emacs@%s" (system-name)))
 
 ;;縦二分割
 (when (>= emacs-major-version 23)

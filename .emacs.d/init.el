@@ -1,4 +1,4 @@
-;; Last Modified: 2010/09/08-13:58:50
+;; Last Modified: 2011/02/07-19:02:41
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -223,7 +223,7 @@
 
 ;;省略ネーム
 (setenv "X" "/ssh:monta@192.168.0.4:")
-(setenv "XS" "/multi:ssh:monta@192.168.0.4:sudo:root@localhost:")
+(setenv "XS" "/ssh:monta@192.168.0.4:sudo:root@localhost:")
 ;;C-x C-f $X/path/to/file RET.
 
 (require 'zencoding-mode)

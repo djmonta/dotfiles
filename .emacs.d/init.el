@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/07-19:02:41
+;; Last Modified: 2011/02/09-20:20:46
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -219,12 +219,23 @@
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
 
+;;-----------------------------------------------------------------
+;; Tramp
+;;-----------------------------------------------------------------
 (require 'tramp)
+(setq tramp-default-method "ssh")
 
 ;;省略ネーム
-(setenv "X" "/ssh:monta@192.168.0.4:")
-(setenv "XS" "/ssh:monta@192.168.0.4:sudo:root@localhost:")
+;(setenv "X" "/ssh:monta@192.168.0.4:")
+;(setenv "XS" "/ssh:monta@192.168.0.4:sudo:root@localhost:")
 ;;C-x C-f $X/path/to/file RET.
+
+(add-to-list 'tramp-default-proxies-alist
+			 '("192.168.0.4" "root" "/ssh:monta@192.168.0.4:"))
+(add-to-list 'tramp-default-proxies-alist
+			 '("live.ampomtan.com" "root" "/ssh:monta@live.ampomtan.com:"))
+
+;;-----------------------------------------------------------------
 
 (require 'zencoding-mode)
 (add-hook 'xml-mode-hook 'zencoding-mode)

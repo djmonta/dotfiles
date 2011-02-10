@@ -1,4 +1,4 @@
-# Last Modified: 2008/11/19-13:21:05
+# Last Modified: 2011/02/10-14:20:16
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -33,10 +33,10 @@ defbce "on"
 # do not use 'screen-bce'
 term xterm-color
 
-# ステータス行に各ウィンドウで打ったコマンドを表示
+# Commands on Window Title
 shelltitle "$ |bash"
 
-# ログ記録
+# Logfile
 logfile "/home/monta/log/screen-%Y%m%d-%02c:%s-%n%t.log"
 logtstamp on
 log on

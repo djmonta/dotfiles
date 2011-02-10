@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/10-16:00:23
+;; Last Modified: 2011/02/10-16:22:56
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -121,6 +121,11 @@
 			 '("192.168.0.4" "root" "/ssh:monta@192.168.0.4:"))
 (add-to-list 'tramp-default-proxies-alist
 			 '("live.ampomtan.com" "root" "/ssh:monta@live.ampomtan.com:"))
+;;/etc/hosts : 普通に /etc/hosts を開く。Read Only
+;;/sudo::/etc/hosts : root で /etc/hosts を開く。
+;;/host.computer:/etc/hosts : 普通にホスト の /etc/hosts を開く。Read Only
+;;/sudo:host.computer:/etc/hosts : root でホスト の /etc/hosts を開く。
+
 
 ;;-----------------------------------------------------------------
 

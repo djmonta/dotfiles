@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/10-00:20:35
+;; Last Modified: 2011/02/10-16:00:23
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -105,6 +105,24 @@
 
 (setq process-coding-system-alist
       (cons '("svn" . utf-8) process-coding-system-alist))
+
+;;-----------------------------------------------------------------
+;; Tramp
+;;-----------------------------------------------------------------
+(require 'tramp)
+(setq tramp-default-method "ssh")
+
+;;省略ネーム
+;(setenv "X" "/ssh:monta@192.168.0.4:")
+;(setenv "XS" "/ssh:monta@192.168.0.4:sudo:root@localhost:")
+;;C-x C-f $X/path/to/file RET.
+
+(add-to-list 'tramp-default-proxies-alist
+			 '("192.168.0.4" "root" "/ssh:monta@192.168.0.4:"))
+(add-to-list 'tramp-default-proxies-alist
+			 '("live.ampomtan.com" "root" "/ssh:monta@live.ampomtan.com:"))
+
+;;-----------------------------------------------------------------
 
 ;; save buffer list
 ;;  http://www.agusa.i.is.nagoya-u.ac.jp/person/sue/download/el/bufferlist/save-buffer-list.el
@@ -218,24 +236,6 @@
 ;; Command-Key and Option-Key
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
-
-;;-----------------------------------------------------------------
-;; Tramp
-;;-----------------------------------------------------------------
-(require 'tramp)
-(setq tramp-default-method "ssh")
-
-;;省略ネーム
-;(setenv "X" "/ssh:monta@192.168.0.4:")
-;(setenv "XS" "/ssh:monta@192.168.0.4:sudo:root@localhost:")
-;;C-x C-f $X/path/to/file RET.
-
-(add-to-list 'tramp-default-proxies-alist
-			 '("192.168.0.4" "root" "/ssh:monta@192.168.0.4:"))
-(add-to-list 'tramp-default-proxies-alist
-			 '("live.ampomtan.com" "root" "/ssh:monta@live.ampomtan.com:"))
-
-;;-----------------------------------------------------------------
 
 (require 'zencoding-mode)
 (add-hook 'xml-mode-hook 'zencoding-mode)

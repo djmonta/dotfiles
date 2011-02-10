@@ -1,9 +1,10 @@
-# Last Modified: 2011/02/10-14:20:16
+# Last Modified: 2011/02/10-14:57:02
 # -*- coding: utf-8 -*-
 
 escape ^t^t
 autodetach on
 vbell off
+startup_message off #スタートアップメッセージを表示しない
 # hardstatus alwayslastline I%wI
 defhstatus I^En:^EtI
 # hardstatus alwayslastline "%w | %h"

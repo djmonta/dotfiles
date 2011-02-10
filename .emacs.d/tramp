@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <11/02/09 20:20:50 /Users/monta/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <11/02/10 14:03:00 /Users/monta/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -31,7 +31,16 @@
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
-  ("file-exists" "test -e"))
+  ("file-exists" "test -e")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 1000)
+  ("local-encoding" base64-encode-region)
+  ("local-decoding" base64-decode-region)
+  ("remote-encoding" "base64")
+  ("remote-decoding" "base64 -d -i")
+  ("uid-integer" 1000))
  (["scp" nil "192.168.0.4" nil]
   ("uname" "Linux 2.6.12.6-arm1")
   ("test" "test")
@@ -97,7 +106,8 @@
   ("local-encoding" base64-encode-region)
   ("local-decoding" base64-decode-region)
   ("remote-encoding" "base64")
-  ("remote-decoding" "base64 -d -i"))
+  ("remote-decoding" "base64 -d -i")
+  ("~" "/home/monta"))
  (["ssh" nil "live.ampomtan.com" nil]
   ("uname" "Linux 2.6.26-2-686")
   ("test" "test")
@@ -115,7 +125,9 @@
   ("local-encoding" base64-encode-region)
   ("local-decoding" base64-decode-region)
   ("remote-encoding" "base64")
-  ("remote-decoding" "base64 -d -i"))
+  ("remote-decoding" "base64 -d -i")
+  ("~" "/home/monta")
+  ("uid-integer" 1000))
  (["telnet" "monta" "192.168.0.4" nil]
   ("uname" "Linux 2.6.12.6-arm1")
   ("test" "test")
@@ -144,6 +156,29 @@
   ("local-decoding" base64-decode-region)
   ("remote-encoding" "base64")
   ("remote-decoding" "base64 -d -i")
-  ("~root" "/root"))
+  ("~root" "/root")
+  ("uid-integer" 0)
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t))
  (["sudo" "root" "live.ampomtan.com" nil]
-  nil))
+  ("uname" "Linux 2.6.26-2-686")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/usr/sbin" "/usr/local/bin"))
+  ("remote-shell" "/bin/sh")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("file-exists" "test -e")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 0)
+  ("local-encoding" base64-encode-region)
+  ("local-decoding" base64-decode-region)
+  ("remote-encoding" "base64")
+  ("remote-decoding" "base64 -d -i")
+  ("uid-integer" 0)
+  ("~root" "/root")
+  ("inline-compress" "gzip")
+  ("inline-decompress" "gzip -d")))

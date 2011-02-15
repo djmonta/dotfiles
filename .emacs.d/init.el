@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/10-16:22:56
+;; Last Modified: 2011/02/16-04:31:29
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -35,12 +35,53 @@
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;;Color theme tangotango
+;;http://blog.nozav.org/post/2010/07/12/Updated-tangotango-emacs-color-theme
+
 (require 'color-theme)
-(color-theme-initialize)
-(color-theme-tty-dark)
+;;(color-theme-initialize)
+;(color-theme-tty-dark)
+(setq color-theme-load-all-themes nil)
+
+(require 'color-theme-tangotango)
+
+;; select theme - first list element is for windowing system, second is for console/terminal
+;; Source : http://www.emacswiki.org/emacs/ColorTheme#toc9
+(setq color-theme-choices 
+      '(color-theme-tangotango color-theme-tangotango))
+
+;; default-start
+(funcall (lambda (cols)
+    	   (let ((color-theme-is-global nil))
+    	     (eval 
+    	      (append '(if (window-system))
+    		      (mapcar (lambda (x) (cons x nil)) 
+    			      cols)))))
+    	 color-theme-choices)
+
+;; test for each additional frame or console
+(require 'cl)
+(fset 'test-win-sys 
+      (funcall (lambda (cols)
+    		 (lexical-let ((cols cols))
+    		   (lambda (frame)
+    		     (let ((color-theme-is-global nil))
+		       ;; must be current for local ctheme
+		       (select-frame frame)
+		       ;; test winsystem
+		       (eval 
+			(append '(if (window-system frame)) 
+				(mapcar (lambda (x) (cons x nil)) 
+					cols)))))))
+    	       color-theme-choices ))
+;; hook on after-make-frame-functions
+(add-hook 'after-make-frame-functions 'test-win-sys)
+
+(color-theme-tangotango)
+
 
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)
@@ -149,6 +190,29 @@
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
 
+;; clmemo
+;; http://web.archive.org/web/20080118171036/pop-club.hp.infoseek.co.jp/emacs/clmemo.html
+(autoload 'clmemo "clmemo" "ChangeLog memo mode." t)
+;(define-key ctl-x-map "M" 'clmemo)
+(global-set-key "\C-xM" 'clmemo)
+(setq clmemo-file-name "~/Dropbox/PlainText/ChangeLog.txt")
+;(setq clmemo-entry-list
+;      '("emacs" "book" "url" "idea" "download" "soft" "memo"))
+(setq clmemo-time-string-with-weekday t)
+(setq clmemo-subtitle-char "["
+      clmemo-subtitle-punctuation-char '( "[" . "]"))
+
+;; clgrep
+(autoload 'clgrep "clgrep" "grep mode for ChangeLog file." t)
+(autoload 'clgrep-title "clgrep" "grep first line of entry in ChangeLog." t)
+(autoload 'clgrep-header "clgrep" "grep header line of ChangeLog." t)
+(autoload 'clgrep-other-window "clgrep" "clgrep in other window." t)
+(autoload 'clgrep-clmemo "clgrep" "clgrep directly ChangeLog MEMO." t)
+(add-hook 'change-log-mode-hook
+          '(lambda ()
+             (define-key change-log-mode-map "\C-c\C-g" 'clgrep)
+             (define-key change-log-mode-map "\C-c\C-t" 'clgrep-title)))
+
 
 (cond
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
@@ -254,6 +318,12 @@
 
 ;;ELScreen
 (load "elscreen" "ElScreen" t)
+
+;;全てのバックアップファイルを/tmp以下に保存する。
+(defun make-backup-file-name (filename)
+  (expand-file-name
+    (concat "/tmp/" (file-name-nondirectory filename) "~")
+    (file-name-directory filename)))
 
 
 );Mac用設定終わり

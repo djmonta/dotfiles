@@ -1,13 +1,35 @@
-;; Last Modified: 2011/02/10-16:18:52
+;; Last Modified: 2011/02/16-05:09:17
 
 ;; ~/.emacs.d をロードパスに追加
 (let ((default-directory "~/.emacs.d"))
   (setq load-path (cons default-directory load-path))
   (normal-top-level-add-subdirs-to-load-path))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;WEB+DB v58 設定
+;;; P74
+;;; インストール環境を整備する
+;;; リスト1●init.elを作成
+;; load-path を追加する関数を定義
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+        (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
+
+;; elispとconfディレクトリをサブディレクトリごとload-pathに追加
+(add-to-load-path "elisp" "conf")
+
+;;; conf ディレクトリ内の設定ファイルの読み込み方法の例
+;; ~/.emacs.d/conf/init-anything.el というファイルを読み込む場合
+;; (load "init-anything")
+;; で読み込み可能です。
+
+
 (require 'color-theme)
-(color-theme-initialize)
-(color-theme-tty-dark)
+;(color-theme-initialize)
+;(color-theme-tty-dark)
 
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)

@@ -1,3 +1,6 @@
+;; my-custom.el
+;; Last Modified: 2011/02/23-00:17:31
+
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)
 (setq indent-line-function 'indent-relative-maybe)
@@ -49,3 +52,11 @@
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
 
+;;; P74
+;;; auto-install.el をインストールする
+;;; リスト2●auto-installの設定例
+;; (install-elisp "Http://www.emacswiki.org/emacs/download/auto-install.el")
+(when (require 'auto-install nil t)
+  (setq auto-install-directory "~/.emacs.d/elisp/")
+  (auto-install-update-emacswiki-package-name t)
+  (auto-install-compatibility-setup))

@@ -34,6 +34,9 @@
     (concat "/tmp/" (file-name-nondirectory filename) "~")
     (file-name-directory filename)))
 
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(push "/usr/local/bin" exec-path)
+
 ;; Command-Key and Option-Key
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))

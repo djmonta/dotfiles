@@ -28,6 +28,9 @@
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(push "/usr/local/bin" exec-path)
+
 ;;全てのバックアップファイルを/tmp以下に保存する。
 (defun make-backup-file-name (filename)
   (expand-file-name

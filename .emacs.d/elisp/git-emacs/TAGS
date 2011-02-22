@@ -1,10 +1,10 @@
 
 git--test.el,203
-(defun git--test-with-temp-repo 8,153
-(defun git--test-typical-repo-ops 25,1043
-(defun git--test-standalone-functions 215,9213
-(defun git--test-branch-mode 248,10805
-(defun git-regression 281,12394
+(defun git--test-with-temp-repo 7,110
+(defun git--test-typical-repo-ops 24,1000
+(defun git--test-standalone-functions 214,9170
+(defun git--test-branch-mode 247,10762
+(defun git-regression 280,12351
 
 git-blame.el,1438
 (defun git-blame-color-scale 84,2841

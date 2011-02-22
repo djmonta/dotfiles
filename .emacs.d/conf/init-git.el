@@ -1,4 +1,2 @@
-(require 'git-emacs)
-(add-to-list 'vc-handled-backends 'Git)
-
+(require 'egg)
 (add-to-list 'exec-path "/usr/local/bin")

@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/22-14:47:20
+;; Last Modified: 2011/02/23-00:19:52
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -28,16 +28,6 @@
 ;; ~/.emacs.d/conf/init-anything.el というファイルを読み込む場合
 ;; (load "init-anything")
 ;; で読み込み可能です。
-
-
-;;; P74
-;;; auto-install.el をインストールする
-;;; リスト2●auto-installの設定例
-;; (install-elisp "Http://www.emacswiki.org/emacs/download/auto-install.el")
-(when (require 'auto-install nil t)
-  (setq auto-install-directory "~/.emacs.d/elisp/")
-  (auto-install-update-emacswiki-package-name t)
-  (auto-install-compatibility-setup))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; system-type predicates

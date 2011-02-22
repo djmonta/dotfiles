@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ;; Last Modified: 2011/02/23-04:13:25
+=======
+;; Last Modified: 2011/02/23-02:56:18
+>>>>>>> 24823d18beef6d2c6496e40e4f7f6c82926c48a9
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))

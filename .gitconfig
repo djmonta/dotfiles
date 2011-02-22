@@ -3,3 +3,8 @@
 	email = djmonta@gmail.com
 [core]
 	excludesfile = /Users/monta/.gitignore
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto

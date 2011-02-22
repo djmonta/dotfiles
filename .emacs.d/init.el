@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/23-01:37:39
+;; Last Modified: 2011/02/23-01:42:12
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -43,6 +43,7 @@
 ;	  windows-p (or cygwin-p nt-p meadow-p))
 
 (load "my-custom")
+(load "init-git")
 (load "init-psvn")
 (load "init-tramp")
 (load "init-color-theme")

@@ -98,7 +98,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-
 export CLICOLOR=1 
 export TERM=xterm-color #この2行でカラー表示
 
@@ -111,10 +110,5 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
-export PERL_CPANM_OPT="--local-lib=~/perl5"
-export PATH="/home/monta/perl5/bin:$PATH"
-export MODULEBUILDRC="/home/monta/perl5/.modulebuildrc"
-export PERL_MM_OPT="INSTALL_BASE=/home/monta/perl5"
-export PERL5LIB="/home/monta/perl5/lib/perl5/arm-linux-gnu-thread-multi:/home/monta/perl5/lib/perl5:$PERL5LIB"
-export PATH="/home/monta/perl5/bin:$PATH"
+
 export PATH

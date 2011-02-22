@@ -1,0 +1,5 @@
+[user]
+	name = 宮本幸子
+	email = djmonta@gmail.com
+[core]
+	excludesfile = /Users/monta/.gitignore

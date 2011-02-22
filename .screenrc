@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/10-14:57:02
+# Last Modified: 2011/02/22-18:39:21
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -38,10 +38,24 @@ term xterm-color
 shelltitle "$ |bash"
 
 # Logfile
-logfile "/home/monta/log/screen-%Y%m%d-%02c:%s-%n%t.log"
-logtstamp on
-log on
-deflog on
+#logfile "/home/monta/log/screen-%Y%m%d-%02c:%s-%n%t.log"
+#logtstamp on
+#log on
+#deflog on
 
 # Using EmacsClient
-screen -t Emacs 1 /usr/bin/emacs -nw
+#screen -t Emacs 1 /usr/bin/emacs -nw
+
+caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
+sorendition "= Rk"
+
+bind -c REGION o focus down
+bind -c REGION p focus up
+bind -c REGION 0 remove
+bind -c REGION 1 only
+bind -c REGION 2 split
+bind -c REGION 3 split -v
+bind -c REGION \^ resize +2
+bind -c REGION } resize +2
+bind -c REGION { resize -2
+bind x command -c REGION

@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/23-00:19:52
+;; Last Modified: 2011/02/23-01:09:29
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -50,7 +50,7 @@
 (load "init-shell-pop")
 (load "init-twitter")
 
-;; Platform-dependent
+;; Platform-dependent OS別ファイル読み込み
 (setq os-init-file
       (cond ((eq window-system 'mac) "carbon-mac-init.el")
 			((eq window-system 'ns) "cocoa-mac-init.el")

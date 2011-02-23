@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/23-09:06:26
+;; Last Modified: 2011/02/23-10:14:17
 
 (set-language-environment "Japanese")
 (setq default-process-codingsystem 'utf-8)
@@ -114,7 +114,3 @@
 
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)
-
-;;Mew
-(autoload 'mew "mew" nil t)
-(autoload 'mew-send "mew" nil t)

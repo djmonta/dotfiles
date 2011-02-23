@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/23-10:14:17
+;; Last Modified: 2011/02/23-10:26:12
 
 (set-language-environment "Japanese")
 (setq default-process-codingsystem 'utf-8)

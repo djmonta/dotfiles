@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/24-17:53:52
+# Last Modified: 2011/02/24-18:11:59
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -137,7 +137,7 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
-alias emacsc='emacsclient'
+alias emacsc="emacsclient"
 
 
 ## terminal configuration

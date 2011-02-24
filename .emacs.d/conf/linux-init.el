@@ -37,11 +37,11 @@
 ;;EmacsServer --バイブル P.91
 ;(server-start)
 (add-hook 'after-init-hook 'server-start)
-(defun iconify-emas-when-server-is-done ()
+(defun iconify-emacs-when-server-is-done ()
   (unless server-clients (iconify-frame)))
 
 ;編集が終了したらEmacsをアイコン化する
-(add-hook 'server-done-hook 'iconify-emacs-when-serveris-done)
+(add-hook 'server-done-hook 'iconify-emacs-when-server-is-done)
 
 ;C-x C-c に割り当てる
 (global-set-key (kbd "C-x C-c") 'server-edit)

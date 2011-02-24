@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/24-13:48:33
+;; Last Modified: 2011/02/24-14:09:15
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -19,6 +19,9 @@
 ;; Command-Key and Option-Key
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
+
+;; ドラッグドロップで新たにファイルを開く
+(define-key global-map [ns-drag-file] 'ns-find-file)
 
 (fringe-mode 0) ;横の余白みたいなやつ消す
 

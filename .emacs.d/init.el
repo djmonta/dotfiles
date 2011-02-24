@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/24-11:56:03
+;; Last Modified: 2011/02/24-12:57:32
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -109,3 +109,12 @@
 ;; 			((eq system-type 'gnu/linux) "linux-init.el")))
 ;; (if os-init-file
 ;;   (load-file (concat user-emacs-directory os-init-file)))
+
+;; 終了時バイトコンパイル
+(add-hook 'kill-emacs-query-functions
+          (lambda ()
+            (if (file-newer-than-file-p (concat user-emacs-directory "init.el") (concat user-emacs-directory "init.elc"))
+                (byte-compile-file (concat user-emacs-directory "init.el")))
+            (byte-recompile-directory (concat user-emacs-directory "elisp") 0)
+            (byte-recompile-directory (concat user-emacs-directory "conf") 0)
+            ))

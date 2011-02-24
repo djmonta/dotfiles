@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/22-19:54:31
+# Last Modified: 2011/02/24-16:36:59
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -137,6 +137,7 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
+alias emacsc='emacsclient'
 
 
 ## terminal configuration
@@ -189,3 +190,6 @@ esac
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+
+export EDITOR=emacsclient
+export VISUAL=emacsclient

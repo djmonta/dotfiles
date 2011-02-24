@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/24-10:36:48
+;; Last Modified: 2011/02/24-13:48:33
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -54,7 +54,7 @@
  (set-fontset-font
   (frame-parameter nil 'font)
   'japanese-jisx0208
-  '("Hiragino Maru Gothic Pro" . "iso10646-1"))
+  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
 
  (set-fontset-font
   (frame-parameter nil 'font)

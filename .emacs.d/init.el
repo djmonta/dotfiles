@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/24-13:10:00
+;; Last Modified: 2011/02/24-13:53:45
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -93,6 +93,9 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;; エスケープを綺麗に表示する <http://sakito.jp/emacs/emacsshell.html#id31>
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (require 'my-custom)
 (require 'init-git)
@@ -117,5 +120,5 @@
                 (byte-compile-file (concat user-emacs-directory "init.el")))
             (byte-recompile-directory (concat user-emacs-directory "elisp") 0)
             (byte-recompile-directory (concat user-emacs-directory "conf") 0)
-            )
+          )
 )

@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/24-11:42:14
+;; Last Modified: 2011/02/24-11:47:54
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))

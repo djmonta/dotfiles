@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/24-13:53:45
+;; Last Modified: 2011/02/24-21:30:48
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -83,7 +83,8 @@
 
 ;; 環境依存設定
 (cond
- (carbon-p (require 'carbon-mac-init))
+; (carbon-p (require 'carbon-mac-init))
+ (mac-p (require 'mac-terminal-init)
  (ns-p (require 'cocoa-mac-init))
  (linux-p (require 'linux-init))
 )

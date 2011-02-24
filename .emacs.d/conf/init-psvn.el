@@ -21,3 +21,5 @@
 
 (setq process-coding-system-alist
       (cons '("svn" . utf-8) process-coding-system-alist))
+
+(provide 'init-psvn)

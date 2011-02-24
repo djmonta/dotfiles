@@ -13,3 +13,5 @@
 (require 'magit)
 (require 'magit-svn)
 (require 'magit-topgit)
+
+(provide 'init-git)

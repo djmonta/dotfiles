@@ -21,3 +21,4 @@
              (define-key change-log-mode-map "\C-c\C-g" 'clgrep)
              (define-key change-log-mode-map "\C-c\C-t" 'clgrep-title)))
 
+(provide 'init-clmemo)

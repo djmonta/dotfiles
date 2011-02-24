@@ -1,27 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/23-10:26:12
-
-(set-language-environment "Japanese")
-(setq default-process-codingsystem 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8-unix)
-(setq default-buffer-file-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
-
-(require 'ucs-normalize)
-(setq file-name-coding-system 'utf-8-hfs)
-(setq locale-coding-system 'utf-8-hfs)
-
-(add-hook 'set-language-environment-hook
-(lambda ()
-(when (equal "ja_JP.UTF-8" (getenv "LANG"))
-(setq default-process-coding-system '(utf-8 . utf-8))
-(setq default-file-name-coding-system 'utf-8))
-(when (equal "Japanese" current-language-environment)
-(setq default-buffer-file-coding-system 'utf-8))))
+;; Last Modified: 2011/02/24-10:36:48
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -76,14 +54,8 @@
  (set-fontset-font
   (frame-parameter nil 'font)
   'japanese-jisx0208
-;  '("Hiragino Maru Gothic Pro" . "iso10646-1"))
-  '("Hiragino Maru Gothic Pro" . "utf-8"))
+  '("Hiragino Maru Gothic Pro" . "iso10646-1"))
 
- (set-fontset-font
-  (frame-parameter nil 'font)
-  'japanese-jisx0212
-;  '("Hiragino Maru Gothic Pro" . "iso10646-1"))
-  '("Hiragino Maru Gothic Pro" . "utf-8"))
  (set-fontset-font
   (frame-parameter nil 'font)
   'mule-unicode-0100-24ff
@@ -102,6 +74,12 @@
 
 ;(mac-key-mode 1)
 
+;;タイムスタンプ
+(add-hook 'before-save-hook 'time-stamp)
+
+;; 最近使ったファイルを保存(M-x recentf-open-filesで開く)
+(recentf-mode)
+
 (require 'zencoding-mode)
 (add-hook 'xml-mode-hook 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
@@ -112,5 +90,7 @@
 ;;ELScreen
 (load "elscreen" "ElScreen" t)
 
-;;タイムスタンプ
-(add-hook 'before-save-hook 'time-stamp)
+;;twittering-mode
+(load "init-twitter")
+
+(provide 'cocoa-mac-init)

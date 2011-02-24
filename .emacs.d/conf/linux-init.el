@@ -5,13 +5,6 @@
 (setq bitmap-alterable-charset 'tibetan-1-column)
 ;(require 'jisx0213)
 
-;; default encoding
-(set-language-environment "Japanese")
-(set-default-coding-systems 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト
 (tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え
@@ -40,3 +33,5 @@
 ;             "screen -r -X select `cat ~/tmp/emacsclient-caller`")))
 
 ;(load "emacs-256color.el")
+
+(provide 'linux-init)

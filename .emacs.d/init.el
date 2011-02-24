@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/23-11:00:22
+;; Last Modified: 2011/02/24-11:08:54
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -30,41 +30,82 @@
 ;; で読み込み可能です。
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; system-type predicates
 ;;(require 'emacs-type)
-;(defun x->bool (elt) (not (not elt)))
-;(setq darwin-p (eq system-type 'darwin)
-;      ns-p (featurep 'ns)
-;      carbon-p (eq window-system 'mac)
-;      linux-p (eq system-type 'gnu/linux)
-;      colinux-p (when linux-p
-;                  (let ((file "/proc/modules"))
-;                    (and
-;                     (file-readable-p file)
-;                     (x->bool
-;                      (with-temp-buffer
-;                        (insert-file-contents file)
-;                        (goto-char (point-min))
-;                        (re-search-forward "^cofuse\.+" nil t))))))
-;      cygwin-p (eq system-type 'cygwin)
-;      nt-p (eq system-type 'windows-nt)
-;      meadow-p (featurep 'meadow)
-;      windows-p (or cygwin-p nt-p meadow-p))
+;; Emacs の種類バージョンを判別するための変数を定義
+;; @see http://github.com/elim/dotemacs/blob/master/init.el
+(defun x->bool (elt) (not (not elt)))
+(defvar emacs22-p (equal emacs-major-version 22))
+(defvar emacs23-p (equal emacs-major-version 23))
+(defvar darwin-p (eq system-type 'darwin))
+(defvar ns-p (featurep 'ns))
+(defvar carbon-p (and (eq window-system 'mac) emacs22-p))
+(defvar mac-p (and (eq window-system 'mac) emacs23-p))
+(defvar linux-p (eq system-type 'gnu/linux))
+(defvar colinux-p (when linux-p
+                    (let ((file "/proc/modules"))
+                      (and
+                       (file-readable-p file)
+                       (x->bool
+                        (with-temp-buffer
+                          (insert-file-contents file)
+                          (goto-char (point-min))
+                          (re-search-forward "^cofuse\.+" nil t)))))))
+(defvar cygwin-p (eq system-type 'cygwin))
+(defvar nt-p (eq system-type 'windows-nt))
+(defvar meadow-p (featurep 'meadow))
+(defvar windows-p (or cygwin-p nt-p meadow-p))
 
-(load "my-custom")
-(load "init-git")
-(load "init-psvn")
-(load "init-tramp")
-(load "init-color-theme")
-(load "init-clmemo")
-(load "init-shell-pop")
-(load "init-twitter")
+
+;; default encoding
+(set-language-environment "Japanese")
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(setq default-process-codingsystem 'utf-8)
+(set-default-coding-systems 'utf-8-unix)
+(setq default-buffer-file-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+
+(cond
+ (mac-p
+  (require 'ucs-normalize)
+  (setq file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
+ (windows-p
+  (setq file-name-coding-system 'sjis)
+  (setq locale-coding-system 'utf-8))
+ (t
+  (setq file-name-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8))
+)
+
+;; 環境依存設定
+(cond
+ (carbon-p (require 'carbon-mac-init))
+ (ns-p (require 'cocoa-mac-init))
+ (linux-p (require 'linux-init))
+)
+
+;; ansi-colorでエスケープシーケンスをfontifyする設定
+;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
+(autoload 'ansi-color-for-comint-mode-on "ansi-color"
+  "Set `ansi-color-for-comint-mode' to t." t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(require 'my-custom)
+(require 'init-git)
+(require 'init-psvn)
+(require 'init-tramp)
+(require 'init-color-theme)
+(require 'init-clmemo)
+(require 'init-shell-pop)
 
 ;; Platform-dependent OS別ファイル読み込み
-(setq os-init-file
-      (cond ((eq window-system 'mac) "carbon-mac-init.el")
-			((eq window-system 'ns) "cocoa-mac-init.el")
-			((eq window-system 'w32) "win-init.el")
-			((eq system-type 'gnu/linux) "linux-init.el")))
-(if os-init-file
-  (load-file (concat user-emacs-directory os-init-file)))
+;; (setq os-init-file
+;;       (cond ((eq window-system 'mac) "carbon-mac-init.el")
+;; 			((eq window-system 'ns) "cocoa-mac-init.el")
+;; 			((eq system-type 'gnu/linux) "linux-init.el")))
+;; (if os-init-file
+;;   (load-file (concat user-emacs-directory os-init-file)))

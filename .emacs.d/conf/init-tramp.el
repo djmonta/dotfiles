@@ -18,5 +18,4 @@
 ;;/host.computer:/etc/hosts : 普通にホスト の /etc/hosts を開く。Read Only
 ;;/sudo:host.computer:/etc/hosts : root でホスト の /etc/hosts を開く。
 
-
-;;-----------------------------------------------------------------
+(provide 'init-tramp)

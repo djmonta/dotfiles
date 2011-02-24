@@ -1,5 +1,5 @@
 ;; my-custom.el
-;; Last Modified: 2011/02/23-00:17:31
+;; Last Modified: 2011/02/24-11:03:15
 
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)
@@ -60,3 +60,5 @@
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
+
+(provide 'my-custom)

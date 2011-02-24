@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/24-21:22:02
+# Last Modified: 2011/02/24-21:49:56
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration

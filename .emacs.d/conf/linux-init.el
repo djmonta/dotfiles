@@ -35,7 +35,8 @@
 ;(load "emacs-256color.el")
 
 ;;EmacsServer --バイブル P.91
-(server-start)
+;(server-start)
+(add-hook 'after-init-hook 'server-start)
 (defun iconify-emas-when-server-is-done ()
   (unless server-clients (iconify-frame)))
 

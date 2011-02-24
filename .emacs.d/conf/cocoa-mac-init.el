@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/24-14:09:15
+;; Last Modified: 2011/02/24-18:07:12
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -17,8 +17,13 @@
     (file-name-directory filename)))
 
 ;; Command-Key and Option-Key
-(setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote super))
+;(setq ns-command-modifier (quote meta))
+;(setq ns-alternate-modifier (quote super))
+
+;;optionキーをMetaキーとして利用
+(setq mac-option-modifier 'meta)
+
+;(mac-key-mode 1)
 
 ;; ドラッグドロップで新たにファイルを開く
 (define-key global-map [ns-drag-file] 'ns-find-file)
@@ -71,11 +76,6 @@
         (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
         (".*monaco-bold-.*-mac-roman" . 0.9)
         ("-cdac$" . 1.3))))
-
-;;optionキーをMetaキーとして利用
-;(setq mac-option-modifier 'meta)
-
-;(mac-key-mode 1)
 
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)

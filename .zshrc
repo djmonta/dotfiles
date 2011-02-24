@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/24-18:11:59
+# Last Modified: 2011/02/24-21:05:58
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -191,6 +191,6 @@ esac
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-export ALTERNATE_EDITOR=emacsclient
+export ALTERNATE_EDITOR=emacs
 export EDITOR=emacsclient
 export VISUAL=emacsclient

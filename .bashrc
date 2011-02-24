@@ -114,6 +114,6 @@ export HISTSIZE=9999
 
 export PATH
 
-export ALTERNATE_EDITOR=emacsclient
+export ALTERNATE_EDITOR=emacs
 export EDITOR=emacsclient
 export VISUAL=emacsclient

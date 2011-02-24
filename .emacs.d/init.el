@@ -1,4 +1,4 @@
-;; Last Modified: 2011/02/24-12:57:32
+;; Last Modified: 2011/02/24-13:10:00
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -117,4 +117,5 @@
                 (byte-compile-file (concat user-emacs-directory "init.el")))
             (byte-recompile-directory (concat user-emacs-directory "elisp") 0)
             (byte-recompile-directory (concat user-emacs-directory "conf") 0)
-            ))
+            )
+)

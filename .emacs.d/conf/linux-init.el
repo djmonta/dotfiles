@@ -46,6 +46,6 @@
 (global-set-key (kbd "C-x C-c") 'server-edit)
 
 ;M-x exitでEmacsを終了できるようにする
-(defalias 'exit 'save-buffer-kill-emacs)
+(defalias 'exit 'save-buffers-kill-emacs)
 
 (provide 'linux-init)

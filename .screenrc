@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/22-18:39:21
+# Last Modified: 2011/06/17-04:41:12
 # -*- coding: utf-8 -*-
 
 escape ^t^t
@@ -15,6 +15,7 @@ encoding utf-8 utf-8
 defencoding utf-8
 vbell off
 defscrollback 2000
+altscreen on
 
 bindkey -k kD stuff \177
 
@@ -46,8 +47,8 @@ shelltitle "$ |bash"
 # Using EmacsClient
 #screen -t Emacs 1 /usr/bin/emacs -nw
 
-caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
-sorendition "= Rk"
+#caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
+#sorendition "= Rk"
 
 bind -c REGION o focus down
 bind -c REGION p focus up

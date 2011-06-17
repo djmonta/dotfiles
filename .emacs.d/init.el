@@ -84,7 +84,7 @@
 ;; 環境依存設定
 (cond
 ; (carbon-p (require 'carbon-mac-init))
- (mac-p (require 'mac-terminal-init)
+ (mac-p (require 'mac-terminal-init))
  (ns-p (require 'cocoa-mac-init))
  (linux-p (require 'linux-init))
 )

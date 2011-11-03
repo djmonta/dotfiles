@@ -2,3 +2,12 @@
 # zsh 4.3.10 以降じゃないと動かないと思う
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
+
+# PATH
+PATH=/usr/local/bin:$PATH
+export PATH
+
+# Emacs
+if [ "$EMACS" ];then
+  export TERM=xterm-256color
+fi

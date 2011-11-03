@@ -16,4 +16,4 @@
 .DS_Store
 ._*
 *.elc
-.git
+.svn

@@ -9,6 +9,7 @@
   "Minor mode for incremental blame for Git." t)
 
 (require 'git)
+(require 'git-status)
 
 (require 'magit)
 (require 'magit-svn)

@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/02/24-18:07:12
+;; Last Modified: 2011/11/02-18:00:36
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -58,24 +58,32 @@
 ;                    :height 120)
 
 ;;フォント設定
-(when (>= emacs-major-version 23)
- (set-fontset-font
-  (frame-parameter nil 'font)
-  'japanese-jisx0208
-  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+;(when (>= emacs-major-version 23)
+; (set-fontset-font
+;  (frame-parameter nil 'font)
+;  'japanese-jisx0208
+;  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+;
+; (set-fontset-font
+;  (frame-parameter nil 'font)
+;  'mule-unicode-0100-24ff
+;  '("monaco" . "iso10646-1"))
+; (setq face-font-rescale-alist
+;      '(("^-apple-hiragino.*" . 1.2)
+;        (".*osaka-bold.*" . 1.2)
+;        (".*osaka-medium.*" . 1.2)
+;        (".*courier-bold-.*-mac-roman" . 1.0)
+;        (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
+;        (".*monaco-bold-.*-mac-roman" . 0.9)
+;        ("-cdac$" . 1.3))))
 
- (set-fontset-font
-  (frame-parameter nil 'font)
-  'mule-unicode-0100-24ff
-  '("monaco" . "iso10646-1"))
- (setq face-font-rescale-alist
-      '(("^-apple-hiragino.*" . 1.2)
-        (".*osaka-bold.*" . 1.2)
-        (".*osaka-medium.*" . 1.2)
-        (".*courier-bold-.*-mac-roman" . 1.0)
-        (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-        (".*monaco-bold-.*-mac-roman" . 0.9)
-        ("-cdac$" . 1.3))))
+;; Ricty {{{2 (http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)
+(set-face-attribute 'default nil
+                   :family "Ricty"
+                   :height 135)
+(set-fontset-font
+ nil 'japanese-jisx0208
+ (font-spec :family "Ricty"))
 
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)

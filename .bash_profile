@@ -22,5 +22,9 @@ script ~/log/`date +%Y%m%d-%H%M%S.log`
 exit
 fi
 
-PATH=/usr/lib/distcc/bin:$PATH
+if [ "$EMACS" ];then
+  export TERM=xterm-256color
+fi
+
+PATH=/usr/local/bin:$PATH
 export PATH

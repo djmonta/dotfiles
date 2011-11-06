@@ -125,7 +125,7 @@ if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
 
-# keep everything in the log.
+# keep everything in the log. (SSH接続時)
 P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`
 if [ "$P_PROC" = sshd: ]; then
 script ~/log/`date +%Y%m%d-%H%M%S.log`

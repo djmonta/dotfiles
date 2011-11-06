@@ -30,7 +30,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -90,7 +90,6 @@ fi
 alias ll='ls -la'
 #alias la='ls -A'
 #alias l='ls -CF'
-alias emacsc='emacsclient -t -c'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -99,8 +98,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# ------------カスタマイズここから------------- #
 export CLICOLOR=1 
-export TERM=xterm-color #この2行でカラー表示
+export TERM=xterm-256color #この2行でカラー表示
 
 # iandeth. - bashにて複数端末間でコマンド履歴(history)を共有する方法 <http://iandeth.dyndns.org/mt/ian/archives/000651.html>
 function share_history {
@@ -114,6 +114,27 @@ export HISTSIZE=9999
 
 export PATH
 
+#alias emacsc='emacsclient -t -c'
+
 export ALTERNATE_EDITOR=emacs
 export EDITOR=emacsclient
 export VISUAL=emacsclient
+
+# set PATH so it includes user's private bin if it exists
+if [ -d ‾/bin ] ; then
+    PATH=‾/bin:"${PATH}"
+fi
+
+# keep everything in the log.
+P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`
+if [ "$P_PROC" = sshd: ]; then
+script ‾/log/`date +%Y%m%d-%H%M%S.log`
+exit
+fi
+
+if [ "$EMACS" ];then
+  export TERM=xterm-256color
+fi
+
+PATH=/usr/local/bin:$PATH
+export PATH

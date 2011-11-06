@@ -9,22 +9,3 @@
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
-fi
-
-# keep everything in the log.
-P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`
-if [ "$P_PROC" = sshd: ]; then
-script ~/log/`date +%Y%m%d-%H%M%S.log`
-exit
-fi
-
-if [ "$EMACS" ];then
-  export TERM=xterm-256color
-fi
-
-PATH=/usr/local/bin:$PATH
-export PATH

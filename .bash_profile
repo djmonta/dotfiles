@@ -8,8 +8,4 @@
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
-<<<<<<< HEAD
 fi
-=======
-fi
->>>>>>> 40257112d5289665a72cf477c52e9b22f8ec7d51

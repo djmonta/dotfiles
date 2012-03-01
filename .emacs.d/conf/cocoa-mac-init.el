@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/11/02-18:00:36
+;; Last Modified: 2011/11/10-22:22:18
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -43,7 +43,7 @@
 
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
-(setq initial-frame-alist '((width . 180) (height . 82)
+(setq initial-frame-alist '((width . 184) (height . 82)
 (top . 0) (left . 620)))
 
 ;;Color&Tranceparent
@@ -99,7 +99,7 @@
 (define-key zencoding-mode-keymap (kbd "<S-return>") 'zencoding-expand-line)
 
 ;;ELScreen
-(load "elscreen" "ElScreen" t)
+;(load "elscreen" "ElScreen" t)
 
 ;;twittering-mode
 (load "init-twitter")

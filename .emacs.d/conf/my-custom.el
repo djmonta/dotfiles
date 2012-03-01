@@ -1,5 +1,5 @@
 ;; my-custom.el
-;; Last Modified: 2011/02/24-11:03:15
+;; Last Modified: 2011/11/10-22:05:59
 
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)
@@ -40,6 +40,14 @@
 ;;行番号表示
 (autoload 'setnu-mode "setnu" nil t)
 (global-set-key [f5] 'setnu-mode)
+
+; Show line number
+;
+(require 'wb-line-number)
+(setq truncate-partial-width-windows nil)
+(set-scroll-bar-mode nil)
+(setq wb-line-number-scroll-bar t)
+(wb-line-number-toggle)
 
 ;; auto-save-buffers
 ;; http://namazu.org/~satoru/misc/auto-save/

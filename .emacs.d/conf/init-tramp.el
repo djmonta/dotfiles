@@ -10,7 +10,7 @@
 ;;C-x C-f $X/path/to/file RET.
 
 (add-to-list 'tramp-default-proxies-alist
-			 '("192.168.0.4" "root" "/ssh:monta@192.168.0.4:"))
+			 '("landiskgxr" "root" "/ssh:monta@192.168.0.4:"))
 (add-to-list 'tramp-default-proxies-alist
 			 '("sakura" "root" "/sshx:monta@sakura:"))
 ;;/etc/hosts : 普通に /etc/hosts を開く。Read Only

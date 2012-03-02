@@ -1,4 +1,4 @@
-;;Carbon Emacs用設定;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Emacs (Terminal) 用設定;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;全てのバックアップファイルを/tmp以下に保存する。
 (defun make-backup-file-name (filename)

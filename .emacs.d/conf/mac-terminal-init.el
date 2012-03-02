@@ -17,6 +17,10 @@
 (add-hook 'before-save-hook 'time-stamp)
 
 ;;EmacsServer --バイブル P.91
+;;Usage
+;; emacs --daemon
+;; emacsclient FILENAME
+
 ;(server-start)
 (add-hook 'after-init-hook 'server-start)
 (defun iconify-emacs-when-server-is-done ()

@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2011/11/10-22:22:18
+;; Last Modified: 2012/03/02-02:39:51
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -32,6 +32,13 @@
 
 ;;ツールバーを消す
 (tool-bar-mode 0)
+
+; Show line number
+(require 'wb-line-number)
+(setq truncate-partial-width-windows nil)
+(set-scroll-bar-mode nil)
+(setq wb-line-number-scroll-bar t)
+(wb-line-number-toggle)
 
 ;;メニューバーにファイルパスを表示する
 (setq frame-title-format

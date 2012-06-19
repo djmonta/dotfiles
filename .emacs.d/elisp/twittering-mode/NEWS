@@ -2,7 +2,7 @@
  NEWS -- The history of twittering-mode
 ========================================
 
- HEAD: XXXX-XX-XX
+ 2.0.0: 2011-04-22
 ------------------
 
 ### Important notice
@@ -63,6 +63,8 @@
   (setq twittering-api-prefix "api/")
   (setq twittering-search-api-method "api/search")
   (setq twittering-web-path-prefix "")
+* Copy a URI in a tweet or a URI pointing to the tweet by "U".
+  Thanks to Faried Nawaz.
 * Copy tweets by "C-<mouse-3>".
   Thanks to Faried Nawaz.
 * Support for `wget'.
@@ -135,10 +137,13 @@
   on a tweet, you can block its author.
 * Support for persistent icon storage.
   By "(setq twittering-use-icon-storage t)", you can save retrieved
-  and resized icon images into a persistent storage. On next and later
-  invocation, twittering-mode can display icons faster because the
-  storage reduces time required to retrieve and resize images. In
-  default, this function is disabled.
+  and resized icon images into a persistent storage, which is disabled
+  in default. On next and later invocation, twittering-mode can
+  display icons faster because the storage reduces time required to
+  retrieve and resize images.
+  In default, recently rendered 500 icons are stored at most. You can
+  change the limit by the variable `twittering-icon-storage-limit'. To
+  store all icons, configure the variable as nil.
   The default storage file is `~/.twittering-mode-icons.gz'. You can
   change it by changing `twittering-icon-storage-file'. Note that icon
   images in the storage generated on a certain version of Emacs may be
@@ -150,6 +155,41 @@
   rendered with the information of the retweet itself instead of the
   retweeted original tweet. For example, "%RT{%s}" means who retweeted
   the tweet.
+* Cancel of official ReTweets.
+  If an official ReTweet has been posted by yourself, you can cancel
+  it by 'C-cD', which is the same way of deleting a tweet.
+* Completion of lists to which a specific user subscribes.
+  You can visit a list to which a specific user subscribes by 'C-uL'.
+  Thanks to Naohiro Aota.
+* Edit skeleton.
+  Edit skeleton is a dynamic template system on posting a tweet. You
+  can define an "edit skeleton", which specifies what string is
+  automatically inserted as a footer, header or others before editing
+  a tweet. `twittering-edit-skeleton-alist' is the alist of edit
+  skeletons. For further details, see docstring of
+  `twittering-edit-skeleton-alist'.
+  The following edit skeletons are pre-defined;
+  none: insert nothing,
+  footer: insert `twittering-edit-skeleton-footer' as a footer,
+  footer-only-normal: insert `twittering-edit-skeleton-footer' as a
+  footer only when the tweet being edited is a normal tweet, not a
+  reply or direct message,
+  inherit-hashtags: insert hashtags extracted from the replied tweet,
+  inherit-mentions: insert mentions extracted from the replied tweet,
+  inherit-any: insert hashtags and mentions extracted from the replied
+  tweet.
+  You can switch the current edit skeleton by invoking
+  `twittering-switch-edit-skeleton'.
+  The footer string, `twittering-edit-skeleton-footer', can be changed
+  by invoking `twittering-edit-skeleton-change-footer'.
+* Variable of fallback image format.
+  You can change the fallback format of images by changing the
+  variable `twittering-fallback-image-format'. The default format is
+  XPM. Images which Emacs does not supports are displayed by
+  converting them into the fallback format.
+  By the following configuration, you may avoid strange behaviors when
+  displaying XPM images on NTEmacs. Thanks to Silver Chariot.
+  (setq twittering-fallback-image-format 'png)
 * ...
 
 ### Bug fixes

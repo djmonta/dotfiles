@@ -7,7 +7,7 @@
 
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト
-(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え
+;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え
 (menu-bar-mode nil) ;メニューバー非表示
 
 ;;全てのバックアップファイルを~/tmp/backup以下に保存する。

@@ -114,11 +114,11 @@ export HISTSIZE=9999
 
 export PATH
 
-#alias emacsc='emacsclient -t -c'
+alias emacsc='emacsclient -t -c'
 
-#export ALTERNATE_EDITOR=emacs
-#export EDITOR=emacsclient
-#export VISUAL=emacsclient
+export ALTERNATE_EDITOR=emacs
+export EDITOR=emacsclient
+export VISUAL=emacsclient
 
 # keep everything in the log. (SSH接続時)
 P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`

@@ -1,5 +1,5 @@
 ;; my-custom.el
-;; Last Modified: 2012/03/02-02:38:44
+;; Last Modified: 2012/06/21-08:36:45
 
 ;; タブキーをスペース4つにする
 (setq default-tab-width 4)
@@ -60,5 +60,11 @@
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;;;試行錯誤用ファイルを開くための設定
+(require 'open-junk-file) 
+;; C-x C-zで試行錯誤ファイルを開く
+(global-set-key (kbd "C-x C-z") 'open-junk-file) 
 
 (provide 'my-custom)

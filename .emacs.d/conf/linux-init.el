@@ -10,7 +10,7 @@
 ;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え
 (menu-bar-mode nil) ;メニューバー非表示
 
-;;全てのバックアップファイルを~/tmp/backup以下に保存する。
+;; 全てのバックアップファイルを~/tmp/backup以下に保存する。
 (defun make-backup-file-name (filename)
   (expand-file-name
     (concat "~/tmp/backup/" (file-name-nondirectory filename) "~")
@@ -19,7 +19,7 @@
 ;; 最近使ったファイルを保存(M-x recentf-open-filesで開く)
 (recentf-mode)
 
-;;タイムスタンプ
+;; タイムスタンプ
 ;(add-hook 'time-stamp write-file-hooks)
 (if (not (memq 'time-stamp write-file-hooks))
     (setq write-file-hooks
@@ -34,7 +34,7 @@
 
 ;(load "emacs-256color.el")
 
-;;EmacsServer --バイブル P.91
+;; EmacsServer --バイブル P.91
 ;(server-start)
 (add-hook 'after-init-hook 'server-start)
 (defun iconify-emacs-when-server-is-done ()

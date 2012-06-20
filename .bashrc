@@ -116,7 +116,7 @@ export PATH
 
 alias emacsc='emacsclient -t -c'
 
-export ALTERNATE_EDITOR=emacs
+export ALTERNATE_EDITOR=emacsclient
 export EDITOR=emacsclient
 export VISUAL=emacsclient
 

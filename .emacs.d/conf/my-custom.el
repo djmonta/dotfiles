@@ -1,5 +1,5 @@
 ;; my-custom.el
-;; Last Modified: 2012/06/21-10:02:22
+;; Last Modified: 2012/06/21-16:02:55
 
 ;; タブキーをスペース4つにする
 (setq tab-width 4)
@@ -72,6 +72,13 @@
 ;; emacs-lisp-modeでC-c C-dを押すと注釈される
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 
+;;;括弧の対応を保持して編集する設定
+(require 'paredit)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'ielm-mode-hook 'enable-paredit-mode)
+
 ;;自動バイトコンパイルを無効にするファイル名の正規表現
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
@@ -81,5 +88,18 @@
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 (setq eldoc-idle-delay 0.2) ;すぐに表示したい
 (setq eldoc-minor-mode-string "") ;モードラインにElDocと表示しない
+
+;;釣り合いのとれる括弧をハイライトする
+(show-paren-mode 1)
+;;改行と同時にインデントも行う
+(global-set-key "\C-m" 'newline-and-indent)
+;; find-functionをキー割り当てする
+(find-function-setup-keys)
+
+;; ELPA/Marmaladeパッケージの設定
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-refresh-contents)
+(package-initialize)
 
 (provide 'my-custom)

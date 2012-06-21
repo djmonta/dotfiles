@@ -1,8 +1,8 @@
 ;; my-custom.el
-;; Last Modified: 2012/06/21-08:45:13
+;; Last Modified: 2012/06/21-09:32:26
 
 ;; タブキーをスペース4つにする
-(setq default-tab-width 4)
+(setq tab-width 4)
 (setq indent-line-function 'indent-relative-maybe)
 
 ;; タブ、行末空白、全角空白に色を付ける
@@ -66,6 +66,11 @@
 (require 'open-junk-file)
 ;; C-x C-zで試行錯誤ファイルを開く
 (global-set-key (kbd "C-x C-z") 'open-junk-file)
+
+;;;式の評価結果を注釈するための設定
+(require 'lispxmp)
+;; emacs-lisp-modeでC-c C-dを押すと注釈される
+(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 
 ;;自動バイトコンパイルを無効にするファイル名の正規表現
 (require 'auto-async-byte-compile)

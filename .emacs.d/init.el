@@ -1,4 +1,4 @@
-;; Last Modified: 2011/11/03-00:21:40
+;; Last Modified: 2012/06/21-09:19:53
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -59,10 +59,10 @@
 ;; default encoding
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(setq default-process-codingsystem 'utf-8)
+;(setq default-process-codingsystem 'utf-8)
+;(set-default-coding-systems 'utf-8)
 (set-default-coding-systems 'utf-8-unix)
-(setq default-buffer-file-coding-system 'utf-8)
+;(setq default-buffer-file-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

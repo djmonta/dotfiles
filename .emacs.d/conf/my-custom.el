@@ -1,26 +1,26 @@
 ;; my-custom.el
-;; Last Modified: 2012/06/21-09:32:26
+;; Last Modified: 2012/06/21-10:02:22
 
 ;; タブキーをスペース4つにする
 (setq tab-width 4)
 (setq indent-line-function 'indent-relative-maybe)
 
 ;; タブ、行末空白、全角空白に色を付ける
-(defface my-face-b-1 '((t (:background "gray"))) nil)
-(defface my-face-b-2 '((t (:background "gray26"))) nil)
-(defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
-(defvar my-face-b-1 'my-face-b-1)
-(defvar my-face-b-2 'my-face-b-2)
-(defvar my-face-u-1 'my-face-u-1)
-(defadvice font-lock-mode (before my-font-lock-mode ())
-(font-lock-add-keywords
-    major-mode
-    '(("\t" 0 my-face-b-2 append)
-      ("　" 0 my-face-b-1 append)
-      ("[ \t]+$" 0 my-face-u-1 append)
-     )))
-(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
-(ad-activate 'font-lock-mode)
+;(defvar my-face-b-1 'my-face-b-1)
+;(defvar my-face-b-2 'my-face-b-2)
+;(defvar my-face-u-1 'my-face-u-1)
+;(defface my-face-b-1 '((t (:background "gray"))) nil)
+;(defface my-face-b-2 '((t (:background "gray26"))) nil)
+;(defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
+;(defadvice font-lock-mode (before my-font-lock-mode ())
+;(font-lock-add-keywords
+;    major-mode
+;    '(("\t" 0 my-face-b-2 append)
+;      ("　" 0 my-face-b-1 append)
+;      ("[ \t]+$" 0 my-face-u-1 append)
+;     )))
+;(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
+;(ad-activate 'font-lock-mode)
 
 ;;タイムスタンプ書式
 (require 'time-stamp)
@@ -59,8 +59,8 @@
 (when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
-  (auto-install-compatibility-setup))
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  (auto-install-compatibility-setup)
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
 ;;;試行錯誤用ファイルを開くための設定
 (require 'open-junk-file)

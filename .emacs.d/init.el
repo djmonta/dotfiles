@@ -1,4 +1,4 @@
-;; Last Modified: 2012/06/21-09:26:52
+;; Last Modified: 2012/06/21-10:04:10
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -110,6 +110,7 @@
 (require 'init-clmemo)
 (require 'init-shell)
 (require 'init-shell-pop)
+(require 'init-jaspace)
 
 ;; Platform-dependent OS別ファイル読み込み
 ;; (setq os-init-file

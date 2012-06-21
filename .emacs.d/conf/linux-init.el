@@ -5,8 +5,6 @@
 (setq bitmap-alterable-charset 'tibetan-1-column)
 ;(require 'jisx0213)
 
-(add-hook 'after-init-hook 'redraw-display) ;
-
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト
 ;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え

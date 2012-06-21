@@ -5,6 +5,8 @@
 (setq bitmap-alterable-charset 'tibetan-1-column)
 ;(require 'jisx0213)
 
+(add-hook 'after-init-hook 'redraw-display) ;
+
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト
 ;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え
@@ -21,9 +23,9 @@
 
 ;; タイムスタンプ
 ;(add-hook 'time-stamp write-file-hooks)
-(if (not (memq 'time-stamp write-file-hooks))
-    (setq write-file-hooks
-    (cons 'time-stamp write-file-hooks)))
+(if (not (memq 'time-stamp write-file-functions))
+    (setq write-file-functions
+    (cons 'time-stamp write-file-functions)))
 
 ;; Using EmacsClient with Screen
 ;(add-hook 'after-init-hook 'server-start)

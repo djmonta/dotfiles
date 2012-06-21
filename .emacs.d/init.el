@@ -1,4 +1,4 @@
-;; Last Modified: 2012/06/21-09:19:53
+;; Last Modified: 2012/06/21-09:26:52
 
 ;; ~/.emacs.d をロードパスに追加
 ;(let ((default-directory "~/.emacs.d"))
@@ -67,6 +67,10 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
+
+;;svn
+(setq process-coding-system-alist '(("svn" . utf-8)))
+(setq svn-status-svn-process-coding-system 'utf-8)
 
 (cond
  (mac-p

@@ -10,10 +10,16 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+
+# PATH settings
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
 
-PATH=/usr/local/bin:$PATH
-export PATH
+export PATH=/usr/local/bin:$PATH
+
+if [ -d /usr/local/opt/ruby/bin/ruby ]; then
+	export PATH=/usr/local/opt/ruby/bin:$PATH
+fi

@@ -6,6 +6,9 @@ bindkey '^S' history-incremental-pattern-search-forward
 # PATH
 PATH=/usr/local/bin:$PATH
 export PATH
+if [[ -f /usr/local/opt/ruby/bin/ruby ]]; then
+	export PATH=/usr/local/opt/ruby/bin:$PATH
+fi
 
 # Emacs
 if [ "$EMACS" ];then

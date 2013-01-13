@@ -121,11 +121,11 @@ export EDITOR=emacsclient
 export VISUAL=emacsclient
 
 # keep everything in the log. (SSH接続時)
-P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`
-if [ "$P_PROC" = sshd: ]; then
-script ~/log/`date +%Y%m%d-%H%M%S.log`
-exit
-fi
+# P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`
+# if [ "$P_PROC" = sshd: ]; then
+# script ~/log/`date +%Y%m%d-%H%M%S.log`
+# exit
+# fi
 
 if [ "$EMACS" ];then
   export TERM=xterm-256color

@@ -1,4 +1,4 @@
-# Last Modified: 2011/02/24-22:00:12
+# Last Modified: 2013/01/13-14:54:11
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -78,6 +78,11 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
+
+# zsh設定超便利 history-incremental-pattern-search-backward <http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852>
+# zsh 4.3.10 以降じゃないと動かないと思う
+bindkey "^r" history-incremental-pattern-search-backward
+bindkey "^s" history-incremental-pattern-search-forward
 
 # reverse menu completion binded to Shift-Tab
 #

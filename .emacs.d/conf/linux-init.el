@@ -13,7 +13,7 @@
 ;; 全てのバックアップファイルを~/tmp/backup以下に保存する。
 (defun make-backup-file-name (filename)
   (expand-file-name
-    (concat "~/tmp/backup/" (file-name-nondirectory filename) "~")
+    (concat "~/backup/" (file-name-nondirectory filename) "~")
     (file-name-directory filename)))
 
 ;; 最近使ったファイルを保存(M-x recentf-open-filesで開く)

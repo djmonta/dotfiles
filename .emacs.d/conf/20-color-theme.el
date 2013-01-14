@@ -13,6 +13,11 @@
 (setq color-theme-choices
      '(color-theme-tangotango color-theme-tangotango))
 
+;; (custom-set-variables
+;;  '(custom-enabled-themes (quote (tango))))
+;; (custom-set-faces
+;;  )
+
 ;;;default-start
 ;; (funcall (lambda (cols)
 ;;    	   (let ((color-theme-is-global nil))
@@ -41,4 +46,5 @@
 ;; (add-hook 'after-make-frame-functions 'test-win-sys)
 
 (color-theme-tangotango)
+
 

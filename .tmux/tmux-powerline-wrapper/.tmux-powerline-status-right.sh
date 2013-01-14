@@ -15,8 +15,9 @@ lang+=(["background"]="colour95")
 lang+=(["separator"]="${separator_left_bold}")
 
 declare -A uptime
-uptime+=(["script"]="${wrapper_segments_path}/uptime.sh")
-uptime+=(["foreground"]="colour22")
+#uptime+=(["script"]="${wrapper_segments_path}/uptime.sh")
+uptime+=(["script"]="${wrapper_segments_path}/uptimes.sh")
+uptime+=(["foreground"]="colour255")
 uptime+=(["background"]="colour64")
 uptime+=(["separator"]="${separator_left_bold}")
 
@@ -45,8 +46,8 @@ weather+=(["separator"]="${separator_left_bold}")
 
 declare -A date
 #date+=(["script"]="${wrapper_segments_path}/date.sh")
-#date+=(["script"]="${wrapper_segments_path}/date-full.sh")
-date+=(["script"]="${wrapper_segments_path}/date-en.sh")
+date+=(["script"]="${wrapper_segments_path}/date-full.sh")
+#date+=(["script"]="${wrapper_segments_path}/date-en.sh")
 #date+=(["script"]="${wrapper_segments_path}/date-en-full.sh")
 date+=(["foreground"]="colour136")
 date+=(["background"]="colour235")

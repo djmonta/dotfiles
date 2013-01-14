@@ -1,14 +1,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/01/14-13:42:13
+;; Last Modified: 2013/01/14-17:39:21
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-(push "/usr/local/bin" exec-path)
 
 ;; Command-Key and Option-Key
 ;(setq ns-command-modifier (quote meta))
@@ -44,7 +41,7 @@
 
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
-(setq initial-frame-alist '((width . 184) (height . 82)
+(setq initial-frame-alist '((width . 184) (height . 76)
 (top . 0) (left . 620)))
 
 ;;Color&Tranceparent
@@ -86,12 +83,7 @@
  nil 'japanese-jisx0208
  (font-spec :family "Ricty"))
 
-;;タイムスタンプ
-(add-hook 'before-save-hook 'time-stamp)
-
-;; 最近使ったファイルを保存(M-x recentf-open-filesで開く)
-(recentf-mode)
-
+;; zencoding-mode
 (require 'zencoding-mode)
 (add-hook 'xml-mode-hook 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode)

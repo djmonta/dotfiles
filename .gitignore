@@ -21,3 +21,4 @@
 *.spc
 *~
 /.emacs.d/elpa/archives/marmalade/archive-contents
+/.emacs.d/url/cookies

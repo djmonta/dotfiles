@@ -93,6 +93,11 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   :group 'init-loader
   :type 'regexp)
 
+;; 2013/01/14 monta Mac 専用設定ファイル
+(defcustom init-loader-mac-regexp "^mac-"
+  "Mac環境での起動時に読み込まれる設定ファイルにマッチする正規表現"
+  :group 'init-loader
+  :type 'regexp)
 
 ;;; Code
 (defun* init-loader-load (&optional (init-dir init-loader-directory))
@@ -118,7 +123,10 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; Linux
     (and (equal system-type 'gnu/linux)
 	       (init-loader-re-load init-loader-lin-regexp init-dir))
-
+    ;; 2013/01/14 monta Mac
+    (and (equal system-type 'darwin)
+         (init-loader-re-load init-loader-mac-regexp init-dir))
+    
     (when init-loader-show-log-after-init
       (add-hook  'after-init-hook 'init-loader-show-log))))
 

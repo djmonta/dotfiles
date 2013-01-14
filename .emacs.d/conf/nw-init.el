@@ -1,12 +1,5 @@
 ;;Emacs (Terminal) 用設定;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-(push "/usr/local/bin" exec-path)
-
-;; Command-Key and Option-Key
-;(setq ns-command-modifier (quote meta))
-;(setq ns-alternate-modifier (quote super))
-
 ;;EmacsServer --バイブル P.91
 ;;Usage
 ;; emacs --daemon
@@ -26,5 +19,8 @@
 ;M-x exitでEmacsを終了できるようにする
 (defalias 'exit 'save-buffers-kill-emacs)
 
-;;タイムスタンプ
-(add-hook 'before-save-hook 'time-stamp)
+(global-font-lock-mode t)  ;文字装飾(カラー強調)
+(setq-default transient-mark-mode t) ;リージョンのハイライト
+;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え
+(menu-bar-mode nil) ;メニューバー非表示
+

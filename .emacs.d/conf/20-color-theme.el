@@ -42,4 +42,3 @@
 
 (color-theme-tangotango)
 
-(provide 'init-color-theme)

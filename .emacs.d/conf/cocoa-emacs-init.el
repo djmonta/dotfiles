@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2012/03/02-02:39:51
+;; Last Modified: 2013/01/14-13:42:13
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -9,12 +9,6 @@
 
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (push "/usr/local/bin" exec-path)
-
-;;全てのバックアップファイルを/tmp以下に保存する。
-(defun make-backup-file-name (filename)
-  (expand-file-name
-    (concat "/tmp/" (file-name-nondirectory filename) "~")
-    (file-name-directory filename)))
 
 ;; Command-Key and Option-Key
 ;(setq ns-command-modifier (quote meta))
@@ -109,6 +103,5 @@
 ;(load "elscreen" "ElScreen" t)
 
 ;;twittering-mode
-(load "init-twitter")
+(load "50-twitter")
 
-(provide 'cocoa-mac-init)

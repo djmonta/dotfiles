@@ -1,5 +1,5 @@
-;; my-custom.el
-;; Last Modified: 2012/06/21-16:02:55
+;; 10-mycustom.el
+;; Last Modified: 2013/01/14-13:36:59
 
 ;; タブキーをスペース4つにする
 (setq tab-width 4)
@@ -21,6 +21,9 @@
 ;     )))
 ;(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
 ;(ad-activate 'font-lock-mode)
+
+;; バックアップファイルを作らない
+(setq backup-inhibited t)
 
 ;;タイムスタンプ書式
 (require 'time-stamp)
@@ -101,5 +104,3 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-refresh-contents)
 (package-initialize)
-
-(provide 'my-custom)

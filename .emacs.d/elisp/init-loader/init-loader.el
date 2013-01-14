@@ -88,7 +88,7 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   :group 'init-loader
   :type 'regexp)
 
-(defcustom init-loader-lin-regexp "^lin-"
+(defcustom init-loader-lin-regexp "^linux-"
   "Linux環境での起動時に読み込まれる設定ファイルにマッチする正規表現"
   :group 'init-loader
   :type 'regexp)
@@ -114,10 +114,10 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; 2011/06/12 zqwell Windows/Linux 固有設定ファイル読み込み用
     ;; windows
     (and (featurep 'dos-w32)
-	 (init-loader-re-load init-loader-win-regexp init-dir))
+          (init-loader-re-load init-loader-win-regexp init-dir))
     ;; Linux
     (and (equal system-type 'gnu/linux)
-	 (init-loader-re-load init-loader-lin-regexp init-dir))
+	       (init-loader-re-load init-loader-lin-regexp init-dir))
 
     (when init-loader-show-log-after-init
       (add-hook  'after-init-hook 'init-loader-show-log))))

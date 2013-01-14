@@ -20,3 +20,4 @@
 .svn
 *.spc
 *~
+/.emacs.d/elpa/archives/marmalade/archive-contents

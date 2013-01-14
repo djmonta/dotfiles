@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/01/14-17:39:21
+;; Last Modified: 2013/01/15-00:12:04
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
@@ -35,14 +35,14 @@
 (setq frame-title-format
 	  (format "%%f - Emacs@%s" (system-name)))
 
-;;縦二分割
-(when (>= emacs-major-version 23)
- (split-window-horizontally))
-
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
 (setq initial-frame-alist '((width . 184) (height . 76)
 (top . 0) (left . 620)))
+
+;;縦二分割
+(when (>= emacs-major-version 23)
+ (split-window-horizontally))
 
 ;;Color&Tranceparent
 (set-background-color "Black")

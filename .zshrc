@@ -1,4 +1,4 @@
-# Last Modified: 2013/01/14-15:25:50
+# Last Modified: 2013/01/14-23:29:07
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -26,6 +26,7 @@ case ${UID} in
     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
     ;;
 *)
 #    PROMPT="%{${fg[green]}%}%~%%%{${reset_color}%} "
@@ -34,6 +35,7 @@ case ${UID} in
     SPROMPT="%{${fg[green]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
     ;;
 esac
 

@@ -79,15 +79,15 @@ vcs_others+=(["separator"]="${separator_right_bold}")
 # Register Segments
 #
 register_segment "tmux_session_info"
-if [ "$window_width" -ge 160 ]; then
-    register_segment "hostname"
-fi
-if [ "$window_width" -ge 200 ]; then
-    register_segment "username"
-fi
-if [ "$window_width" -ge 140 ]; then
-    register_segment "ostype"
-fi
+#if [ "$window_width" -ge 160 ]; then
+#    register_segment "hostname"
+#fi
+#if [ "$window_width" -ge 200 ]; then
+#    register_segment "username"
+#fi
+#if [ "$window_width" -ge 140 ]; then
+#    register_segment "ostype"
+#fi
 register_segment "lan_ip"
 register_segment "wan_ip"
 if [ "$window_width" -ge 188 ]; then

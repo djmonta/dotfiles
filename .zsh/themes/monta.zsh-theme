@@ -61,7 +61,7 @@ PROMPT_NORMAL_SYMBOL="♪ "
 PROMPT_ERROR_SYMBOL="✘ "
 
 DEFAULT_PROMPT='%{${reset_color}%}'
-DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
+DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(_server_ip)%{${reset_color}%}'
 DEFAULT_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
 DEFAULT_PROMPT+='%{${fg[cyan]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}'
 DEFAULT_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'

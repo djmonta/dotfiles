@@ -1,0 +1,51 @@
+#*******************************************************************************
+#
+#  .profile.osx
+#
+#   環境変数などの設定(Mac OS X 固有, bash/zsh共通)
+#
+#*******************************************************************************
+
+#
+# MacVim-KaoriYa
+#  デフォルトエディタに設定
+#
+if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+    export EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
+    export VISUAL=/Applications/Emacs.app/Contents/MacOS/Emacs
+
+    # Gitでコミット時に起動するエディタを指定
+    # 未指定だとコミット時にエラーになる(絶対パス必須)
+    export GIT_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
+fi
+
+
+#
+# PATH =========================================================================
+#
+#  PATHの追加はここより後に行うこと
+#
+
+PATH=~/bin:~/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
+PATH=$PATH:/usr/X11/bin
+if [[ -f /usr/local/opt/ruby/bin/ruby ]]; then
+	export PATH=/usr/local/opt/ruby/bin:$PATH
+fi
+export PATH
+
+
+MANPATH=/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH
+export MANPATH
+
+INFOPATH=/usr/local/share/info:/usr/share/info:$INFOPATH
+export INFOPATH
+
+#
+# MySQL
+#
+export MYSQL_HOME=/usr/local/mysql
+export PATH=$MYSQL_HOME/bin:$PATH
+
+
+### Complete Messages
+echo "Loading .profile.osx completed!!"

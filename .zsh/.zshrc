@@ -44,7 +44,7 @@ autoload -Uz add-zsh-hook
 
 ## Set prompt.
 if [ ${UID} -eq 0 ]; then
-    # Prompt for "root" user (all red characters).
+    # Prompt for "root" user.
     # Note: su - or sudo -s を行った場合は環境変数が引き継がれない
 #    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%~#%{${reset_color}%}%b "
     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "

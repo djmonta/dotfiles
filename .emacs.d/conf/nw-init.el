@@ -27,6 +27,13 @@
      (if (string-match "COMMIT_EDITMSG" buffer-file-name)
          (set-buffer-file-coding-system 'utf-8)))))
 
+;; emacsclient でアクセスした時の文字コード設定
+;; バグ: "emacsclient -c" で起動すると実行されない
+(add-hook 'server-visit-hook
+        (lambda ()
+          (set-terminal-coding-system 'utf-8)
+          (set-keyboard-coding-system 'utf-8)))
+
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト
 ;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え

@@ -255,7 +255,7 @@ setopt bang_hist                # !を使ったヒストリ展開を行う
 typeset -U fpath        # 重複パスを登録しない
 #  zsh-completions
 #   https://github.com/zsh-users/zsh-completions.git
-fpath=(~/.zsh/functions/Completion/zsh-completions(N-/) ${fpath})
+fpath=(${HOME}/.zsh/functions/Completion/zsh-completions(N-/) ${fpath})
 # homebrewでインストールしたコマンドの補完関数 http://yonchu.hatenablog.com/entry/20120415/1334506855
 # /usr/local 配下
 # (N-/): 存在しないディレクトリは登録しない。

@@ -44,14 +44,14 @@
 ########################################################################### }}}
 
 ## For zsh-vcs-prompt (vcs_super_info)
-if [ -f ~/.zsh/zsh-vcs-prompt/zshrc.sh ]; then
-    source ~/.zsh/zsh-vcs-prompt/zshrc.sh
-    ## Enable caching.
-    ZSH_VCS_PROMPT_ENABLE_CACHING='true'
-    ZSH_VCS_PROMPT_GIT_FORMATS_USING_PYTHON="${ZSH_VCS_PROMPT_GIT_FORMATS}"
-    ZSH_VCS_PROMPT_GIT_FORMATS+='!'
-    ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='!'
-fi
+# if [ -f ~/.zsh/zsh-vcs-prompt/zshrc.sh ]; then
+#     source ~/.zsh/zsh-vcs-prompt/zshrc.sh
+#     ## Enable caching.
+#     ZSH_VCS_PROMPT_ENABLE_CACHING='true'
+#     ZSH_VCS_PROMPT_GIT_FORMATS_USING_PYTHON="${ZSH_VCS_PROMPT_GIT_FORMATS}"
+#     ZSH_VCS_PROMPT_GIT_FORMATS+='!'
+#     ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='!'
+# fi
 
 
 ## PROMPT/RPROMT/SPROMPT
@@ -63,21 +63,26 @@ PROMPT_ERROR_SYMBOL="✘ "
 DEFAULT_PROMPT='%{${reset_color}%}'
 DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
 DEFAULT_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
-DEFAULT_PROMPT+='%{${fg[green]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}'
+DEFAULT_PROMPT+='%{${fg[cyan]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}'
 DEFAULT_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'
 DEFAULT_PROMPT+=':%~%{${reset_color}%}]%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
 
-VI_CMD_PROMPT='%{${reset_color}%}'
-VI_CMD_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
-VI_CMD_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
-VI_CMD_PROMPT+='%{${fg[yellow]}%}%n%{${reset_color}%}%{${fg[green]}%}❖ %{${reset_color}%}%{${fg[yellow]}%}%m%{${reset_color}%}'
-VI_CMD_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'
-VI_CMD_PROMPT+=':%~%{${reset_color}%}]%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
+# PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
+# PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
+# [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+
+# VI_CMD_PROMPT='%{${reset_color}%}'
+# VI_CMD_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
+# VI_CMD_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
+# VI_CMD_PROMPT+='%{${fg[yellow]}%}%n%{${reset_color}%}%{${fg[green]}%}❖ %{${reset_color}%}%{${fg[yellow]}%}%m%{${reset_color}%}'
+# VI_CMD_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'
+# VI_CMD_PROMPT+=':%~%{${reset_color}%}]%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
 
 # For tmux-powerline
-#TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
-VI_CMD_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
+# VI_CMD_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
 
 # Left prompt
 PROMPT=$DEFAULT_PROMPT
@@ -85,19 +90,15 @@ PROMPT=$DEFAULT_PROMPT
 ## Right prompt
 RPROMPT='%{${reset_color}%}'
 # VCS
-RPROMPT+='$(vcs_super_info)'
+# RPROMPT+='$(vcs_super_info)'
 # Python
-RPROMPT+='%{${fg_bold[magenta]}%}($(_python_type))%{${reset_color}%}'
+# RPROMPT+='%{${fg_bold[magenta]}%}($(_python_type))%{${reset_color}%}'
 # Date-time
-RPROMPT+='[%{${fg[magenta]}%}%D{%y/%m/%d %H:%M:%S}%{${reset_color}%}]'
+RPROMPT+='[%{${fg[magenta]}%}%D{%Y/%m/%d %H:%M:%S}%{${reset_color}%}]'
 
 # Correct prompt
 SPROMPT='%{${reset_color}%}%{$fg[green]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} '
 
-# PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
-# PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
-# [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # Vi入力モードでPROMPTの色を変える

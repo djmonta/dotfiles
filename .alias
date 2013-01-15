@@ -426,7 +426,10 @@ alias rmt='rmtrash'
 #
 alias emacsc="emacsclient -t -c"
 
-# alias tmux='tmuxx'
+#
+# tmux
+#
+alias tmux='tmuxx'
 
 ### Complete Messages
 echo "Loading .alias completed!!"

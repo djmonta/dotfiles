@@ -29,6 +29,7 @@
 
 ;; emacsclient でアクセスした時の文字コード設定
 ;; バグ: "emacsclient -c" で起動すると実行されない
+;; <http://k-ui.jp/blog/2010/07/27/emacsclient_の文字化け解決法/>
 (add-hook 'server-visit-hook
         (lambda ()
           (set-terminal-coding-system 'utf-8)

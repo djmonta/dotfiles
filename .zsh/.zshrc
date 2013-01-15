@@ -55,19 +55,13 @@ if [ ${UID} -eq 0 ]; then
 #    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 else
 # Prompt for "normal" user.
-    PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
-    PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
-    SPROMPT="%{${fg[green]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
     # Loading theme
-    # if [ -f ~/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
-    #     echo "Loading theme: $ZSH_THEME"
-    #     source ~/.zsh/themes/"$ZSH_THEME".zsh-theme
-    # else
-    #     echo "Error: could not load the theme '$ZSH_THEME'"
-    # fi
+    if [ -f ~/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
+        echo "Loading theme: $ZSH_THEME"
+        source ~/.zsh/themes/"$ZSH_THEME".zsh-theme
+    else
+        echo "Error: could not load the theme '$ZSH_THEME'"
+    fi
 fi
 
 ## Set prompt.

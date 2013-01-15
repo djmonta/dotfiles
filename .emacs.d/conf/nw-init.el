@@ -19,7 +19,7 @@
 ;M-x exitでEmacsを終了できるようにする
 (defalias 'exit 'save-buffers-kill-emacs)
 
-;コミットメッセージを日本語で
+;コミットメッセージを日本語で！
 ;; git commit したときのバッファを utf-8 にする
 (add-hook 'server-visit-hook
   (function (lambda ()

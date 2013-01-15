@@ -7,17 +7,16 @@
 #*******************************************************************************
 
 #
-# MacVim-KaoriYa
-#  デフォルトエディタに設定
+#  デフォルトエディタに emacs 設定
 #
-if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-    export EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
-    export VISUAL=/Applications/Emacs.app/Contents/MacOS/Emacs
-
+# if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+    export EDITOR=emacsclient
+    export VISUAL=emacsclient
+    
     # Gitでコミット時に起動するエディタを指定
     # 未指定だとコミット時にエラーになる(絶対パス必須)
-    export GIT_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
-fi
+    export GIT_EDITOR=/usr/local/bin/emacsclient
+# fi
 
 
 #

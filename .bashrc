@@ -116,9 +116,14 @@ export PATH
 
 alias emacsc='emacsclient -t -c'
 
-export ALTERNATE_EDITOR=emacsclient
-export EDITOR=emacsclient
-export VISUAL=emacsclient
+# homebrew の補完設定
+# completionファイルの読み込み
+if type brew >/dev/null 2>&1; then
+    BREW_PREFIX=$(brew --prefix)
+    if [ -e $BREW_PREFIX/Library/Contributions/brew_bash_completion.sh ]; then
+        source $BREW_PREFIX/Library/Contributions/brew_bash_completion.sh >/dev/null 2>&1
+    fi
+fi
 
 # keep everything in the log. (SSH接続時)
 # P_PROC=`ps aux | grep $PPID | grep sshd | awk '{ print $11 }'`
@@ -126,7 +131,3 @@ export VISUAL=emacsclient
 # script ~/log/`date +%Y%m%d-%H%M%S.log`
 # exit
 # fi
-
-if [ "$EMACS" ];then
-  export TERM=xterm-256color
-fi

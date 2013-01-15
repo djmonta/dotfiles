@@ -26,6 +26,10 @@
      (if (string-match "COMMIT_EDITMSG" buffer-file-name)
          (set-buffer-file-coding-system 'utf-8)))))
 
+(add-hook 'git-log-edit-mode-hook
+   '(lambda ()
+    (set-buffer-file-coding-system 'utf-8)))
+
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト
 ;(tool-bar-mode nil) ;M-x tool-bar-mode で表示非表示を切り替え

@@ -20,7 +20,7 @@
 (defalias 'exit 'save-buffers-kill-emacs)
 
 ;コミットメッセージを日本語で
-;;; git commit したときのバッファを utf-8 にする
+;; git commit したときのバッファを utf-8 にする
 (add-hook 'server-visit-hook
   (function (lambda ()
      (if (string-match "COMMIT_EDITMSG" buffer-file-name)

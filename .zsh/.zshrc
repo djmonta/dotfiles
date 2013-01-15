@@ -1,4 +1,4 @@
-# Last Modified: 2013/01/15-00:29:26
+# Last Modified: 2013/01/15-12:12:08
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -19,16 +19,22 @@ export LANG=ja_JP.UTF-8
 #
 autoload -Uz colors
 colors
-setopt PROMPT_SUBST
+setopt prompt_subst
+
+# Theme.
+ZSH_THEME='monta'
+
 case ${UID} in
 0)
+# Prompt for "root" user.
 #    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%~#%{${reset_color}%}%b "
     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+#    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
     ;;
 *)
+# Prompt for "normal" user.
 #    PROMPT="%{${fg[green]}%}%~%%%{${reset_color}%} "
     PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
     PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
@@ -36,6 +42,13 @@ case ${UID} in
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+    # Loading theme
+    # if [ -f ~/.zsh/theme/"$ZSH_THEME".zsh-theme ]; then
+    #     echo "Loading theme: $ZSH_THEME"
+    #     source ~/.zsh/theme/"$ZSH_THEME".zsh-theme
+    # else
+    #     echo "Error: could not load the theme '$ZSH_THEME'"
+    # fi
     ;;
 esac
 
@@ -150,6 +163,7 @@ alias df="df -h"
 alias su="su -l"
 alias emacsc="emacsclient -t -c"
 
+alias tmux='tmuxx'
 
 ## terminal configuration
 #

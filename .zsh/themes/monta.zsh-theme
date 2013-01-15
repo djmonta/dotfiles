@@ -92,26 +92,31 @@ RPROMPT+='%{${fg_bold[magenta]}%}($(_python_type))%{${reset_color}%}'
 RPROMPT+='[%{${fg[magenta]}%}%D{%y/%m/%d %H:%M:%S}%{${reset_color}%}]'
 
 # Correct prompt
-SPROMPT='%{${reset_color}%}%{${fg[red]}%}%r <- こっちにしとけって[n,y,a,e]:%{${reset_color}%}'
+SPROMPT='%{${reset_color}%}%{$fg[green]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} '
 
+# PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
+# PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
+# [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+# PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # Vi入力モードでPROMPTの色を変える
 # http://memo.officebrook.net/20090226.html
-function zle-line-init zle-keymap-select {
-    case $KEYMAP in
-    vicmd)
-        # viコマンドモード
-        PROMPT=${VI_CMD_PROMPT}
-        ;;
-    main|viins)
-        # viインサートモード
-        PROMPT=${DEFAULT_PROMPT}
-        ;;
-    esac
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
+# function zle-line-init zle-keymap-select {
+#     case $KEYMAP in
+#     vicmd)
+#         # viコマンドモード
+#         PROMPT=${VI_CMD_PROMPT}
+#         ;;
+#     main|viins)
+#         # viインサートモード
+#         PROMPT=${DEFAULT_PROMPT}
+#         ;;
+#     esac
+#     zle reset-prompt
+# }
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 
 
 # SSH
@@ -124,28 +129,28 @@ function _client_ip() {
 }
 
 # Python
-function _python_type() {
-    local python_path=$(which python 2> /dev/null)
-    local pytype
-    if [ -z "$python_path" ]; then
-        pytype='none'
-    elif [ "$python_path" = '/usr/bin/python' ]; then
-        pytype='def'
-    elif [ "$python_path" = '/usr/local/bin/python' ]; then
-        pytype='local'
-    elif echo "$python_path" | fgrep -q '/.pythonbrew/'; then
-        if [ -n "$VIRTUAL_ENV" ]; then
-            pytype=$(basename "$VIRTUAL_ENV")
-        else
-            pytype='*py'$(echo "$python_path" | sed 's%.*Python-\([^/]*\)/.*%\1%' | tr -d '.')
-        fi
-    else
-        if [ -n "$VIRTUAL_ENV" ]; then
-            pytype=$(basename "$VIRTUAL_ENV")
-        else
-            pytype=$python_path
-        fi
-    fi
-    echo "$pytype"
-}
+# function _python_type() {
+#     local python_path=$(which python 2> /dev/null)
+#     local pytype
+#     if [ -z "$python_path" ]; then
+#         pytype='none'
+#     elif [ "$python_path" = '/usr/bin/python' ]; then
+#         pytype='def'
+#     elif [ "$python_path" = '/usr/local/bin/python' ]; then
+#         pytype='local'
+#     elif echo "$python_path" | fgrep -q '/.pythonbrew/'; then
+#         if [ -n "$VIRTUAL_ENV" ]; then
+#             pytype=$(basename "$VIRTUAL_ENV")
+#         else
+#             pytype='*py'$(echo "$python_path" | sed 's%.*Python-\([^/]*\)/.*%\1%' | tr -d '.')
+#         fi
+#     else
+#         if [ -n "$VIRTUAL_ENV" ]; then
+#             pytype=$(basename "$VIRTUAL_ENV")
+#         else
+#             pytype=$python_path
+#         fi
+#     fi
+#     echo "$pytype"
+# }
 

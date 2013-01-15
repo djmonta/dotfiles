@@ -1,0 +1,9 @@
+[user]
+	name = monta
+	email = djmonta@gmail.com
+[mergetool]
+	keepBackup = true
+[color]
+	ui = true
+[core]
+	excludesfile = ~/.gitignore

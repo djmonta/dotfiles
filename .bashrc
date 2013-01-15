@@ -112,10 +112,6 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
 
-export PATH
-
-alias emacsc='emacsclient -t -c'
-
 # homebrew の補完設定
 # completionファイルの読み込み
 if type brew >/dev/null 2>&1; then

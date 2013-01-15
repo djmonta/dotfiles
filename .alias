@@ -27,9 +27,6 @@ alias jl="jobs -l"
 alias cl='clear'
 alias quit='exit';
 
-alias where="command -v"
-alias j="jobs -l"
-
 #
 # ls
 #  Macではglsを使用

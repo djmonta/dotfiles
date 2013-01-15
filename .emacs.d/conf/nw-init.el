@@ -8,7 +8,8 @@
 ;(server-start)
 (add-hook 'after-init-hook 'server-start)
 (defun iconify-emacs-when-server-is-done ()
-  (unless server-clients (iconify-frame)))
+;  (unless server-clients (iconify-frame))
+)
 
 ;編集が終了したらEmacsをアイコン化する
 (add-hook 'server-done-hook 'iconify-emacs-when-server-is-done)
@@ -25,10 +26,6 @@
   (function (lambda ()
      (if (string-match "COMMIT_EDITMSG" buffer-file-name)
          (set-buffer-file-coding-system 'utf-8)))))
-
-(add-hook 'git-log-edit-mode-hook
-   '(lambda ()
-    (set-buffer-file-coding-system 'utf-8)))
 
 (global-font-lock-mode t)  ;文字装飾(カラー強調)
 (setq-default transient-mark-mode t) ;リージョンのハイライト

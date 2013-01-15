@@ -1,5 +1,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/01/15-00:12:04
+;; Last Modified: 2013/01/15-20:10:51
+
+;;ATOK2012
+(setq default-input-method "MacOSX")
+(mac-set-input-method-parameter "com.justsystems.inputmethod.atok25.Japanese" `title "漢")
+(mac-set-input-method-parameter "com.justsystems.inputmethod.atok25.Japanese" `cursor-type 'box)
+(mac-set-input-method-parameter "com.justsystems.inputmethod.atok25.Japanese" `cursor-color "magenta")
 
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754

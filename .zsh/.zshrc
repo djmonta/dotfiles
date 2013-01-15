@@ -1,4 +1,4 @@
-# Last Modified: 2013/01/15-12:12:08
+# Last Modified: 2013/01/15-20:14:40
 # users generic .zshrc file for zsh(1)
 
 ## Environment variable configuration
@@ -501,7 +501,9 @@ esac
 #  ログイン時に Emacs Daemon を起動する
 #
 
-# /Applications/Emacs.app/Contents/MacOS/Emacs -nw --daemon -q
+# if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+#      /Applications/Emacs.app/Contents/MacOS/Emacs -nw --daemon -q
+# fi
 if [ `emacs --version | grep 'Emacs 24' | wc -l` = 1 ]
 then
    if [ `ps ux | grep emacs\ --daemon | wc -l` = 1 ]

@@ -53,6 +53,7 @@
 #     ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='!'
 # fi
 
+# 256colorlib.shをスクリプトから生成して動作を高速化・更にzshのプロンプトの色変更にも使用できるようにする - 試験運用中なLinux備忘録 <http://d.hatena.ne.jp/kakurasan/20080705/p1>
 # ${HOME}/dotfiles/bin/gen-256colorlib.sh -z > 256colorlib.sh && chmod +x 256colorlib.sh
 source ${HOME}/dotfiles/bin/256colorlib.sh
 

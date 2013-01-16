@@ -53,21 +53,38 @@
 #     ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='!'
 # fi
 
+# ${HOME}/dotfiles/bin/gen-256colorlib.sh -z > 256colorlib.sh && chmod +x 256colorlib.sh
+source ${HOME}/dotfiles/bin/256colorlib.sh
+
+# 定義される変数
+#  COLOR_FG_rrggbb : 前景色を#rrggbbに変更
+#  COLOR_BG_rrggbb : 背景色を#rrggbbに変更
+#  STYLE_DEFAULT   : 色とスタイルをリセット
+#  STYLE_BOLD      : 太字
+#  STYLE_LINE      : 下線
+#  STYLE_NEGA      : 前景色と背景色を入れ替える
+#  STYLE_NOLINE    : 下線なし
 
 ## PROMPT/RPROMT/SPROMPT
 
 # Symbols
-PROMPT_NORMAL_SYMBOL="✓ "
-PROMPT_ERROR_SYMBOL="✘ "
+PROMPT_NORMAL_SYMBOL="> "
+PROMPT_ERROR_SYMBOL="> "
 
 DEFAULT_PROMPT='%{${reset_color}%}'
 #DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
 DEFAULT_PROMPT+="%{${fg_bold[yellow]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')%{${reset_color}%} "
 #DEFAULT_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
-DEFAULT_PROMPT+='[%{${fg[cyan]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}'
+#DEFAULT_PROMPT+='[%{${fg[cyan]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}]'
 DEFAULT_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'
-DEFAULT_PROMPT+=':%~%{${reset_color}%}]%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
+#DEFAULT_PROMPT+='%{%F{white}%K{cyan}%} %~ %{%k%f%}'
+DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
+#DEFAULT_PROMPT+='%{%K{white}%F{cyan}⮀%k%f%B%F{black}%K{white}%} %# %{%b%k%f%}%K{black}%F{white}⮀%k%f'
+DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
+DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
+
+#DEFAULT_PROMPT+='%{${reset_color}%}%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
 
 # PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
 # PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
@@ -90,13 +107,13 @@ DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
 PROMPT=$DEFAULT_PROMPT
 
 ## Right prompt
-RPROMPT='%{${reset_color}%}'
+# RPROMPT='%{${reset_color}%}'
 # VCS
 # RPROMPT+='$(vcs_super_info)'
 # Python
 # RPROMPT+='%{${fg_bold[magenta]}%}($(_python_type))%{${reset_color}%}'
 # Date-time
-RPROMPT+='[%{${fg[magenta]}%}%D{%Y/%m/%d %H:%M:%S}%{${reset_color}%}]'
+# RPROMPT+='[%{${fg[magenta]}%}%D{%Y/%m/%d %H:%M:%S}%{${reset_color}%}]'
 
 # Correct prompt
 SPROMPT='%{${reset_color}%}%{$fg[green]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} '

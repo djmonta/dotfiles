@@ -393,8 +393,8 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 #
 # pluginの読み込み
 #
-if [ -d ~/.zsh/plugins ]; then
-    for plugin in ~/.zsh/plugins/*.zsh; do
+if [ -d ${HOME}/.zsh/plugins ]; then
+    for plugin in ${HOME}/.zsh/plugins/*.zsh; do
         if [ -f "$plugin" ]; then
             echo "Loading plugin: ${plugin##*/}"
             source "$plugin"
@@ -461,6 +461,19 @@ fi
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+
+##
+# pcolor
+function pcolor() {
+    for ((f = 0; f < 255; f++)); do
+        printf "\e[38;5;%dm %3d#\e[m" $f $f
+        if [[ $f%8 -eq 7 ]] then
+            printf "\n"
+        fi
+    done
+    echo
+}
+
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

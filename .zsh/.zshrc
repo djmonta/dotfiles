@@ -502,7 +502,7 @@ fi
 # set terminal title including current directory
 #
 case "${TERM}" in
-xterm|xterm-color|kterm|kterm-color)
+xterm*|screen*|kterm|kterm-color)
     precmd() {
         echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
     }

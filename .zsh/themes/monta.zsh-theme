@@ -74,7 +74,7 @@ PROMPT_ERROR_SYMBOL="> "
 DEFAULT_PROMPT='%{${reset_color}%}'
 #DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-DEFAULT_PROMPT+="%{${fg_bold[yellow]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')${COLOR_FG_FFFF00}⮀%{${reset_color}%} "
+DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')${COLOR_FG_FFFF00}⮀%{${reset_color}%} "
 #DEFAULT_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
 #DEFAULT_PROMPT+='[%{${fg[cyan]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}]'
 DEFAULT_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'

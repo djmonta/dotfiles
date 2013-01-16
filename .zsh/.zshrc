@@ -56,9 +56,9 @@ if [ ${UID} -eq 0 ]; then
 else
 # Prompt for "normal" user.
     # Loading theme
-    if [ -f ~/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
+    if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
         echo "Loading theme: $ZSH_THEME"
-        source ~/.zsh/themes/"$ZSH_THEME".zsh-theme
+        source ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme
     else
         echo "Error: could not load the theme '$ZSH_THEME'"
     fi
@@ -265,7 +265,7 @@ autoload -U compinit
 
 # -u : 安全ではないファイルを補完しようとした場合に警告を表示しない
 # -d : .zcompdumpの場所
-compinit -u -d ~/.zcompdump
+compinit -u -d ${HOME}/.zcompdump
 
 setopt list_packed          # 補完候補リストを詰めて表示
 setopt list_types           # auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示
@@ -347,7 +347,7 @@ zstyle ':completion:*' completer \
 autoload -U chpwd_recent_dirs cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ":chpwd:*" recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-file ~/.chpwd-recent-dirs
+zstyle ':chpwd:*' recent-dirs-file ${HOME}/.chpwd-recent-dirs
 zstyle ":chpwd:*" recent-dirs-max 500
 zstyle ":completion:*" recent-dirs-insert both
 zstyle ":completion:*:*:cdr:*:*" menu select=2
@@ -405,22 +405,22 @@ fi
 #
 # alias設定(共通)
 #
-if [ -f ~/dotfiles/.alias ]; then
-    source ~/dotfiles/.alias
+if [ -f ${HOME}/dotfiles/.alias ]; then
+    source ${HOME}/dotfiles/.alias
 fi
 
 #
 # alias設定(zsh固有)
 #
-if [ -f ~/.zsh/.zalias ]; then
-    source ~/.zsh/.zalias
+if [ -f ${HOME}/.zsh/.zalias ]; then
+    source ${HOME}/.zsh/.zalias
 fi
 
 #
 # local固有設定
 #
-if [ -f ~/dotfiles.local/.shrc.local ]; then
-    source ~/dotfiles.local/.shrc.local
+if [ -f ${HOME}/dotfiles.local/.shrc.local ]; then
+    source ${HOME}/dotfiles.local/.shrc.local
 fi
 
 # }}}

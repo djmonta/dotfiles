@@ -26,7 +26,7 @@
 #
 
 ## Setup profile (common settings)
-if [ -f ~/dotfiles/.profile ]; then
+if [ -f ${HOME}/dotfiles/.profile ]; then
     source ~/dotfiles/.profile
 fi
 
@@ -34,13 +34,13 @@ fi
 case "${OSTYPE}" in
     # Mac OS X
     darwin*)
-    if [ -f ~/dotfiles/.profile.osx ]; then
+    if [ -f ${HOME}/dotfiles/.profile.osx ]; then
         source ~/dotfiles/.profile.osx
     fi
     ;;
     # Linux
     linux*)
-    if [ -f ~/dotfiles/.profile.linux ]; then
+    if [ -f ${HOME}/dotfiles/.profile.linux ]; then
         source ~/dotfiles/.profile.linux
     fi
     ;;

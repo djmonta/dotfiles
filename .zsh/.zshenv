@@ -33,4 +33,4 @@
 # The directory to search for shell startup files (.zshrc, etc).
 # If ZDOTDIR is unset, HOME is used instead.
 #
-ZDOTDIR=$HOME/.zsh
+ZDOTDIR=${HOME}/.zsh

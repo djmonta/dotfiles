@@ -4,3 +4,6 @@
 [submodule ".zsh/cdd"]
 	path = .zsh/cdd
 	url = git://github.com/m4i/cdd.git
+[submodule "Cellar/dircolors-solarized"]
+	path = Cellar/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized

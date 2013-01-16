@@ -54,7 +54,7 @@ case "${TERM}" in
     xterm*|screen*)
         # lsのカラー化
         export CLICOLOR=1
-        export LSCOLORS=exfxcxdxbxegedabagacad
+        export LSCOLORS=DxGxcxdxCxegedabagacad
 
         # GNU ls のカラー化
         LS_COLORS="no=00:fi=00:di=36:ln=35:pi=30;44:so=35;44:do=35;44"
@@ -62,11 +62,11 @@ case "${TERM}" in
         LS_COLORS="${LS_COLORS}:ex=01;31:su=41;30:sg=46;30:tw=42;30:ow=43;30"
         export LS_COLORS
 
-        if [ -f ~/.dir_colors ]; then
+        if [ -f ${HOME}/.dir_colors ]; then
             if type dircolors > /dev/null 2>&1; then
-                eval $(dircolors ~/.dir_colors)
+                eval $(dircolors ${HOME}/.dir_colors)
             elif type gdircolors > /dev/null 2>&1; then
-                eval $(gdircolors ~/.dir_colors)
+                eval $(gdircolors ${HOME}/.dir_colors)
             fi
         fi
         ;;

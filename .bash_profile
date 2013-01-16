@@ -9,7 +9,7 @@
 # profile設定(共通)
 #
 if [ -f ${HOME}/dotfiles/.profile ]; then
-    source ~/dotfiles/.profile
+    source ${HOME}/dotfiles/.profile
 fi
 
 #

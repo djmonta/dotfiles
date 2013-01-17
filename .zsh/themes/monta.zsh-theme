@@ -85,13 +85,6 @@ SEGMENT_SEPARATOR='⮀'
 # [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
 #     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 
-# VI_CMD_PROMPT='%{${reset_color}%}'
-# VI_CMD_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
-# VI_CMD_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
-# VI_CMD_PROMPT+='%{${fg[yellow]}%}%n%{${reset_color}%}%{${fg[green]}%}❖ %{${reset_color}%}%{${fg[yellow]}%}%m%{${reset_color}%}'
-# VI_CMD_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'
-# VI_CMD_PROMPT+=':%~%{${reset_color}%}]%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
-
 # For tmux-powerline
 # TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
@@ -114,24 +107,6 @@ SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# Vi入力モードでPROMPTの色を変える
-# http://memo.officebrook.net/20090226.html
-# function zle-line-init zle-keymap-select {
-#     case $KEYMAP in
-#     vicmd)
-#         # viコマンドモード
-#         PROMPT=${VI_CMD_PROMPT}
-#         ;;
-#     main|viins)
-#         # viインサートモード
-#         PROMPT=${DEFAULT_PROMPT}
-#         ;;
-#     esac
-#     zle reset-prompt
-# }
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
@@ -146,11 +121,7 @@ function prompt_segment() {
         echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
     fi
     CURRENT_BG="$1"
-    if  [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
-        [[ -n $3 ]] && echo -n $3  | tr '[a-z]' '[A-Z]'
-    else
-        [[ -n $3 ]] && echo -n $3
-    fi
+    [[ -n $3 ]] && echo -n $3
 }
 
 # SSH
@@ -161,7 +132,8 @@ function prompt_ssh() {
     #     echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
     # fi
     if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
-        prompt_segment FFFF00 000000 "${HOST%%.*}"
+        prompt_segment FFFF00 000000
+        $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')
     fi
 }
 
@@ -223,31 +195,6 @@ function prompt_end() {
     # echo -n $CURRENT_BG
 }
 
-# Python
-# function _python_type() {
-#     local python_path=$(which python 2> /dev/null)
-#     local pytype
-#     if [ -z "$python_path" ]; then
-#         pytype='none'
-#     elif [ "$python_path" = '/usr/bin/python' ]; then
-#         pytype='def'
-#     elif [ "$python_path" = '/usr/local/bin/python' ]; then
-#         pytype='local'
-#     elif echo "$python_path" | fgrep -q '/.pythonbrew/'; then
-#         if [ -n "$VIRTUAL_ENV" ]; then
-#             pytype=$(basename "$VIRTUAL_ENV")
-#         else
-#             pytype='*py'$(echo "$python_path" | sed 's%.*Python-\([^/]*\)/.*%\1%' | tr -d '.')
-#         fi
-#     else
-#         if [ -n "$VIRTUAL_ENV" ]; then
-#             pytype=$(basename "$VIRTUAL_ENV")
-#         else
-#             pytype=$python_path
-#         fi
-#     fi
-#     echo "$pytype"
-# }
 
 ## Main prompt
 function build_prompt() {

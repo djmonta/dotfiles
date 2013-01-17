@@ -19,7 +19,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='agnoster'
+ZSH_THEME='monta'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
@@ -55,7 +55,7 @@ autoload -Uz add-zsh-hook
 #         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 # #    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # else
-# Prompt for "normal" user.
+    # Prompt for "normal" user.
     # Loading theme
     if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
         echo "Loading theme: $ZSH_THEME"

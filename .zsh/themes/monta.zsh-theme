@@ -66,7 +66,7 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 #  STYLE_NEGA      : 前景色と背景色を入れ替える
 #  STYLE_NOLINE    : 下線なし
 
-CURRENT_BG='00AFFF'
+CURRENT_BG='NONE'
 SEGMENT_SEPARATOR='⮀'
 
 ## PROMPT/RPROMT/SPROMPT
@@ -136,18 +136,18 @@ SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
 function prompt_segment() {
-  # local bg fg
-  # [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
-  # [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
-  if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n '${COLOR_BG_'"${CURRENT_BG}"'}''${COLOR_FG_'"$2"'}'"$SEGMENT_SEPARATOR "
-  else
-    echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG'"$2"'} '
-  fi
-  CURRENT_BG=$1
-  [[ -n $3 ]] && echo -n $3
+    # local bg fg
+    # [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
+    # [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
+    if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
+        echo -n ' ${COLOR_BG_'"$1"'}''${COLOR_FG_'"${CURRENT_BG}"'}''${COLOR_BG_'"$2"'}'"$SEGMENT_SEPARATOR"'${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
+        # echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+    else
+        echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
+    fi
+    CURRENT_BG="$1"
+    [[ -n $3 ]] && echo -n $3
 }
-
 
 # SSH
 #  http://d.hatena.ne.jp/kakurasan/20070611/p1
@@ -156,6 +156,11 @@ function _client_ip() {
         # Client IP - Client Port - Server IP - Server Port
         echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
     fi
+}
+
+function prompt_dir() {
+    prompt_segment 00AFFF 000000 '%~'
+    # echo -n $CURRENT_BG
 }
 
 # Error or not
@@ -169,18 +174,31 @@ function _client_ip() {
 
 # Git: branch/detached head, dirty status
 function prompt_git() {
-  local ref dirty
-  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+    local ref dirty
+    if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     ZSH_THEME_GIT_PROMPT_DIRTY='± '
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment D75F00 000000
+        prompt_segment D75F00 FFFFFF
     else
-      prompt_segment 00AF00 000000
+        prompt_segment 00AF00 000000
     fi
     echo -n "${ref/refs\/heads\//⭠ }$dirty"
-  fi
+    fi
+    # echo -n $CURRENT_BG
+}
+
+# End the prompt, closing any open segments
+function prompt_end() {
+    if [[ -n $CURRENT_BG ]]; then
+        echo -n ' ${COLOR_BG_000000}${COLOR_FG_'"${CURRENT_BG}"'}'"${SEGMENT_SEPARATOR}"
+    else
+        echo -n "%{%k%}"
+    fi
+    echo -n "%{${reset_color}%}"
+    CURRENT_BG=''
+    # echo -n $CURRENT_BG
 }
 
 # Python
@@ -212,7 +230,9 @@ function prompt_git() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_dir
   prompt_git
+  prompt_end
 }
 
-PROMPT="$(build_prompt) "
+PROMPT="$(build_prompt)%{${reset_color}%} "

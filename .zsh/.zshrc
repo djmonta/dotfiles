@@ -19,7 +19,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='monta'
+ZSH_THEME='agnoster'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
@@ -63,24 +63,6 @@ autoload -Uz add-zsh-hook
     else
         echo "Error: could not load the theme '$ZSH_THEME'"
     fi
-# fi
-
-## Set prompt.
-# if [ ${UID} -eq 0 ]; then
-#     # Prompt for "root" user (all red characters).
-#     # Note: su - or sudo -s を行った場合は環境変数が引き継がれない
-#     PROMPT="${reset_color}${fg[red]}[%n@%m:%~]%#${reset_color} "
-#     PROMPT2="${reset_color}${fg[red]}%_>${reset_color} "
-#     SPROMPT="${reset_color}${fg[red]}%r is correct? [n,y,a,e]:${reset_color} "
-# else
-#     # Prompt for "normal" user.
-#     # Loading theme
-#     if [ -f ~/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
-#         echo "Loading theme: $ZSH_THEME"
-#         source ~/.zsh/themes/"$ZSH_THEME".zsh-theme
-#     else
-#         echo "Error: could not load the theme '$ZSH_THEME'"
-#     fi
 # fi
 
 # }}}

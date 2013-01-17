@@ -72,6 +72,8 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 DEFAULT_PROMPT='%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
 DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
+[ $UID -eq 0 ] &&
+DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
 DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
 DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
 DEFAULT_PROMPT+='$(prompt_git)'
@@ -108,16 +110,19 @@ SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 function prompt_git() {
     local ref dirty
     if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    ZSH_THEME_GIT_PROMPT_DIRTY='± '
-    dirty=$(parse_git_dirty)
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
-    if [[ -n $dirty ]]; then
-        echo -n "${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}${ref/refs\/heads\//⭠ }$dirty${COLOR_FG_D75F00}"
+        ZSH_THEME_GIT_PROMPT_DIRTY='± '
+        dirty=$(parse_git_dirty)
+        ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+        if [[ -n $dirty ]]; then
+            echo -n "${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}${ref/refs\/heads\//⭠ }$dirty${COLOR_FG_D75F00}"
+        else
+            echo -n "${COLOR_BG_00AF00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_000000}${ref/refs\/heads\//⭠ } ${COLOR_FG_00AF00}"
+        fi
+        # eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
     else
-        echo -n "${COLOR_BG_00AF00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_000000}${ref/refs\/heads\//⭠ } ${COLOR_FG_00AF00}"
+        echo -n "${COLOR_FG_00AFFF}"
     fi
-    # eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
-    fi
+
     # echo -n $CURRENT_BG
 }
 

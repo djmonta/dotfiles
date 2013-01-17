@@ -66,19 +66,19 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 #  STYLE_NEGA      : 前景色と背景色を入れ替える
 #  STYLE_NOLINE    : 下線なし
 
-CURRENT_BG='NONE'
+CURRENT_BG='00AFFF'
 SEGMENT_SEPARATOR='⮀'
 
 ## PROMPT/RPROMT/SPROMPT
 
-DEFAULT_PROMPT='%{${reset_color}%}'
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
-DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
-DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
-DEFAULT_PROMPT+='$(prompt_git)%{${reset_color}%}'
-DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
-DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
+# DEFAULT_PROMPT='%{${reset_color}%}'
+# [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+# DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
+# DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
+# DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
+# DEFAULT_PROMPT+='$(prompt_git)%{${reset_color}%}'
+# DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
+# DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
 
 # PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
 # PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
@@ -93,12 +93,12 @@ DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}$
 # VI_CMD_PROMPT+=':%~%{${reset_color}%}]%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
 
 # For tmux-powerline
-TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
+# TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
 # VI_CMD_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
 
 # Left prompt
-PROMPT=$DEFAULT_PROMPT
+# PROMPT=$DEFAULT_PROMPT
 
 ## Right prompt
 # RPROMPT='%{${reset_color}%}'
@@ -110,7 +110,7 @@ PROMPT=$DEFAULT_PROMPT
 # RPROMPT+='[%{${fg[magenta]}%}%D{%Y/%m/%d %H:%M:%S}%{${reset_color}%}]'
 
 # Correct prompt
-SPROMPT='${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} '
+SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
@@ -136,13 +136,13 @@ SPROMPT='${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} '
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
 function prompt_segment() {
-  local bg fg
-  [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
-  [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
+  # local bg fg
+  # [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
+  # [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n " $bg${CURRENT_BG}$SEGMENT_SEPARATOR$fg "
+    echo -n '${COLOR_BG_'"${CURRENT_BG}"'}''${COLOR_FG_'"$2"'}'"$SEGMENT_SEPARATOR "
   else
-    echo -en "$bg$fg "
+    echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG'"$2"'} '
   fi
   CURRENT_BG=$1
   [[ -n $3 ]] && echo -n $3
@@ -209,3 +209,10 @@ function prompt_git() {
 #     echo "$pytype"
 # }
 
+## Main prompt
+build_prompt() {
+  RETVAL=$?
+  prompt_git
+}
+
+PROMPT="$(build_prompt) "

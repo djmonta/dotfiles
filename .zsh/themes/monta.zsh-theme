@@ -66,19 +66,15 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 #  STYLE_NEGA      : 前景色と背景色を入れ替える
 #  STYLE_NOLINE    : 下線なし
 
-CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='⮀'
-
 ## PROMPT/RPROMT/SPROMPT
 
-# DEFAULT_PROMPT='%{${reset_color}%}'
-# [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-# DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
-# DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
-# DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
-# DEFAULT_PROMPT+='$(prompt_git)%{${reset_color}%}'
-# DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
-# DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
+DEFAULT_PROMPT='%{${reset_color}%}'
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
+DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
+DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
+DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
+DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
 
 # PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
 # PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
@@ -86,12 +82,11 @@ SEGMENT_SEPARATOR='⮀'
 #     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 
 # For tmux-powerline
-# TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-# DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
-# VI_CMD_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
+TMUX_POWERLINE_PROMPT_INFO='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+DEFAULT_PROMPT+=$TMUX_POWERLINE_PROMPT_INFO
 
 # Left prompt
-# PROMPT=$DEFAULT_PROMPT
+PROMPT=$DEFAULT_PROMPT
 
 ## Right prompt
 # RPROMPT='%{${reset_color}%}'
@@ -107,103 +102,4 @@ SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# Begin a segment
-# Takes two arguments, background and foreground. Both can be omitted,
-# rendering default background/foreground.
-function prompt_segment() {
-    local bg fg
-    [[ -n $1 ]] && bg="$1"
-    [[ -n $2 ]] && fg="$2"
-    if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-        echo -n ' ${COLOR_BG_'"$bg"'}''${COLOR_FG_'"${CURRENT_BG}"'}'"$SEGMENT_SEPARATOR"'${COLOR_FG_'"$fg"'} '
-        # echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
-    else
-        echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
-    fi
-    CURRENT_BG="$1"
-    [[ -n $3 ]] && echo -n $3
-}
 
-# SSH
-#  http://d.hatena.ne.jp/kakurasan/20070611/p1
-function prompt_ssh() {
-    # if [[ -n "${SSH_CONNECTION}" ]]; then
-    #     # Client IP - Client Port - Server IP - Server Port
-    #     echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
-    # fi
-    if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
-        prompt_segment FFFF00 000000
-        echo -n ${HOST%%.*} | tr '[a-z]' '[A-Z]'
-    fi
-}
-
-function prompt_dir() {
-    prompt_segment 00AFFF 000000 '%~'
-    # echo -n $CURRENT_BG
-}
-
-# Git: branch/detached head, dirty status
-function prompt_git() {
-    local ref dirty
-    if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    ZSH_THEME_GIT_PROMPT_DIRTY='± '
-    dirty=$(parse_git_dirty)
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
-    if [[ -n $dirty ]]; then
-        prompt_segment D75F00 FFFFFF
-    else
-        prompt_segment 00AF00 000000
-    fi
-    echo -n "${ref/refs\/heads\//⭠ }$dirty"
-    fi
-    # echo -n $CURRENT_BG
-}
-
-# Error or not
-# function error_or_not() {
-#     local 
-#     '%{%(?.'
-#     '${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# ${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.'
-#     '${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# ${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%}%{${reset_color}%}'
-
-# }
-
-
-# Status:
-# - was there an error
-# - am I root
-# - are there background jobs?
-function prompt_status() {
-    local symbols
-    symbols=()
-    [[ $RETVAL -ne 0 ]] && symbols+="${COLOR_FG_FF0000}✘"
-    [[ $UID -eq 0 ]] && symbols+="${COLOR_FG_FF0000}⚡"
-    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="${COLOR_FG_FF0000}⚙"
-
-    [[ -n "$symbols" ]] && prompt_segment 000000 FFFFFF "$symbols"
-}
-
-# End the prompt, closing any open segments
-function prompt_end() {
-    if [[ -n $CURRENT_BG ]]; then
-        echo -n ' ${STYLE_DEFAULT}${COLOR_FG_'"${CURRENT_BG}"'}'"${SEGMENT_SEPARATOR}"
-    # else
-    #     echo -n "%{%k%}"
-    fi
-    echo -n "%{${reset_color}%}"
-    CURRENT_BG=''
-    # echo -n $CURRENT_BG
-}
-
-
-## Main prompt
-function build_prompt() {
-    RETVAL=$?
-    prompt_ssh
-    prompt_dir
-    prompt_git
-    prompt_status
-    prompt_end
-}
-
-PROMPT="$(build_prompt)%{${reset_color}%} "

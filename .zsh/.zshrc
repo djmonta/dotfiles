@@ -44,17 +44,17 @@ autoload -Uz add-zsh-hook
 
 
 ## Set prompt.
-if [ ${UID} -eq 0 ]; then
-    # Prompt for "root" user.
-    # Note: su - or sudo -s を行った場合は環境変数が引き継がれない
-#    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%~#%{${reset_color}%}%b "
-    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "
-    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-#    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-else
+# if [ ${UID} -eq 0 ]; then
+#     # Prompt for "root" user.
+#     # Note: su - or sudo -s を行った場合は環境変数が引き継がれない
+# #    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%~#%{${reset_color}%}%b "
+#     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "
+#     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
+#     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+# #    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# else
 # Prompt for "normal" user.
     # Loading theme
     if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
@@ -63,7 +63,7 @@ else
     else
         echo "Error: could not load the theme '$ZSH_THEME'"
     fi
-fi
+# fi
 
 ## Set prompt.
 # if [ ${UID} -eq 0 ]; then

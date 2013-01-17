@@ -157,7 +157,7 @@ function prompt_ssh() {
     #     echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
     # fi
     if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
-        prompt_segment FFFF00 000000 "${HOST%%.*} | tr '[a-z]' '[A-Z]')"
+        prompt_segment FFFF00 000000 "${HOST%%.*} | tr '[a-z]' '[A-Z]'"
     fi
 }
 

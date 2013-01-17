@@ -112,9 +112,9 @@ function prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-        echo -n " ${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}"
+        echo -n "${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}"
     else
-        echo -n " ${COLOR_BG_D75F00}${COLOR_FG_D75F00}⮀ "
+        echo -n "${COLOR_BG_D75F00}${COLOR_FG_000000}⮀ ${COLOR_FG_000000}"
     fi
     eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
     fi

@@ -151,18 +151,13 @@ function prompt_segment() {
 
 # SSH
 #  http://d.hatena.ne.jp/kakurasan/20070611/p1
-function _client_ip() {
-    if [ -n "${SSH_CONNECTION}" ]; then
-        # Client IP - Client Port - Server IP - Server Port
-        echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
-    fi
-}
-# Context: user@hostname (who am I and where am I)
-function prompt_context() {
-    local user=`whoami`
-
-    if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-        prompt_segment FFFF00 000000 "%(!.%{%F{yellow}%}.)$user@%m"
+function prompt_ssh() {
+    # if [[ -n "${SSH_CONNECTION}" ]]; then
+    #     # Client IP - Client Port - Server IP - Server Port
+    #     echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
+    # fi
+    if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
+        prompt_segment FFFF00 000000 "${HOST%%.*} | tr '[a-z]' '[A-Z]')"
     fi
 }
 
@@ -253,7 +248,7 @@ function prompt_end() {
 ## Main prompt
 function build_prompt() {
     RETVAL=$?
-    prompt_context
+    prompt_ssh
     prompt_dir
     prompt_git
     prompt_status

@@ -44,11 +44,12 @@
 ########################################################################### }}}
 
 ## For zsh-vcs-prompt (vcs_super_info)
-# if [ -f ~/.zsh/zsh-vcs-prompt/zshrc.sh ]; then
-#     source ~/.zsh/zsh-vcs-prompt/zshrc.sh
+# if [ -f ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh ]; then
+#     source ${HOME}/.zsh/zsh-vcs-prompt/zshrc.sh
 #     ## Enable caching.
 #     ZSH_VCS_PROMPT_ENABLE_CACHING='true'
-#     ZSH_VCS_PROMPT_GIT_FORMATS_USING_PYTHON="${ZSH_VCS_PROMPT_GIT_FORMATS}"
+#     # ZSH_VCS_PROMPT_GIT_FORMATS_USING_PYTHON="${ZSH_VCS_PROMPT_GIT_FORMATS}"
+#     ZSH_VCS_PROMPT_GIT_FORMATS_USING_PYTHON='false'
 #     ZSH_VCS_PROMPT_GIT_FORMATS+='!'
 #     ZSH_VCS_PROMPT_GIT_ACTION_FORMATS+='!'
 # fi
@@ -91,7 +92,7 @@ PROMPT=$DEFAULT_PROMPT
 ## Right prompt
 # RPROMPT='%{${reset_color}%}'
 # VCS
-# RPROMPT+='$(vcs_super_info)'
+# RPROMPT+='$(vcs_super_info)%{${reset_color}%}'
 # Python
 # RPROMPT+='%{${fg_bold[magenta]}%}($(_python_type))%{${reset_color}%}'
 # Date-time

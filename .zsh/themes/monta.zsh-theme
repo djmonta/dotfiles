@@ -66,6 +66,9 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 #  STYLE_NEGA      : 前景色と背景色を入れ替える
 #  STYLE_NOLINE    : 下線なし
 
+CURRENT_BG='NONE'
+SEGMENT_SEPARATOR='⮀'
+
 ## PROMPT/RPROMT/SPROMPT
 
 DEFAULT_PROMPT='%{${reset_color}%}'
@@ -73,7 +76,7 @@ DEFAULT_PROMPT='%{${reset_color}%}'
 DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
 DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
 DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
-DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(prompt_git)%{${reset_color}%}'
+DEFAULT_PROMPT+='$(prompt_git)%{${reset_color}%}'
 DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
 DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
 
@@ -132,18 +135,19 @@ SPROMPT='${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} '
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
-# prompt_segment() {
-#   local bg fg
-#   [[ -n $1 ]] && bg="COLOR_BG_$1"
-#   [[ -n $2 ]] && fg="COLOR_FG_$2"
-#   # if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-#   #   echo -n " $bg$fg "
-#   # else
-#     echo -n "$bg$fg "
-#   # fi
-#   # CURRENT_BG=$1
-#   [[ -n $3 ]] && echo -n $3
-# }
+function prompt_segment() {
+  local bg fg
+  [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
+  [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
+  if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
+    echo -n " $bg${CURRENT_BG}$SEGMENT_SEPARATOR$fg "
+  else
+    echo -en "$bg$fg "
+  fi
+  CURRENT_BG=$1
+  [[ -n $3 ]] && echo -n $3
+}
+
 
 # SSH
 #  http://d.hatena.ne.jp/kakurasan/20070611/p1
@@ -154,17 +158,26 @@ function _client_ip() {
     fi
 }
 
+# Error or not
+# function error_or_not() {
+#     local 
+#     '%{%(?.'
+#     '${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# ${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.'
+#     '${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# ${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%}%{${reset_color}%}'
+
+# }
+
 # Git: branch/detached head, dirty status
-prompt_git() {
+function prompt_git() {
   local ref dirty
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     ZSH_THEME_GIT_PROMPT_DIRTY='± '
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      echo -n "${COLOR_BG_FFFF00}${COLOR_FG_000000}"
+      prompt_segment D75F00 000000
     else
-      echo -n "${COLOR_BG_00FF00}${COLOR_FG_000000}"
+      prompt_segment 00AF00 000000
     fi
     echo -n "${ref/refs\/heads\//⭠ }$dirty"
   fi

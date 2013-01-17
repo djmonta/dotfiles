@@ -146,7 +146,11 @@ function prompt_segment() {
         echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
     fi
     CURRENT_BG="$1"
-    [[ -n $3 ]] && echo -n $3
+    if  [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
+        [[ -n $3 ]] && echo -n $3  | tr '[a-z]' '[A-Z]'
+    else
+        [[ -n $3 ]] && echo -n $3
+    fi
 }
 
 # SSH
@@ -157,7 +161,7 @@ function prompt_ssh() {
     #     echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
     # fi
     if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
-        prompt_segment FFFF00 000000 "${HOST%%.*} | tr '[a-z]' '[A-Z]'"
+        prompt_segment FFFF00 000000 "${HOST%%.*}"
     fi
 }
 

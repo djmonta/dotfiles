@@ -140,7 +140,7 @@ function prompt_segment() {
     # [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
     # [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
     if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-        echo -n ' ${COLOR_BG_'"$1"'}''${COLOR_FG_'"${CURRENT_BG}"'}''${COLOR_BG_'"$2"'}'"$SEGMENT_SEPARATOR"'${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
+        echo -n ' ${COLOR_BG_'"$1"'}''${COLOR_FG_'"${CURRENT_BG}"'}'"$SEGMENT_SEPARATOR"'${COLOR_FG_'"$2"'} '
         # echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
     else
         echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
@@ -157,20 +157,19 @@ function _client_ip() {
         echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
     fi
 }
+# Context: user@hostname (who am I and where am I)
+function prompt_context() {
+    local user=`whoami`
+
+    if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+        prompt_segment 000000 FFFFFF "%(!.%{%F{yellow}%}.)$user@%m"
+    fi
+}
 
 function prompt_dir() {
     prompt_segment 00AFFF 000000 '%~'
     # echo -n $CURRENT_BG
 }
-
-# Error or not
-# function error_or_not() {
-#     local 
-#     '%{%(?.'
-#     '${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# ${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.'
-#     '${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# ${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%}%{${reset_color}%}'
-
-# }
 
 # Git: branch/detached head, dirty status
 function prompt_git() {
@@ -189,12 +188,36 @@ function prompt_git() {
     # echo -n $CURRENT_BG
 }
 
+# Error or not
+# function error_or_not() {
+#     local 
+#     '%{%(?.'
+#     '${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# ${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.'
+#     '${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# ${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%}%{${reset_color}%}'
+
+# }
+
+
+# Status:
+# - was there an error
+# - am I root
+# - are there background jobs?
+function prompt_status() {
+    local symbols
+    symbols=()
+    [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+    [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
+    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+
+    [[ -n "$symbols" ]] && prompt_segment 000000 FFFFFF "$symbols"
+}
+
 # End the prompt, closing any open segments
 function prompt_end() {
     if [[ -n $CURRENT_BG ]]; then
-        echo -n ' ${COLOR_BG_000000}${COLOR_FG_'"${CURRENT_BG}"'}'"${SEGMENT_SEPARATOR}"
-    else
-        echo -n "%{%k%}"
+        echo -n ' ${COLOR_FG_'"${CURRENT_BG}"'}'"${SEGMENT_SEPARATOR}"
+    # else
+    #     echo -n "%{%k%}"
     fi
     echo -n "%{${reset_color}%}"
     CURRENT_BG=''
@@ -228,11 +251,13 @@ function prompt_end() {
 # }
 
 ## Main prompt
-build_prompt() {
-  RETVAL=$?
-  prompt_dir
-  prompt_git
-  prompt_end
+function build_prompt() {
+    RETVAL=$?
+    prompt_context
+    prompt_dir
+    prompt_git
+    prompt_status
+    prompt_end
 }
 
 PROMPT="$(build_prompt)%{${reset_color}%} "

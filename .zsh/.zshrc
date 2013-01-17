@@ -19,7 +19,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='agnoster'
+ZSH_THEME='monta'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.

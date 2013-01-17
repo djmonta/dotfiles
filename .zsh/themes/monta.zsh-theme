@@ -133,7 +133,7 @@ function prompt_ssh() {
     # fi
     if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
         prompt_segment FFFF00 000000
-        $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]')
+        echo ${HOST%%.*} | tr '[a-z]' '[A-Z]'
     fi
 }
 

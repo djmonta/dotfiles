@@ -26,7 +26,7 @@ else
 fi
 
 # スタイルの指定と解除
-STYLE_DEFAULT=$%{'\e[0m%}'
+STYLE_DEFAULT=$'%{\e[0m%}'
 STYLE_BOLD=$'%{\e[1m%}'
 STYLE_LINE=$'%{\e[4m%}'
 STYLE_NEGA=$'%{\e[7m%}'

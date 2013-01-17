@@ -6,11 +6,11 @@
 # LANG
 #
 export LANG=ja_JP.UTF-8
-#case ${UID} in
-#0)
+# case ${UID} in
+# 0)
 #    LANG=C
 #    ;;
-#esac
+# esac
 
 
 ## Default shell configuration
@@ -20,6 +20,7 @@ export LANG=ja_JP.UTF-8
 
 # Theme.
 ZSH_THEME='monta'
+DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
 # This may be useful with terminals with other cut/paste methods.

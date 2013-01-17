@@ -68,25 +68,14 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 
 ## PROMPT/RPROMT/SPROMPT
 
-# Symbols
-PROMPT_NORMAL_SYMBOL="> "
-PROMPT_ERROR_SYMBOL="> "
-
 DEFAULT_PROMPT='%{${reset_color}%}'
-#DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(_client_ip)%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
 DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
-#DEFAULT_PROMPT+='[%{${fg_bold[magenta]}%}${WINDOW:+"#$WINDOW "}$([ -n "$TMUX" ] && tmux display -p "#I-#P ")%{${reset_color}%}'
-#DEFAULT_PROMPT+='[%{${fg[cyan]}%}%n%{${reset_color}%}%{${fg[yellow]}%}❖ %{${reset_color}%}%{${fg[green]}%}%m%{${reset_color}%}]'
-#DEFAULT_PROMPT+='%{${fg_bold[red]}%}%(1j,(%j),)%{${reset_color}%}'
 DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
-#DEFAULT_PROMPT+='%{%F{white}%K{cyan}%} %~ %{%k%f%}'
 DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
-#DEFAULT_PROMPT+='%{%K{white}%F{cyan}⮀%k%f%B%F{black}%K{white}%} %# %{%b%k%f%}%K{black}%F{white}⮀%k%f'
+DEFAULT_PROMPT+='%{${fg_bold[yellow]}%}$(prompt_git)%{${reset_color}%}'
 DEFAULT_PROMPT+='%{%(?.${COLOR_BG_FFFFFF}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_000000}${COLOR_BG_FFFFFF} %# .${COLOR_BG_FF0000}${COLOR_FG_00AFFF}⮀${STYLE_BOLD}${COLOR_FG_FFFFFF}${COLOR_BG_FF0000} %# )%}%{${reset_color}%}'
 DEFAULT_PROMPT+='%(?.${COLOR_BG_000000}${COLOR_FG_FFFFFF}⮀.${COLOR_BG_000000}${COLOR_FG_FF0000}⮀)%{${reset_color}%} '
-
-#DEFAULT_PROMPT+='%{${reset_color}%}%(?.%{${fg[blue]}%}${PROMPT_NORMAL_SYMBOL}.%{${fg[red]}%}${PROMPT_ERROR_SYMBOL}) %{${reset_color}%}'
 
 # PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
 # PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
@@ -140,6 +129,21 @@ SPROMPT='${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} '
 # zle -N zle-line-init
 # zle -N zle-keymap-select
 
+# Begin a segment
+# Takes two arguments, background and foreground. Both can be omitted,
+# rendering default background/foreground.
+# prompt_segment() {
+#   local bg fg
+#   [[ -n $1 ]] && bg="COLOR_BG_$1"
+#   [[ -n $2 ]] && fg="COLOR_FG_$2"
+#   # if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
+#   #   echo -n " $bg$fg "
+#   # else
+#     echo -n "$bg$fg "
+#   # fi
+#   # CURRENT_BG=$1
+#   [[ -n $3 ]] && echo -n $3
+# }
 
 # SSH
 #  http://d.hatena.ne.jp/kakurasan/20070611/p1
@@ -148,6 +152,22 @@ function _client_ip() {
         # Client IP - Client Port - Server IP - Server Port
         echo "${SSH_CONNECTION}" | awk -F\  '{printf "("$1")>"}'
     fi
+}
+
+# Git: branch/detached head, dirty status
+prompt_git() {
+  local ref dirty
+  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+    ZSH_THEME_GIT_PROMPT_DIRTY='± '
+    dirty=$(parse_git_dirty)
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+    if [[ -n $dirty ]]; then
+      echo -n "${COLOR_BG_FFFF00}${COLOR_FG_000000}"
+    else
+      echo -n "${COLOR_BG_00FF00}${COLOR_FG_000000}"
+    fi
+    echo -n "${ref/refs\/heads\//⭠ }$dirty"
+  fi
 }
 
 # Python

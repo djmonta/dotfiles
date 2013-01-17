@@ -136,11 +136,11 @@ SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
 function prompt_segment() {
-    # local bg fg
-    # [[ -n $1 ]] && bg='${COLOR_BG_'"$1"'}'
-    # [[ -n $2 ]] && fg='${COLOR_FG_'"$2"'}'
+    local bg fg
+    [[ -n $1 ]] && bg="$1"
+    [[ -n $2 ]] && fg="$2"
     if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-        echo -n ' ${COLOR_BG_'"$1"'}''${COLOR_FG_'"${CURRENT_BG}"'}'"$SEGMENT_SEPARATOR"'${COLOR_FG_'"$2"'} '
+        echo -n ' ${COLOR_BG_'"$bg"'}''${COLOR_FG_'"${CURRENT_BG}"'}'"$SEGMENT_SEPARATOR"'${COLOR_FG_'"$fg"'} '
         # echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
     else
         echo -n '${COLOR_BG_'"$1"'}''${COLOR_FG_'"$2"'} '
@@ -162,7 +162,7 @@ function prompt_context() {
     local user=`whoami`
 
     if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-        prompt_segment 000000 FFFFFF "%(!.%{%F{yellow}%}.)$user@%m"
+        prompt_segment FFFF00 000000 "%(!.%{%F{yellow}%}.)$user@%m"
     fi
 }
 
@@ -205,9 +205,9 @@ function prompt_git() {
 function prompt_status() {
     local symbols
     symbols=()
-    [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-    [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+    [[ $RETVAL -ne 0 ]] && symbols+="${COLOR_FG_FF0000}✘"
+    [[ $UID -eq 0 ]] && symbols+="${COLOR_FG_FF0000}⚡"
+    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="${COLOR_FG_FF0000}⚙"
 
     [[ -n "$symbols" ]] && prompt_segment 000000 FFFFFF "$symbols"
 }
@@ -215,7 +215,7 @@ function prompt_status() {
 # End the prompt, closing any open segments
 function prompt_end() {
     if [[ -n $CURRENT_BG ]]; then
-        echo -n ' ${COLOR_FG_'"${CURRENT_BG}"'}'"${SEGMENT_SEPARATOR}"
+        echo -n ' ${STYLE_DEFAULT}${COLOR_FG_'"${CURRENT_BG}"'}'"${SEGMENT_SEPARATOR}"
     # else
     #     echo -n "%{%k%}"
     fi

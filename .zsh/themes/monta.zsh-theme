@@ -108,15 +108,15 @@ SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 function prompt_git() {
     local ref dirty
     if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    ZSH_THEME_GIT_PROMPT_DIRTY='± ${COLOR_FG_D75F00}'
+    ZSH_THEME_GIT_PROMPT_DIRTY='± '
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-        echo -n "${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}"
+        echo -n "${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}${ref/refs\/heads\//⭠ }$dirty${COLOR_FG_D75F00}"
     else
-        echo -n "${COLOR_BG_00AF00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_00AF00}"
+        echo -n "${COLOR_BG_00AF00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_000000}${ref/refs\/heads\//⭠ }${COLOR_FG_00AF00}"
     fi
-    eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
+    # eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
     fi
     # echo -n $CURRENT_BG
 }

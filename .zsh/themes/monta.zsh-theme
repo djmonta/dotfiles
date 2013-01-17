@@ -114,7 +114,7 @@ function prompt_git() {
     if [[ -n $dirty ]]; then
         echo -n "${COLOR_BG_D75F00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_FFFFFF}${ref/refs\/heads\//⭠ }$dirty${COLOR_FG_D75F00}"
     else
-        echo -n "${COLOR_BG_00AF00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_000000}${ref/refs\/heads\//⭠ }${COLOR_FG_00AF00}"
+        echo -n "${COLOR_BG_00AF00}${COLOR_FG_00AFFF}⮀ ${COLOR_FG_000000}${ref/refs\/heads\//⭠ } ${COLOR_FG_00AF00}"
     fi
     # eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
     fi

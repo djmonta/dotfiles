@@ -31,6 +31,11 @@
 #    %b : 太字解除
 #    %(1j,(%j),) : 実行中のジョブ数が1つ以上ある場合ジョブ数を表示
 #
+#    %(x.true-text.false-text): xが真のときはtrue-textになり
+#                                偽のときはfalse-textになる。
+#
+#    %{%(!.root用プロンプト.通常ユーザ用プロンプト)%}
+#
 #    %{%(?.$fg[white].$fg[red])%}
 #     直前の終了ステータスに応じてプロンプトの色が変化(0:白, 0以外:赤)
 #     http://blog.8-p.info/2009/01/red-prompt
@@ -71,9 +76,8 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 
 DEFAULT_PROMPT='%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
-[ $UID -eq 0 ] &&
-DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
+DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(_host) ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
+DEFAULT_PROMPT+='%{%(!.${COLOR_BG_080808}${COLOR_FG_FF0000}%n@$(_host)${COLOR_BG_00AFFF}${COLOR_FG_080808}⮀.)%}'
 DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
 DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '
 DEFAULT_PROMPT+='$(prompt_git)'
@@ -105,6 +109,12 @@ PROMPT=$DEFAULT_PROMPT
 SPROMPT="${COLOR_FG_00AF00}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+# HOST 名
+
+function _host() {
+    echo -n ${HOST%%.*} | tr '[a-z]' '[A-Z]'
+}
 
 # Git: branch/detached head, dirty status
 function prompt_git() {

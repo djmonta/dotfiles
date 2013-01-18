@@ -76,7 +76,7 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 
 DEFAULT_PROMPT='%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(_host) ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
+DEFAULT_PROMPT+="${COLOR_BG_FFFF00}${COLOR_FG_000000} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_00AFFF}${COLOR_FG_FFFF00}⮀%{${reset_color}%}"
 DEFAULT_PROMPT+='%{%(!.${COLOR_BG_080808}${COLOR_FG_FF0000}%n@$(_host)${COLOR_BG_00AFFF}${COLOR_FG_080808}⮀.)%}'
 DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_00AFFF}${COLOR_FG_FF0000}%(1j, ⚙,)%{${reset_color}%}'
 DEFAULT_PROMPT+='${COLOR_BG_00AFFF}${COLOR_FG_000000} %~ '

@@ -35,8 +35,6 @@
 #
 ZDOTDIR=${HOME}/.zsh
 
-# Load all of the config files in ~/oh-my-zsh that end in .zsh
-# TIP: Add files you don't want in git to .gitignore
-for config_file ($ZDOTDIR/lib/*.zsh); do
+for config_file ($ZDOTDIR/functions/*.zsh); do
 	source $config_file
 done

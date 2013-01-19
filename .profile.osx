@@ -25,13 +25,14 @@
 #  PATHの追加はここより後に行うこと
 #
 
-PATH=~/bin:~/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
+PATH=${HOME}/bin:${HOME}/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 PATH=$PATH:/usr/X11/bin
 if [[ -f /usr/local/opt/ruby/bin/ruby ]]; then
 	export PATH=/usr/local/opt/ruby/bin:$PATH
 fi
 export PATH
 
+export RBENV_ROOT=/usr/local/opt/rbenv
 
 MANPATH=/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH
 export MANPATH

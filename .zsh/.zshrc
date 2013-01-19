@@ -518,18 +518,10 @@ fi
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-##
-# pcolor
-function pcolor() {
-    for ((f = 0; f < 255; f++)); do
-        printf "\e[38;5;%dm %3d#\e[m" $f $f
-        if [[ $f%8 -eq 7 ]] then
-            printf "\n"
-        fi
-    done
-    echo
-}
 
+##
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

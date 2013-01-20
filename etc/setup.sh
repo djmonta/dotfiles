@@ -59,6 +59,7 @@ create_dotfiles_symlinks() {
     DOT_FILES=(.bash_profile
         .bashrc
         # .config
+        .emacs.d
         .gitconfig
         # .gittemplate
         # .gitk
@@ -70,7 +71,7 @@ create_dotfiles_symlinks() {
         # .my.cnf
         # .pythonstartup
         # .screenrc
-        .subversion
+        # .subversion
         .tmux
         .tmux.conf
         # .vim

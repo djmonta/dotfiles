@@ -38,3 +38,19 @@ ZDOTDIR=${HOME}/.zsh
 for config_file ($ZDOTDIR/functions/*.zsh); do
 	source $config_file
 done
+
+case
+	# for emacs tramp setting
+    dump)
+        PROMPT="%n@%~%(!.#.$)"
+        RPROMPT=""
+        PS1='%(?..[%?])%!:%~%# '
+        # for tramp to not hang, need the following. cf:
+        # http://www.emacswiki.org/emacs/TrampMode
+        unsetopt zle
+        unsetopt prompt_cr
+        unsetopt prompt_subst
+        unfunction precmd
+        unfunction preexec
+        ;;        
+esac

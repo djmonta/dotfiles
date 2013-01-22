@@ -27,5 +27,3 @@
 
 ;; Emacs が保持する terminfo を利用する
 (setq system-uses-terminfo nil)
-
-(provide 'init-shell)

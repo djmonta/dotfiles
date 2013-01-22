@@ -47,5 +47,3 @@
                                      :background "unspecified"
                                      :strike-through nil
                                      :underline t))))))))
-
-(provide 'init-jaspace)

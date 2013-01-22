@@ -3,5 +3,3 @@
 (setq twittering-username "djmonta")
 
 (setq twittering-icon-mode t)
-
-(provide 'init-twitter)

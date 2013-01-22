@@ -396,6 +396,19 @@ case "${TERM}" in
         }
         add-zsh-hook precmd _change_terminal_title_precmd_hook
         ;;
+    # for emacs tramp setting
+    dump)
+        PROMPT="%n@%~%(!.#.$)"
+        RPROMPT=""
+        PS1='%(?..[%?])%!:%~%# '
+        # for tramp to not hang, need the following. cf:
+        # http://www.emacswiki.org/emacs/TrampMode
+        unsetopt zle
+        unsetopt prompt_cr
+        unsetopt prompt_subst
+        unfunction precmd
+        unfunction preexec
+        ;;        
 esac
 
 # }}}

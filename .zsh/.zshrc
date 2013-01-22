@@ -502,8 +502,7 @@ esac
 # fi
 if [ `emacs --version | grep 'Emacs 24' | wc -l` = 1 ]
 then
-   if [ `ps ux | grep emacs\ --daemon | wc -l` = 1 ]
-   then
+   if [ `ps ux | grep emacs\ --daemon | wc -l` = 1 ]; then
        `emacs --daemon`
    else
        echo 'Emacs daemon is already running.'

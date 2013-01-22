@@ -11,7 +11,7 @@
 
 (add-to-list 'tramp-default-proxies-alist
 	     '("landiskgxr" "root" "/ssh:monta@192.168.0.4:")
-	     '("raspberrypi" "root" "ssh:monta@192.168.0.5"))
+	     '("raspberrypi" "root" "/ssh:monta@192.168.0.5"))
 
 
 ;;/etc/hosts : 普通に /etc/hosts を開く。Read Only

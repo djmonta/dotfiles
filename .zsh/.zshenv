@@ -41,10 +41,10 @@ done
 
 case "${TERM}" in
 	# for emacs tramp setting
-	dump)
-        PROMPT="%n@%‾%(!.#.$)"
+	dumb)
+        PROMPT="%n@%~%(!.#.$)"
         RPROMPT=""
-        PS1='%(?..[%?])%!:%‾%# '
+        PS1='%(?..[%?])%!:%~%# '
         # for tramp to not hang, need the following. cf:
         # http://www.emacswiki.org/emacs/TrampMode
         unsetopt zle

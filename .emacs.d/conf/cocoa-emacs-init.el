@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/01/15-20:10:51
+;; Last Modified: 2013/01/22-23:57:29
 
 ;;ATOK2012
 (setq default-input-method "MacOSX")
@@ -43,7 +43,7 @@
 
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
-(setq initial-frame-alist '((width . 184) (height . 76)
+(setq initial-frame-alist '((width . 184) (height . 71)
 (top . 0) (left . 620)))
 
 ;;縦二分割

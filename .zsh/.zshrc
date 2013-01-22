@@ -57,12 +57,14 @@ autoload -Uz add-zsh-hook
 # else
     # Prompt for "normal" user.
     # Loading theme
+if [ ${TERM} != dumb ]; then
     if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
         echo "Loading theme: $ZSH_THEME"
         source ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme
     else
         echo "Error: could not load the theme '$ZSH_THEME'"
     fi
+fi
 # fi
 
 # }}}
@@ -396,6 +398,21 @@ case "${TERM}" in
         }
         add-zsh-hook precmd _change_terminal_title_precmd_hook
         ;;
+    # for emacs tramp setting
+    dumb)
+        PROMPT="%n@%~%(!.#.$)"
+        RPROMPT=""
+        PS1='%(?..[%?])%!:%~%# '
+        # for tramp to not hang, need the following. cf:
+        # http://www.emacswiki.org/emacs/TrampMode
+        unsetopt zle
+        unsetopt prompt_cr
+        unsetopt prompt_subst
+        unfunction precmd
+        unfunction preexec
+        ;;        
+esac
+
 esac
 
 # }}}

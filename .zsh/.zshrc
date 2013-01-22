@@ -410,9 +410,7 @@ case "${TERM}" in
         unsetopt prompt_subst
         unfunction precmd
         unfunction preexec
-        ;;        
-esac
-
+        ;;
 esac
 
 # }}}

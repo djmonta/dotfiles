@@ -39,12 +39,12 @@ for config_file ($ZDOTDIR/functions/*.zsh); do
 	source $config_file
 done
 
-case
+case "${TERM}" in
 	# for emacs tramp setting
-    dump)
-        PROMPT="%n@%~%(!.#.$)"
+	dump)
+        PROMPT="%n@%‾%(!.#.$)"
         RPROMPT=""
-        PS1='%(?..[%?])%!:%~%# '
+        PS1='%(?..[%?])%!:%‾%# '
         # for tramp to not hang, need the following. cf:
         # http://www.emacswiki.org/emacs/TrampMode
         unsetopt zle

@@ -11,8 +11,7 @@
 
 (add-to-list 'tramp-default-proxies-alist
 			 '("landiskgxr" "root" "/ssh:monta@192.168.0.4:"))
-(add-to-list 'tramp-default-proxies-alist
-			 '("sakura" "root" "/sshx:monta@sakura:"))
+
 ;;/etc/hosts : 普通に /etc/hosts を開く。Read Only
 ;;/sudo::/etc/hosts : root で /etc/hosts を開く。
 ;;/host.computer:/etc/hosts : 普通にホスト の /etc/hosts を開く。Read Only

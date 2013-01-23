@@ -1,17 +1,17 @@
 ;;Color theme tangotango
 ;;http://blog.nozav.org/post/2010/07/12/Updated-tangotango-emacs-color-theme
 
-(require 'color-theme)
+;; (require 'color-theme)
 ;(color-theme-initialize)
 ;(color-theme-tty-dark)
-(setq color-theme-load-all-themes nil)
+;; (setq color-theme-load-all-themes nil)
 
-(require 'color-theme-tangotango)
+;; (require 'color-theme-tangotango)
 
 ;;;select theme - first list element is for windowing system, second is for console/terminal
 ;;;Source : http://www.emacswiki.org/emacs/ColorTheme#toc9
-(setq color-theme-choices
-     '(color-theme-tangotango color-theme-tangotango))
+;; (setq color-theme-choices
+;;      '(color-theme-tangotango color-theme-tangotango))
 
 ;; (custom-set-variables
 ;;  '(custom-enabled-themes (quote (tango))))
@@ -45,6 +45,8 @@
 ;; ;;hook on after-make-frame-functions
 ;; (add-hook 'after-make-frame-functions 'test-win-sys)
 
-(color-theme-tangotango)
+;; (color-theme-tangotango)
 
-
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'tango-2 t)
+;; (load-theme 'solarized-dark t)

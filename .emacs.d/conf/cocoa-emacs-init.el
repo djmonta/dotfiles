@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/01/22-23:57:29
+;; Last Modified: 2013/01/24-02:20:37
 
 ;;ATOK2012
 (setq default-input-method "MacOSX")
@@ -31,11 +31,11 @@
 (tool-bar-mode 0)
 
 ; Show line number
-(require 'wb-line-number)
-(setq truncate-partial-width-windows nil)
-(set-scroll-bar-mode nil)
-(setq wb-line-number-scroll-bar t)
-(wb-line-number-toggle)
+;; (require 'wb-line-number)
+;; (setq truncate-partial-width-windows nil)
+;; (set-scroll-bar-mode nil)
+;; (setq wb-line-number-scroll-bar nil)
+;; (wb-line-number-toggle)
 
 ;;メニューバーにファイルパスを表示する
 (setq frame-title-format
@@ -51,9 +51,9 @@
  (split-window-horizontally))
 
 ;;Color&Tranceparent
-(set-background-color "Black")
-(set-foreground-color "LightGray")
-(set-cursor-color "Gray")
+;; (set-background-color "Black")
+;; (set-foreground-color "LightGray")
+;; (set-cursor-color "Gray")
 (set-frame-parameter nil 'alpha 80)
 
 ;;フォントをbitstream vera sans mono 12ptに
@@ -101,5 +101,5 @@
 ;(load "elscreen" "ElScreen" t)
 
 ;;twittering-mode
-(load "50-twitter")
+;;(load "50-twitter")
 

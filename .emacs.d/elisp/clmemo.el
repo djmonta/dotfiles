@@ -1,9 +1,8 @@
 ;;; clmemo.el --- Change Log MEMO -*-emacs-lisp-*-
 
-;; Copyright (c) 2002, 2003, 2004  Masayuki Ataka <ataka@milk.freemail.ne.jp>
-;; $Id: clmemo.el,v 2.47.1.4 2004/09/05 14:45:31 Mark Stab $
+;; Copyright (c) 2002, 2003, 2004, 2005  Masayuki Ataka <masayuki.ataka@gmail.com>
 
-;; Author: Masayuki Ataka <ataka@milk.freemail.ne.jp>
+;; Author: Masayuki Ataka <masayuki.ataka@gmail.com>
 ;; Keywords: convenience
 
 ;; This file is not part of GNU Emacs.
@@ -148,6 +147,7 @@
 
 (provide 'clmemo)
 (require 'add-log)
+(eval-and-compile (require 'calendar) (require 'parse-time))
 (eval-when-compile (require 'time-date))
 
 
@@ -200,7 +200,10 @@ Function must have one argument BUF.")
 ; tag
 ;
 (defvar clmemo-tag-list '(("url" browse-url-at-point)
-			  ("file" find-file-at-point clmemo-read-file-name))
+			  ("file" find-file-at-point clmemo-read-file-name)
+			  ("howm" clmemo-tag-howm-open-file)
+			  ("link" clmemo-tag-link-grep clmemo-tag-link-insert)
+			  ("rank" clmemo-tag-rank-update clmemo-tag-rank-insert))
   "*List of TAG in ChangeLog MEMO.
 You can set functions when insert or jump: (TAG JUMP-FUNCTION INSERT-FUNCTION).")
 
@@ -223,13 +226,17 @@ You can set functions when insert or jump: (TAG JUMP-FUNCTION INSERT-FUNCTION)."
 ;; System Variables and Functions
 ;;
 
-(defvar clmemo-date-regexp "^\\<.")
-(defvar clmemo-heading-regexp "^\t\\* ")
+(defvar clmemo-entry-header-regexp "^\\<.")
+(defvar clmemo-item-header-regexp "^\t\\* ")
 (defvar clmemo-inline-date "[12][0-9][0-9][0-9]-[01][0-9]-[0-3][0-9]")
 (defvar clmemo-inline-date-and-num "[12][0-9][0-9][0-9]-[01][0-9]-[0-3][0-9]-\\([0-9]+\\)")
 (defvar clmemo-inline-date-format "[%s]")
 (defvar clmemo-tag-format '("(%s: " . ")"))
 (defvar clmemo-winconf nil)
+
+(defvar clmemo-weekdays-regexp
+  ;; Variable parse-time-weekdays is defined in parse-time.el
+  (regexp-opt (mapcar (lambda (cc) (car cc)) parse-time-weekdays)))
 
 ;
 ; misc functions
@@ -252,7 +259,8 @@ You can set functions when insert or jump: (TAG JUMP-FUNCTION INSERT-FUNCTION)."
      (:foreground "yellow"))
     (t
      (:bold t)))
-  "Face for highlighting date.")
+  "Face for highlighting date."
+  :group 'diary)
 
 (defvar clmemo-inline-date-face 'clmemo-inline-date-face)
 
@@ -415,12 +423,18 @@ If optional argument TAIL is non-nil, return the deleted one."
 	     (eq 'w3m-mode (save-excursion
 				 (set-buffer buf)
 				 (symbol-value 'major-mode))))
-    (let (url title exist-p tag (c ?i))
+    (let (url title exist-p tag (c ?i) blog tmp)
       (save-excursion
 	(set-buffer buf)
 	(setq url (if (boundp 'w3m-current-url) w3m-current-url)
 	      title (if (boundp 'w3m-current-title) w3m-current-title)
 	      tag (concat (format (car clmemo-tag-format) "url") url ")")))
+      (when (and title
+		 (string-match "\\(.+\\)[:：][ \t]*" title)
+		 (setq blog (match-string 1 title)
+		       tmp  (match-string 0 title))
+		 (y-or-n-p (format "Split blog title `%s'" blog)))
+	(setq title (substring title (length tmp))))
       (save-excursion
 	(goto-char (point-min))
 	(setq exist-p
@@ -429,12 +443,14 @@ If optional argument TAIL is non-nil, return the deleted one."
       (when exist-p
 	(setq c (read-char
 		 (format "This url is already exists on %s-%s-%s: (G)o  (I)nsert (Q)uit"
-			 (nth 0 exist-p) (nth 1 exist-p) (nth 2 exist-p)))))
+			 (nth 5 exist-p) (nth 4 exist-p) (nth 3 exist-p)))))
       (cond
        ((equal c ?i)			;ignore
 	;; Insert title
 	(when (and title (y-or-n-p (format "Insert `%s' as title? " title)))
 	  (insert title))
+	(when blog
+	  (insert (format "\n\t(blog: %s)\n\t" blog)))
 	;; Insert url
 	   (save-excursion
 	     (when (and url (y-or-n-p "Insert URL? "))
@@ -517,6 +533,11 @@ For detail, See function `clmemo'.
     (define-key map "\C-c\C-t" 'clmemo-forward-tag)
     (define-key map "\C-c;" 'clmemo-forward-tag)
     (define-key map "\C-c:" 'clmemo-backward-tag)
+    ;; List
+    (define-key map "\C-c)l"  'clmemo-list-link)
+    (define-key map "\C-c)r"  'clmemo-list-rank)
+    (define-key map "\C-c)Rd"  'clmemo-list-rank-date)
+    (define-key map "\C-c)Rn"  'clmemo-list-rank-num)
     ;; Schedule
     (define-key map "\C-c\C-c" 'clmemo-schedule)
     ;; Exit
@@ -532,7 +553,7 @@ For detail, See function `clmemo'.
   "Move to the next item.
 With argument, repeats or can move backward if negative."
   (interactive "p")
-  (re-search-forward clmemo-heading-regexp nil t arg)
+  (re-search-forward clmemo-item-header-regexp nil t arg)
   (beginning-of-line)
   (skip-chars-forward "\t"))
 
@@ -540,7 +561,7 @@ With argument, repeats or can move backward if negative."
   "Move to the previous item.
 With argument, repeats or can move forward if negative."
   (interactive "p")
-  (re-search-backward clmemo-heading-regexp nil t arg)
+  (re-search-backward clmemo-item-header-regexp nil t arg)
   (skip-chars-forward "\t"))
 
 (defun clmemo-forward-entry (&optional arg)
@@ -550,7 +571,7 @@ With argument, repeats or can move forward if negative."
       (clmemo-backward-entry (- arg))
     (beginning-of-line)
     (forward-char 1)
-    (re-search-forward clmemo-date-regexp nil t arg)
+    (re-search-forward clmemo-entry-header-regexp nil t arg)
     (beginning-of-line)))
 
 (defun clmemo-backward-entry (&optional arg)
@@ -560,7 +581,7 @@ With argument, repeats or can move forward if negative."
       (clmemo-forward-entry (- arg))
     (beginning-of-line)
     (backward-char 1)
-    (re-search-backward clmemo-date-regexp nil t arg)
+    (re-search-backward clmemo-entry-header-regexp nil t arg)
     (beginning-of-line)))
 
 ;
@@ -642,9 +663,7 @@ See variable `clmemo-schedule-string' for header flag string."
   (clmemo-previous-item)
   (forward-char 2)
   (insert clmemo-schedule-string)
-  (search-forward ": ")
-  (insert "[] ")
-  (backward-char 2))
+  (search-forward ": "))
 
 ;
 ; Exit
@@ -669,7 +688,7 @@ Change behaviour depending on the text at point."
   "Function called at tag.
 Change behaviour depending on the tag at point."
   (skip-chars-backward "^(")
-  (when (looking-at "\\(.+\\): ")
+  (when (looking-at "\\([^:]+\\): ")
     (let* ((tag (match-string 1))
 	   (cc (assoc tag clmemo-tag-list)))
       (search-forward ": " nil t)
@@ -680,25 +699,37 @@ Change behaviour depending on the tag at point."
 ;;
 ;; Date
 ;;
-(defun clmemo-get-date ()
-  "Return the list of (YEAR MONTH DAY WEEK) of the entry at point."
-  (save-excursion
-    (forward-line 1)
-    (clmemo-backward-entry)
-    (let ((end (save-excursion (end-of-line) (point)))
-	  year month day week)
-      (and (re-search-forward "^[0-9]+" end t)
-	   (setq year (match-string 0)))
-      (skip-chars-forward "-" end)
-      (and (re-search-forward "[0-9]+" end t)
-	   (setq month (match-string 0)))
-      (skip-chars-forward "-" end)
-      (and (re-search-forward "[0-9]+" end t)
-	   (setq day (match-string 0)))
-      (skip-chars-forward " " end)
-      (and (looking-at "(\\(...\\))")
-	   (setq week (match-string 1)))
-      (list year month day week))))
+(defun clmemo-get-week (&optional time)
+  "Return the abbreviated name of the day of week."
+  (unless time
+    (setq time (current-time)))
+  (substring (current-time-string time) 0 3))
+
+(defun clmemo-get-date (&optional today)
+  "Return the list of (0 0 0 DAY MONTH YEAR DOW) of the entry at point.
+If optional argument TODAY is non-nil, return the list of today."
+  (let (year month day dow)
+    (if today
+	(let ((time (decode-time)))
+	  (setq dow (nth 6 time)
+		year (nth 5 time)
+		month (nth 4 time)
+		day (nth 3 time)))
+      (save-excursion
+	(forward-line 1)
+	(clmemo-backward-entry)
+	(let ((end (save-excursion (end-of-line) (point))))
+	  (and (re-search-forward "^[0-9]+" end t)
+	       (setq year (string-to-number (match-string 0))))
+	  (skip-chars-forward "-" end)
+	  (and (re-search-forward "[0-9]+" end t)
+	       (setq month (string-to-number (match-string 0))))
+	  (skip-chars-forward "-" end)
+	  (and (re-search-forward "[0-9]+" end t)
+	       (setq day (string-to-number (match-string 0)))))
+	;; function calendar-day-of-week is defined in calernadar.
+	(setq dow (calendar-day-of-week `(,month ,day ,year)))))
+    (list 0 0 0 day month year dow)))
 
 (defun clmemo-forward-year (&optional arg)
   "Move forward year.
@@ -708,7 +739,7 @@ With argument, repeats or can move backward if negative."
   (if (< arg 0)
       (clmemo-backward-year (- arg))
     (when (interactive-p) (push-mark))
-    (let ((year (string-to-number (nth 0 (clmemo-get-date))))
+    (let ((year (nth 5 (clmemo-get-date)))
 	  (pos (point)))
       (setq year (+ year arg))
       (goto-char (point-min))
@@ -725,7 +756,7 @@ With argument, repeats or can move forward if negative."
   (if (< arg 1)
       (clmemo-forward-year (- arg))
     (when (interactive-p) (push-mark))
-    (let ((year (string-to-number (nth 0 (clmemo-get-date)))))
+    (let ((year (nth 5 (clmemo-get-date))))
       (setq year (- year arg))
       (if (re-search-forward (format "^%d-" year) nil t)
 	  (beginning-of-line)
@@ -742,12 +773,12 @@ With argument, repeats or can move backward if negative."
     (let ((date (clmemo-get-date))
 	  (pos (point))
 	  year month day regexp)
-      (setq year (+ arg (string-to-number (nth 0 date)))
-	    month (nth 1 date)
-	    day (nth 2 date))
+      (setq year (+ arg (nth 5 date))
+	    month (nth 4 date)
+	    day (nth 3 date))
       (if (= arg 0)
 	  (setq regexp (format "^%d-" year))
-	(setq regexp (format "^%d-%s-%s" year month day)))
+	(setq regexp (format "^%d-%02d-%02d" year month day)))
       (goto-char (point-min))
       (if (re-search-forward regexp nil t)
 	  (beginning-of-line)
@@ -764,10 +795,10 @@ With argument, repeats or can move forward if negative."
     (when (interactive-p) (push-mark))
     (let ((date (clmemo-get-date))
 	  year month day)
-      (setq year (- (string-to-number (nth 0 date)) arg)
-	    month (nth 1 date)
-	    day (nth 2 date))
-      (if (re-search-forward (format "^%d-%s-%s" year month day) nil t)
+      (setq year (- (nth 5 date) arg)
+	    month (nth 4 date)
+	    day (nth 3 date))
+      (if (re-search-forward (format "^%d-%02d-%02d" year month day) nil t)
 	  (beginning-of-line)
 	(when (interactive-p) (pop-mark))))))
 
@@ -779,11 +810,11 @@ With argument, repeats or can move backward if negative."
   (if (< arg 0)
       (clmemo-backward-month (- arg))
     (when (interactive-p) (push-mark))
-    (let ((date (clmemo-get-date))
+    (let ((time (clmemo-get-date))
 	  (pos (point))
 	  year month)
-      (setq year (string-to-number (nth 0 date))
-	    month (string-to-number (nth 1 date)))
+      (setq year (nth 5 time)
+	    month (nth 4 time))
       (setq month (+ month arg))
       (when (> month 12)
 	(setq year (+ year (/ month 12))
@@ -802,10 +833,10 @@ With argument, repeats or can move forward if negative."
   (if (< arg 1)
       (clmemo-forward-month (- arg))
     (when (interactive-p) (push-mark))
-    (let ((date (clmemo-get-date))
+    (let ((time (clmemo-get-date))
 	  year month)
-      (setq year (string-to-number (nth 0 date))
-	    month (string-to-number (nth 1 date)))
+      (setq year (nth 5 time)
+	    month (nth 4 time))
       (if (> month arg)
 	  (setq month (- month arg))
 	(setq arg (- arg month))
@@ -826,16 +857,16 @@ With argument, repeats or can move backward if negative."
     (let ((date (clmemo-get-date))
 	  (pos (point))
 	  year month day regexp)
-      (setq year (string-to-number (nth 0 date))
-	    month (string-to-number (nth 1 date))
-	    day (nth 2 date))
+      (setq year (nth 5 date)
+	    month (nth 4 date)
+	    day (nth 3 date))
       (setq month (+ month arg))
       (when (> month 12)
 	(setq year (+ year (/ month 12))
 	      month (% month 12)))
       (if (= arg 0)
 	  (setq regexp (format "^%d-%02d-" year month))
-	(setq regexp (format "^%d-%02d-%s" year month day)))
+	(setq regexp (format "^%d-%02d-%02d" year month day)))
       (goto-char (point-min))
       (if (re-search-forward regexp nil t)
 	  (beginning-of-line)
@@ -852,15 +883,15 @@ With argument, repeats or can move forward if negative."
     (when (interactive-p) (push-mark))
     (let ((date (clmemo-get-date))
 	  year month day)
-      (setq year (string-to-number (nth 0 date))
-	    month (string-to-number (nth 1 date))
-	    day (nth 2 date))
+      (setq year (nth 5 date)
+	    month (nth 4 date)
+	    day (nth 3 date))
       (if (> month arg)
 	  (setq month (- month arg))
 	(setq arg (- arg month))
 	(setq year (- year (1+ (/ arg 12)))
 	      month (- 12 (% arg 12))))
-      (if (re-search-forward (format "^%d-%02d-%s" year month day) nil t)
+      (if (re-search-forward (format "^%d-%02d-%02d" year month day) nil t)
 	  (beginning-of-line)
 	(when (interactive-p) (pop-mark))))))
 
@@ -897,7 +928,7 @@ the number of months marked equals ARG."
 Use the command `clmemo-inline-date-mode' to change this variable.")
 (make-variable-buffer-local 'clmemo-inline-date-mode)
 
-;; Variable minor-mode-list comes after from Emacs-21.4.
+;; Variable minor-mode-list comes after Emacs-21.
 (when (boundp 'minor-mode-list)
   (unless (memq 'clmemo-inline-date-mode minor-mode-list)
     (setq minor-mode-list (cons 'clmemo-inline-date-mode minor-mode-list)))
@@ -913,7 +944,13 @@ Use the command `clmemo-inline-date-mode' to change this variable.")
 (defvar clmemo-inline-date-pos nil)
 
 
-(defalias 'clmemo-inline-date-insert 'clmemo-inline-date-mode)
+(defun clmemo-inline-date-insert (&optional arg)
+  (interactive "P")
+  (if (or (looking-back (concat "\\(" clmemo-weekdays-regexp "\\)[ \t]*"))
+	  (looking-back "[0-9]+[ \t]*"))
+      (clmemo-inline-date-convert arg)
+    (clmemo-inline-date-mode arg)))
+
 (defun clmemo-inline-date-mode (&optional arg)
   "Minor mode for looking for the date to insert.
 
@@ -992,7 +1029,7 @@ Use the command `clmemo-inline-date-mode' to change this variable.")
     (if (looking-at clmemo-inline-date)
 	(progn (clmemo-inline-date-quit)
 	       (setq buffer-undo-list (cons (point) buffer-undo-list))
-	       (insert (format clmemo-inline-date-format 
+	       (insert (format clmemo-inline-date-format
 			       (if arg
 				   (concat (match-string 0) "-" (number-to-string num))
 				 (match-string 0)))))
@@ -1014,7 +1051,7 @@ Use the command `clmemo-inline-date-mode' to change this variable.")
   (save-excursion
     (skip-chars-backward "-0-9")
     (skip-chars-forward "[")
-    (and (not (looking-at clmemo-date-regexp))
+    (and (not (looking-at clmemo-entry-header-regexp))
 	 (equal (char-before) ?\[)
 	 (looking-at clmemo-inline-date))))
 
@@ -1065,6 +1102,128 @@ Use the command `clmemo-inline-date-mode' to change this variable.")
   (interactive "p")
   (clmemo-next-inline-date (- arg)))
 
+;
+; inline date converter
+;
+(defun clmemo-time-to-inline-date (time)
+  (format clmemo-inline-date-format
+	  (format-time-string "%Y-%m-%d" time)))
+
+(defun clmemo-inline-date-convert (&optional today)
+  "Convert number, keywords, etc... to inline date.
+If optional argument TODAY is non-nil, change the origin of date today."
+  (interactive "P")
+  (let ((pos (point))
+	(time (clmemo-get-date today))
+	idate day month year dow week)
+    (setq day (nth 3 time)
+	  month (nth 4 time)
+	  year (nth 5 time)
+	  dow (nth 6 time))
+    (skip-syntax-backward "-")
+    (when (re-search-backward clmemo-weekdays-regexp (max (point-min) (- (point) 3)) t)
+      (setq week (cdr (assoc (match-string 0) parse-time-weekdays))))
+    (skip-chars-backward "-+0-9")
+    (cond
+     ;; ([+-][0-9])?(mon|tue|wed|thu|fri|sat|sun)
+     ((numberp week)
+      (setq day (- week dow))
+      (when (looking-at (concat "\\([-+][0-9]+\\)\\(" clmemo-weekdays-regexp "\\)"))
+	(setq day (+ day (* 7 (string-to-number (match-string 1))))))
+      (setq idate (clmemo-time-to-inline-date
+		   (time-add (apply 'encode-time time) (days-to-time day)))))
+     ;; ++++2, ----2 [+year]
+     ((looking-at "[-+][-+][-+]\\([-+][0-9]+\\)")
+      (setq year (+ year (string-to-number (match-string 1)))))
+     ;; +++2, ---2 [+month]
+     ((looking-at "[-+][-+]\\([-+][0-9]+\\)")
+      (setq month (+ month (string-to-number (match-string 1)))))
+     ;; ++2, --2 [+week]
+     ((looking-at "[-+]\\([-+][0-9]+\\)")
+      (setq day (* 7 (string-to-number (match-string 1))))
+      (setq idate (clmemo-time-to-inline-date
+		   (time-add (apply 'encode-time time) (days-to-time day)))))
+     ;; +12, -12 [+day]
+     ((looking-at "[-+][0-9]+")
+      (setq day (string-to-number (match-string 0)))
+      (setq idate (clmemo-time-to-inline-date
+		   (time-add (apply 'encode-time time) (days-to-time day)))))
+     ;; 2002-12-12, 88-12-12
+     ((looking-at "\\([0-9]+\\)-\\([01]?[0-9]\\)-\\([0-3]?[0-9]\\)")
+      (setq year (string-to-number (match-string 1))
+	    month (string-to-number (match-string 2))
+	    day (string-to-number (match-string 3)))
+      (if (> year 100)
+	  (setq idate (format clmemo-inline-date-format
+			      (format "%04d-%02d-%02d" year month day)))
+	;; System recorgnize 1970~2037
+	(if (< 50 year)
+	    (setq year (+ 1900 year))
+	  (setq year (+ 2000 year)))))
+     ;; 12-12
+     ((looking-at "\\([01]?[0-9]\\)-\\([0-3]?[0-9]\\)")
+      (setq month (string-to-number (match-string 1))
+	    day (string-to-number (match-string 2))))
+     ;; 12
+     ((looking-at "[0-3]?[0-9]")
+      (setq day (string-to-number (match-string 0))))
+     ;; No match
+     (t (goto-char pos) (error "No inline-date convert string")))
+    (unless idate
+      (setq idate (clmemo-time-to-inline-date
+		   (encode-time 0 0 0 day month year))))
+    (replace-match "")
+    (insert idate)))
+
+;
+; Inline date reminder
+;
+(defun clmemo-reminder ()
+  "Inline date reminder.
+Reminder looks for `[YYYY-MM-DD]?'
+
+`?' should be one of them:
+ @	memo
+ +	todo
+ !	deadline
+ @	schedule
+ ~	reserve
+"
+  (interactive)
+  (let ((idate-regexp (concat (format (regexp-quote clmemo-inline-date-format)
+				      clmemo-inline-date)
+			      "[-+@!~]"))
+	date title line pos
+	(alist (list (cons (format-time-string "%Y-%m-%d")
+			   (format-time-string "[%Y-%m-%d] Today")))))
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward idate-regexp nil t)
+	(setq date (match-string 1)
+	      pos (progn (beginning-of-line) (skip-chars-forward " \t-") (point))
+	      line (buffer-substring-no-properties pos
+		    (progn (end-of-line)
+			   (skip-chars-backward " \t")
+			   (point))))
+	(save-excursion
+	  (clmemo-previous-item 1)
+	  (if (<= pos (point))
+	      (setq title "")
+	    (setq title (buffer-substring-no-properties
+			 (progn (backward-char 1) (point))
+			 (progn (end-of-line)
+				(skip-chars-backward " \t")
+				(point))))))
+	(setq alist (cons (cons date (concat line title)) alist)))
+      (setq alist (sort alist (lambda (c1 c2) (string< (car c2) (car c1))))))
+    (pop-to-buffer "*clmemo-reminder*")
+    (delete-region (point-min) (point-max))
+    (insert "  ==Inline-Date Reminder==\n\n")
+    (insert (mapconcat (lambda (cc) (cdr cc)) alist "\n"))
+    (goto-char (point-min))
+    (search-forward (format-time-string (format-time-string "[%Y-%m-%d] Today")))
+    (beginning-of-line)))
+
 
 ;;
 ;; Tag
@@ -1099,7 +1258,7 @@ See also function `clmemo-tag-completing-read'."
     (save-excursion
       (insert fmt-right))
     (if cc
-	(insert (funcall (cdr cc))))))
+	(funcall (cdr cc)))))
 
 (defun clmemo-tag-completing-read (&optional quick)
   "Return tag name.
@@ -1109,7 +1268,8 @@ If optional argument QUICK is non-nil, clmemo-tag-completing-read
 choose the tag name by the initial letter of tag name.  When
 initial letters are overlapped, the first tag name in the
 `clmemo-tag-list' will be chosen."
-  (let (tag)
+  (let (tag
+	(tag-list (mapcar (lambda (elt) (if (listp elt) elt (list elt))) clmemo-tag-list)))
     (save-window-excursion
       (while (not tag)
 	(if quick
@@ -1117,8 +1277,8 @@ initial letters are overlapped, the first tag name in the
 	      (cond
 	       ((equal char " ") (setq quick nil))
 	       ((equal char "\t") (clmemo-tag-show))
-	       (t (setq tag (all-completions char clmemo-tag-list)))))
-	  (setq tag (completing-read "tag: " clmemo-tag-list)))))
+	       (t (setq tag (all-completions char tag-list)))))
+	  (setq tag (completing-read "tag: " tag-list)))))
     (if (listp tag)
 	(car tag)
       tag)))
@@ -1213,7 +1373,209 @@ With argument, repeats or can move forward if negative."
 ;
 (defun clmemo-read-file-name ()
   "Read file name."
-  (read-file-name "File: "))
+  (insert (read-file-name "File: ")))
+
+;
+; howm
+;
+(defvar quasi-howm-dir "~/howm/"
+  "*Quasi-howm directory")
+
+(defvar quasi-howm-file-name-format "%Y-%m/%Y%m%d-%H%M%S"
+  "*Your howm's file name format
+See `format-time-string' for the description of constructs.")
+
+(defun quasi-howm ()
+  (interactive)
+  (let ((file (format "%s%s.howm" quasi-howm-dir
+		      (format-time-string quasi-howm-file-name-format))))
+    (unless (file-exists-p (file-name-directory file))
+      (make-directory (file-name-directory file) t))
+    (when (equal (buffer-file-name) (expand-file-name clmemo-file-name))
+      (unless (save-excursion (backward-char 1) (looking-at "^\t"))
+	(or (looking-at "^") (insert "\n"))
+	(insert "\t"))
+      (insert (format "(howm: %s)" (file-name-nondirectory file))))
+    (find-file file))
+  (insert "= ")
+  (save-excursion
+    (insert "\n" (format-time-string "[%Y-%m-%d %H:%M]\n"))))
+
+(defun clmemo-tag-howm-open-file ()
+  (interactive)
+  (let ((file (buffer-substring-no-properties
+	       (progn (beginning-of-line) (search-forward "(howm: "))
+	       (1- (search-forward ")")))))
+    (setq file (concat
+		(substring file 0 4) "-"
+		(substring file 4 6) "/"
+		file))
+    (find-file (concat quasi-howm-dir file))))
+
+;
+; link
+;
+(defun clmemo-tag-link-grep ()
+  (interactive)
+  (let (query beg end)
+    (setq beg (progn (beginning-of-line) (skip-chars-forward " \t") (point))
+	  end (search-forward ")" nil t)
+	  query (regexp-quote (buffer-substring-no-properties beg end)))
+    (if (fboundp 'clgrep-item)
+	(funcall #'clgrep-item query)
+      (occur query))))
+
+(defun clmemo-tag-link-insert ()
+  (interactive)
+  (insert "+0")
+  (clmemo-inline-date-convert)
+  (insert " "))
+
+;
+; rank
+;
+(defun clmemo-tag-rank-update ()
+  (interactive)
+  (beginning-of-line)
+  (skip-chars-forward " \t")
+  (when (looking-at "(rank: .+ #\\([0-9]+\\))")
+    (let ((num (string-to-number (match-string 1))))
+      (setq num (1+ num))
+      (replace-match (concat "(rank: "
+			     (format-time-string "[%Y-%m-%d] %H:%M:%S")
+			     (format " #%d)" num))))))
+
+(defun clmemo-tag-rank-insert ()
+  (insert (format-time-string "[%Y-%m-%d] %H:%M:%S #1")))
+
+;;
+;; list
+;;
+(defun clmemo-get-item-header-text ()
+  (save-excursion
+    (clmemo-previous-item)
+    (buffer-substring-no-properties (point) (progn (end-of-line) (point)))))
+
+(defun clmemo-list-link ()
+  (interactive)
+  (let (link list alist)
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "^\t(link: \\(.+\\))" nil t)
+	(setq link (match-string 1))
+	(unless (assoc link alist)
+	  (setq alist (cons (cons link (clmemo-get-item-header-text)) alist)))))
+    (setq list (mapcar (lambda (cc) (concat (car cc) "\t" (cdr cc))) alist))
+    (setq list (nreverse list))
+    (clmemo-list-create-buffer list "link"))
+  (clmemo-list-mode))
+
+(defun clmemo-list-rank ()
+  (interactive)
+  (let ((now (current-time))
+	cc rank time ttme rating alist list)
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "^\t(rank: \\(.+\\) #\\([0-9]+\\))" nil t)
+	(setq time (match-string 1)
+	      ttme (apply 'encode-time (parse-time-string time))
+	      rank (string-to-number (match-string 2))
+	      rating (funcall clmemo-calc-rank-function
+			      rank (time-to-seconds (time-subtract now ttme))))
+	(setq cc (cons rating (format "%s  %s" time (clmemo-get-item-header-text)))
+	      alist (cons cc alist))))
+    (setq alist (sort alist (lambda (c1 c2) (< (car c2) (car c1)))))
+    (setq list (mapcar (lambda (cc) (format "%4.2f  %s" (car cc) (cdr cc))) alist))
+    (clmemo-list-create-buffer list "rank"))
+  (clmemo-list-mode))
+
+(defvar clmemo-calc-rank-function
+  #'(lambda (rank time-diff)
+      (* 100 (/ rank (log time-diff)))))
+
+(defun clmemo-list-rank-date ()
+  (interactive)
+  (let (cc alist list)
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "^\t(rank: \\(.+ #[0-9]+\\))" nil t)
+	(setq cc (cons (match-string 1) (clmemo-get-item-header-text))
+	      alist (cons cc alist))))
+    (setq alist (sort alist (lambda (c1 c2) (string< (car c2) (car c1)))))
+    (setq list (mapcar (lambda (cc) (concat (car cc) "  " (cdr cc))) alist))
+    (clmemo-list-create-buffer list "rank-date"))
+  (clmemo-list-mode))
+
+(defun clmemo-list-rank-num ()
+  (interactive)
+  (let (cc num alist list)
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "^\t(rank: \\(.+\\) #\\([0-9]+\\))" nil t)
+	(setq cc (cons (format "%04d %s" (string-to-number (match-string 2))
+			       (match-string 1))
+		       (clmemo-get-item-header-text))
+	      alist (cons cc alist))))
+    (setq alist (sort alist (lambda (c1 c2) (string< (car c2) (car c1)))))
+    (setq list (mapcar (lambda (cc) (concat (car cc) "  " (cdr cc))) alist))
+    (clmemo-list-create-buffer list "rank-num"))
+  (clmemo-list-mode))
+
+(defun clmemo-list-create-buffer (list buf)
+  (pop-to-buffer (concat "*clmemo-" buf "*"))
+  (delete-region (point-min) (point-max))
+  (insert (format "  ==%s==\n\n" buf))
+  (insert (mapconcat (lambda (elt) elt) list "\n"))
+  (goto-char (point-min)))
+
+;
+; clmemo-list-mode
+;
+(defvar clmemo-list-mode-map nil)
+(if clmemo-list-mode-map
+    nil
+  (let ((map (make-keymap)))
+    (define-key map " " 'clmemo-list-show)
+    (define-key map "n" 'clmemo-list-next-item)
+    (define-key map "p" 'clmemo-list-previous-item)
+    (define-key map "q" 'delete-window)
+    (setq clmemo-list-mode-map map)))
+
+(define-derived-mode clmemo-list-mode text-mode "clmemo:list"
+  "Major mode for clmemo-list.
+\\{clmemo-list-map}")
+
+(defun clmemo-list-next-item (arg)
+  (interactive "p")
+  (clmemo-list-show arg))
+
+(defun clmemo-list-previous-item (arg)
+  (interactive "p")
+  (clmemo-list-show (- arg)))
+
+(defun clmemo-list-show (&optional arg)
+  "Show the item."
+  (interactive)
+  (let ((buf (current-buffer)) tag)
+    (if arg
+	(forward-line arg)
+      (beginning-of-line))
+    (skip-chars-forward "^*")
+    (save-excursion
+      (let ((end (progn (skip-chars-backward " \t") (point))))
+	(beginning-of-line)
+	(when (search-forward "[" nil t)
+	  (backward-char 1)
+	  (setq tag (buffer-substring-no-properties (point) end)))))
+    (unwind-protect
+	(progn
+	  (switch-to-buffer-other-window
+	   (or (get-file-buffer clmemo-file-name)
+	       (find-file-noselect clmemo-file-name)))
+	  (goto-char (point-min))
+	  (search-forward tag)
+	  (clmemo-previous-item 1))
+      (pop-to-buffer buf))))
 
 
 ;;
@@ -1266,12 +1628,17 @@ See also function `clmemo-format-header-with-weekday'."
   ;; value of variable clmemo-grep-function is 'clgrep.
   (let ((query (and (fboundp clmemo-grep-function)
 		    (eq clmemo-grep-function 'clgrep)
-		    (read-string "Query: "))))
+		    (read-string "clgrep: ")))
+	(window (current-window-configuration)))
     (switch-to-buffer (find-file-noselect clmemo-file-name))
     (clmemo-mode)
     (cond
      ;; clmemo-grep-function is clgrep
-     (query (funcall clmemo-grep-function query arg))
+     ;; FIXME  I don't understand the usage of condition-case.
+     (query (condition-case nil
+	        (funcall clmemo-grep-function query arg)
+	      (error (set-window-configuration window)
+		     (error "No matches for `%s'" query))))
      ;; clmemo-grep-function is available
      ((fboundp clmemo-grep-function)
       (let ((current-prefix-arg arg))

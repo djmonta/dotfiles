@@ -9,7 +9,7 @@
 
 ;; Modeline decoration customization
 (defcustom git-state-modeline-decoration
-  'git-state-decoration-letter
+  'git-state-decoration-large-dot
   "How to indicate the status of files in the modeline. The value
 must be a function that takes a single arg: a symbol denoting file status,
 e.g. 'unmerged. The return value of the function will be added at the beginning
@@ -149,6 +149,8 @@ static char * data[] = {
   "Updates the state marks of all the buffers visiting the REPO-OR-FILELIST,
 which is a repository dir or a list of files. This is more efficient than
 doing update--state-mark for each buffer."
+  
+  (git--uninstall-state-mark-modeline)
   (let ((buffers (git--find-buffers repo-or-filelist)))
     (when (and buffers git-state-modeline-decoration)
       ;; Use a hash table to find buffers after status-index and ls-files.

@@ -1,15 +1,15 @@
-;;; git-emacs (v.1.4.3) : yet another git emacs mode for newbies
+;;; git-emacs.el --- yet another git emacs mode for newbies
 ;;
-;; Copyright (C) 2008  TSKim (tsgatesv@gmail.com)
+;; Copyright (C) 2008  Taesoo Kim (tsgatesv@gmail.com)
 ;;
 ;; v.1.4.3 Modified by ovy            @ 20 September 2009
 ;; v.1.4   Modified by ovy            @ 22 March 2009
 ;; v.1.3   Modified by Con Digitalpit @ 29 March 2008
 ;;
-;; Authors    : TSKim : Kim Taesoo(tsgatesv@gmail.com)
-;; Created    : 24 March 2007
-;; License    : GPL
-;; Keywords   : git, version control, release management
+;; Authors:  Taesoo Kim <tsgatesv@gmail.com>
+;; Created:  24 March 2007
+;; License:  GPL
+;; Keywords: git, version control, release management
 ;;
 ;; Compatibility: Emacs22 and EmacsCVS (developed on 23.0.60.2)
 ;;                Git 1.5 and up
@@ -32,7 +32,7 @@
 ;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 ;; MA 02111-1307 USA
 
-;; http://tsgates.cafe24.com/git/git-emacs.html
+;; https://github.com/tsgates/git-emacs
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -89,7 +89,6 @@
 (require 'ediff)                        ; we use this a lot
 (require 'vc)                           ; vc
 (require 'vc-git)                       ; vc-git advises
-(add-to-list 'vc-handled-backends 'git) ; set backend management
 (require 'time-stamp)                   ; today
 
 (require 'git-global-keys)              ; global keyboard mappings
@@ -112,8 +111,6 @@
 (autoload 'git-log-other "git-log"
   "Launch the git log view for an arbitrary branch or tag" t)
 
-
-
 ;;-----------------------------------------------------------------------------
 ;; Global preferences.
 ;;-----------------------------------------------------------------------------
@@ -124,6 +121,11 @@
 (defcustom git--use-ido t
   "Whether to use ido completion for git-emacs prompts."
   :type '(boolean)
+  :group 'git-emacs)
+
+(defcustom git--timer-sec 1.0
+  "Timer to monitor .git repo to update modeline"
+  :type '(number)
   :group 'git-emacs)
 
 (defvar git--completing-read
@@ -160,7 +162,6 @@ the signature of `completing-read'.")
 ;;-----------------------------------------------------------------------------
 ;; Internal variables.
 ;;-----------------------------------------------------------------------------
-
 
 (defvar git--executable "git" "Main git executable")
 (defvar git--commit-log-buffer "*git commit*")
@@ -1121,6 +1122,9 @@ pending commit buffer or nil if the buffer wasn't needed."
 
 (defun git--update-modeline ()
   "Update the current's buffer modeline state display."
+  ;; install global timer
+  (when (and git--timer-sec (null git-emacs-dot-timer))
+    (setq git-emacs-dot-timer (git-install-monitor git--timer-sec)))
   ;; mark depending on the fileinfo state
   (when (and buffer-file-name (git--in-vc-mode?))
     (git--update-state-mark
@@ -2518,7 +2522,7 @@ that variable in .emacs.
         (grep-use-null-device nil))
     (add-hook 'grep-setup-hook git-grep-setup-hook)
     (unwind-protect
-         (grep (concat "git grep -n " args))
+         (grep (concat "git grep --no-color -n " args))
       (remove-hook 'grep-setup-hook git-grep-setup-hook))))
 
 
@@ -2598,5 +2602,26 @@ usual pre / post work: ask for save, ask for refresh."
   (sleep-for 1.5)                       ; let the user digest message
   (git-after-working-dir-change))
 
+
+;;-----------------------------------------------------------------------------
+;; interaction with command lines
+;;-----------------------------------------------------------------------------
+(defvar git-emacs-dot-timer nil)
+
+(defun git-install-monitor (secs)
+  ;; inital delay is 3sec
+  (run-with-timer
+   3 secs
+   (lambda (p)
+     ;; iterating visible buffers
+     (let ((visible-buffers 
+            (mapcar '(lambda (window) (window-buffer window)) (window-list))))
+       (loop for buffer in visible-buffers do
+             (with-current-buffer buffer
+               (when (and buffer-file-name (git--in-vc-mode?))
+                 (let ((top (expand-file-name ".git/index" (git--get-top-dir))))
+                   (when (> p (second (time-since (elt (file-attributes top) 4))))
+                     (git--update-modeline))))))))
+   secs))
 
 (provide 'git-emacs)

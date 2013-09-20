@@ -11,6 +11,6 @@
 (require 'git)
 (require 'git-status)
 
-(require 'magit)
-(require 'magit-svn)
-(require 'magit-topgit)
+; (require 'magit)
+; (require 'magit-svn)
+; (require 'magit-topgit)

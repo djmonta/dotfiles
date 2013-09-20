@@ -25,7 +25,18 @@
 ;; バックアップファイルを作らない
 (setq backup-inhibited t)
 
-;;タイムスタンプ書式
+;;; P74
+;;; auto-install.el をインストールする
+;;; リスト2●auto-installの設定例
+;; (install-elisp "Http://www.emacswiki.org/emacs/download/auto-install.el")
+(when (require 'auto-install nil t)
+  (setq auto-install-directory "~/.emacs.d/elisp/")
+  (auto-install-update-emacswiki-package-name t)
+  (auto-install-compatibility-setup)
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
+;; タイムスタンプ書式
+;; http://www.opensource.apple.com/source/emacs/emacs-51/emacs/lisp/time-stamp.el
 (require 'time-stamp)
 (setq time-stamp-active t)
 (setq time-stamp-start "Last Modified: ")
@@ -50,23 +61,13 @@
 ;; auto-save-buffers
 ;; http://namazu.org/~satoru/misc/auto-save/
 (progn
-  (require 'auto-save-buffers)
-  (run-with-idle-timer 3 t 'auto-save-buffers))
+  (require 'auto-save-buffers-enhanced)
+  (run-with-idle-timer 3 t 'auto-save-buffers-enhanced))
 
 ;; kill-summary
 ;; http://mibai.tec.u-ryukyu.ac.jp/%7Eoshiro/Programs/elisp/kill-summary.el
 (autoload 'kill-summary "kill-summary" nil t)
 (global-set-key "\M-y" 'kill-summary)
-
-;;; P74
-;;; auto-install.el をインストールする
-;;; リスト2●auto-installの設定例
-;; (install-elisp "Http://www.emacswiki.org/emacs/download/auto-install.el")
-(when (require 'auto-install nil t)
-  (setq auto-install-directory "~/.emacs.d/elisp/")
-  (auto-install-update-emacswiki-package-name t)
-  (auto-install-compatibility-setup)
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
 ;;;試行錯誤用ファイルを開くための設定
 (require 'open-junk-file)
@@ -74,9 +75,9 @@
 (global-set-key (kbd "C-x C-z") 'open-junk-file)
 
 ;;;式の評価結果を注釈するための設定
-(require 'lispxmp)
+; (require 'lispxmp)
 ;; emacs-lisp-modeでC-c C-dを押すと注釈される
-(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
+; (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 
 ;;;括弧の対応を保持して編集する設定
 (require 'paredit)
@@ -102,8 +103,3 @@
 ;; find-functionをキー割り当てする
 (find-function-setup-keys)
 
-;; ELPA/Marmaladeパッケージの設定
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-refresh-contents)
-(package-initialize)

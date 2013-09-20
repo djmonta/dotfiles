@@ -3,7 +3,7 @@
 (autoload 'clmemo "clmemo" "ChangeLog memo mode." t)
 ;(define-key ctl-x-map "M" 'clmemo)
 (global-set-key "\C-xM" 'clmemo)
-(setq clmemo-file-name "~/Dropbox/PlainText/ChangeLog.txt")
+(setq clmemo-file-name "~/Dropbox/Documents/ChangeLog.txt")
 ;(setq clmemo-entry-list
 ;      '("emacs" "book" "url" "idea" "download" "soft" "memo"))
 (setq clmemo-time-string-with-weekday t)

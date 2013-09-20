@@ -46,6 +46,8 @@ export INFOPATH
 export MYSQL_HOME=/usr/local/mysql
 export PATH=$MYSQL_HOME/bin:$PATH
 
+# Android SDK
+export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools
 
 ### Complete Messages
 echo "Loading .profile.osx completed!!"

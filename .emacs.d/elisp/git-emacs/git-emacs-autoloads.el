@@ -14,7 +14,7 @@
 (add-to-list 'vc-handled-backends 'git)
 
 (autoload 'git-status "git-status"
-  "Launch git-emacs's status mode on the specified directory.")
+  "Launch git-emacs's status mode on the specified directory." t)
 (autoload 'git-init             "git-emacs"
   "Initialize a git repository." t)
 (autoload 'git-log-from-cmdline "git-log"
@@ -27,10 +27,17 @@
   
   (and vc-mode (string-match "^ Git" (substring-no-properties vc-mode))))
 
+(defvar git-emacs-loaded nil)
+
 ;; vc-hook to check whether to load git-emacs or not
 (defadvice vc-find-file-hook (after git--vc-git-find-file-hook activate)
   "vc-find-file-hook advice for synchronizing with vc-git interface"
 
-  (when (git--in-vc-mode?) (git--update-modeline)))
+  (when git-emacs-loaded 
+    (git--uninstall-state-mark-modeline))
+  
+  (when (git--in-vc-mode?)
+    (setq git-emacs-loaded t)
+    (git--update-modeline)))
 
 (provide 'git-emacs-autoloads)

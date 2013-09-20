@@ -3,6 +3,14 @@
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory (expand-file-name "~/.emacs.d/")))
 
-(add-to-list 'load-path (concat user-emacs-directory "/elisp/init-loader"))
+;; ELPA/Marmaladeパッケージの設定
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-refresh-contents)
+(package-initialize)
+
+;; init-loader
 (require 'init-loader)
 (init-loader-load (concat user-emacs-directory "/conf"))
+

@@ -1,45 +1,45 @@
 ;;; 
-;;; kill-summary.el: ¥­¥ë¥ê¥ó¥°¤Î°ìÍ÷¤òÉ½¼¨¤·ÁªÂò¥ä¥ó¥¯¤Ç¤­¤ë¤è¤¦¤Ë¤¹¤ë
+;;; kill-summary.el: ã‚­ãƒ«ãƒªãƒ³ã‚°ã®ä¸€è¦§ã‚’è¡¨ç¤ºã—é¸æŠãƒ¤ãƒ³ã‚¯ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
 ;;;
 ;;;     [2008/05/14] OSHIRO Naoki. 
-;;;     ¡¦truncate-string ¤Î²Õ½ê¤ò truncate-string-to-width ¤ËÊÑ¹¹¡ÊÃÙ¤¯¤Ê¤Ã¤Æ¤¹¤ß¤Ş¤»¤ó¡Ä¡Ë
+;;;     ãƒ»truncate-string ã®ç®‡æ‰€ã‚’ truncate-string-to-width ã«å¤‰æ›´ï¼ˆé…ããªã£ã¦ã™ã¿ã¾ã›ã‚“â€¦ï¼‰
 ;;;     [2001/12/25] OSHIRO Naoki. <oshiro@mibai.tec.u-ryukyu.ac.jp>
-;;;     ¡¦°ìÍ÷¤«¤éÁªÂò¤·¸µÊÔ½¸¥Ğ¥Ã¥Õ¥¡¤Ë¥ä¥ó¥¯¤Ç¤­¤ë¤è¤¦¤Ë¤·¤¿
+;;;     ãƒ»ä¸€è¦§ã‹ã‚‰é¸æŠã—å…ƒç·¨é›†ãƒãƒƒãƒ•ã‚¡ã«ãƒ¤ãƒ³ã‚¯ã§ãã‚‹ã‚ˆã†ã«ã—ãŸ
 ;;;     [2001/08/05] OSHIRO Naoki. <oshiro@mibai.tec.u-ryukyu.ac.jp>
-;;;     ¡¦°ìÍ÷É½¼¨¤Î¤ß¤ò»î¤·¤ËºîÀ®
+;;;     ãƒ»ä¸€è¦§è¡¨ç¤ºã®ã¿ã‚’è©¦ã—ã«ä½œæˆ
 ;;;
 
-;;; ¡¦yank-browse ¤È¤«¤ÎÌ¾Á°¤Î¤Û¤¦¤¬¤¤¤¤¤«¤â¡Ê´û¤ËÂ¾¤Ç¤¢¤ê¤Ş¤¹¤¬¡¥¡¥¡¥¡Ë
-;;; ¡¦»²¹Í
+;;; ãƒ»yank-browse ã¨ã‹ã®åå‰ã®ã»ã†ãŒã„ã„ã‹ã‚‚ï¼ˆæ—¢ã«ä»–ã§ã‚ã‚Šã¾ã™ãŒï¼ï¼ï¼ï¼‰
+;;; ãƒ»å‚è€ƒ
 ;;;   * yank,yank-pop (simple.el)
-;;;   * electric buffer list ¥â¡¼¥É (ebuff-menu.el) 
+;;;   * electric buffer list ãƒ¢ãƒ¼ãƒ‰ (ebuff-menu.el) 
 
-;;; [Æ°ºî³ÎÇ§]
-;;; ¡¦Meadow-1.19
-;;; ¡¦Mule-19.34.1
-;;; ¡¦XEmacs-21.1p14
+;;; [å‹•ä½œç¢ºèª]
+;;; ãƒ»Meadow-1.19
+;;; ãƒ»Mule-19.34.1
+;;; ãƒ»XEmacs-21.1p14
 
-;;; [~/.emacs ¤Ç¤ÎÆÉ¤ß¹ş¤ßÀßÄê]
+;;; [~/.emacs ã§ã®èª­ã¿è¾¼ã¿è¨­å®š]
 ;;;   ;;; kill-summary
 ;;;   (autoload 'kill-summary "kill-summary" nil t)
 ;;;   (define-key global-map "\ey" 'kill-summary)
 
-;;; [»È¤¤Êı]
-;;;   ¡¦kill-ring ÁªÂòÍÑ¥Ğ¥Ã¥Õ¥¡¤òÊÌ¥¦¥£¥ó¥É¥¦¤ËÉ½¼¨
-;;;   ¡¦p,n (j,k) ¤ÇÁ°¤È¼¡¤Î¸õÊä¤òÁªÂò¤·¸µÊÔ½¸¥Ğ¥Ã¥Õ¥¡¥Ø¥ä¥ó¥¯
-;;;     C-p (previous-line),C-n (next-line) ¤Ê¤é¸õÊä¤ò°ÜÆ°¤¹¤ë¤À¤±¡¥
-;;;     SPC ¤Ç¸½ºß¹Ô¤òÁªÂò¡¥C-v (scroll-up) ¤Ç¥¹¥¯¥í¡¼¥ë
-;;;   ¡¦¥ä¥ó¥¯ÎÎ°è¤Ï yank-pop É÷¤Ë¼¡¡¹¤ËÀÚ¤êÂØ¤ï¤ë
-;;;   ¡¦yank-pop ¤È¤ÎÀ°¹çÀ­¤ò³ÎÊİ¡¥M-y ¤Ë³ä¤êÅö¤Æ¤ì¤Ğ¤Ò¤È¤Ş¤ºÆ±¤¸¤è¤¦¤Ë»È
-;;;     ¤¨¤ë¡Ê¤Ş¤À¥ê¥ó¥°Æ°ºî¤Ï¤Ç¤­¤Ê¤¤¡Ä¡Ë¡¥
-;;;   ¡¦É½¼¨Ãæ¤ÏÂ¾¤ÎÁàºî¤Ï¤Ç¤­¤Ê¤¤¡¥RET (newline) ¤ÇÁªÂò·èÄê¡¥
-;;;     Ãæ»ß (q, C-g (keyboard-quit), C-xo (other-window)) »ş¤Ï
-;;;     ¥ä¥ó¥¯ÎÎ°è¤ò¾Ãµî
-;;;   ¡¦d ¤Ç¸½ºß¹Ô¤Î¥­¥ë¥ê¥ó¥°¤òÂ¨ºÂ¤Ë¾Ãµî
-;;;   ¡¦'.' ¤Ç¸½ºß¹Ô¤ò¥ä¥ó¥¯¥İ¥¤¥ó¥¿¤ËÀßÄê
-;;;   ¡¦t ¤Ç³Æ¥­¥ë¤Î¹Ô¿ôÉ½¼¨¤òÀÚ¤êÂØ¤¨
-;;;   ¡¦^,_ ¤Ç¥µ¥Ş¥ê¡¼¹â¤µ¤òÊÑ¹¹
-;;;   ¡¦½é´ü¥¦¥£¥ó¥É¥¦¹â¤µ¤Ï ~/.emacs Ãæ¤Ç¼¡¤Î¤è¤¦¤Ë¹Ô¤Ê¤¦¡Ê¥Ç¥Õ¥©¥ë¥ÈÃÍ 10¡Ë¡¥
+;;; [ä½¿ã„æ–¹]
+;;;   ãƒ»kill-ring é¸æŠç”¨ãƒãƒƒãƒ•ã‚¡ã‚’åˆ¥ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«è¡¨ç¤º
+;;;   ãƒ»p,n (j,k) ã§å‰ã¨æ¬¡ã®å€™è£œã‚’é¸æŠã—å…ƒç·¨é›†ãƒãƒƒãƒ•ã‚¡ãƒ˜ãƒ¤ãƒ³ã‚¯
+;;;     C-p (previous-line),C-n (next-line) ãªã‚‰å€™è£œã‚’ç§»å‹•ã™ã‚‹ã ã‘ï¼
+;;;     SPC ã§ç¾åœ¨è¡Œã‚’é¸æŠï¼C-v (scroll-up) ã§ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
+;;;   ãƒ»ãƒ¤ãƒ³ã‚¯é ˜åŸŸã¯ yank-pop é¢¨ã«æ¬¡ã€…ã«åˆ‡ã‚Šæ›¿ã‚ã‚‹
+;;;   ãƒ»yank-pop ã¨ã®æ•´åˆæ€§ã‚’ç¢ºä¿ï¼M-y ã«å‰²ã‚Šå½“ã¦ã‚Œã°ã²ã¨ã¾ãšåŒã˜ã‚ˆã†ã«ä½¿
+;;;     ãˆã‚‹ï¼ˆã¾ã ãƒªãƒ³ã‚°å‹•ä½œã¯ã§ããªã„â€¦ï¼‰ï¼
+;;;   ãƒ»è¡¨ç¤ºä¸­ã¯ä»–ã®æ“ä½œã¯ã§ããªã„ï¼RET (newline) ã§é¸æŠæ±ºå®šï¼
+;;;     ä¸­æ­¢ (q, C-g (keyboard-quit), C-xo (other-window)) æ™‚ã¯
+;;;     ãƒ¤ãƒ³ã‚¯é ˜åŸŸã‚’æ¶ˆå»
+;;;   ãƒ»d ã§ç¾åœ¨è¡Œã®ã‚­ãƒ«ãƒªãƒ³ã‚°ã‚’å³åº§ã«æ¶ˆå»
+;;;   ãƒ»'.' ã§ç¾åœ¨è¡Œã‚’ãƒ¤ãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿ã«è¨­å®š
+;;;   ãƒ»t ã§å„ã‚­ãƒ«ã®è¡Œæ•°è¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆ
+;;;   ãƒ»^,_ ã§ã‚µãƒãƒªãƒ¼é«˜ã•ã‚’å¤‰æ›´
+;;;   ãƒ»åˆæœŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦é«˜ã•ã¯ ~/.emacs ä¸­ã§æ¬¡ã®ã‚ˆã†ã«è¡Œãªã†ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ 10ï¼‰ï¼
 ;;;     (setq kill-summary-window-height 10)
 
 
@@ -86,7 +86,7 @@
   (setq kill-summary-mode-map map)))
 
 (defun kill-summary-delete ()
-  "¥­¥ë¥ê¥ó¥°¤«¤é¸½ºß¹Ô¤Î¸õÊä¤òºï½ü"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ã‹ã‚‰ç¾åœ¨è¡Œã®å€™è£œã‚’å‰Šé™¤"
   (interactive)
   (let (n (max (length kill-ring)) (cb (current-buffer))
 	  (zmacs-regions nil) (y (1- (count-lines (point-min) (point)))))
@@ -107,7 +107,7 @@
       (kill-summary-make-summary))))
 
 (defun kill-summary-set-yank-pointer ()
-  "¥­¥ë¥ê¥ó¥°¤Î¥İ¥¤¥ó¥¿¤ò°ìÍ÷¤Î¸½ºß¹Ô¤Î¸õÊä¤ËÀßÄê"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ã®ãƒã‚¤ãƒ³ã‚¿ã‚’ä¸€è¦§ã®ç¾åœ¨è¡Œã®å€™è£œã«è¨­å®š"
   (interactive)
   (let (n (max (length kill-ring)))
     (save-excursion
@@ -122,7 +122,7 @@
 	(message "Set yank pointer.")))))
 
 (defun kill-summary-yank ()
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤«¤éÁªÂò¹Ô¤ò¥ä¥ó¥¯"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã‹ã‚‰é¸æŠè¡Œã‚’ãƒ¤ãƒ³ã‚¯"
   (interactive)
   (let (n (max (length kill-ring)) (cb (current-buffer)) (pre-yank yanking)
 	  (zmacs-regions nil) ;; for XEmacs
@@ -154,7 +154,7 @@
 	(setq yanking t)))))
 
 (defun kill-summary-enlarge-window (arg)
-  "°ìÍ÷¥¦¥£¥ó¥É¥¦¤Î¹â¤µ¤ò³ÈÂç¡Ê¸µÊÔ½¸¥¦¥£¥ó¥É¥¦¤ò½Ì¾®¡Ë"
+  "ä¸€è¦§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•ã‚’æ‹¡å¤§ï¼ˆå…ƒç·¨é›†ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¸®å°ï¼‰"
   (interactive "p")
   (let (all)
     (setq all (pos-visible-in-window-p (point-max)))
@@ -165,21 +165,21 @@
   (select-window (get-buffer-window kill-summary-buffer)))
 
 (defun kill-summary-shrink-window (arg)
-  "°ìÍ÷¥¦¥£¥ó¥É¥¦¤Î¹â¤µ¤ò½Ì¾®¡Ê¸µÊÔ½¸¥¦¥£¥ó¥É¥¦¤ò³ÈÂç¡Ë"
+  "ä¸€è¦§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•ã‚’ç¸®å°ï¼ˆå…ƒç·¨é›†ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’æ‹¡å¤§ï¼‰"
   (interactive "p")
   (save-excursion
     (if (> (- (window-height) arg) window-min-height)
 	(kill-summary-enlarge-window (- arg)))))
 
 (defun kill-summary-next-line-with-yank (arg)
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤Î¼¡¤Î¹Ô¤Ë°ÜÆ°¤·¤½¤Î¸õÊä¤ò¥ä¥ó¥¯
-ARG ¤Ï°ÜÆ°¹Ô¿ô"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã®æ¬¡ã®è¡Œã«ç§»å‹•ã—ãã®å€™è£œã‚’ãƒ¤ãƒ³ã‚¯
+ARG ã¯ç§»å‹•è¡Œæ•°"
   (interactive "p")
   (kill-summary-next-line arg t))
 
 (defun kill-summary-next-line (arg &optional yank)
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤Î¼¡¤Î¹Ô¤Ë°ÜÆ°
-ARG ¤Ï°ÜÆ°¹Ô¿ô¡¥YANK ¤¬ nil ¤Ç¤Ê¤±¤ì¤Ğ°ÜÆ°¸å¤Î¸õÊä¹Ô¤ò¥ä¥ó¥¯¤¹¤ë"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã®æ¬¡ã®è¡Œã«ç§»å‹•
+ARG ã¯ç§»å‹•è¡Œæ•°ï¼YANK ãŒ nil ã§ãªã‘ã‚Œã°ç§»å‹•å¾Œã®å€™è£œè¡Œã‚’ãƒ¤ãƒ³ã‚¯ã™ã‚‹"
   (interactive "p")
   (forward-line arg)
   (beginning-of-line)
@@ -189,14 +189,14 @@ ARG ¤Ï°ÜÆ°¹Ô¿ô¡¥YANK ¤¬ nil ¤Ç¤Ê¤±¤ì¤Ğ°ÜÆ°¸å¤Î¸õÊä¹Ô¤ò¥ä¥ó¥¯¤¹¤ë"
 	(if yank (kill-summary-yank)))))
 
 (defun kill-summary-previous-line-with-yank (arg)
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤ÎÁ°¤Î¹Ô¤Ë°ÜÆ°¤·¤½¤Î¸õÊä¤ò¥ä¥ó¥¯
-ARG ¤Ï°ÜÆ°¹Ô¿ô"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã®å‰ã®è¡Œã«ç§»å‹•ã—ãã®å€™è£œã‚’ãƒ¤ãƒ³ã‚¯
+ARG ã¯ç§»å‹•è¡Œæ•°"
   (interactive "p")
   (kill-summary-previous-line arg t))
 
 (defun kill-summary-previous-line (arg &optional yank)
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤ÎÁ°¤Î¹Ô¤Ë°ÜÆ°
-ARG ¤Ï°ÜÆ°¹Ô¿ô¡¥YANK ¤¬ nil ¤Ç¤Ê¤±¤ì¤Ğ°ÜÆ°¸å¤Î¸õÊä¹Ô¤ò¥ä¥ó¥¯¤¹¤ë"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã®å‰ã®è¡Œã«ç§»å‹•
+ARG ã¯ç§»å‹•è¡Œæ•°ï¼YANK ãŒ nil ã§ãªã‘ã‚Œã°ç§»å‹•å¾Œã®å€™è£œè¡Œã‚’ãƒ¤ãƒ³ã‚¯ã™ã‚‹"
   (interactive "p")
   (forward-line (- arg))
   (if (re-search-forward "^ *[0-9]+:" nil t)
@@ -205,15 +205,15 @@ ARG ¤Ï°ÜÆ°¹Ô¿ô¡¥YANK ¤¬ nil ¤Ç¤Ê¤±¤ì¤Ğ°ÜÆ°¸å¤Î¸õÊä¹Ô¤ò¥ä¥ó¥¯¤¹¤ë"
 	(if yank (kill-summary-yank)))))
 
 (defun kill-summary-toggle-show-line-number ()
-  "¥­¥ë¹àÌÜ¤Î¹Ô¿ôÉ½¼¨¤ò¥È¥°¥ëÀÚÂØ"
+  "ã‚­ãƒ«é …ç›®ã®è¡Œæ•°è¡¨ç¤ºã‚’ãƒˆã‚°ãƒ«åˆ‡æ›¿"
   (interactive)
   (setq kill-summary-window-height (window-height))
   (setq kill-summary-show-line-number (not kill-summary-show-line-number))
   (kill-summary-make-summary))
 
 (defun kill-summary-make-summary ()
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤òºîÀ®
-ºîÀ®¸å¡¤¸½ºß¤Î kill-ring-yank-pointer ¤ËÂĞ±ş¤·¤¿¹Ô¤Ø°ÜÆ°¤¹¤ë"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã‚’ä½œæˆ
+ä½œæˆå¾Œï¼Œç¾åœ¨ã® kill-ring-yank-pointer ã«å¯¾å¿œã—ãŸè¡Œã¸ç§»å‹•ã™ã‚‹"
   (let ((max (length kill-ring)) n nyp str strtmp prev (ndsp 0) (lines "")
 	(w (- (window-width) 6)) (hs (window-height (selected-window))) h
 	buffer-read-only)
@@ -261,7 +261,7 @@ ARG ¤Ï°ÜÆ°¹Ô¿ô¡¥YANK ¤¬ nil ¤Ç¤Ê¤±¤ì¤Ğ°ÜÆ°¸å¤Î¸õÊä¹Ô¤ò¥ä¥ó¥¯¤¹¤ë"
       ndsp)))
   
 (defun kill-summary ()
-  "¥­¥ë¥ê¥ó¥°¤ò°ìÍ÷É½¼¨¤·ÁªÂò¤Ç¤­¤ë¤è¤¦¤Ë¤¹¤ë"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ã‚’ä¸€è¦§è¡¨ç¤ºã—é¸æŠã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹"
   (interactive)
   (let (buffer target-height pb pw pws pud pbm
 	       (pop-up-windows t)
@@ -305,8 +305,8 @@ ARG ¤Ï°ÜÆ°¹Ô¿ô¡¥YANK ¤¬ nil ¤Ç¤Ê¤±¤ì¤Ğ°ÜÆ°¸å¤Î¸õÊä¹Ô¤ò¥ä¥ó¥¯¤¹¤ë"
 	mode-name "Kill Summary"))
 
 (defun kill-summary-quit (&optional delete)
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷É½¼¨¤Î½ªÎ»
-DELETE ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¸µÊÔ½¸¥Ğ¥Ã¥Õ¥¡¤Ø¤Î¥ä¥ó¥¯¤ò¼è¤ê¾Ã¤¹"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§è¡¨ç¤ºã®çµ‚äº†
+DELETE ãŒ nil ã§ãªã„å ´åˆã¯å…ƒç·¨é›†ãƒãƒƒãƒ•ã‚¡ã¸ã®ãƒ¤ãƒ³ã‚¯ã‚’å–ã‚Šæ¶ˆã™"
   (interactive)
   (let (p (pre-yank yanking)
 	  (pb parent-buffer) (pw parent-window) (pws parent-window-start)
@@ -330,18 +330,18 @@ DELETE ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¸µÊÔ½¸¥Ğ¥Ã¥Õ¥¡¤Ø¤Î¥ä¥ó¥¯¤ò¼è¤ê¾Ã¤¹"
     (kill-buffer kill-summary-buffer)))
 
 (defun kill-summary-yank-and-quit ()
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤ò¥ä¥ó¥¯¤·¤Æ¤«¤é½ªÎ»"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã‚’ãƒ¤ãƒ³ã‚¯ã—ã¦ã‹ã‚‰çµ‚äº†"
   (interactive)
   (kill-summary-yank)
   (kill-summary-quit))
 
 (defun kill-summary-interrupt ()
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤«¤é¤ÎÁªÂò¤ÎÃæ»ß"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã‹ã‚‰ã®é¸æŠã®ä¸­æ­¢"
   (interactive)
   (kill-summary-quit t))
 
 (defun kill-summary-undefined ()
-  "¥­¥ë¥ê¥ó¥°°ìÍ÷¤Ç¤ÎÌµÄêµÁ¥­¡¼¥Ğ¥¤¥ó¥ÉÍÑ´Ø¿ô"
+  "ã‚­ãƒ«ãƒªãƒ³ã‚°ä¸€è¦§ã§ã®ç„¡å®šç¾©ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ç”¨é–¢æ•°"
   (interactive)
   ;(set-buffer kill-summary-parent-buffer)
   (ding)

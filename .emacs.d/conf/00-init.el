@@ -7,8 +7,8 @@
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path))))))
  
-;; elispとconfディレクトリをサブディレクトリごとload-pathに追加
-(add-to-load-path "elisp" "conf")
+;; elispディレクトリをサブディレクトリごとload-pathに追加
+(add-to-load-path "elisp" "elpa")
 
 ;;(require 'emacs-type)
 ;; Emacs の種類バージョンを判別するための変数を定義

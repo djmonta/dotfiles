@@ -13,4 +13,3 @@
 ;; init-loader
 (require 'init-loader)
 (init-loader-load (concat user-emacs-directory "/conf"))
-

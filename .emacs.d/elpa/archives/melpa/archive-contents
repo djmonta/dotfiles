@@ -765,7 +765,7 @@
 		  (24 1)))
 		"a dark colorful theme for Emacs24. [github]" single])
  (solarized-theme .
-		  [(20130918 1004)
+		  [(20130920 2236)
 		   nil "The Solarized color theme, ported to Emacs. [github]" tar])
  (soft-morning-theme .
 		     [(20130917 1850)
@@ -901,7 +901,7 @@
 		 [(20130711 1833)
 		  nil "Provide fast switching between shell buffers [github]" tar])
  (shell-pop .
-	    [(20130911 1953)
+	    [(20130920 2308)
 	     nil "helps you to use shell easily on Emacs. Only one key action to work. [github]" single])
  (shell-history .
 		[(20100504 850)
@@ -1769,7 +1769,7 @@
 		   [(20130312 2058)
 		    nil "Custom theme for faces based on Adwaita [github]" single])
  (obsidian-theme .
-		 [(20130912 2109)
+		 [(20130920 1737)
 		  nil "port of the eclipse obsidian theme [github]" single])
  (object-registry .
 		  [(20130521 2113)
@@ -1909,7 +1909,7 @@
 	      [(20090804 2252)
 	       nil "Major mode to edit muttrc under Emacs [wiki]" single])
  (mustang-theme .
-		[(20130911 1328)
+		[(20130920 1739)
 		 nil "port of vim's mustang theme [github]" single])
  (mustache-mode .
 		[(20110927 1253)
@@ -2530,6 +2530,9 @@
  (j-mode .
 	 [(20130301 2049)
 	  nil "Major mode for editing J programs [github]" tar])
+ (iy-go-to-char .
+		[(20130901 729)
+		 nil "Go to next CHAR which is similar to \"f\" and \"t\" in vim [wiki]" single])
  (itail .
 	[(20130102 1159)
 	 nil "An interactive tail mode [github]" single])
@@ -3490,7 +3493,7 @@
 		   (0 6 0)))
 		 "Cask support in Flycheck [github]" single])
  (flycheck .
-	   [(20130915 2031)
+	   [(20130920 1543)
 	    ((s
 	      (1 6 0))
 	     (dash
@@ -3608,7 +3611,7 @@
 	      (0 3 1)))
 	   "File activity logger [github]" single])
  (f .
-    [(20130902 2040)
+    [(20130920 1821)
      ((s
        (1 7 0))
       (dash
@@ -4525,7 +4528,7 @@
 	    (0 3 7)))
 	  "Client for Jenkins [github]" tar])
  (busybee-theme .
-		[(20130911 1330)
+		[(20130920 1742)
 		 nil "port of vim's mustang theme [github]" single])
  (buster-snippets .
 		  [(20130714 1440)
@@ -4772,7 +4775,7 @@
       [(20130817 845)
        nil "various useful ways to do `multi-occur' [wiki]" single])
  (anzu .
-       [(20130920 1307)
+       [(20130920 2334)
 	nil "Emacs Port of anzu.vim [github]" single])
  (anything-git-grep .
 		    [(20130609 1111)
@@ -4920,8 +4923,5 @@
 	    nil "Python TDD minor mode [github]" single])
  (abc-mode .
 	   [(20130607 917)
-	    nil "Major mode for editing abc music files [github]" single])
- (iy-go-to-char .
-		[(20130901 729)
-		 nil "Go to next CHAR which is similar to \"f\" and \"t\" in vim [wiki]" single]))
+	    nil "Major mode for editing abc music files [github]" single]))
 

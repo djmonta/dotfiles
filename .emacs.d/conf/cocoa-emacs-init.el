@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/01/24-02:20:37
+;; Last Modified: 2013/09/21-10:36:22
 
 ;;ATOK2013
 (setq default-input-method "MacOSX")
@@ -12,6 +12,10 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; PATH
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(push "/usr/local/bin" exec-path)
 
 ;; Command-Key and Option-Key
 ;(setq ns-command-modifier (quote meta))
@@ -103,3 +107,5 @@
 ;;twittering-mode
 ;;(load "50-twitter")
 
+;;タイムスタンプ
+(add-hook 'before-save-hook 'time-stamp)

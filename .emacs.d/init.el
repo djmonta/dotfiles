@@ -1,4 +1,4 @@
-;; Last Modified: 2013/01/15-21:25:00
+;; Last Modified: 2013/09/21-10:39:25
 
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory (expand-file-name "~/.emacs.d/")))

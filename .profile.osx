@@ -25,7 +25,7 @@
 #  PATHの追加はここより後に行うこと
 #
 
-PATH=${HOME}/bin:${HOME}/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
+PATH="${HOME}/bin:${HOME}/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:$PATH"
 PATH=$PATH:/usr/X11/bin
 if [[ -f /usr/local/opt/ruby/bin/ruby ]]; then
 	export PATH=/usr/local/opt/ruby/bin:$PATH
@@ -34,7 +34,7 @@ export PATH
 
 export RBENV_ROOT=/usr/local/opt/rbenv
 
-MANPATH=/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH
+MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH
 export MANPATH
 
 INFOPATH=/usr/local/share/info:/usr/share/info:$INFOPATH
@@ -43,8 +43,8 @@ export INFOPATH
 #
 # MySQL
 #
-export MYSQL_HOME=/usr/local/mysql
-export PATH=$MYSQL_HOME/bin:$PATH
+#export MYSQL_HOME=/usr/local/mysql
+#export PATH=$MYSQL_HOME/bin:$PATH
 
 # Android SDK
 export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools

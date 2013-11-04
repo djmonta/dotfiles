@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/09/21-10:36:22
+;; Last Modified: 2013/09/21-11:03:53
 
 ;;ATOK2013
 (setq default-input-method "MacOSX")
@@ -47,12 +47,12 @@
 
 ;;ウィンドウサイズ位置指定
 ;(setq initial-frame-alist '((width . 80) (height . 50)
-(setq initial-frame-alist '((width . 184) (height . 71)
-(top . 0) (left . 620)))
+(setq initial-frame-alist '((width . 270) (height . 71)
+(top . 0) (left . 0)))
 
 ;;縦二分割
-(when (>= emacs-major-version 23)
- (split-window-horizontally))
+;; (when (>= emacs-major-version 23)
+;;   (split-window-horizontally))
 
 ;;Color&Tranceparent
 ;; (set-background-color "Black")
@@ -109,3 +109,7 @@
 
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)
+
+;最小の e2wm 設定例
+(require 'e2wm)
+(global-set-key (kbd "M-+") 'e2wm:start-management)

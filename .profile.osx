@@ -10,12 +10,12 @@
 #  デフォルトエディタに emacs 設定
 #
 # if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-    export EDITOR=emacsclient
-    export VISUAL=emacsclient
+    export EDITOR="sublime -w"
+    export VISUAL="sublime -w"
     
     # Gitでコミット時に起動するエディタを指定
     # 未指定だとコミット時にエラーになる(絶対パス必須)
-    export GIT_EDITOR=/usr/local/bin/emacsclient
+    export GIT_EDITOR="/usr/local/bin/sublime -w"
 # fi
 
 
@@ -48,6 +48,9 @@ export INFOPATH
 
 # Android SDK
 export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools
+
+# npm
+export PATH=$PATH:/usr/local/share/npm/bin
 
 ### Complete Messages
 echo "Loading .profile.osx completed!!"

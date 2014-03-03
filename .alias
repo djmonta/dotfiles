@@ -414,19 +414,9 @@ sjis() {
 
 
 #
-# rmtrash
-#
-alias rmt='rmtrash'
-
-#
 # emacsclient
 #
 alias emacsc="emacsclient -t -c"
-
-#
-# tmux
-#
-alias tmux='tmuxx'
 
 ### Complete Messages
 echo "Loading .alias completed!!"

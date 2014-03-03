@@ -32,7 +32,7 @@ if [[ -f /usr/local/opt/ruby/bin/ruby ]]; then
 fi
 export PATH
 
-export RBENV_ROOT=/usr/local/opt/rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
 
 MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH
 export MANPATH

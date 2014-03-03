@@ -208,9 +208,11 @@ set_aliases_for_ext
 case "${OSTYPE}" in
     # Mac(Unix)
     darwin*)
+    alias rm='trash'
     ;;
     # Linux
     linux*)
+    alias rm='rmtrash'
     ;;
 esac
 

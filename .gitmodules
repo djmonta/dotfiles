@@ -13,3 +13,6 @@
 [submodule "Cellar/fu"]
 	path = Cellar/fu
 	url = https://github.com/samirahmed/fu.git
+[submodule "Cellar/rmtrash"]
+	path = Cellar/rmtrash
+	url = https://github.com/PhrozenByte/rmtrash.git

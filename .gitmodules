@@ -16,3 +16,6 @@
 [submodule "Cellar/rmtrash"]
 	path = Cellar/rmtrash
 	url = https://github.com/PhrozenByte/rmtrash.git
+[submodule ".tmux/tmux-powerline"]
+	path = .tmux/tmux-powerline
+	url = https://github.com/erikw/tmux-powerline.git

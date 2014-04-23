@@ -7,3 +7,6 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

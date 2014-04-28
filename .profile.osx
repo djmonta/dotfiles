@@ -47,7 +47,7 @@ export INFOPATH
 #export PATH=$MYSQL_HOME/bin:$PATH
 
 # Android SDK
-export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools
+export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools:/Applications/adt-bundle-mac/sdk/tools
 
 # npm
 export PATH=$PATH:/usr/local/share/npm/bin

@@ -7,9 +7,9 @@
 #
 # デフォルトエディタ
 #
-export ALTERNATE_EDITOR="emacsc"
-export EDITOR="emacsc"
-export VISUAL="emacsc"
+export ALTERNATE_EDITOR="emacsclient"
+export EDITOR="emacsclient"
+export VISUAL="emacsclient"
     
 # Gitでコミット時に起動するエディタを指定
 # 未指定だとコミット時にエラーになる(絶対パス必須)

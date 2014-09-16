@@ -34,12 +34,12 @@ export INFOPATH
 # export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig
 
 # Java
-# if [ -d /usr/java/default ]; then
-#     export JAVA_HOME=/usr/java/default
-#     export PATH=$JAVA_HOME/bin:$PATH
-#     export CATALINA_HOME='/usr/local/tomcat'
-#     export JAVA_OPTS='-Dfile.encoding=UTF-8'
-# fi
+if [ -d /usr/local/java/default ]; then
+    export JAVA_HOME=/usr/local/java/default
+    export PATH=$JAVA_HOME/bin:$PATH
+    export CATALINA_HOME='/usr/local/tomcat'
+    export JAVA_OPTS='-Dfile.encoding=UTF-8'
+fi
 
 # Maven
 # export MAVEN_VERSION='2.2.1'

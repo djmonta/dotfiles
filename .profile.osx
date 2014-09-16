@@ -9,14 +9,17 @@
 #
 #  デフォルトエディタに emacs 設定
 #
-# if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-    export EDITOR="sublime -w"
-    export VISUAL="sublime -w"
+#
+# デフォルトエディタ
+#
+export ALTERNATE_EDITOR="sublime -w"
+export EDITOR="sublime -w"
+export VISUAL="sublime -w"
     
-    # Gitでコミット時に起動するエディタを指定
-    # 未指定だとコミット時にエラーになる(絶対パス必須)
-    export GIT_EDITOR="/usr/local/bin/sublime -w"
-# fi
+# Gitでコミット時に起動するエディタを指定
+# 未指定だとコミット時にエラーになる(絶対パス必須)
+export GIT_EDITOR="/usr/local/bin/sublime -w"
+
 
 
 #

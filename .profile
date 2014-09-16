@@ -139,9 +139,9 @@ export LESSCHARSET=utf-8
 #
 # デフォルトエディタ
 #
-export ALTERNATE_EDITOR="sublime -w"
-export EDITOR="sublime -w"
-export VISUAL="sublime -w"
+#export ALTERNATE_EDITOR="sublime -w"
+#export EDITOR="sublime -w"
+#export VISUAL="sublime -w"
 
 
 #

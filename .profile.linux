@@ -4,6 +4,17 @@
 #
 #*******************************************************************************
 
+#
+# デフォルトエディタ
+#
+export ALTERNATE_EDITOR="emacsc"
+export EDITOR="emacsc"
+export VISUAL="emacsc"
+    
+# Gitでコミット時に起動するエディタを指定
+# 未指定だとコミット時にエラーになる(絶対パス必須)
+export GIT_EDITOR="/usr/local/bin/emacsclient"
+
 # PATH
 PATH=~/bin:~/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 export PATH

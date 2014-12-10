@@ -41,6 +41,9 @@ if [ -d /usr/local/java/default ]; then
     export JAVA_OPTS='-Dfile.encoding=UTF-8'
 fi
 
+# Nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # Maven
 # export MAVEN_VERSION='2.2.1'
 # if [ -d /usr/local/apache-maven-$MAVEN_VERSION ]; then

@@ -3,7 +3,7 @@
 ;; Copyright (C) 2010, 2011, 2012, 2013  SAKURAI Masashi
 
 ;; Author: SAKURAI Masashi <m.sakurai atmark kiwanami.net>
-;; Version: 20130806.1054
+;; Version: 20140819.2258
 ;; X-Original-Version: 1.2
 ;; Keywords: window, layout
 
@@ -36,11 +36,11 @@
 ;;            (- (:upper-max-size 15) 
 ;;               summary 
 ;;               message))
-;;        '((:name 'folder 
+;;        '((:name folder 
 ;;           :buffer "folder buffer")
-;;          (:name 'summary
+;;          (:name summary
 ;;           :buffer "summary buffer")
-;;          (:name 'message
+;;          (:name message
 ;;           :buffer "message buffer")
 ;;         )))
 

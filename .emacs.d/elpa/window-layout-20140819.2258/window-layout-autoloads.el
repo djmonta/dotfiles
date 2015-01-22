@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil nil ("window-layout-pkg.el" "window-layout.el")
-;;;;;;  (21052 64848 7751 0))
+;;;;;;  (21696 42758 636629 0))
 
 ;;;***
 

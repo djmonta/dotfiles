@@ -1,5 +1,5 @@
 ;;; auto-install.el --- Auto install elisp file
-;; $Id: auto-install.el,v 1.54 2012/01/15 12:10:20 rubikitch Exp rubikitch $
+;; $Id: auto-install.el,v 1.58 2015/01/14 08:24:23 rubikitch Exp $
 
 ;; Filename: auto-install.el
 ;; Description: Auto install elisp file
@@ -9,8 +9,8 @@
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Copyright (C) 2009, rubikitch, all rights reserved.
 ;; Created: 2008-12-11 13:56:50
-;; Version: 20130824.1206
-;; X-Original-Version: $Revision: 1.54 $
+;; Version: 20150114.824
+;; X-Original-Version: $Revision: 1.58 $
 ;; URL: http://www.emacswiki.org/emacs/download/auto-install.el
 ;; Keywords: auto-install
 ;; Compatibility: GNU Emacs 22 ~ 23
@@ -25,7 +25,7 @@
 ;;   `url-util', `url-vars'.
 ;;
 
-(defvar auto-install-version "$Id: auto-install.el,v 1.54 2012/01/15 12:10:20 rubikitch Exp rubikitch $")
+(defvar auto-install-version "$Id: auto-install.el,v 1.58 2015/01/14 08:24:23 rubikitch Exp $")
 ;;; This file is NOT part of GNU Emacs
 
 ;;; License
@@ -131,7 +131,7 @@
 ;;    default = "wget"
 ;;  `auto-install-use-wget'
 ;;    *Use wget instead of `url-retrieve'.
-;;    default = (executable-find "wget")
+;;    default = nil
 ;;  `auto-install-batch-list'
 ;;    This list contain packages information for batch install.
 ;;    default = nil
@@ -297,6 +297,15 @@
 ;;; Change log:
 ;;
 ;; $Log: auto-install.el,v $
+;; Revision 1.58  2015/01/14 08:24:23  rubikitch
+;; Change auto-install-batch-list-el-url
+;;
+;; Revision 1.57  2015/01/04 21:58:24  rubikitch
+;; Don't use wget by default because of problem.
+;;
+;; Revision 1.56  2015/01/04 21:53:56  rubikitch
+;; Summary: Change emacswiki download URL
+;;
 ;; Revision 1.54  2012/01/15 12:10:20  rubikitch
 ;; Default value of `auto-install-use-wget' is whether wget exists or not.
 ;;
@@ -659,7 +668,7 @@ Otherwise, the existing file of the same name is replaced."
   :type 'string
   :group 'auto-install)
 
-(defcustom auto-install-emacswiki-base-url "http://www.emacswiki.org/cgi-bin/wiki/download/"
+(defcustom auto-install-emacswiki-base-url "http://www.emacswiki.org/emacs/download/"
   "The base emacswiki.org url from which to download elisp files."
   :type 'string
   :group 'auto-install)
@@ -706,14 +715,15 @@ Nil means no confirmation is needed."
 
 (defcustom auto-install-wget-command "wget"
   "*Wget command. Use only if `auto-install-use-wget' is non-nil."
-  :type 'string  
+  :type 'string
   :group 'auto-install)
 
-(defcustom auto-install-use-wget (executable-find "wget")
+(defcustom auto-install-use-wget nil
   "*Use wget instead of `url-retrieve'.
 
-It is enabled by default when wget is found."
-  :type 'boolean  
+It WAS enabled by default when wget is found.
+But some files (e.g. icicles.el) are downloaded incorrectly."
+  :type 'boolean
   :group 'auto-install)
 
 (defcustom auto-install-batch-list
@@ -735,7 +745,7 @@ Use M-x `auto-install-batch-edit'. "
   "The real value of `auto-install-batch-list'. ")
 
 (defvar auto-install-batch-list-el-url
-  "http://www.rubyist.net/~rubikitch/archive/auto-install-batch-list.el"
+  "http://rubikitch.com/f/auto-install-batch-list.el"
   "The url of auto-install-batch-list.el.
 It is downloaded and evaluated just after M-x `auto-install-batch'. ")
 
@@ -816,7 +826,7 @@ It is needed because `auto-install-batch' can install non-elisp files.")
          (auto-install-download (concat auto-install-emacswiki-base-url file)))
         (t
          ;; Otherwise update package name and install.
-         (auto-install-download "http://www.emacswiki.org/cgi-bin/emacs?action=index;raw=1"
+         (auto-install-download "http://www.emacswiki.org/?action=index;raw=1"
                                 'auto-install-handle-emacswiki-package-install))))
 
 (defun auto-install-from-gist (&optional gistid-or-url)
@@ -895,7 +905,7 @@ If UNFORCED is non-nil, just update package name when `auto-install-package-name
                auto-install-package-name-list)
     (if (and (auto-install-network-available-p "www.emacswiki.org")
              (with-timeout (5 nil)
-               (progn (auto-install-download "http://www.emacswiki.org/cgi-bin/emacs?action=index;raw=1"
+               (progn (auto-install-download "http://www.emacswiki.org/?action=index;raw=1"
                                              'auto-install-handle-emacswiki-package-name))
                t))
       (message
@@ -911,7 +921,7 @@ If UNFORCED is non-nil, just update package name when `auto-install-package-name
           ;; Mark files that exist at `EmacsWiki'.
           (auto-install-dired-mark-files-internal)
         ;; Or get package name list and match files.
-        (auto-install-download "http://www.emacswiki.org/cgi-bin/emacs?action=index;raw=1"
+        (auto-install-download "http://www.emacswiki.org/?action=index;raw=1"
                                'auto-install-handle-dired-mark-files))
     (error "This command just use in `dired-mode'.")))
 
@@ -1050,8 +1060,8 @@ Note that non-elisp can be installed only via `auto-install-batch'"
                            (car (last (auto-install-batch-get-info url batch-list))))))))))))
 
 ;;;; unit test
-;; (install-elisp "http://www.emacswiki.org/cgi-bin/wiki/download/el-expectations.el")
-;; (install-elisp "http://www.emacswiki.org/cgi-bin/wiki/download/el-mock.el")
+;; (install-elisp "http://www.emacswiki.org/emacs/download/el-expectations.el")
+;; (install-elisp "http://www.emacswiki.org/emacs/download/el-mock.el")
 (dont-compile
   (when (fboundp 'expectations)
     (expectations
@@ -1097,7 +1107,7 @@ default is `auto-install-handle-download-content'."
   (unless (file-exists-p auto-install-directory)
     (make-directory auto-install-directory)
     (when auto-install-add-load-path-flag
-      (add-to-list 'load-path auto-install-directory)) 
+      (add-to-list 'load-path auto-install-directory))
     (message "Create directory %s for install elisp file." auto-install-directory))
   ;; Download.
   (funcall
@@ -1504,4 +1514,3 @@ How to send a bug report:
 
 ;;; LocalWords:  el eol dirs fontify gistid txt func bytecomp DDirectory ediff
 ;;; LocalWords:  noselect Unmark unmark AutoInstall keybindings defalias'es
-

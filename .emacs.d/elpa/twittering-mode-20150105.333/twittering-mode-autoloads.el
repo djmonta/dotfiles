@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (twit) "twittering-mode" "twittering-mode.el" (21052
-;;;;;;  33355 0 0))
+;;;### (autoloads (twit) "twittering-mode" "twittering-mode.el" (21696
+;;;;;;  42386 0 0))
 ;;; Generated autoloads from twittering-mode.el
 
 (autoload 'twit "twittering-mode" "\
@@ -14,8 +14,8 @@ Start twittering-mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("twittering-mode-pkg.el") (21052 33355
-;;;;;;  279632 0))
+;;;### (autoloads nil nil ("twittering-mode-pkg.el") (21696 42386
+;;;;;;  675542 0))
 
 ;;;***
 

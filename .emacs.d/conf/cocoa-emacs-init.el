@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
-;; Last Modified: 2013/09/21-11:03:53
+;; Last Modified: 2015/01/22-15:44:44
 
 ;;ATOK2013
 (setq default-input-method "MacOSX")
@@ -23,6 +23,7 @@
 
 ;;optionキーをMetaキーとして利用
 (setq mac-option-modifier 'meta)
+;(setq mac-command-modifier 'super)
 
 ;(mac-key-mode 1)
 
@@ -92,6 +93,19 @@
 (set-fontset-font
  nil 'japanese-jisx0208
  (font-spec :family "Ricty"))
+
+; (set-fontset-font (frame-parameter nil 'font)
+;                   'japanese-jisx0208
+;                   (cons "Ricty" "iso10646-1"))
+; (set-fontset-font (frame-parameter nil 'font)
+;                   'japanese-jisx0212
+;                   (cons "Ricty" "iso10646-1"))
+; (set-fontset-font (frame-parameter nil 'font)
+;                   'katakana-jisx0201
+;                   (cons "Ricty" "iso10646-1"))
+
+; (set-default-font "ricty-13.5:spacing=0")
+; (add-to-list 'default-frame-alist '(font . "ricty-13.5"))
 
 ;; zencoding-mode
 ; (require 'zencoding-mode)

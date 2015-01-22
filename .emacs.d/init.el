@@ -13,3 +13,6 @@
 ;; init-loader
 (require 'init-loader)
 (init-loader-load (concat user-emacs-directory "/conf"))
+
+;; バイトコンパイル（より新しい方を読み込む）
+(setq load-prefer-newer t)

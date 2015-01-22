@@ -1,10 +1,10 @@
 ;;; init-loader-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (init-loader-show-log init-loader-load) "init-loader"
-;;;;;;  "init-loader.el" (21052 27145 0 0))
+;;;### (autoloads nil "init-loader" "init-loader.el" (21696 37007
+;;;;;;  0 0))
 ;;; Generated autoloads from init-loader.el
 
 (autoload 'init-loader-load "init-loader" "\
@@ -19,16 +19,9 @@ Show init-loader log buffer.
 
 ;;;***
 
-;;;### (autoloads nil nil ("init-loader-pkg.el") (21052 27145 870634
-;;;;;;  0))
-
-;;;***
-
-(provide 'init-loader-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; init-loader-autoloads.el ends here

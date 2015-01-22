@@ -2,8 +2,8 @@
 
 ;; Author: IMAKADO <ken.imakado@gmail.com>
 ;; URL: https://github.com/emacs-jp/init-loader/
-;; Version: 20130218.1210
-;; X-Original-Version: 0.01
+;; Version: 20141030.2333
+;; X-Original-Version: 0.02
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -69,9 +69,11 @@
 ;; then it is recompiled next time it is loaded.
 ;;
 ;; Loaded files and errors during the loading process are recorded.
-;; If `init-loader-show-log-after-init' is non-nil, the record is
-;; shown after the overall loading process.  You can do this manually
-;; by M-x init-loader-show-log.
+;; If `init-loader-show-log-after-init' is `t', the record is
+;; shown after the overall loading process. If `init-loader-show-log-after-init`
+;; is `'error-only', the record is shown only error occured.
+;; You can do this manually by M-x init-loader-show-log.
+;;
 
 ;;; Code:
 
@@ -94,7 +96,8 @@
   :group 'init-loader)
 
 (defcustom init-loader-show-log-after-init t
-  "Show loading log message if this value is non-nil."
+  "Show loading log message if this value is t. If this value is `error-only',
+log message is shown only errors occured."
   :type 'boolean
   :group 'init-loader)
 
@@ -144,7 +147,8 @@ example, 00_foo.el, 01_bar.el ... 99_keybinds.el."
 ;;;###autoload
 (defun* init-loader-load (&optional (init-dir init-loader-directory))
   "Load configuration files in INIT-DIR."
-  (let ((init-dir (init-loader-follow-symlink init-dir)))
+  (let ((init-dir (init-loader-follow-symlink init-dir))
+        (is-carbon-emacs nil))
     (assert (and (stringp init-dir) (file-directory-p init-dir)))
     (init-loader-re-load init-loader-default-regexp init-dir t)
 
@@ -157,36 +161,45 @@ example, 00_foo.el, 01_bar.el ... 99_keybinds.el."
 
     ;; Carbon Emacs
     (when (featurep 'carbon-emacs-package)
-      (init-loader-re-load init-loader-carbon-emacs-regexp init-dir))
+      (init-loader-re-load init-loader-carbon-emacs-regexp init-dir)
+      (setq is-carbon-emacs t))
     ;; Cocoa Emacs
-    (when (equal window-system 'ns)
+    (when (or (memq window-system '(ns mac))
+              (and (not is-carbon-emacs) ;; for daemon mode
+                   (not window-system)
+                   (eq system-type 'darwin)))
       (init-loader-re-load init-loader-cocoa-emacs-regexp init-dir))
 
     ;; GNU Linux
-    (when (equal system-type 'gnu/linux)
+    (when (eq system-type 'gnu/linux)
       (init-loader-re-load init-loader-linux-regexp init-dir))
 
     ;; no-window
-    (when (null window-system)
+    (when (not window-system)
       (init-loader-re-load init-loader-nw-regexp init-dir))
 
-    (when init-loader-show-log-after-init
-      (add-hook  'after-init-hook 'init-loader-show-log))))
+    (case init-loader-show-log-after-init
+      (error-only (add-hook 'after-init-hook 'init-loader--show-log-error-only))
+      ('t (add-hook 'after-init-hook 'init-loader-show-log)))))
 
 (defun init-loader-follow-symlink (dir)
   (cond ((file-symlink-p dir)
          (expand-file-name (file-symlink-p dir)))
         (t (expand-file-name dir))))
 
-(declare-function init-loader-log "init-loader.el" (&optional s) t)
-(lexical-let (logs)
-  (defun init-loader-log (&optional s)
-    (if s (and (stringp s) (push s logs)) (mapconcat 'identity (reverse logs) "\n"))))
+(defvar init-loader--log-buffer nil)
+(defun init-loader-log (&optional msg)
+  (if msg
+      (when (stringp msg)
+        (push msg init-loader--log-buffer))
+    (mapconcat 'identity (reverse init-loader--log-buffer) "\n")))
 
-(declare-function init-loader-error-log "init-loader.el" (&optional s) t)
-(lexical-let (err-logs)
-  (defun init-loader-error-log (&optional s)
-    (if s (and (stringp s) (push s err-logs)) (mapconcat 'identity (reverse err-logs) "\n"))))
+(defvar init-loader--error-log-buffer nil)
+(defun init-loader-error-log (&optional msg)
+  (if msg
+      (when (stringp msg)
+        (push msg init-loader--error-log-buffer))
+    (mapconcat 'identity (reverse init-loader--error-log-buffer) "\n")))
 
 (defvar init-loader-before-compile-hook nil)
 (defun init-loader-load-file (file)
@@ -223,12 +236,18 @@ example, 00_foo.el, 01_bar.el ... 99_keybinds.el."
         collect (file-name-nondirectory el) into ret
         finally return (if sort (sort ret 'string<) ret)))
 
+(defun init-loader--show-log-error-only ()
+  (let ((err (init-loader-error-log)))
+    (when (and err (not (string= err "")))
+      (init-loader-show-log))))
+
 ;;;###autoload
 (defun init-loader-show-log ()
   "Show init-loader log buffer."
   (interactive)
   (let ((b (get-buffer-create "*init log*")))
     (with-current-buffer b
+      (view-mode -1)
       (erase-buffer)
       (insert "------- error log -------\n\n"
               (init-loader-error-log)
@@ -240,7 +259,8 @@ example, 00_foo.el, 01_bar.el ... 99_keybinds.el."
       (insert "------- load path -------\n\n"
               (mapconcat 'identity load-path "\n"))
       (goto-char (point-min)))
-    (switch-to-buffer b)))
+    (switch-to-buffer b)
+    (view-mode +1)))
 
 (provide 'init-loader)
 

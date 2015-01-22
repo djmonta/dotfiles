@@ -58,6 +58,7 @@ create_dotfiles_symlinks() {
     #
     DOT_FILES=(.bash_profile
         .bashrc
+        .profile
         # .config
         .emacs.d
         .gitconfig

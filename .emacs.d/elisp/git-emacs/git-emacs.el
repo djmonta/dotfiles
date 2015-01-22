@@ -482,7 +482,7 @@ visiting files that no longer exist."
     (unwind-protect
         (let ((buffers-not-reverted (copy-sequence buffers-that-exist))
               buffers-that-exist-unsaved buffers-that-exist-saved)
-          (flet ((buffer-refresh-func (buffer)
+          (cl-flet ((buffer-refresh-func (buffer)
                   (with-current-buffer buffer (revert-buffer t t))
                   ;; A hash table is probably not worth it here.
                   (setq buffers-not-reverted
@@ -2615,12 +2615,14 @@ usual pre / post work: ask for save, ask for refresh."
    (lambda (p)
      ;; iterating visible buffers
      (let ((visible-buffers 
-            (mapcar '(lambda (window) (window-buffer window)) (window-list))))
+            (mapcar #'(lambda (window) (window-buffer window)) (window-list))))
        (loop for buffer in visible-buffers do
              (with-current-buffer buffer
-               (when (and buffer-file-name (git--in-vc-mode?))
+               (when (and (not tramp-mode) (buffer-file-name (git--in-vc-mode?)))
                  (let ((top (expand-file-name ".git/index" (git--get-top-dir))))
-                   (when (> p (second (time-since (elt (file-attributes top) 4))))
+                   (when
+		       (and (file-exists-p top)
+			    (> p (second (time-since (elt (file-attributes top) 4)))))
                      (git--update-modeline))))))))
    secs))
 

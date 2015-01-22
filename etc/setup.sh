@@ -106,7 +106,7 @@ create_dotfiles_symlinks() {
 ## Main --------------------
 
 # Macの設定
-setup_osx
+#setup_osx
 
 # dotfilesを作成
 confirm_exe 'dotfilesを作成しますか？' && create_dotfiles

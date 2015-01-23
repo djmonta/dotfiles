@@ -66,14 +66,11 @@ create_dotfiles_symlinks() {
             create_symlink "$HOME/dotfiles/$file" "$HOME/$file"
         done
 
-        # .zshenv
-        create_symlink "$HOME/dotfiles/.zsh/.zshenv" "$HOME/.zshenv"
-
         # .gitignore
         create_symlink "$HOME/dotfiles/.gitignore.default" "$HOME/.gitignore"
 
         # .dir_colors
-        create_symlink "$HOME/dotfiles/Cellar/dircolors-solarized/dircolors.ansi-universal" "$HOME/.dir_colors"
+        create_symlink "$HOME/dotfiles/Cellar/dircolors-solarized/dircolors.256dark" "$HOME/.dir_colors"
 
         # links
         create_symlink "$HOME/dotfiles.local/links" "$HOME/links"

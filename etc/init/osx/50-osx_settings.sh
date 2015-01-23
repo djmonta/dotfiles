@@ -80,26 +80,6 @@ set_finder_preferences()
     chflags nohidden ~/Library
 }
 
-# Keyboard {{{1
-set_keyboard_preferences()
-{
-    # システム環境設定 -> 修飾キー -> Apple Wireless Keyboard
-    # Caps Lock -> Control
-    # Control -> Caps Lock
-}
-
-# Language & Region {{{1
-set_language_and_region_preferences()
-{
-    
-}
-
-# Map.app {{{1
-set_maps_preferences()
-{
-    
-}
-
 # Safari.app {{{1
 set_safari_preferences()
 {
@@ -142,12 +122,6 @@ set_spotlight_preferences()
     sudo mdutil -i on / > /dev/null
     # Rebuild the index from scratch
     sudo mdutil -E / > /dev/null
-}
-
-# TextEdit {{{1
-set_textedit_preferences()
-{
-
 }
 
 # Trackpad {{{1
@@ -254,12 +228,8 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     set_quicklook_preferences
     set_dock_preferences
     set_finder_preferences
-    set_keyboard_preferences
-    set_language_and_region_preferences
-    set_maps_preferences
     set_safari_preferences
     set_terminal_preferences
-    set_textedit_preferences
     set_trackpad_preferences
     set_transmission_preferences
     set_ui_and_ux_preferences
@@ -269,7 +239,6 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     killall Finder
     killall Safari
     killall SystemUIServer
-    killall TextEdit
     killall Transmission
 fi
 

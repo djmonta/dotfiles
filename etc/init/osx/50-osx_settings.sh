@@ -103,7 +103,7 @@ set_terminal_preferences()
 {
     # Use a custom theme
     # Use a modified version of the Solarized Dark theme by default in Terminal.app
-    TERM_PROFILE='$(dirname "${BASH_SOURCE}")/app/Solarized_Dark.terminal';
+    TERM_PROFILE='./etc/init/osx/app/Solarized_Dark.terminal';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
         open "$TERM_PROFILE"

@@ -12,4 +12,4 @@ fi
 
 # /Applications/Karabiner.app/Contents/Library/bin/karabiner export > karabiner.sh
 # を事前にしておく
-source ./app/karabiner.sh
+source $(dirname "${BASH_SOURCE}")/app/karabiner.sh

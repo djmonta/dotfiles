@@ -29,10 +29,6 @@ deploy:
 	@echo 'If this is "dotdir", curretly it is ignored and copy your hand.'
 	@echo ''
 	@bash $(DOTFILES_DIR)/etc/init/create_symlink.sh
-	# @$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	# @bash ln -sfnv $(DOTFILES_DIR)/.gitignore.default $(HOME)/.gitignore
-	# @bash ln -sfnv $(DOTFILES_DIR)/Cellar/dircolors-solarized/dircolors.ansi-universal $(HOME)/.dir_colors
-	# @bash ln -sfnv $(DOTFILES_DIR)/.tmux/.tmux-powerlinerc.default $(HOME)/.tmux-powerlinerc
 
 init:
 	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)

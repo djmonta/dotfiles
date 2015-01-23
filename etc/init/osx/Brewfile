@@ -33,7 +33,7 @@ declare -a BREW_PACKAGES=(
   "reattach-to-user-namespace"
   "terminal-notifier"
   "trash"
-  "tmux-patched"
+  "tmux"
   "wget"
 )
 

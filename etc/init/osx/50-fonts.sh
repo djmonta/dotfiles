@@ -2,7 +2,7 @@
 
 # Copy fonts
 {
-  pushd $DOTFILES/conf/osx/fonts/; setdiffA=(*); popd
+  pushd $DOTFILES/etc/lib/fonts/; setdiffA=(*); popd
   pushd ~/Library/Fonts/; setdiffB=(*); popd
   setdiff
 } >/dev/null

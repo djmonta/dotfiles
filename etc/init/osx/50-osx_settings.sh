@@ -107,7 +107,7 @@ set_terminal_preferences()
     TERM_PATH='./etc/init/osx/app/';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-        open "$PATH$TERM_PROFILE"
+        open "$TERM_PATH$TERM_PROFILE"
         defaults write com.apple.Terminal "Default Window Settings" -string "$TERM_PROFILE"
         defaults write com.apple.Terminal "Startup Window Settings" -string "$TERM_PROFILE"
     fi

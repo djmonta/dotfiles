@@ -107,7 +107,7 @@ set_terminal_preferences()
     PATH='./etc/init/osx/app/';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-        open "$PATH" +"$TERM_PROFILE"
+        open "$PATH$TERM_PROFILE"
         defaults write com.apple.Terminal "Default Window Settings" -string "$TERM_PROFILE"
         defaults write com.apple.Terminal "Startup Window Settings" -string "$TERM_PROFILE"
     fi
@@ -205,7 +205,7 @@ set_ui_and_ux_preferences()
 
     # Show Bluetooth icon
     sudo defaults write com.apple.systemuiserver menuExtras -array-add \
-        "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+        "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 }
 
 # main {{{1}}}
@@ -240,5 +240,3 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     killall SystemUIServer
     killall Transmission
 fi
-
-# vim:fdm=marker expandtab fdc=3 ts=4 sw=4 sts=4:

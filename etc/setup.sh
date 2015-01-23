@@ -22,13 +22,21 @@ setup_osx() {
     [ $(uname -s) != 'Darwin' ] && return
 
     # Show the ~/Library folder
-    chflags nohidden ${HOME}/Library/
+    #chflags nohidden ${HOME}/Library/
 
     # Mute system audio
     # sudo nvram SystemAudioVolume=%80
 
     # Setup Homebrew
-    confirm_exe 'Homebrewの設定を行いますか？' && ${HOME}/dotfiles/etc/osx/setup_brew.sh
+    confirm_exe 'Homebrewの設定を行いますか？' && setup_hombrew
+}
+
+setup_homebrew() {
+
+    for file in $(echo $(dirname ${BASH_SOURCE})/osx/*.sh); do
+        bash "$file" || true
+    done
+
 }
 
 create_dotfiles() {
@@ -58,7 +66,6 @@ create_dotfiles_symlinks() {
     #
     DOT_FILES=(.bash_profile
         .bashrc
-        .profile
         # .config
         .emacs.d
         .gitconfig
@@ -77,6 +84,7 @@ create_dotfiles_symlinks() {
         .tmux.conf
         # .vim
         # .vimrc
+        .zshenv
         .zsh)
 
     for file in ${DOT_FILES[@]}; do
@@ -87,9 +95,6 @@ create_dotfiles_symlinks() {
     if [ $(uname -s) = 'Darwin' ]; then
         ln -s "${HOME}/dotfiles/.MacOSX" "$HOME/.MacOSX"
     fi
-
-    # .zshenv
-    ln -s "${HOME}/.zsh/.zshenv" "${HOME}/.zshenv"
 
     # .gitignore
     ln -s "${HOME}/dotfiles/.gitignore.default" "${HOME}/.gitignore"
@@ -105,15 +110,14 @@ create_dotfiles_symlinks() {
 
 
 ## Main --------------------
-
-# Macの設定
-#setup_osx
-
 # dotfilesを作成
 confirm_exe 'dotfilesを作成しますか？' && create_dotfiles
 
 # シンボリックリンク作成
 confirm_exe 'シンボリックリンクを作成しますか？' && create_dotfiles_symlinks
+
+# Macの設定
+setup_osx
 
 ## complete message
 echo 'Setup completed!'

@@ -10,9 +10,12 @@ set -u
 if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 #}}}
 
-
-printf "Copying fonts ..."
-for f in $DOTFILES/etc/lib/fonts/*; do
-  cp "$f" ~/Library/Fonts/
-done
-printf "done!\n"
+echo -n 'Copy Ricty-Powerline fonts? (y/N) '
+read
+if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+	printf "Copying fonts ..."
+	for f in $DOTFILES/etc/lib/fonts/*; do
+	  cp "$f" ~/Library/Fonts/
+	done
+	printf "done!\n"
+fi

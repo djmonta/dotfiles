@@ -202,11 +202,9 @@ set_ui_and_ux_preferences()
             "/System/Library/CoreServices/Menu Extras/Volume.menu"
     done
 
-    sudo defaults write com.apple.systemuiserver menuExtras -array \
+    # Show Bluetooth icon
+    sudo defaults write com.apple.systemuiserver menuExtras -array-add \
         "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-        "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-        "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-        "/System/Library/CoreServices/Menu Extras/Clock.menu"
 }
 
 # main {{{1}}}

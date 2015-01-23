@@ -63,7 +63,7 @@ create_dotfiles_symlinks() {
         cd "$HOME"
 
         for file in ${DOT_FILES[@]}; do
-            create_symlink "dotfiles/$file" "$HOME/$file"
+            create_symlink "$HOME/dotfiles/$file" "$HOME/$file"
         done
 
         # .zshenv

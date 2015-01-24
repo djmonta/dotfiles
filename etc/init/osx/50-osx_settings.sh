@@ -74,10 +74,22 @@ set_finder_preferences()
 
     # Set `Desktop` as the default location for new Finder windows
     defaults write com.apple.finder NewWindowTarget -string "PfDe"
-    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+    # Show Status bar in Finder
+    defaults write com.apple.finder ShowStatusBar -bool true
+
+    # Show Path bar in Finder
+    defaults write com.apple.finder ShowPathbar -bool true
+
+    # Show Tab bar in Finder
+    defaults write com.apple.finder ShowTabView -bool true
 
     # Show the ~/Library directory
     chflags nohidden ~/Library
+
+    # Show the hidden files
+    defaults write com.apple.finder AppleShowAllFiles YES
 }
 
 # Safari.app {{{1
@@ -96,6 +108,12 @@ set_safari_preferences()
 
     # Add a context menu item for showing the `Web Inspector` in web views
     defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+    # Show Safari's Status Bar
+    defaults write com.apple.Safari ShowStatusBar -bool true
+
+    # Don't remember passwords
+    defaults write com.apple.Safari AutoFillPasswords -bool false
 }
 
 # Terminal.app {{{1
@@ -204,8 +222,13 @@ set_ui_and_ux_preferences()
     done
 
     # Show Bluetooth icon
-    sudo defaults write com.apple.systemuiserver menuExtras -array-add \
-        "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+    sudo defaults write com.apple.systemuiserver menuExtras -array \
+        "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+        "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+        "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+        "/System/Library/CoreServices/Menu Extras/TextInput.menu" \
+        "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
 }
 
 # main {{{1}}}

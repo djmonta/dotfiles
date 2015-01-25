@@ -230,9 +230,7 @@ set_ui_and_ux_preferences()
         "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
     # Disable guest account
-    sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
-    sudo defaults write /Library/Preferences/com.apple.AppleFileServer guestAccess -bool false
-    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool false  
+    # sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 }
 
 # main {{{1}}}

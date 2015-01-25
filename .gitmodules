@@ -21,4 +21,4 @@
 	url = https://github.com/erikw/tmux-powerline
 [submodule ".zsh/zsh-notify"]
 	path = .zsh/zsh-notify
-	url = https://github.com/marzocchi/zsh-notify
+	url = https://github.com/marzocchi/zsh-notify.git

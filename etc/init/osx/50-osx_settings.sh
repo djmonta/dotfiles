@@ -229,6 +229,8 @@ set_ui_and_ux_preferences()
         "/System/Library/CoreServices/Menu Extras/TextInput.menu" \
         "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
+    # Disable guest account
+    sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool NO
 }
 
 # main {{{1}}}

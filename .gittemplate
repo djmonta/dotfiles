@@ -1,0 +1,16 @@
+# ↑↑↑ コミット要約を 1行 50 字以内で記述してください ↑↑↑
+# 下記の Snippet を利用できます。
+# 新規追加 / cm_add
+# :new: Add: input_your_summary
+# バグ修正 / cm_fix
+# :bug: Fix: input_your_summary
+# 機能変更 / cm_modify
+# :hammer: Modify: input_your_summary
+# リファクタリング / cm_refactor
+# :recycle: Refactor: input_your_summary
+# 自動生成や自動編集されたファイル / cm_tool
+# :computer: Tool: input_your_summary
+# 削除 / cm_delete
+# :x: Remove: input_your_summary
+
+# ↓↓↓ コミット詳細を最後の行以降に記述してください ↓↓↓

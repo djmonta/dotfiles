@@ -92,6 +92,19 @@ set_finder_preferences()
     defaults write com.apple.finder AppleShowAllFiles YES
 }
 
+# Keyboard {{{1
+set_keyboard_preferences()
+{
+    # keyboards id
+    keyboardid=$(ioreg -n IOHIDKeyboard -r | grep -E 'VendorID"|ProductID' | awk '{ print $4 }' | paste -s -d'-\n' -)'-0'
+
+    # [システム環境設定]，[キーボード] の [修飾キー] - [Caps Lock キー] = [^ Control]
+    defaults -currentHost delete -g com.apple.keyboard.modifiermapping.${keyboardid}
+    defaults -currentHost add -g com.apple.keyboard.modifiermapping.${keyboardid} -array '<dict><key>HIDKeyboardModifierMappingDst</key></dict><integer>2</integer> <key>HIDKeyboardModifierMappingSrc</key><key>0</key>'
+    # [システム環境設定]，[キーボード] の [修飾キー] - [^ Control] = [Caps Lock キー]
+    defaults -currentHost add -g com.apple.keyboard.modifiermapping.${keyboardid} - array '<dict><key>HIDKeyboardModifierMappingDst</key></dict><integer>0</integer> <key>HIDKeyboardModifierMappingSrc</key><key>2</key>'
+}
+
 # Safari.app {{{1
 set_safari_preferences()
 {
@@ -252,6 +265,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     set_quicklook_preferences
     set_dock_preferences
     set_finder_preferences
+    set_keyboard_preferences
     set_safari_preferences
     set_terminal_preferences
     set_trackpad_preferences

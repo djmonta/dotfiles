@@ -6,16 +6,6 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/monta/.gitignore
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	excludesfile = ~/.gitignore
 [commit]
-	template = /Users/monta/.gittemplate
+	template = ~/.gittemplate

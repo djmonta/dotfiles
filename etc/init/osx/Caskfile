@@ -16,6 +16,8 @@ if [[ ! "$(brew ls --versions brew-cask)" ]]; then
     read
     if [[ "$REPLY" =~ ^[Yy]$ ]]; then
         brew install caskroom/cask/brew-cask
+        brew tap caskroom/versions
+        brew tap djmonta/cask
     else
         exit 0
     fi
@@ -30,12 +32,59 @@ fi
 declare -a CASK_PACKAGES=(
   # Applications
   "1password"
+  "1piece"
+  "airserver"
   "alfred"
   "appcleaner"
+  "appstorehelper"
+  "bartender"
+  "bittorrent-sync"
+  "bowtie"
+  "codekit"
+  "dash"
+  "drobo-dashboard"
   "dropbox"
   "easysimbl"
-  "karabiner"
+  "flip4mac"
+  "github"
+  "google-chrome"
+  "google-drive"
+  "handbrake"
+  "ibackup"
+  "ifunbox"
+  "imageup"
+  "inboard"
   "itsycal"
+  "karabiner"
+  "lastfm"
+  "macdown"
+  "mactubes"
+  "nvalt"
+  "owncloud"
+  "parallels-desktop"
+  "picasa"
+  "plex-home-theater"
+  "plex-media-server"
+  "sequel-pro"
+  "simplecap"
+  "subler"
+  "sublime-text3"
+  "things"
+  "tower"
+  "transmission"
+  "transmit"
+  "traumbaum"
+  "vagrant"
+  "vlc"
+  # PreferencePane
+  "maddthesane-perian"
+  # QuickLook plugins
+  "qlcolorcode"
+  "qlimagesize"
+  "qlmarkdown"
+  "qlstephen"
+  "qlvideo"
+  "suspicious-package"
 )
 
 for package in "${CASK_PACKAGES[@]}"

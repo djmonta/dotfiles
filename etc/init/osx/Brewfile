@@ -30,6 +30,10 @@ fi
 
 declare -a BREW_PACKAGES=(
   "caskroom/cask/brew-cask"
+  "imagemagick"
+  "mysql"
+  "node"
+  "pkg-config"
   "reattach-to-user-namespace"
   "terminal-notifier"
   "trash"

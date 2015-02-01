@@ -19,5 +19,6 @@ if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 echo -n 'Install Homebrew Cask packages? (y/N) '
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
     bash "$(dirname "${BASH_SOURCE}")"/Caskfile
 fi

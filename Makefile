@@ -1,5 +1,5 @@
 DOTFILES_TARGET   := $(wildcard .??*) bin
-DOTFILES_DIR      := $(PWD)
+DOTFILES_DIR      := ${HOME}/dotfiles
 DOTFILES_FILES    := .bash_profile .bashrc .dir_colors .emacs.d .gitconfig .gitignore .gittemplate .tmux .tmux.conf .tmux-powerlinerc .zshenv .zsh .screenrc .subversion
 
 all: update deploy init
@@ -38,10 +38,10 @@ ifeq ($(shell uname), Darwin)
 homebrew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/20-install_homebrew.sh
 
-brew: homebrew
+brew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/Brewfile
 
-cask: homebrew
+cask:
 	@bash $(DOTFILES_DIR)/etc/init/osx/Caskfile
 endif
 

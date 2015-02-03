@@ -265,7 +265,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     set_quicklook_preferences
     set_dock_preferences
     set_finder_preferences
-    set_keyboard_preferences
+    # set_keyboard_preferences
     set_safari_preferences
     set_terminal_preferences
     set_trackpad_preferences

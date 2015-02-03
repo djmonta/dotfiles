@@ -40,7 +40,7 @@ create_dotfiles_symlinks() {
         # .config
         .emacs.d
         .gitconfig
-        .gittemplates
+        .gittemplate
         # .gitk
         # .gvimrc
         # .inputrc

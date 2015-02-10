@@ -30,6 +30,7 @@ fi
 
 declare -a BREW_PACKAGES=(
   "caskroom/cask/brew-cask"
+  "coreutils"
   "imagemagick"
   "mysql"
   "node"

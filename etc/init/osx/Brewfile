@@ -29,16 +29,18 @@ if [ -n "$outdated" ]; then
 fi
 
 declare -a BREW_PACKAGES=(
+  "automake"
   "caskroom/cask/brew-cask"
   "coreutils"
   "imagemagick"
   "mysql"
   "node"
+  "pandoc"
   "pkg-config"
   "reattach-to-user-namespace"
   "terminal-notifier"
-  "trash"
   "tmux"
+  "trash"
   "wget"
 )
 

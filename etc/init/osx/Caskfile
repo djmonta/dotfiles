@@ -16,8 +16,8 @@ if [[ ! "$(brew ls --versions brew-cask)" ]]; then
     read
     if [[ "$REPLY" =~ ^[Yy]$ ]]; then
         brew tap caskroom/versions
+        brew tap djmonta/cask
         brew install caskroom/cask/brew-cask
-        # brew tap djmonta/cask
     else
         exit 0
     fi
@@ -32,11 +32,11 @@ fi
 declare -a CASK_PACKAGES=(
   # Applications
   "1password"
-  #”1piece"
+  ”1piece"
   "airserver"
   "alfred"
   "appcleaner"
-  #”appstorehelper"
+  ”appstorehelper"
   "bartender"
   "bittorrent-sync"
   "bowtie"

@@ -54,5 +54,8 @@ export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools:/Applications/
 # npm
 export PATH=$PATH:/usr/local/share/npm/bin
 
+# Vagrant
+export VAGRANT_DEFAULT_PROVIDER=parallels
+
 ### Complete Messages
 echo "Loading .profile.osx completed!!"

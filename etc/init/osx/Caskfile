@@ -15,8 +15,8 @@ if [[ ! "$(brew ls --versions brew-cask)" ]]; then
     echo -n 'Install now? (y/N/) '
     read
     if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-        brew tap caskroom/versions
-        brew tap djmonta/cask
+        #brew tap caskroom/versions
+        #brew tap djmonta/cask
         brew install caskroom/cask/brew-cask
     else
         exit 0
@@ -32,17 +32,17 @@ fi
 declare -a CASK_PACKAGES=(
   # Applications
   "1password"
-  ”1piece"
+  #"1piece"
   "airserver"
   "alfred"
   "appcleaner"
-  ”appstorehelper"
+  "appstorehelper"
   "bartender"
   "bittorrent-sync"
   "bowtie"
   "codekit"
   "dash"
-  #”drobo-dashboard"
+  #"drobo-dashboard"
   "dropbox"
   "easysimbl"
   "flip4mac"
@@ -51,18 +51,18 @@ declare -a CASK_PACKAGES=(
   "google-drive"
   "handbrake"
   "ibackup"
-  "ifunbox"
+  #"ifunbox"
   "imageup"
-  "inboard"
+  #"inboard"
   "itsycal"
   "karabiner"
   "lastfm"
   "macdown"
   "mactubes"
-  "nvalt"
-  "owncloud"
+  #"nvalt"
+  #"owncloud"
   "parallels-desktop"
-  "picasa"
+  #"picasa"
   "plex-home-theater"
   "plex-media-server"
   "sequel-pro"
@@ -75,8 +75,8 @@ declare -a CASK_PACKAGES=(
   "transmit"
   "traumbaum"
   "vagrant"
-  ”vlc"
-  #“xquartz”
+  "vlc"
+  #"xquartz"
   # PreferencePane
   #"maddthesane-perian"
   # QuickLook plugins

@@ -42,10 +42,14 @@ if [ -d /usr/local/java/default ]; then
 fi
 
 # Nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+if [ -d $HOME/.nodebrew ]; then
+	export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
 
 # rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
+if [ -d $HOME/.rbenv ]; then
+	export PATH=$HOME/.rbenv/shims:$PATH
+fi
 
 # Maven
 # export MAVEN_VERSION='2.2.1'

@@ -44,6 +44,9 @@ fi
 # Nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+# rbenv
+export PATH=$HOME/.rbenv/shims:$PATH
+
 # Maven
 # export MAVEN_VERSION='2.2.1'
 # if [ -d /usr/local/apache-maven-$MAVEN_VERSION ]; then

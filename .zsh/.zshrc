@@ -164,8 +164,8 @@ bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
 
 # glob(*)によるインクリメンタルサーチ <http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852>
-bindkey "^R" history-incremental-pattern-search-backward
-bindkey "^S" history-incremental-pattern-search-forward
+#bindkey "^R" history-incremental-pattern-search-backward
+#bindkey "^S" history-incremental-pattern-search-forward
 
 # reverse menu completion binded to Shift-Tab
 #
@@ -485,6 +485,7 @@ bindkey '^m' do_enter
 
 # }}}
 
+
 ### Source configuration files {{{
 #
 # pluginの読み込み
@@ -557,14 +558,14 @@ case "${OSTYPE}" in
 esac
 # }}}
 
+##
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-
-##
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

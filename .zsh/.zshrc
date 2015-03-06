@@ -331,13 +331,13 @@ zstyle ':completion:*' completer \
     _oldlist _complete _match _history _ignored _approximate _prefix
 
 ## cdr <TAB> (最近移動したディレクトリ履歴からcd)
-autoload -U chpwd_recent_dirs cdr
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ":chpwd:*" recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-file ${HOME}/.chpwd-recent-dirs
-zstyle ":chpwd:*" recent-dirs-max 500
-zstyle ":completion:*" recent-dirs-insert both
-zstyle ":completion:*:*:cdr:*:*" menu select=2
+#autoload -U chpwd_recent_dirs cdr
+#add-zsh-hook chpwd chpwd_recent_dirs
+#zstyle ":chpwd:*" recent-dirs-default true
+#zstyle ':chpwd:*' recent-dirs-file ${HOME}/.chpwd-recent-dirs
+#zstyle ":chpwd:*" recent-dirs-max 500
+#zstyle ":completion:*" recent-dirs-insert both
+#zstyle ":completion:*:*:cdr:*:*" menu select=2
 
 ## 補完キャッシュの設定
 # 一部のコマンドライン定義は、展開時に時間のかかる処理を行う

@@ -1,6 +1,6 @@
 DOTFILES_TARGET   := $(wildcard .??*) bin
 DOTFILES_DIR      := ${HOME}/dotfiles
-DOTFILES_FILES    := .bash_profile .bashrc .dir_colors .emacs.d .gitconfig .gitignore .gittemplate .tmux .tmux.conf .tmux-powerlinerc .zshenv .zsh .screenrc .subversion
+DOTFILES_FILES    := .bash_profile .bashrc .dir_colors .emacs.d .gitconfig .gitignore .gittemplate .percol.d .tmux .tmux.conf .tmux-powerlinerc .zshenv .zsh .screenrc .subversion
 
 all: update deploy init
 

@@ -74,15 +74,17 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 
 ## PROMPT/RPROMT/SPROMPT
 
+DIVIDER_HARD=' '
+
 DEFAULT_PROMPT='%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-DEFAULT_PROMPT+="${COLOR_BG_AF8700}${COLOR_FG_1C1C1C} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_0087FF}${COLOR_FG_AF8700}⮀%{${reset_color}%}"
-DEFAULT_PROMPT+='%{%(!.${COLOR_BG_1C1C1C}${COLOR_FG_D70000}%n@$(_host)${COLOR_BG_0087FF}${COLOR_FG_1C1C1C}⮀.)%}'
+DEFAULT_PROMPT+="${COLOR_BG_AF8700}${COLOR_FG_1C1C1C} $(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${COLOR_BG_0087FF}${COLOR_FG_AF8700}${DIVIDER_HARD}%{${reset_color}%}"
+DEFAULT_PROMPT+='%{%(!.${COLOR_BG_1C1C1C}${COLOR_FG_D70000}%n@$(_host)${COLOR_BG_0087FF}${COLOR_FG_1C1C1C}${DIVIDER_HARD}.)%}'
 DEFAULT_PROMPT+='${STYLE_BOLD}${COLOR_BG_0087FF}${COLOR_FG_D70000}%(1j, ⚙,)%{${reset_color}%}'
 DEFAULT_PROMPT+='${COLOR_BG_0087FF}${COLOR_FG_1C1C1C} %~ '
 DEFAULT_PROMPT+='$(prompt_git)'
-DEFAULT_PROMPT+='%{%(?.${COLOR_BG_E4E4E4}⮀${STYLE_BOLD}${COLOR_FG_1C1C1C}${COLOR_BG_E4E4E4} %# .${COLOR_BG_D70000}⮀${STYLE_BOLD}${COLOR_FG_E4E4E4}${COLOR_BG_D70000} %# )%}%{${reset_color}%}'
-DEFAULT_PROMPT+='%(?.${STYLE_DEFAULT}${COLOR_FG_E4E4E4}⮀.${STYLE_DEFAULT}${COLOR_FG_D70000}⮀)%{${reset_color}%} '
+DEFAULT_PROMPT+='%{%(?.${COLOR_BG_E4E4E4}${DIVIDER_HARD}${STYLE_BOLD}${COLOR_FG_1C1C1C}${COLOR_BG_E4E4E4} %# .${COLOR_BG_D70000}${DIVIDER_HARD}${STYLE_BOLD}${COLOR_FG_E4E4E4}${COLOR_BG_D70000} %# )%}%{${reset_color}%}'
+DEFAULT_PROMPT+='%(?.${STYLE_DEFAULT}${COLOR_FG_E4E4E4}${DIVIDER_HARD}.${STYLE_DEFAULT}${COLOR_FG_D70000}${DIVIDER_HARD})%{${reset_color}%} '
 
 # PROMPT='%(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS="mt=01;31" grep --color=always /|| GREP_COLORS="mt=01;34" grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f '
 # PROMPT2="%{${fg[green]}%}%_%%%{${reset_color}%} "
@@ -124,15 +126,12 @@ function prompt_git() {
         dirty=$(parse_git_dirty)
         ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
         if [[ -n $dirty ]]; then
-            echo -n "${COLOR_BG_D75F00}${COLOR_FG_0087FF}⮀ ${COLOR_FG_E4E4E4}${ref/refs\/heads\//⭠ }$dirty${COLOR_FG_D75F00}"
+            echo -n "${COLOR_BG_D75F00}${COLOR_FG_0087FF}${DIVIDER_HARD} ${COLOR_FG_E4E4E4}${ref/refs\/heads\// }$dirty${COLOR_FG_D75F00}"
         else
-            echo -n "${COLOR_BG_00AF00}${COLOR_FG_0087FF}⮀ ${COLOR_FG_1C1C1C}${ref/refs\/heads\//⭠ } ${COLOR_FG_00AF00}"
+            echo -n "${COLOR_BG_00AF00}${COLOR_FG_0087FF}${DIVIDER_HARD} ${COLOR_FG_1C1C1C}${ref/refs\/heads\// } ${COLOR_FG_00AF00}"
         fi
-        # eval echo -n "${ref/refs\/heads\//⭠ }$dirty"
     else
         echo -n "${COLOR_FG_00AFFF}"
     fi
-
-    # echo -n $CURRENT_BG
 }
 

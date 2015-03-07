@@ -74,9 +74,6 @@ create_dotfiles_symlinks() {
 
         # links
         create_symlink "$HOME/dotfiles.local/links" "$HOME/links"
-
-        # .tmux-powerlinerc
-        create_symlink "$HOME/dotfiles/.tmux/.tmux-powerlinerc.default" "$HOME/.tmux-powerlinerc"
     )
 }
 

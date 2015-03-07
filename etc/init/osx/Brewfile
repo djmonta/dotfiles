@@ -29,6 +29,7 @@ if [ -n "$outdated" ]; then
 fi
 
 declare -a BREW_PACKAGES=(
+  "autoconf"
   "automake"
   "caskroom/cask/brew-cask"
   "coreutils"

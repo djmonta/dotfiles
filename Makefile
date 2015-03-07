@@ -31,10 +31,12 @@ deploy:
 	@bash $(DOTFILES_DIR)/etc/init/create_symlink.sh
 
 init:
-	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
 ifeq ($(shell uname), Darwin)
 	@$(foreach val, $(wildcard ./etc/init/osx/*.sh), bash $(val);)
+endif
+	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
 
+ifeq ($(shell uname), Darwin)
 homebrew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/20-install_homebrew.sh
 

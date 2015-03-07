@@ -17,15 +17,22 @@ if ! type gem >/dev/null 2>&1; then
     exit 1
 fi
 
-declare -a GEM_PACKAGES=(
-  #"homesick"
-)
 
-for package in "${GEM_PACKAGES[@]}"
-do
-    if gem list | grep -q "^$(basename $package)"; then
-        echo "Skip: gem install ${package}"
-    else
-        gem install $package
-    fi
-done
+echo -n "Install Gem Packages? (y/N) "
+read
+if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+
+	declare -a GEM_PACKAGES=(
+	  #"homesick"
+	)
+
+	for package in "${GEM_PACKAGES[@]}"
+	do
+	    if gem list | grep -q "^$(basename $package)"; then
+	        echo "Skip: gem install ${package}"
+	    else
+	        gem install $package
+	    fi
+	done
+
+fi

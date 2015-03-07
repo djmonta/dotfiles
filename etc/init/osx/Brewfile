@@ -35,7 +35,6 @@ declare -a BREW_PACKAGES=(
   "coreutils"
   "imagemagick"
   "mysql"
-  "node"
   "pandoc"
   "pkg-config"
   "reattach-to-user-namespace"

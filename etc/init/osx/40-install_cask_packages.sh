@@ -20,5 +20,10 @@ echo -n 'Install Homebrew Cask packages? (y/N) '
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-    bash "$(dirname "${BASH_SOURCE}")"/Caskfile
+
+    if [ `hostname` = Mac-mini\.local$ ]; then
+    	bash "$(dirname "${BASH_SOURCE}")"/Caskfile
+  	else
+    	bash "$(dirname "${BASH_SOURCE}")"/Caskfile.MBA
+  	fi
 fi

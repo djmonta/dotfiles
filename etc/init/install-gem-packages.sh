@@ -10,7 +10,7 @@ if ! type gem >/dev/null 2>&1; then
 fi
 
 declare -a GEM_PACKAGES=(
-  "homesick"
+  #"homesick"
 )
 
 for package in "${GEM_PACKAGES[@]}"

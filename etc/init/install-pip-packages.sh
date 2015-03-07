@@ -22,6 +22,7 @@ read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
   declare -a PIP_PACKAGES=(
+    "percol"
     "powerline-status"
     "psutil"
   )

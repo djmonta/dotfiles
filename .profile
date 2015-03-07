@@ -194,12 +194,17 @@ if [ "$EMACS" ];then
   export TERM=xterm-256color
 fi
 
+# For powerline
+export PATH=${HOME}/.local/bin:$PATH
+#source ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+
 # Add anyenv to PATH for scripting
-export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="${HOME}/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-for D in `ls $HOME/.anyenv/envs`
+for D in `ls ${HOME}/.anyenv/envs`
 do
-  export PATH="$HOME/.anyenv/envs/$D/shims:$PATH" 
+  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
 done
 
 ### Complete Messages

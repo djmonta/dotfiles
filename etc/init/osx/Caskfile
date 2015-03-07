@@ -81,7 +81,7 @@ declare -a CASK_PACKAGES=(
   "vlc"
   #"xquartz"
   # PreferencePane
-  "maddthesane-perian"
+  #"maddthesane-perian"
   # QuickLook plugins
   "qlcolorcode"
   "qlimagesize"

@@ -12,7 +12,6 @@ do
   export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
 done
 
-
 if ! type gem >/dev/null 2>&1; then
     echo 'Requirement: gem' 1>&2
     exit 1

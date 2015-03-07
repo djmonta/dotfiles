@@ -57,6 +57,8 @@ autoload -Uz add-zsh-hook
 # else
     # Prompt for "normal" user.
     # Loading theme
+
+### ここから
 if [ ${TERM} != dumb ]; then
     if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
         echo "Loading theme: $ZSH_THEME"
@@ -65,11 +67,17 @@ if [ ${TERM} != dumb ]; then
         echo "Error: could not load the theme '$ZSH_THEME'"
     fi
 fi
+### ここまで
+
 # fi
 
+### ここから
 PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+### ここまで
 
 # }}}
+
+# source ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 ### Default shell configuration {{{
 #

@@ -175,7 +175,7 @@
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKQHCBESVSRudWxs1AkKCwwNDg8QVk5TU2l6ZVhOU2ZGbGFnc1ZOU05hbWVWJGNs
-	YXNzI0ArAAAAAAAAEBCAAoADXxAZUmljdHktUmVndWxhckZvclBvd2VybGluZdITFBUW
+	YXNzI0ArAAAAAAAAEBCAAoADXxAZUmljdHlGb3JQb3dlcmxpbmUtUmVndWxhctITFBUW
 	WiRjbGFzc25hbWVYJGNsYXNzZXNWTlNGb250ohUXWE5TT2JqZWN0XxAPTlNLZXllZEFy
 	Y2hpdmVy0RobVHJvb3SAAQgRGiMtMjc8QktSW2JpcnR2eJSZpK20t8DS1doAAAAAAAAB
 	AQAAAAAAAAAcAAAAAAAAAAAAAAAAAAAA3A==
@@ -299,14 +299,14 @@
 	ZmZmg/4CRz+DBTzdPYMgzt4+AYY=
 	</data>
 	<key>name</key>
-	<string>Solarized Dark</string>
+	<string>Solarized_Dark</string>
 	<key>redColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
 	ZmZmg6i7UT+DUATePYMl2hA+AYY=
 	</data>
 	<key>rowCount</key>
-	<integer>24</integer>
+	<integer>30</integer>
 	<key>shellExitAction</key>
 	<integer>1</integer>
 	<key>type</key>

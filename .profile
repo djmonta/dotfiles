@@ -20,16 +20,6 @@ export LANG=ja_JP.UTF-8
 
 
 #
-# User Local Directory
-#
-USER_LOCAL=/usr/local
-if type brew > /dev/null 2>&1; then
-    USER_LOCAL=$(brew --prefix)
-fi
-export USER_LOCAL
-
-
-#
 # Terminal configuration
 # http://journal.mycom.co.jp/column/zsh/009/index.html
 #
@@ -135,15 +125,6 @@ export LESSCHARSET=utf-8
 #export GIT_PAGER="lv -c -l"
 # export GIT_PAGER="less -F"
 
-
-#
-# デフォルトエディタ
-#
-#export ALTERNATE_EDITOR="sublime -w"
-#export EDITOR="sublime -w"
-#export VISUAL="sublime -w"
-
-
 #
 # grep
 #
@@ -201,29 +182,6 @@ export LC_CTYPE='ja_JP.UTF-8'
 
 
 #
-# CVS
-#  cvs では ssh を使う
-#
-# export CVS_RSH=ssh
-# export CVSROOT=~/CVSROOT
-
-
-#
-# Subversion
-#  Subversionでチェックイン時に起動するエディタを指定
-#
-# export SVN_EDITOR=emacs
-
-
-#
-# Git
-#
-# Gitでコミット時に起動するエディタを指定
-# 未指定だとコミット時にエラーになる(絶対パス必須)
-# export GIT_EDITOR=/usr/bin/emacs
-
-
-#
 # DropBox
 #
 export DROPBOX=~/Dropbox
@@ -236,6 +194,13 @@ if [ "$EMACS" ];then
   export TERM=xterm-256color
 fi
 
+# Add anyenv to PATH for scripting
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+for D in `ls $HOME/.anyenv/envs`
+do
+  export PATH="$HOME/.anyenv/envs/$D/shims:$PATH" 
+done
 
 ### Complete Messages
 echo "Loading .profile completed!!"

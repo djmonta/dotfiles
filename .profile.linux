@@ -2,6 +2,8 @@
 #
 #  .profile.linux
 #
+#   環境変数などの設定(Linux 固有, bash/zsh共通)
+#
 #*******************************************************************************
 
 #
@@ -15,8 +17,14 @@ export VISUAL="emacsclient"
 # 未指定だとコミット時にエラーになる(絶対パス必須)
 export GIT_EDITOR="/usr/local/bin/emacsclient"
 
+#
+# PATH =========================================================================
+#
+#  PATHの追加はここより後に行うこと
+#
+
 # PATH
-PATH=~/bin:~/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
+PATH=${HOME}/bin:${HOME}/dotfiles/bin::/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 export PATH
 
 # MANPATH
@@ -41,44 +49,6 @@ if [ -d /usr/local/java/default ]; then
     export JAVA_OPTS='-Dfile.encoding=UTF-8'
 fi
 
-# Nodebrew
-if [ -d $HOME/.nodebrew ]; then
-	export PATH=$HOME/.nodebrew/current/bin:$PATH
-fi
-
-# rbenv
-if [ -d $HOME/.rbenv ]; then
-	export PATH=$HOME/.rbenv/shims:$PATH
-fi
-
-# Maven
-# export MAVEN_VERSION='2.2.1'
-# if [ -d /usr/local/apache-maven-$MAVEN_VERSION ]; then
-#     export MAVEN_HOME=/usr/local/apache-maven-$MAVEN_VERSION
-#     export PATH=$MAVEN_HOME/bin:$PATH
-#     export MAVEN_OPTS=-Xmx1024M
-# else
-#     unset MAVEN_VERSION
-# fi
-
-# MySQL
-# if [ -d /usr/local/mysql ]; then
-#     export MYSQL_HOME=/usr/local/mysql
-#     export PATH=$MYSQL_HOME/bin:$PATH
-# fi
-
-# Python
-# export VIRTUALENV_USE_DISTRIBUTE=true
-# export VIRTUAL_ENV_DISABLE_PROMPT=true
-# export DEFAULT_PYTHON_VERSION="2.7.3"
-# export DEFAULT_PYTHON_VENV="py273"
-# export PYTHONSTARTUP=~/.pythonstartup
-# export PYTHONPATH=./lib:~/lib/python
-
-# rvm
-# if [ -d $HOME/.rvm ]; then
-#     export PATH=$HOME/.rvm/bin:$PATH
-# fi
 
 ### Complete Messages
 echo "Loading .profile.linux completed!!"

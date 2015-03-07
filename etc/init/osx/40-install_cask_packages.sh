@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 trap 'echo Error: $0: stopped' ERR INT
 set -u
@@ -21,7 +21,7 @@ read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-    if [ `hostname` = Mac-mini\.local$ ]; then
+    if hostname | grep -q "Mac-mini\.local$" ; then
     	bash "$(dirname "${BASH_SOURCE}")"/Caskfile
   	else
     	bash "$(dirname "${BASH_SOURCE}")"/Caskfile.MBA

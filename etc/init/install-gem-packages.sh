@@ -4,6 +4,15 @@ trap 'echo Error: $0: stopped' ERR
 set -u
 set -e
 
+# Add anyenv to PATH for scripting
+export PATH="${HOME}/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+for D in `ls ${HOME}/.anyenv/envs`
+do
+  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
+done
+
+
 if ! type gem >/dev/null 2>&1; then
     echo 'Requirement: gem' 1>&2
     exit 1

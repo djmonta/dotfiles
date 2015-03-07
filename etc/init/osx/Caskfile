@@ -33,7 +33,7 @@ brew tap djmonta/cask
 declare -a CASK_PACKAGES=(
   # Applications
   "1password"
-  "1piece"
+  #"1piece"
   "airserver"
   "alfred"
   "appcleaner"

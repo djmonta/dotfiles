@@ -41,6 +41,7 @@ declare -a CASK_PACKAGES=(
   "google-chrome"
   "imageup"
   "itsycal"
+  #"java6"
   "karabiner"
   # QuickLook plugins
   "qlcolorcode"

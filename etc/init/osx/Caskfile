@@ -57,6 +57,7 @@ declare -a CASK_PACKAGES=(
   "imageup"
   #"inboard"
   "itsycal"
+  "java6"
   "karabiner"
   "kindle"
   "lastfm"

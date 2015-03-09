@@ -18,4 +18,4 @@
 	smudge = git hawser smudge %f
 	required = true
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+	insteadOf = https://github.com/

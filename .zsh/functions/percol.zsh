@@ -3,7 +3,7 @@
 # https://github.com/mooz/percol#zsh-history-search
 function exists { which $1 &> /dev/null }
 
-if exists percol; then
+#if exists percol; then
     function percol_select_history() {
         local tac
         exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
@@ -14,7 +14,7 @@ if exists percol; then
 
     zle -N percol_select_history
     bindkey '^R' percol_select_history
-fi
+#fi
 
 # }}}
 

@@ -39,7 +39,7 @@ declare -a CASK_PACKAGES=(
   "dropbox"
   "easysimbl"
   "google-chrome"
-  "imageup"
+  #"imageup"
   "itsycal"
   #"java6"
   "karabiner"

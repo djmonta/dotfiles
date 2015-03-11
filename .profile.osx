@@ -53,6 +53,8 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Vagrant
 export VAGRANT_DEFAULT_PROVIDER=parallels
 
+# Terminal Notifier
+export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
 
 ### Complete Messages
 echo "Loading .profile.osx completed!!"

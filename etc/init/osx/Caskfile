@@ -37,6 +37,7 @@ declare -a CASK_PACKAGES=(
   "airserver"
   "alfred"
   "appcleaner"
+  "applepi-baker"
   "appstorehelper"
   "bartender"
   #"bittorrent-sync"

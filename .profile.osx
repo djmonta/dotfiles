@@ -36,6 +36,17 @@ export GIT_EDITOR="/Users/monta/dotfiles/bin/sublime -w"
 PATH="$PATH:${HOME}/bin:${HOME}/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin"
 export PATH
 
+# For powerline
+export PATH=${HOME}/.local/bin:$PATH
+
+# Add anyenv to PATH for scripting
+export PATH="${HOME}/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+for D in `ls ${HOME}/.anyenv/envs`
+do
+  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
+done
+
 # Android SDK
 #export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools:/Applications/adt-bundle-mac/sdk/tools
 

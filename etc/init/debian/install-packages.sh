@@ -4,10 +4,10 @@ trap 'echo Error: $0: stopped' ERR INT
 set -u
 set -e
 
-if ! type apt >/dev/null 2>&1; then
-    echo 'Requirement: apt' 1>&2
-    exit 1
-fi
+# if ! type apt >/dev/null 2>&1; then
+#     echo 'Requirement: apt' 1>&2
+#     exit 1
+# fi
 
 declare -a PACKAGES=(
     "curl"

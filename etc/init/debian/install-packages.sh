@@ -12,21 +12,12 @@ set -e
 declare -a PACKAGES=(
     "autoconf"
     "automake"
-    "bison"
-    "build-essential"
     "curl"
     "dpkg-dev"
     "git"
     "iptables-persistent"
-    "libbz2-dev"
     "libncurses5-dev"
-    "libreadline-dev"
-    "libsqlite3-dev"
-    "libssl-dev"
-    "llvm"
-    "make"
     "ruby"
-    "zlib1g-dev"
 )
 
 echo -n "Install required packages? (y/N) "

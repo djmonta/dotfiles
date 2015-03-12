@@ -11,4 +11,4 @@ function percol-tmux-select-pane() {
 }
 zle -N percol-tmux-select-pane
 
-bindkey '^w' percol-tmux-select-pane
+bindkey '^xw' percol-tmux-select-pane

@@ -14,7 +14,6 @@ declare -a PACKAGES=(
     "automake"
     "curl"
     "dpkg-dev"
-    "git"
     "iptables-persistent"
     "libncurses5-dev"
     "ruby"

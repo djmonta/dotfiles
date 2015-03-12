@@ -10,6 +10,9 @@ set -e
 # fi
 
 declare -a PACKAGES=(
+    "autoconf"
+    "automake"
+    "bison"
     "curl"
     "dpkg-dev"
     "git"

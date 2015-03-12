@@ -9,12 +9,6 @@ if ! type apt >/dev/null 2>&1; then
     exit 1
 fi
 
-echo 'apt-get update...'
-apt-get update
-
-echo 'apt-get upgrade...'
-apt-get -y upgrade
-
 declare -a PACKAGES=(
     "curl"
     "dpkg-dev"
@@ -27,6 +21,22 @@ declare -a PACKAGES=(
 echo -n "Install required packages? (y/N) "
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+
+    sudo -v
+
+    while true
+    do
+        sudo -n true
+        sleep 60;
+        kill -0 "$$" || exit
+    done 2>/dev/null &
+    
+    echo 'apt-get update...'
+    apt-get update
+
+    echo 'apt-get upgrade...'
+    apt-get -y upgrade
+
 
     for package in "${PACKAGES[@]}"
     do

@@ -26,7 +26,6 @@ declare -a PACKAGES=(
     "llvm"
     "make"
     "ruby"
-    "zlib"
     "zlib1g-dev"
 )
 

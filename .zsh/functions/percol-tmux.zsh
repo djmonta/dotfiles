@@ -9,3 +9,6 @@ function percol-tmux-select-pane() {
   tmux select-window -t $window
   tmux select-pane -t $pane
 }
+zle -N percol-tmux-select-pane
+
+bindkey '^w' percol-tmux-select-pane

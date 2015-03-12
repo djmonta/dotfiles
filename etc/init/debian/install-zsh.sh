@@ -4,7 +4,7 @@ trap 'echo Error: $0: stopped' ERR INT
 set -u
 set -e
 
-echo -n "Install zsh? (y/N) "
+echo -n "Install zsh and emacs from sid? (y/N) "
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
@@ -21,5 +21,6 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
 		sudo apt-get update
 		sudo apt-get -y install -t sid zsh
+        sudo apt-get -y install -t sid emacs24-nox
 
 fi

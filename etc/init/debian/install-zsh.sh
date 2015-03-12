@@ -17,7 +17,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
         kill -0 "$$" || exit
     done 2>/dev/null &
 
-		sudo sh -c "echo deb http://ftp.de.debian.org/debian sid main > /etc/apt/sources.list.d/sid.list"
+		sudo sh -c "echo deb http://ftp.debian.org/debian sid main > /etc/apt/sources.list.d/sid.list"
 
 		sudo apt-get update
 		sudo apt-get -y install -t sid zsh

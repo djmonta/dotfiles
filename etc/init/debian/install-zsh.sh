@@ -20,6 +20,6 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 		sudo sh -c "echo deb http://ftp.de.debian.org/debian sid main > /etc/apt/sources.list.d/sid.list"
 
 		sudo apt-get update
-		sudo apt-get -y -t sid zsh
+		sudo apt-get -y install -t sid zsh
 
 fi

@@ -36,7 +36,7 @@ ifeq ($(shell uname), Darwin)
 else ifeq ($(shell uname), Linux)
 	@$(foreach val, $(wildcard ./etc/init/debian/*.sh), bash $(val);)
 endif
-	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
+	# @$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
 
 ifeq ($(shell uname), Darwin)
 homebrew:

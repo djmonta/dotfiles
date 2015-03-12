@@ -10,13 +10,9 @@ set -e
 # fi
 
 declare -a PACKAGES=(
-    "autoconf"
-    "automake"
-    "curl"
     "dpkg-dev"
     "iptables-persistent"
     "libncurses5-dev"
-    "ruby"
 )
 
 echo -n "Install required packages? (y/N) "

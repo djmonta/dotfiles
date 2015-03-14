@@ -27,6 +27,16 @@ export GIT_EDITOR="/usr/local/bin/emacsclient"
 PATH=${HOME}/bin:${HOME}/dotfiles/bin::/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 export PATH
 
+# Add anyenv to PATH for scripting
+if [ -d ${HOME}/.anyenv ] ; then
+	export PATH="${HOME}/.anyenv/bin:$PATH"
+	eval "$(anyenv init -)"
+	for D in `\ls ${HOME}/.anyenv/envs`
+	do
+	  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
+	done
+fi
+
 # MANPATH
 MANPATH=/usr/local/share/man:/usr/share/man:$MANPATH
 export MANPATH

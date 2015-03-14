@@ -40,12 +40,14 @@ export PATH
 export PATH=${HOME}/.local/bin:$PATH
 
 # Add anyenv to PATH for scripting
-export PATH="${HOME}/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-for D in `ls ${HOME}/.anyenv/envs`
-do
-  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
-done
+if [ -d ${HOME}/.anyenv ] ; then
+	export PATH="${HOME}/.anyenv/bin:$PATH"
+	eval "$(anyenv init -)"
+	for D in `ls ${HOME}/.anyenv/envs`
+	do
+	  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
+	done
+fi
 
 # Android SDK
 #export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools:/Applications/adt-bundle-mac/sdk/tools

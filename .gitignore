@@ -13,3 +13,4 @@
 .emacs.d/elpa/archives/melpa/archive-contents
 .emacs.d/elpa/*
 .emacs.d/recentf
+.config/configstore

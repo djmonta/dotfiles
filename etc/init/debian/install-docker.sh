@@ -4,7 +4,7 @@ trap 'echo Error: $0: stopped' ERR INT
 set -u
 set -e
 
-echo -n "Install docker from wheezy-backports? (y/N) "
+echo -n "Install docker (y/N) "
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
@@ -20,7 +20,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 		sudo sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list"
 
 		sudo apt-get update
-        sudo apt-get -y install -t wheezy-backports linux-image-amd64
+        sudo apt-get install -t wheezy-backports linux-image-amd64
         wget -qO - https://get.docker.com/ | sh
 
 fi

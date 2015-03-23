@@ -20,7 +20,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 		sudo sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list.d/wheezy-backports.list"
 
 		sudo apt-get update
-        sudo apt-get -y install -t wheezy-backports linux-image-amd64
+        sudo apt-get install -y -t wheezy-backports linux-image-amd64
         wget -qO - https://get.docker.com/ | sh
 
 fi

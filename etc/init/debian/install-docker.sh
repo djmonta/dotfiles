@@ -17,7 +17,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
         kill -0 "$$" || exit
     done 2>/dev/null &
 
-		sudo sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list"
+		sudo sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list/wheezy-backports.list"
 
 		sudo apt-get update
         sudo apt-get install -t wheezy-backports linux-image-amd64

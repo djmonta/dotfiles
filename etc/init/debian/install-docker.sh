@@ -4,7 +4,7 @@ trap 'echo Error: $0: stopped' ERR INT
 set -u
 set -e
 
-echo -n "Install zsh and emacs from wheezy-backports? (y/N) "
+echo -n "Install docker from wheezy-backports? (y/N) "
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
@@ -20,7 +20,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 		sudo sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list"
 
 		sudo apt-get update
-		sudo apt-get -y install -t wheezy-backports zsh
-        sudo apt-get -y install -t wheezy-backports emacs24-nox
+		# sudo apt-get -y install -t wheezy-backports zsh
+        # sudo apt-get -y install -t wheezy-backports emacs24-nox
 
 fi

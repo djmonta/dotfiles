@@ -1,5 +1,5 @@
-percol.view.PROMPT  = ur"<green>Input:</green> %q"
-percol.view.RPROMPT = ur"[%i/%I]"
+# percol.view.PROMPT  = ur"<green>Input:</green> %q"
+# percol.view.RPROMPT = ur"[%i/%I]"
 
 percol.import_keymap({
     "C-f" : lambda percol: percol.command.forward_char(),

@@ -50,7 +50,7 @@ if [ -d ${HOME}/.anyenv ] ; then
 fi
 
 # Android SDK
-#export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools:/Applications/adt-bundle-mac/sdk/tools
+export PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 
 # MANPATH
 MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH

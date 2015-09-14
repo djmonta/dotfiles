@@ -1,5 +1,36 @@
 # Last Modified: 2013/01/15-20:47:57
-# users generic .zshrc file for zsh(1)
+### Introduction {{{
+#
+#  .zshrc
+#
+#  (in $ZDOTDIR : default $HOME)
+#
+#  initial setup file for only interective zsh
+#  This file is read after .zprofile file is read.
+#
+#   zshマニュアル(日本語)
+#    http://www.ayu.ics.keio.ac.jp/~mukai/translate/zshoptions.html
+#
+#   autoload
+#    -U : ファイルロード中にaliasを展開しない(予期せぬaliasの書き換えを防止)
+#    -z : 関数をzsh-styleで読み込む
+#
+#   typeset
+#    -U 重複パスを登録しない
+#    -x exportも同時に行う
+#    -T 環境変数へ紐付け
+#
+#   path=xxxx(N-/)
+#     (N-/): 存在しないディレクトリは登録しない。
+#     パス(...): ...という条件にマッチするパスのみ残す。
+#        N: NULL_GLOBオプションを設定。
+#           globがマッチしなかったり存在しないパスを無視する
+#        -: シンボリックリンク先のパスを評価
+#        /: ディレクトリのみ残す
+#        .: 通常のファイルのみ残す
+#
+#************************************************************************** }}}
+
 
 ## Environment variable configuration
 #

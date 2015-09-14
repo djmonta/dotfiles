@@ -24,8 +24,19 @@ fi
 #cask install alfred
 #cask alfred  link
 
-brew tap caskroom/versions
-brew tap djmonta/cask
+declare -a TAPS=(
+    'caskroom/versions'
+    'djmonta/cask'
+)
+
+for TAP in "${TAPS[@]}"
+do
+    if brew tap | grep -q "^${TAP}"; then
+        echo "Skip: brew tap ${TAP}"
+    else
+        brew tap $TAP
+    fi
+done
 
 # Hack to show the first-run brew-cask password prompt immediately.
 #brew cask info this-is-somewhat-annoying 2>/dev/null

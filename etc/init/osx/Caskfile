@@ -25,13 +25,13 @@ fi
 #cask alfred  link
 
 declare -a TAPS=(
-    'homebrew/versions'
+    'caskroom/versions'
     'djmonta/cask'
 )
 
 for TAP in "${TAPS[@]}"
 do
-    if ! brew tap | grep -q "^${TAP}"; then
+    if brew tap | grep -q "^${TAP}"; then
         echo "Skip: brew tap ${TAP}"
     else
         brew tap $TAP

@@ -1,0 +1,4 @@
+[
+  { "keys": ["ctrl+shift+q"], "command": "auto_save" },
+  { "keys": ["ctrl+shift+t"], "command": "insert_timestamp" }
+]

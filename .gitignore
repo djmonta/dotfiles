@@ -14,3 +14,9 @@
 .emacs.d/elpa/*
 .emacs.d/recentf
 .config/configstore
+/Sublime/User/Package Control.last-run
+/Sublime/User/Package Control.ca-list
+/Sublime/User/Package Control.ca-bundle
+/Sublime/User/Package Control.system-ca-bundle
+/Sublime/User/Package Control.cache/
+/Sublime/User/Package Control.ca-certs/

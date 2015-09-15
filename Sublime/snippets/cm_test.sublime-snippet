@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+:ballot_box_with_check: test: ${1:summary}
+]]></content>
+  <tabTrigger>cm_test</tabTrigger>
+  <scope></scope>
+  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：テスト）</description>
+</snippet>

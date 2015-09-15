@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+:imp: dirty: ${1:summary}
+]]></content>
+  <tabTrigger>cm_dirty</tabTrigger>
+  <scope></scope>
+  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：動かないバージョンのコミット等、仕方なく行うコミット）</description>
+</snippet>

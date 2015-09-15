@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+:recycle: refactor: ${1:summary}
+]]></content>
+  <tabTrigger>cm_refactor</tabTrigger>
+  <scope></scope>
+  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：リファクタリング）</description>
+</snippet>

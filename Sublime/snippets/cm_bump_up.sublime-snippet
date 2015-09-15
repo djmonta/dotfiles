@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+:thumbsup: bump up: ${1:summary}
+]]></content>
+  <tabTrigger>cm_bump_up</tabTrigger>
+  <scope></scope>
+  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：バージョンアップ）</description>
+</snippet>

@@ -1,0 +1,4 @@
+{
+	"disabled_keymap_actions": "expand_abbreviation",
+	"disabled_keymap_actions": "expand_abbreviation, balance_outward"
+}

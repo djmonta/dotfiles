@@ -26,6 +26,8 @@ declare -a PACKAGES=(
     "libxml2-dev"
     "libxslt1-dev"
     "autoconf"
+    "ruby"
+    "libbz2-dev"
 )
 
 echo -n "Install required packages? (y/N) "

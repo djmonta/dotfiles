@@ -1,8 +1,8 @@
 #!/bin/sh
 
-RB_VER=2.3.0-dev
-ND_VER=v0.12.0
-PY_VER=2.7.9
+RB_VER=2.2.3
+ND_VER=v0.12.7
+PY_VER=3.5.0
 
 echo -n "Install anyenv? (y/N) "
 read

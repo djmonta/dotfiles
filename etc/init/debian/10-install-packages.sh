@@ -14,6 +14,18 @@ declare -a PACKAGES=(
     "iptables-persistent"
     "libncurses5-dev"
     "trash-cli"
+    "bison"
+    "libreadline6-dev"
+    "curl"
+    "git-core"
+    "zlib1g-dev"
+    "libssl-dev"
+    "libyaml-dev"
+    "libsqlite3-dev"
+    "sqlite3"
+    "libxml2-dev"
+    "libxslt1-dev"
+    "autoconf"
 )
 
 echo -n "Install required packages? (y/N) "

@@ -13,6 +13,7 @@ declare -a PACKAGES=(
     "dpkg-dev"
     "iptables-persistent"
     "libncurses5-dev"
+    "trash-cli"
 )
 
 echo -n "Install required packages? (y/N) "

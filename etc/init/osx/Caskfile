@@ -26,6 +26,7 @@ fi
 
 declare -a TAPS=(
     'caskroom/versions'
+    'caskroom/fonts'
     'djmonta/cask'
 )
 
@@ -54,6 +55,8 @@ declare -a CASK_PACKAGES=(
   "dash"
   "dropbox"
   #"easysimbl"
+  "font-fontawesome"
+  "font-source-han-code-jp"
   "flip4mac"
   "github"
   "google-chrome"

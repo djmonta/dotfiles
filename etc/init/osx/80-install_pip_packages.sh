@@ -23,8 +23,8 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
   declare -a PIP_PACKAGES=(
     "percol"
-    "powerline-status"
-    "psutil"
+    #"powerline-status"
+    #"psutil"
   )
 
   for package in "${PIP_PACKAGES[@]}"

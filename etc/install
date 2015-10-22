@@ -10,14 +10,16 @@ set -u
 # Pilot of dotfiles
 # It shows the use of dotfiles and describe what is inside
 # regardless of execution or non-execution
+# http://patorjk.com/software/taag/#p=display&h=1&f=Slant&t=dotfiles
 #
 cat <<-'EOT'
 
-    | |     | |  / _(_) |           
-  __| | ___ | |_| |_ _| | ___  ___  
- / _` |/ _ \| __|  _| | |/ _ \/ __| 
-| (_| | (_) | |_| | | | |  __/\__ \ 
- \__,_|\___/ \__|_| |_|_|\___||___/ 
+       __        __   ____ _  __           
+  ____/ /____   / /_ / __/(_)/ /___   _____
+ / __  // __ \ / __// /_ / // // _ \ / ___/
+/ /_/ // /_/ // /_ / __// // //  __/(__  ) 
+\__,_/ \____/ \__//_/  /_//_/ \___//____/  
+                                           
 *** WHAT'S INSIDE? ***
   1. Download https://github.com/djmonta/dotfiles.git
   2. Symlinking dot files to your home directory

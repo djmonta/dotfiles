@@ -58,7 +58,7 @@ declare -a CASK_PACKAGES=(
   "font-fontawesome"
   "font-source-han-code-jp"
   "flip4mac"
-  "github"
+  "github-desktop”
   "google-chrome"
   "handbrake"
   "ibackup"

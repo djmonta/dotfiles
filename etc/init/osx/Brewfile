@@ -32,7 +32,6 @@ declare -a BREW_PACKAGES=(
   "autoconf"
   "automake"
   "caskroom/cask/brew-cask"
-  "carthage"
   "coreutils"
   "imagemagick"
   "mysql"

@@ -60,6 +60,9 @@ export MANPATH
 INFOPATH=/usr/local/share/info:/usr/share/info:$INFOPATH
 export INFOPATH
 
+# LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
+
 # HOMEBREW CASK
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 

@@ -48,19 +48,16 @@ declare -a CASK_PACKAGES=(
   "alfred"
   "appcleaner"
   "dropbox"
-  "easysimbl"
   "google-chrome"
-  #"imageup"
   "itsycal"
-  #"java6"
   "karabiner"
+  "sublime-text3"
   # QuickLook plugins
   "qlcolorcode"
   "qlimagesize"
   "qlmarkdown"
   "qlstephen"
   "qlvideo"
-  "suspicious-package"
 )
 
 for package in "${CASK_PACKAGES[@]}"

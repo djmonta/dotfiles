@@ -1,21 +1,36 @@
 #!/bin/bash
 
 trap 'echo Error: $0: stopped' ERR
-set -e
 set -u
+set -e
 
-#
-# Testing the judgement system
-# {{{
-if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
-#}}}
-
-echo -n 'Copy Ricty-Powerline fonts? (y/N) '
+echo -n 'Install Ricty fonts? (y/N) '
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-	printf "Copying fonts ..."
-	for f in $DOTFILES/etc/lib/fonts/*; do
-	  cp "$f" ~/Library/Fonts/
+
+	if ! type brew >/dev/null 2>&1; then
+	    echo 'Requirement: brew' 1>&2
+	    exit 1
+	fi
+
+	declare -a TAPS=(
+	    'sanemat/font'
+	)
+
+	for TAP in "${TAPS[@]}"
+	do
+	    if brew tap | grep -q "^${TAP}"; then
+	        echo "Skip: brew tap ${TAP}"
+	    else
+	        brew tap $TAP
+	    fi
 	done
-	printf "done!\n"
+
+  if brew list -1 | grep -q "^ricty"; then
+    echo "Skip: brew install ricty"
+  else
+    brew install --powerline --vim-powerline ricty
+    cp -f /usr/local/Cellar/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/
+  fi
+
 fi

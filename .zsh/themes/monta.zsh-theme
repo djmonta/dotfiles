@@ -74,7 +74,7 @@ source ${HOME}/dotfiles/bin/256colorlib.sh
 
 ## PROMPT/RPROMT/SPROMPT
 
-DIVIDER_HARD=' '
+DIVIDER_HARD=''
 
 DEFAULT_PROMPT='%{${reset_color}%}'
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 

@@ -61,7 +61,7 @@ set_dock_preferences()
 set_quicklook_preferences()
 {
     # Allow you to select and copy string in QuickLook
-    defaults write com.apple.finder QLEnableTextSelection -bool yes
+    defaults write com.apple.finder QLEnableTextSelection -bool true
 }
 
 # Finder {{{1

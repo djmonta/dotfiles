@@ -11,6 +11,7 @@ set -e
 
 declare -a PACKAGES=(
     "dpkg-dev"
+    "zsh"
     "iptables-persistent"
     "libncurses5-dev"
     "trash-cli"

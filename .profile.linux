@@ -24,7 +24,7 @@ export GIT_EDITOR="/usr/local/bin/emacsclient"
 #
 
 # PATH
-PATH=${HOME}/bin:${HOME}/dotfiles/bin::/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
+PATH=${HOME}/bin:${HOME}/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 export PATH
 
 # For percol

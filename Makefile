@@ -49,6 +49,9 @@ cask:
 	@bash $(DOTFILES_DIR)/etc/init/osx/Caskfile
 endif
 
+anyenv:
+	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
+
 install: update deploy init
 	@exec $$SHELL
 

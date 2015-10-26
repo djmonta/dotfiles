@@ -208,11 +208,13 @@ set_aliases_for_ext
 case "${OSTYPE}" in
     # Mac(Unix)
     darwin*)
-    alias rm='trash'
+    #alias rm='trash'
+    alias rm='gomi_darwin_amd64 -s'
     ;;
     # Linux
     linux*)
-    alias rm='rmtrash'
+    #alias rm='rmtrash'
+    alias rm='gomi_linux_amd64 -s'
     ;;
 esac
 

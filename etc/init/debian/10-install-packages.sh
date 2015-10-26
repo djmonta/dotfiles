@@ -14,7 +14,6 @@ declare -a PACKAGES=(
     "zsh"
     "iptables-persistent"
     "libncurses5-dev"
-    "trash-cli"
     "bison"
     "libreadline6-dev"
     "curl"

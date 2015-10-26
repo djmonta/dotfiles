@@ -214,7 +214,7 @@ case "${OSTYPE}" in
     # Linux
     linux*)
     #alias rm='rmtrash'
-    alias rm='gomi_linux_amd64 -s'
+    alias rm='gomi_linux_amd64'
     ;;
 esac
 

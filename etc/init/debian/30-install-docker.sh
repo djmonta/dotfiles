@@ -17,10 +17,6 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
         kill -0 "$$" || exit
     done 2>/dev/null &
 
-		sudo sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list.d/wheezy-backports.list"
-
-		sudo apt-get update
-        sudo apt-get install -y -t wheezy-backports linux-image-amd64
         wget -qO - https://get.docker.com/ | sh
 
 fi

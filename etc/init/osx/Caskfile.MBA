@@ -26,7 +26,7 @@ fi
 
 declare -a TAPS=(
     'caskroom/versions'
-    'djmonta/cask'
+    #'djmonta/cask'
 )
 
 for TAP in "${TAPS[@]}"
@@ -43,14 +43,14 @@ done
 
 declare -a CASK_PACKAGES=(
   # Applications
-  "1password"
+  #"1password"
   #"1piece"
   "alfred"
   "appcleaner"
   "dropbox"
   "google-chrome"
   "itsycal"
-  "karabiner"
+  #"karabiner"
   "sublime-text3"
   # QuickLook plugins
   "qlcolorcode"

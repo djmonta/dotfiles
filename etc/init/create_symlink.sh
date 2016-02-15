@@ -48,7 +48,7 @@ create_dotfiles_symlinks() {
         # .lv
         # .m2
         # .my.cnf
-        .percol.d
+        # .percol.d
         # .pythonstartup
         .screenrc
         .subversion

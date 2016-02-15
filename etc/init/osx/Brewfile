@@ -36,6 +36,7 @@ declare -a BREW_PACKAGES=(
   "imagemagick"
   "mysql"
   "pandoc"
+  "peco"
   "pkg-config"
   "reattach-to-user-namespace"
   "terminal-notifier"

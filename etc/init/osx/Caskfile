@@ -64,7 +64,7 @@ declare -a CASK_PACKAGES=(
   #"handbrake"
   "ibackup"
   #"iexplorer"
-  "imageup"
+  #”imageup"
   "itsycal"
   "karabiner"
   "kindle"
@@ -76,7 +76,7 @@ declare -a CASK_PACKAGES=(
   "tower"
   "transmission"
   "transmit"
-  "traumbaum"
+  #”traumbaum"
   "vagrant"
   #"vlc"
   # PreferencePane

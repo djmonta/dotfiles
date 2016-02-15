@@ -30,6 +30,9 @@ deploy:
 	@echo ''
 	@bash $(DOTFILES_DIR)/etc/init/create_symlink.sh
 
+anyenv:
+	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
+
 init:
 ifeq ($(shell uname), Darwin)
 	@$(foreach val, $(wildcard ./etc/init/osx/*.sh), bash $(val);)

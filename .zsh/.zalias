@@ -209,12 +209,12 @@ case "${OSTYPE}" in
     # Mac(Unix)
     darwin*)
     #alias rm='trash'
-    alias rm='gomi_darwin_amd64 -s'
+    alias rm='gomi --system'
     ;;
     # Linux
     linux*)
     #alias rm='rmtrash'
-    alias rm='gomi_linux_amd64'
+    #alias rm='gomi_linux_amd64'
     ;;
 esac
 

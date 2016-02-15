@@ -50,8 +50,8 @@ create_dotfiles_symlinks() {
         # .my.cnf
         # .percol.d
         # .pythonstartup
-        .screenrc
-        .subversion
+        # .screenrc
+        # .subversion
         .tmux
         .tmux.conf
         # .vim

@@ -28,11 +28,25 @@ if [ -n "$outdated" ]; then
     brew upgrade
 fi
 
+declare -a TAPS=(
+    'b4b4r07/gomi'
+)
+
+for TAP in "${TAPS[@]}"
+do
+    if brew tap | grep -q "^${TAP}"; then
+        echo "Skip: brew tap ${TAP}"
+    else
+        brew tap $TAP
+    fi
+done
+
 declare -a BREW_PACKAGES=(
   "autoconf"
   "automake"
   "caskroom/cask/brew-cask"
   "coreutils"
+  "gomi"
   "imagemagick"
   "mysql"
   "pandoc"

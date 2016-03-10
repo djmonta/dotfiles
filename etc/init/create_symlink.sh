@@ -37,6 +37,7 @@ create_dotfiles_symlinks() {
         # .agignore
         .bash_profile
         .bashrc
+        .brewfile
         .config
         .emacs.d
         .gitconfig

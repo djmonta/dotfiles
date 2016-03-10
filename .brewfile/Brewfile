@@ -1,0 +1,106 @@
+
+# tap repositories and their packages
+
+tap argon/mas
+brew mas
+
+tap b4b4r07/gomi
+brew gomi
+
+tap caskroom/cask
+brew brew-cask
+cask 1password
+cask alfred
+cask appcleaner
+cask bartender
+cask drobo-dashboard
+cask dropbox
+cask flip4mac
+cask github-desktop
+cask google-chrome
+cask ibackup
+cask itsycal
+cask karabiner
+cask kindle
+cask lastfm
+cask paparazzi
+cask parallels-desktop
+cask qlcolorcode
+cask qlimagesize
+cask qlmarkdown
+cask qlstephen
+cask qlvideo
+cask sequel-pro
+cask tower
+cask transmission
+cask transmit
+cask vagrant
+
+tap caskroom/fonts
+cask font-fontawesome
+cask font-source-han-code-jp
+
+tap caskroom/versions
+cask sublime-text3
+
+tap djmonta/cask
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+brew ricty --powerline --vim-powerline
+
+# Other Homebrew packages
+brew autoconf
+brew automake
+brew boost
+brew cairo
+brew coreutils
+brew czmq
+brew fontconfig
+brew fontforge
+brew freetype
+brew gettext
+brew glib
+brew gmp
+brew gobject-introspection
+brew harfbuzz
+brew highlight
+brew icu4c
+brew imagemagick
+brew jpeg
+brew libevent
+brew libffi
+brew libpng
+brew libsodium
+brew libtiff
+brew libtool
+brew lua
+brew mysql
+brew openssl
+brew pandoc
+brew pango
+brew peco
+brew pixman
+brew pkg-config
+brew reattach-to-user-namespace
+brew terminal-notifier
+brew tmux
+brew wget
+brew xz
+brew zeromq
+
+# App Store applications
+appstore 408981426 Aperture
+appstore 953924032 Aura
+appstore 467939042 Growl
+appstore 422293948 IP Scanner Home
+appstore 539883307 LINE
+appstore 527618971 Pixa
+appstore 568494494 Pocket
+appstore 445189367 PopClip
+appstore 866773894 Quiver
+appstore 507257563 Sip
+appstore 485812721 TweetDeck
+appstore 497799835 Xcode

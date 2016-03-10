@@ -1,8 +1,8 @@
 DOTFILES_TARGET   := $(wildcard .??*) bin
 DOTFILES_DIR      := ${HOME}/dotfiles
-DOTFILES_FILES    := .bash_profile .bashrc .config .dir_colors .emacs.d .gitconfig .gitignore .gittemplate .tmux .tmux.conf .zshenv .zsh
+DOTFILES_FILES    := .bash_profile .bashrc .brewfile .config .dir_colors .emacs.d .gitconfig .gitignore .gittemplate .tmux .tmux.conf .zshenv .zsh
 
-all: update deploy init
+all: update deploy anyenv init
 
 help:
 	@echo "make list           #=> List the files"
@@ -12,8 +12,8 @@ help:
 	@echo "make install        #=> Updating, deploying and initializng"
 	@echo "make clean          #=> Remove the dotfiles"
 	@echo "make homebrew       #=> Install homebrew without it"
-	@echo "make brew           #=> Update brew packages"
-	@echo "make cask           #=> Update cask packages"
+	@echo "make brew           #=> Update brew/cask/mas packages"
+	# @echo "make cask           #=> Update cask packages"
 
 list:
 	@$(foreach val, $(DOTFILES_FILES), ls -dF $(val);)
@@ -46,16 +46,16 @@ homebrew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/20-install_homebrew.sh
 
 brew:
-	@bash $(DOTFILES_DIR)/etc/init/osx/Brewfile
+	@bash $(DOTFILES_DIR)/etc/init/osx/40-brewfileinstall.sh
 
-cask:
-	@bash $(DOTFILES_DIR)/etc/init/osx/Caskfile
+# cask:
+# 	@bash $(DOTFILES_DIR)/etc/init/osx/Caskfile
 endif
 
 anyenv:
 	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
 
-install: update deploy init
+install: update deploy anyenv init
 	@exec $$SHELL
 
 clean:

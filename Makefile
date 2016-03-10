@@ -14,6 +14,7 @@ help:
 	@echo "make homebrew       #=> Install homebrew without it"
 	@echo "make brew           #=> Update brew/cask/mas packages"
 	# @echo "make cask           #=> Update cask packages"
+	@echo "make anyenv         #=> Install anyenv (ruby, node, python)"
 
 list:
 	@$(foreach val, $(DOTFILES_FILES), ls -dF $(val);)
@@ -55,7 +56,7 @@ endif
 anyenv:
 	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
 
-install: update deploy anyenv init
+install: update deploy init
 	@exec $$SHELL
 
 clean:

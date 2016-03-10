@@ -68,7 +68,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # BREW-FILE
 if hostname | grep -q "Mac-mini\.local$" ; then
-  	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
 else
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBA
 fi

@@ -4,7 +4,7 @@
 tap argon/mas
 brew mas
 
-tap b4b4r07/gomi
+tap djmonta/gomi
 brew gomi
 
 tap caskroom/cask

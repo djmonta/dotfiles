@@ -17,7 +17,6 @@ if brew commands -1 | grep -q "^file"; then
 		fi
 
 	  brew file install
-		cp -f /usr/local/Cellar/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/
 	fi
 else
 	echo 'Requirement: brew-file' 1>&2

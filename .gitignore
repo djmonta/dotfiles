@@ -21,3 +21,8 @@
 /Sublime/User/Package Control.cache/
 /Sublime/User/Package Control.ca-certs/
 Sublime/User/encoding_cache.json
+.atom/.apm/
+.atom/.node-gyp/
+.atom/packages/
+.atom/compile-cache/
+.atom/storage/

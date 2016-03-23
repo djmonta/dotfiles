@@ -35,6 +35,7 @@ create_dotfiles_symlinks() {
     DOT_FILES=(
         # .ackrc
         # .agignore
+        .atom
         .bash_profile
         .bashrc
         .brewfile

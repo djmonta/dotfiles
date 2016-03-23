@@ -1,0 +1,25 @@
+"*":
+  core:
+    disabledPackages: [
+      "wrap-guide"
+    ]
+    themes: [
+      "one-dark-ui"
+      "solarized-light-syntax"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+  "exception-reporting":
+    userId: "f813cecf-bb31-0df3-a3ea-6e626734aeb6"
+  "git-diff": {}
+  minimap:
+    plugins:
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  welcome:
+    showOnStartup: false

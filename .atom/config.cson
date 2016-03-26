@@ -14,7 +14,8 @@
     softWrap: true
   "exception-reporting":
     userId: "f813cecf-bb31-0df3-a3ea-6e626734aeb6"
-  "git-diff": {}
+  "git-diff":
+    showIconsInEditorGutter: true
   minimap:
     plugins:
       "git-diff": true

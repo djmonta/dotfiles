@@ -21,7 +21,7 @@ export USER_LOCAL
 export ALTERNATE_EDITOR="sublime -w"
 export EDITOR="sublime -w"
 export VISUAL="sublime -w"
-    
+
 # Gitでコミット時に起動するエディタを指定
 # 未指定だとコミット時にエラーになる(絶対パス必須)
 export GIT_EDITOR="/Users/monta/dotfiles/bin/sublime -w"
@@ -33,24 +33,24 @@ export GIT_EDITOR="/Users/monta/dotfiles/bin/sublime -w"
 #
 
 # PATH
-PATH="${HOME}/bin:${HOME}/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin:$PATH"
-export PATH
+PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin:$PATH"
+# Android SDK
+#PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 
 # For powerline
-export PATH=${HOME}/.local/bin:$PATH
+#PATH=${HOME}/.local/bin:$PATH
 
 # Add anyenv to PATH for scripting
 if [ -d ${HOME}/.anyenv ] ; then
-	export PATH="${HOME}/.anyenv/bin:$PATH"
+	PATH="${HOME}/.anyenv/bin:$PATH"
 	eval "$(anyenv init -)"
 	for D in `\ls ${HOME}/.anyenv/envs`
 	do
-	  export PATH="${HOME}/.anyenv/envs/$D/shims:$PATH" 
+	  PATH="${HOME}/.anyenv/envs/$D/shims:$PATH"
 	done
 fi
 
-# Android SDK
-export PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
+export PATH
 
 # MANPATH
 MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/opt/local/share/man:/usr/local/jman:/usr/share/man:/usr/X11/man:$MANPATH

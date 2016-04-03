@@ -82,7 +82,7 @@ autoload -Uz add-zsh-hook
 #     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "
 #     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
 #     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 #         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 # #    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # else
@@ -166,6 +166,8 @@ zle -N self-insert url-quote-magic
 
 setopt promptcr             # 改行のない出力をプロンプトで上書きするのを防ぐ
 watch="all"                 # 全てのユーザのログイン・ログアウトを監視
+
+typeset -U path PATH        # PATH環境変数の重複エントリを排除
 
 ## zsh editor
 #
@@ -279,7 +281,7 @@ fpath=(${HOME}/.zsh/functions/Completion/zsh-completions(N-/) ${fpath})
 # homebrewでインストールしたコマンドの補完関数 http://yonchu.hatenablog.com/entry/20120415/1334506855
 # /usr/local 配下
 # (N-/): 存在しないディレクトリは登録しない。
-fpath=(/usr/local/share/zsh/functions(N-/) /usr/local/share/zsh/site-functions(N-/) ${fpath}) 
+fpath=(/usr/local/share/zsh/functions(N-/) /usr/local/share/zsh/site-functions(N-/) ${fpath})
 if type brew >/dev/null 2>&1; then
     BREW_PREFIX=$(brew --prefix)
     fpath=($BREW_PREFIX/share/zsh/functions(N-/) $BREW_PREFIX/share/zsh/site-functions(N-/) ${fpath})

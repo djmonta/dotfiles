@@ -3,7 +3,6 @@
 
 (depends-on "auto-async-byte-compile")
 (depends-on "auto-save-buffers-enhanced")
-(depends-on "git-commit-mode")
 (depends-on "init-loader")
 (depends-on "paredit")
 (depends-on "shell-pop")

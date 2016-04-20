@@ -27,3 +27,6 @@ Sublime/User/encoding_cache.json
 .atom/compile-cache/
 .atom/storage/
 .emacs.d/.cask/
+.atom/blob-store/BLOB
+.atom/blob-store/INVKEYS
+.atom/blob-store/MAP

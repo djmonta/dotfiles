@@ -6,7 +6,7 @@
 (depends-on "init-loader")
 (depends-on "paredit")
 (depends-on "shell-pop")
-(depends-on "solarized-theme")
+(depends-on "color-theme-solarized")
 (depends-on "hlinum")
 (depends-on "git-gutter-fringe+")
 (depends-on "powerline")

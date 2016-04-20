@@ -18,8 +18,9 @@
   (display-time))
 
 ;;行番号表示
-;(autoload 'setnu-mode "setnu" nil t)
-;(global-set-key [f5] 'setnu-mode)
+(require 'linum)
+(global-linum-mode 1)
+(setq linum-format "%2d ")
 
 ;; 最近使ったファイルを保存(M-x recentf-open-filesで開く)
 (recentf-mode)

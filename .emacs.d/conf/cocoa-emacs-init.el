@@ -7,10 +7,6 @@
   "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; PATH
-;(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-;(push "/usr/local/bin" exec-path)
-
 ;; Command-Key and Option-Key
 ;(setq ns-command-modifier (quote meta))
 ;(setq ns-alternate-modifier (quote super))
@@ -29,12 +25,7 @@
 ;;ツールバーを消す
 (tool-bar-mode 0)
 
-; Show line number
-;; (require 'wb-line-number)
-;; (setq truncate-partial-width-windows nil)
-;; (set-scroll-bar-mode nil)
-;; (setq wb-line-number-scroll-bar nil)
-;; (wb-line-number-toggle)
+;; Show line number
 
 ;;メニューバーにファイルパスを表示する
 (setq frame-title-format
@@ -50,36 +41,14 @@
 ;;   (split-window-horizontally))
 
 ;;Color&Tranceparent
-;; (set-background-color "Black")
-;; (set-foreground-color "LightGray")
-;; (set-cursor-color "Gray")
+(load-theme 'solarized t)
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
+(enable-theme 'solarized)
+
 (set-frame-parameter nil 'alpha 80)
 
-;;フォントをbitstream vera sans mono 12ptに
-;(set-face-attribute 'default nil
-;                    :family "Monaco"
-;                    :height 120)
-
 ;;フォント設定
-;(when (>= emacs-major-version 23)
-; (set-fontset-font
-;  (frame-parameter nil 'font)
-;  'japanese-jisx0208
-;  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-;
-; (set-fontset-font
-;  (frame-parameter nil 'font)
-;  'mule-unicode-0100-24ff
-;  '("monaco" . "iso10646-1"))
-; (setq face-font-rescale-alist
-;      '(("^-apple-hiragino.*" . 1.2)
-;        (".*osaka-bold.*" . 1.2)
-;        (".*osaka-medium.*" . 1.2)
-;        (".*courier-bold-.*-mac-roman" . 1.0)
-;        (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-;        (".*monaco-bold-.*-mac-roman" . 0.9)
-;        ("-cdac$" . 1.3))))
-
 ;; Ricty {{{2 (http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)
 (set-face-attribute 'default nil
                    :family "Ricty"
@@ -88,26 +57,9 @@
  nil 'japanese-jisx0208
  (font-spec :family "Ricty"))
 
-; (set-fontset-font (frame-parameter nil 'font)
-;                   'japanese-jisx0208
-;                   (cons "Ricty" "iso10646-1"))
-; (set-fontset-font (frame-parameter nil 'font)
-;                   'japanese-jisx0212
-;                   (cons "Ricty" "iso10646-1"))
-; (set-fontset-font (frame-parameter nil 'font)
-;                   'katakana-jisx0201
-;                   (cons "Ricty" "iso10646-1"))
-
-; (set-default-font "ricty-13.5:spacing=0")
-; (add-to-list 'default-frame-alist '(font . "ricty-13.5"))
-
-;; zencoding-mode
-; (require 'zencoding-mode)
-; (add-hook 'xml-mode-hook 'zencoding-mode)
-; (add-hook 'sgml-mode-hook 'zencoding-mode)
-; (add-hook 'html-mode-hook 'zencoding-mode)
-; (define-key zencoding-mode-keymap (kbd "<C-return>") nil)
-; (define-key zencoding-mode-keymap (kbd "<S-return>") 'zencoding-expand-line)
+;;Powerline
+(require 'powerline)
+(powerline-default-theme)
 
 ;;ELScreen
 ;(load "elscreen" "ElScreen" t)

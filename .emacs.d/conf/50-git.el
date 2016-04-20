@@ -14,3 +14,5 @@
 ; (require 'magit)
 ; (require 'magit-svn)
 ; (require 'magit-topgit)
+
+(require 'git-gutter-fringe+)

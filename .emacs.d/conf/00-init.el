@@ -6,34 +6,30 @@
         (add-to-list 'load-path default-directory)
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path))))))
- 
+
 ;; elispディレクトリをサブディレクトリごとload-pathに追加
-(add-to-load-path "elisp" "elpa")
+(add-to-load-path "elisp")
 
 ;;(require 'emacs-type)
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;; @see http://github.com/elim/dotemacs/blob/master/init.el
-(defun x->bool (elt) (not (not elt)))
-(defvar emacs22-p (equal emacs-major-version 22))
-(defvar emacs23-p (equal emacs-major-version 23))
-(defvar darwin-p (eq system-type 'darwin))
-(defvar ns-p (featurep 'ns))
-(defvar carbon-p (and (eq window-system 'mac) emacs22-p))
-(defvar mac-p (and (eq window-system 'mac) emacs23-p))
-(defvar linux-p (eq system-type 'gnu/linux))
-(defvar colinux-p (when linux-p
-                    (let ((file "/proc/modules"))
-                      (and
-                       (file-readable-p file)
-                       (x->bool
-                        (with-temp-buffer
-                          (insert-file-contents file)
-                          (goto-char (point-min))
-                          (re-search-forward "^cofuse\.+" nil t)))))))
-(defvar cygwin-p (eq system-type 'cygwin))
-(defvar nt-p (eq system-type 'windows-nt))
-(defvar meadow-p (featurep 'meadow))
-(defvar windows-p (or cygwin-p nt-p meadow-p))
+(setq darwin-p  (eq system-type 'darwin)
+      ns-p      (featurep 'ns)
+      carbon-p  (eq window-system 'mac)
+      linux-p   (eq system-type 'gnu/linux)
+      colinux-p (when linux-p
+                  (let ((file "/proc/modules"))
+                    (and
+                     (file-readable-p file)
+                     (x->bool
+                      (with-temp-buffer
+                        (insert-file-contents file)
+                        (goto-char (point-min))
+                        (re-search-forward "^cofuse\.+" nil t))))))
+      cygwin-p  (eq system-type 'cygwin)
+      nt-p      (eq system-type 'windows-nt)
+      meadow-p  (featurep 'meadow)
+      windows-p (or cygwin-p nt-p meadow-p))
 
 ;; default encoding
 (set-language-environment "Japanese")
@@ -49,7 +45,7 @@
 ;(setq svn-status-svn-process-coding-system 'utf-8)
 
 (cond
- (mac-p
+ (darwin-p
   (require 'ucs-normalize)
   (setq file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))

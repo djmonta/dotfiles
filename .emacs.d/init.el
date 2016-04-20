@@ -1,7 +1,10 @@
-;; Last Modified: 2015/01/29-14:57:17
+;; Last Modified: 2016/04/20-15:53:37
 
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory (expand-file-name "~/.emacs.d/")))
+
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
+(cask-initialize)
 
 ;; init-loader
 (require 'init-loader)

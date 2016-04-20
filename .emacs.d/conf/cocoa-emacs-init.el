@@ -1,16 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Mac用設定
 ;; Last Modified: 2015/01/22-15:44:44
 
-;; Cask
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-(cask-initialize)
-
-;;ATOK2013
-(setq default-input-method "MacOSX")
-(mac-set-input-method-parameter "com.justsystems.inputmethod.atok26.Japanese" `title "漢")
-(mac-set-input-method-parameter "com.justsystems.inputmethod.atok26.Japanese" `cursor-type 'box)
-(mac-set-input-method-parameter "com.justsystems.inputmethod.atok26.Japanese" `cursor-color "magenta")
-
 ;; ansi-colorでエスケープシーケンスをfontifyする設定
 ;; http://d.hatena.ne.jp/rubikitch/20081102/1225601754
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"

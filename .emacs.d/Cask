@@ -10,6 +10,7 @@
 (depends-on "hlinum")
 (depends-on "git-gutter-fringe+")
 (depends-on "powerline")
+(depends-on "whitespace")
 
 (depends-on "bind-key")
 (depends-on "cask")

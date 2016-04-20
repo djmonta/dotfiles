@@ -26,3 +26,4 @@ Sublime/User/encoding_cache.json
 .atom/packages/
 .atom/compile-cache/
 .atom/storage/
+.emacs.d/.cask/

@@ -1,4 +1,4 @@
-(add-to-list 'exec-path "/usr/local/bin/")
+;(add-to-list 'exec-path "/usr/local/bin/")
 
 (require 'git-emacs)
 (fmakunbound 'git-status)   ; Possibly remove Debian's autoloaded version

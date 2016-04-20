@@ -14,8 +14,8 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; PATH
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-(push "/usr/local/bin" exec-path)
+;(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+;(push "/usr/local/bin" exec-path)
 
 ;; Command-Key and Option-Key
 ;(setq ns-command-modifier (quote meta))
@@ -30,7 +30,7 @@
 ;; ドラッグドロップで新たにファイルを開く
 (define-key global-map [ns-drag-file] 'ns-find-file)
 
-(fringe-mode 0) ;横の余白みたいなやつ消す
+;(fringe-mode 0) ;横の余白みたいなやつ消す
 
 ;;ツールバーを消す
 (tool-bar-mode 0)
@@ -124,6 +124,6 @@
 ;;タイムスタンプ
 (add-hook 'before-save-hook 'time-stamp)
 
-;最小の e2wm 設定例
-(require 'e2wm)
-(global-set-key (kbd "M-+") 'e2wm:start-management)
+;;最小の e2wm 設定例
+;(require 'e2wm)
+;(global-set-key (kbd "M-+") 'e2wm:start-management)

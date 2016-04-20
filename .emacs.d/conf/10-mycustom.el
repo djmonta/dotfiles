@@ -18,8 +18,8 @@
   (display-time))
 
 ;;行番号表示
-(autoload 'setnu-mode "setnu" nil t)
-(global-set-key [f5] 'setnu-mode)
+;(autoload 'setnu-mode "setnu" nil t)
+;(global-set-key [f5] 'setnu-mode)
 
 ;; 最近使ったファイルを保存(M-x recentf-open-filesで開く)
 (recentf-mode)
@@ -45,9 +45,9 @@
 (global-set-key "\M-y" 'kill-summary)
 
 ;;;試行錯誤用ファイルを開くための設定
-(require 'open-junk-file)
+;(require 'open-junk-file)
 ;; C-x C-zで試行錯誤ファイルを開く
-(global-set-key (kbd "C-x C-z") 'open-junk-file)
+;(global-set-key (kbd "C-x C-z") 'open-junk-file)
 
 ;;;式の評価結果を注釈するための設定
 ; (require 'lispxmp)
@@ -82,17 +82,17 @@
 (defun file-root-p (filename)
   "Return t if file FILENAME created by root."
   (eq 0 (nth 2 (file-attributes filename))))
- 
+
 (defun th-rename-tramp-buffer ()
   (when (file-remote-p (buffer-file-name))
     (rename-buffer
      (format "%s:%s"
              (file-remote-p (buffer-file-name) 'method)
              (buffer-name)))))
- 
+
 (add-hook 'find-file-hook
           'th-rename-tramp-buffer)
- 
+
 (defadvice find-file (around th-find-file activate)
   "Open FILENAME using tramp's sudo method if it's read-only."
   (if (and (file-root-p (ad-get-arg 0))
@@ -102,7 +102,7 @@
                              " is read-only.  Open it as root? ")))
       (th-find-file-sudo (ad-get-arg 0))
     ad-do-it))
- 
+
 (defun th-find-file-sudo (file)
   "Opens FILE with root privileges."
   (interactive "F")

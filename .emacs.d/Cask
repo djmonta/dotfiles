@@ -8,7 +8,6 @@
 (depends-on "paredit")
 (depends-on "shell-pop")
 (depends-on "solarized-theme")
-(depends-on "linum-mode")
 (depends-on "hlinum")
 (depends-on "git-gutter-fringe+")
 (depends-on "powerline")

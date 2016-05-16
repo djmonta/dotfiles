@@ -50,6 +50,12 @@ if [ -d ${HOME}/.anyenv ] ; then
 	done
 fi
 
+# Go
+if [ -x "`which go`" ]; then
+	export GOROOT=/usr/local/opt/go/libexec
+fi
+eval "$(direnv hook zsh)"
+
 export PATH
 
 # MANPATH

@@ -23,5 +23,7 @@
       "git-diffDecorationsZIndex": 0
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
+  "sass-autocompile":
+    sourceMap: true
   welcome:
     showOnStartup: false

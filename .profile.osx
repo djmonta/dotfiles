@@ -54,7 +54,9 @@ fi
 if [ -x "`which go`" ]; then
 	export GOROOT=/usr/local/opt/go/libexec
 fi
-eval "$(direnv hook zsh)"
+if [ -x "`which direnv`" ]; then
+	eval "$(direnv hook zsh)"
+fi
 
 export PATH
 

@@ -1,4 +1,5 @@
 "*":
+  "autoclose-html": {}
   core:
     disabledPackages: [
       "wrap-guide"
@@ -17,6 +18,7 @@
     userId: "f813cecf-bb31-0df3-a3ea-6e626734aeb6"
   "git-diff":
     showIconsInEditorGutter: true
+  "imdone-atom": {}
   minimap:
     plugins:
       "git-diff": true

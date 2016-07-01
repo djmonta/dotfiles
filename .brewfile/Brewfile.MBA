@@ -23,7 +23,7 @@ cask qlstephen
 cask qlvideo
 
 tap caskroom/versions
-cask sublime-text3
+#cask sublime-text3
 
 tap djmonta/cask
 

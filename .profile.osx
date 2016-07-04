@@ -82,7 +82,7 @@ else
 fi
 
 # Vagrant
-if [ -f "/Applications/Parallels\ Desktop.app" ]; then
+if [ -f "/Applications/Parallels Desktop.app" ]; then
 	export VAGRANT_DEFAULT_PROVIDER=parallels
 fi
 

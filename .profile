@@ -184,7 +184,7 @@ export LC_CTYPE='ja_JP.UTF-8'
 #
 # DropBox
 #
-export DROPBOX=~/Dropbox
+export DROPBOX=${HOME}/Dropbox
 
 #
 # Emacs Term Configuration

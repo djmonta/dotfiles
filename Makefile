@@ -2,7 +2,10 @@ DOTFILES_TARGET   := $(wildcard .??*) bin
 DOTFILES_DIR      := ${HOME}/dotfiles
 DOTFILES_FILES    := .atom .bash_profile .bashrc .brewfile .config .dir_colors .emacs.d .gitconfig .gitignore .gittemplate .tmux .tmux.conf .zshenv .zsh
 
-all: update deploy anyenv init
+all: update deploy init anyenv
+
+install: update deploy init
+	@exec $$SHELL
 
 help:
 	@echo "make list           #=> List the files"
@@ -33,6 +36,7 @@ deploy:
 
 anyenv:
 	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
+	@bash $(DOTFILES_DIR)/etc/init/install_envs.sh
 
 init:
 ifeq ($(shell uname), Darwin)
@@ -52,9 +56,6 @@ brew:
 # cask:
 # 	@bash $(DOTFILES_DIR)/etc/init/osx/Caskfile
 endif
-
-install: update deploy init
-	@exec $$SHELL
 
 clean:
 	@echo 'Remove dot files in your home directory...'

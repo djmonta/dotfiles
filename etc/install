@@ -14,17 +14,17 @@ set -u
 #
 cat <<-'EOT'
 
-       __        __   ____ _  __           
+       __        __   ____ _  __
   ____/ /____   / /_ / __/(_)/ /___   _____
  / __  // __ \ / __// /_ / // // _ \ / ___/
-/ /_/ // /_/ // /_ / __// // //  __/(__  ) 
-\__,_/ \____/ \__//_/  /_//_/ \___//____/  
-                                           
+/ /_/ // /_/ // /_ / __// // //  __/(__  )
+\__,_/ \____/ \__//_/  /_//_/ \___//____/
+
 *** WHAT'S INSIDE? ***
   1. Download https://github.com/djmonta/dotfiles.git
   2. Symlinking dot files to your home directory
   3. Execute all sh files within 'etc/init/` (optional)
-  
+
 See the README for documentation.
 https://github.com/djmonta/dotfiles
 Copyright (c) 2015 "Sachiko Miyamoto" aka @djmonta
@@ -48,42 +48,6 @@ is_exist()  { [ -x "$(which "$1")" ]; }
 
 # Set dotfiles environment valuable
 DOTFILES=$HOME/dotfiles; export DOTFILES
-
-#
-# $ make init
-#
-# This is a make install, which is functionize
-# To execute all sh files within etc/init/.
-make_init()
-{
-    #local -i i=1
-    #local file files=($(echo $DOTFILES/etc/init/{osx/,}*.sh))
-    ## No files? abort.
-    #if (( ${#files[@]:-} == 0 )); then return; fi
-    #for file in "${files[@]}"; do
-    #    e_header "$i/${#files[@]:-} $(basename $file): running..."
-    #    if bash "$file"; then
-    #        e_success 'done'
-    #    else
-    #        e_error 'error!'
-    #    fi
-    #    ((i++))
-    #done
-
-    local i=1
-    local files=$(echo $DOTFILES/etc/init/osx/*.sh)
-    local c=$(echo "$files" | tr ' ' '\n' | wc -l | tr -d ' ')
-    for file in $files
-    do
-        e_header "[$i/$c] $(basename "$file"): running..."
-        if bash "$file"; then
-            e_success 'done'
-        else
-            e_error 'error!'
-        fi
-        i=$((i+1))
-    done
-}
 
 installing_dotfiles()
 {

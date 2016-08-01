@@ -1,11 +1,13 @@
 "*":
   "autoclose-html": {}
+  codic:
+    accessToken: "ZvUz3eh3d6NfPVoDYSx4mPIEh9h828gHfR"
   core:
     disabledPackages: [
       "wrap-guide"
     ]
     themes: [
-      "one-dark-ui"
+      "atom-dark-ui"
       "solarized-light-syntax"
     ]
   editor:
@@ -14,11 +16,13 @@
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
-    tabType: "hard"
   "exception-reporting":
     userId: "f813cecf-bb31-0df3-a3ea-6e626734aeb6"
   "git-diff":
     showIconsInEditorGutter: true
+  "highlight-selected":
+    highlightBackground: true
+    lightTheme: true
   "imdone-atom": {}
   minimap:
     plugins:

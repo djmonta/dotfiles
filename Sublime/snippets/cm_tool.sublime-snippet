@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-:wrench: Tool: ${1:summary}
-]]></content>
-  <tabTrigger>cm_tool</tabTrigger>
-  <scope></scope>
-  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：ツール等、人間以外によるコミット）</description>
-</snippet>

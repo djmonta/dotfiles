@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-:book: doc: ${1:summary}
-]]></content>
-  <tabTrigger>cm_doc</tabTrigger>
-  <scope></scope>
-  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：ドキュメント）</description>
-</snippet>

@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-:question: other: ${1:summary}
-]]></content>
-  <tabTrigger>cm_other</tabTrigger>
-  <scope></scope>
-  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：未分類。分類不可）</description>
-</snippet>

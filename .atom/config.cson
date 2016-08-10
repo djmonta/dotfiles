@@ -11,7 +11,6 @@
       "solarized-light-syntax"
     ]
   editor:
-    fontSize: 13
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true

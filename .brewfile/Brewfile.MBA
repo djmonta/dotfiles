@@ -21,9 +21,7 @@ cask qlimagesize
 cask qlmarkdown
 cask qlstephen
 cask qlvideo
-
-tap caskroom/versions
-#cask sublime-text3
+cask sublime-text
 
 tap djmonta/cask
 

@@ -41,6 +41,9 @@ read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	PHP_VER="$ANSWER"
 fi
-PHP_BUILD_CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl) --with-libxml-dir=$(brew --prefix libxml2)" PHP_BUILD_EXTRA_MAKE_ARGUMENTS=-j4 phpenv install ${PHP_VER}
+if [[ $OSTYPE != darwin* ]]; then
+	PHP_BUILD_CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl) --with-libxml-dir=$(brew --prefix libxml2)" PHP_BUILD_EXTRA_MAKE_ARGUMENTS=-j4
+fi
+phpenv install ${PHP_VER}
 phpenv global ${PHP_VER}
 phpenv rehash

@@ -31,6 +31,7 @@ cask qlmarkdown
 cask qlstephen
 cask qlvideo
 cask sequel-pro
+cask sublime-text
 cask tower
 cask transmission
 cask transmit
@@ -39,9 +40,6 @@ cask vagrant
 tap caskroom/fonts
 cask font-fontawesome
 cask font-source-han-code-jp
-
-tap caskroom/versions
-cask sublime-text3
 
 tap djmonta/cask
 

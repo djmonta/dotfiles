@@ -14,7 +14,6 @@
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
-    tabType: "hard"
   "exception-reporting":
     userId: "f813cecf-bb31-0df3-a3ea-6e626734aeb6"
   "git-diff":

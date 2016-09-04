@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-:bug: Fix: ${1:summary}
-]]></content>
-  <tabTrigger>cm_fix</tabTrigger>
-  <scope></scope>
-  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：バグ修正）</description>
-</snippet>

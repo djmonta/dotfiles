@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-:up: modify: ${1:summary}
-]]></content>
-  <tabTrigger>cm_modify</tabTrigger>
-  <scope></scope>
-  <description>git commit 時の 1行目 メッセージテンプレート（カテゴリ：仕様変更）</description>
-</snippet>

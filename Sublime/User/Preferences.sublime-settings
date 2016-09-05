@@ -5,6 +5,7 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Sublimerge Pro",
 		"Vintage"
 	],
 	"indent_guide_options":

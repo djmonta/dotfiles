@@ -39,8 +39,8 @@ create_dotfiles_symlinks() {
         .bash_profile
         .bashrc
         .brewfile
-        .config
-        .emacs.d
+        # .config
+        # .emacs.d
         .gitconfig
         .gittemplate
         # .gitk
@@ -54,8 +54,8 @@ create_dotfiles_symlinks() {
         # .pythonstartup
         # .screenrc
         # .subversion
-        .tmux
-        .tmux.conf
+        # .tmux
+        # .tmux.conf
         # .vim
         # .vimrc
         .zsh

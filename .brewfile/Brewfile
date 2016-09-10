@@ -4,25 +4,27 @@
 tap argon/mas
 brew mas
 
-tap djmonta/gomi
-brew gomi
-
 tap caskroom/cask
-brew brew-cask
 cask 1password
 cask alfred
+cask android-studio
 cask appcleaner
+cask applepi-baker
+cask atom
 cask bartender
 cask drobo-dashboard
 cask dropbox
 cask flip4mac
 cask github-desktop
 cask google-chrome
+cask google-drive
 cask ibackup
 cask itsycal
+cask java
 cask karabiner
 cask kindle
 cask lastfm
+cask nylas-n1
 cask paparazzi
 cask parallels-desktop
 cask qlcolorcode
@@ -36,32 +38,39 @@ cask tower
 cask transmission
 cask transmit
 cask vagrant
+cask xquartz
 
 tap caskroom/fonts
 cask font-fontawesome
 cask font-source-han-code-jp
 
+tap caskroom/versions
+
 tap djmonta/cask
 
-tap rcmdnk/file
-brew brew-file
+tap djmonta/gomi
+brew gomi
 
-tap sanemat/font
-brew ricty --powerline --vim-powerline
-
-# Other Homebrew packages
+tap homebrew/core
 brew autoconf
 brew automake
+brew bison
 brew boost
 brew cairo
+brew carthage
+brew cask
 brew coreutils
 brew czmq
+brew direnv
+brew emacs
 brew fontconfig
 brew fontforge
 brew freetype
+brew gd
 brew gettext
-brew glib
 brew gmp
+brew gnutls
+brew go
 brew gobject-introspection
 brew harfbuzz
 brew highlight
@@ -70,34 +79,79 @@ brew imagemagick
 brew jpeg
 brew libevent
 brew libffi
+brew libgphoto2
+brew libicns
 brew libpng
+brew libressl
 brew libsodium
+brew libtasn1
 brew libtiff
 brew libtool
+brew libusb-compat
+brew libxml2
+brew little-cms2
 brew lua
+brew makedepend
+brew mcrypt
+brew mhash
 brew mysql
+brew nettle
 brew openssl
 brew pandoc
 brew pango
+brew pcre
 brew peco
 brew pixman
 brew pkg-config
+brew re2c
+brew readline
 brew reattach-to-user-namespace
-brew terminal-notifier
+brew sane-backends
+brew sqlite
+brew subversion
 brew tmux
+brew webp
 brew wget
+brew wine
 brew xz
 brew zeromq
 
+tap homebrew/dupes
+brew apple-gcc42
+
+tap homebrew/versions
+brew bison27
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+brew ricty --powerline --vim-powerline
+
+# Other Homebrew packages
+brew glib
+brew jasper
+brew libusb
+brew packer
+brew passenger
+brew terminal-notifier
+
 # App Store applications
-appstore 408981426 Aperture
 appstore 953924032 Aura
+appstore 1026349850 Copied
+appstore 422304217 Day One Classic
 appstore 467939042 Growl
 appstore 422293948 IP Scanner Home
 appstore 539883307 LINE
+appstore 969978718 Noiseless
 appstore 568494494 Pocket
+appstore 730422440 Poedit
 appstore 445189367 PopClip
 appstore 866773894 Quiver
 appstore 507257563 Sip
+appstore 803453959 Slack
+appstore 413965349 Soulver
+appstore 425424353 The Unarchiver
+appstore 961656759 Timeline
 appstore 485812721 TweetDeck
 appstore 497799835 Xcode

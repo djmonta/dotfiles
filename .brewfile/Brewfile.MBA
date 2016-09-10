@@ -4,11 +4,7 @@
 tap argon/mas
 brew mas
 
-tap djmonta/gomi
-brew gomi
-
 tap caskroom/cask
-brew brew-cask
 cask 1password
 cask alfred
 cask appcleaner
@@ -24,6 +20,9 @@ cask qlvideo
 cask sublime-text
 
 tap djmonta/cask
+
+tap djmonta/gomi
+brew gomi
 
 tap rcmdnk/file
 brew brew-file

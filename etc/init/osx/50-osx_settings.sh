@@ -74,7 +74,7 @@ set_finder_preferences()
 
     # Set `Desktop` as the default location for new Finder windows
     defaults write com.apple.finder NewWindowTarget -string "PfDe"
-    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+    #defaults write com.apple.finder NewWindowTargetPath -string "/Users/monta/"
 
     # Show Status bar in Finder
     defaults write com.apple.finder ShowStatusBar -bool true
@@ -135,7 +135,7 @@ set_terminal_preferences()
     # Use a custom theme
     # Use a modified version of the Solarized Dark theme by default in Terminal.app
     TERM_PROFILE='Solarized_Dark';
-    TERM_PATH='./etc/init/osx/app/';
+    TERM_PATH='./app/';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
         open "$TERM_PATH$TERM_PROFILE.terminal"

@@ -21,9 +21,6 @@ cask sublime-text
 
 tap djmonta/cask
 
-tap djmonta/gomi
-brew gomi
-
 tap rcmdnk/file
 brew brew-file
 

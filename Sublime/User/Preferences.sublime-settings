@@ -5,6 +5,11 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Emmet",
+		"Markmon real-time markdown preview",
+		"rsub",
+		"SublimeNFDToNFCPaste",
+		"Sublimerge 3",
 		"Sublimerge Pro",
 		"Vintage"
 	],

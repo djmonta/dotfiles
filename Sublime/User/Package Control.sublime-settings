@@ -2,26 +2,25 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"Emmet",
-		"Markmon real-time markdown preview",
-		"rsub",
-		"SublimeNFDToNFCPaste",
-		"Sublimerge 3"
 	],
 	"installed_packages":
 	[
 		"auto-save",
 		"AutoFileName",
 		"Codecs33",
+		"Color Highlighter",
 		"ConvertToUTF8",
 		"Emmet",
 		"Git",
 		"GitGutter",
+		"GithubEmoji",
+		"Line Endings Unify",
 		"Markmon real-time markdown preview",
 		"Package Control",
 		"PackageResourceViewer",
 		"rsub",
 		"SCSS",
+		"Sublime Bookmarks",
 		"SublimeNFDToNFCPaste",
 		"Sublimerge 3",
 		"Sublimerge Pro",

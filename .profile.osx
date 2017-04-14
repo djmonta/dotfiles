@@ -52,10 +52,17 @@ fi
 
 # Go
 if [ -x "`which go`" ]; then
+	PATH=$PATH:/usr/local/opt/go/libexec/bin
 	export GOROOT=/usr/local/opt/go/libexec
+	export GOPATH=$HOME/go	
 fi
 if [ -x "`which direnv`" ]; then
 	eval "$(direnv hook zsh)"
+fi
+
+# fastlane
+if [ -d ${HOME}/.fastlane ] ; then
+	PATH="$PATH:${HOME}/.fastlane/bin"
 fi
 
 export PATH

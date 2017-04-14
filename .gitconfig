@@ -2,7 +2,7 @@
 	name = monta
 	email = djmonta@gmail.com
 [mergetool]
-	keepBackup = false
+	keepBackup = true
 [color]
 	ui = true
 [core]

@@ -15,15 +15,15 @@ rbenv install -f ${RB_VER}
 rbenv global ${RB_VER}
 rbenv rehash
 
-ndenv install -l
-echo -n "Which version of nodejs to install? (v4.4.7): "
+nodenv install -l
+echo -n "Which version of nodejs to install? (6.10.2): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	ND_VER="$ANSWER"
 fi
-ndenv install -f ${ND_VER}
-ndenv global ${ND_VER}
-ndenv rehash
+nodenv install -f ${ND_VER}
+nodenv global ${ND_VER}
+nodenv rehash
 
 pyenv install -l
 echo -n "Which version of python to install? (2.7.10): "

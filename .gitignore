@@ -23,6 +23,8 @@
 /Sublime/User/encoding_cache.json
 /Sublime/User/Package Control.merged-ca-bundle
 /Sublime/User/oscrypto-ca-bundle.crt
+/Sublime/User/Sublimerge Macros.sublime-commands
+/Sublime/User/Color Highlighter/themes/*.tmTheme
 .atom/.apm/
 .atom/.node-gyp/
 .atom/packages/

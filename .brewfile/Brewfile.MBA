@@ -2,56 +2,137 @@
 # tap repositories and their packages
 
 tap argon/mas
-brew mas
 
 tap caskroom/cask
-cask 1password
-cask alfred
-cask appcleaner
-cask dropbox
-cask google-chrome
-cask itsycal
-cask karabiner
-cask qlcolorcode
-cask qlimagesize
-cask qlmarkdown
-cask qlstephen
-cask qlvideo
-cask sublime-text
 
-tap djmonta/cask
+tap caskroom/versions
+
+tap homebrew/core
+
+tap homebrew/php
+
+tap homebrew/services
+
+tap homebrew/versions
 
 tap rcmdnk/file
-brew brew-file
 
 tap sanemat/font
-brew ricty --powerline --vim-powerline
 
 # Other Homebrew packages
+brew ansible
+brew autoconf
+brew automake
+brew awscli
+brew bison@2.7
+brew boost
+brew brew-file
 brew cairo
+brew carthage
+brew coreutils
 brew czmq
 brew fontconfig
 brew fontforge
 brew freetype
 brew gettext
 brew glib
+brew go
 brew gobject-introspection
 brew harfbuzz
+brew highlight
 brew icu4c
+brew imagemagick
 brew jpeg
+brew jq
 brew libffi
-brew libpng
+brew libpng --universal
+brew libressl
 brew libsodium
 brew libtiff
 brew libtool
+brew libxml2
+brew libyaml
+brew lua
+brew mackup
+brew mas
+brew mcrypt
+brew mhash
+brew mysql
+brew oniguruma
 brew openssl
 brew pango
+brew pcre
+brew peco
+brew php70
 brew pixman
 brew pkg-config
+brew re2c
+brew readline
+brew rename
+brew ricty --vim-powerline --with-powerline
 brew terminal-notifier
+brew unixodbc
 brew wget
+brew wp-cli
+brew xz
+brew youtube-dl
 brew zeromq
 
+# Cask applications
+cask 1password
+cask alfred
+cask appcleaner
+cask atom
+cask cmd-eikana
+cask cyberduck
+cask dropbox
+cask elmedia-player
+cask fastlane
+cask github-desktop
+cask google-chrome
+cask itsycal
+cask kaleidoscope
+cask kindle
+cask mpeg-streamclip
+cask mysqlworkbench
+cask notion
+cask postman
+cask qlcolorcode
+cask qlimagesize
+cask qlmarkdown
+cask qlstephen
+cask qlvideo
+cask sequel-pro
+cask slack
+cask sublime-text
+cask tower
+cask transmit
+cask vagrant
+cask virtualbox
+
 # App Store applications
+appstore 953924032 Aura
+appstore 1091189122 Bear
+appstore 1024640650 CotEditor
+appstore 924726344 Deliveries
+appstore 975937182 Fantastical 2
+appstore 792425898 Flume
+appstore 682658836 GarageBand
+appstore 979538493 Go for Gmail
+appstore 422293948 IP Scanner Home
+appstore 409183694 Keynote
+appstore 539883307 LINE
+appstore 958475217 MW Archiver
+appstore 409201541 Pages
 appstore 445189367 PopClip
 appstore 866773894 Quiver
+appstore 413449473 ReceiptKeeper
+appstore 507257563 Sip
+appstore 425955336 Skitch
+appstore 1006087419 SnippetsLab
+appstore 425424353 The Unarchiver
+appstore 961656759 Timeline
+appstore 585829637 Todoist
+appstore 957734279 TogglDesktop
+appstore 1114922065 WeTransfer
+appstore 408981434 iMovie

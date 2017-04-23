@@ -82,6 +82,9 @@ export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # BREW-FILE
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
 if hostname | grep -q "Mac-mini\.local$" ; then
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
 else

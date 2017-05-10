@@ -6,6 +6,7 @@
     disabledPackages: [
       "wrap-guide"
     ]
+    telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
       "solarized-light-syntax"

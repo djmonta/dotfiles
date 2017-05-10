@@ -1,4 +1,4 @@
-# Last Modified: 2015-10-23 10:59:04
+# Last Modified: 2017-04-23 20:06:53
 ### Introduction {{{
 #
 #  .zshrc
@@ -614,4 +614,4 @@ echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"
 echo "Now zsh version $ZSH_VERSION starting!!"
 
 # Print log
-log
+# log

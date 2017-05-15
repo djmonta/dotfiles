@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Advanced CSV",
 		"auto-save",
 		"AutoFileName",
 		"Codecs33",
@@ -16,15 +17,22 @@
 		"GitGutter",
 		"GithubEmoji",
 		"Line Endings Unify",
+		"Markdown Preview",
 		"Markmon real-time markdown preview",
 		"Package Control",
 		"PackageResourceViewer",
 		"rsub",
+		"Sass",
 		"SCSS",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
 		"Sublime Bookmarks",
 		"SublimeNFDToNFCPaste",
 		"Sublimerge 3",
 		"Sublimerge Pro",
-		"TodoReview"
+		"Theme - Spacegray",
+		"Themes Menu Switcher",
+		"TodoReview",
+		"zenburn"
 	]
 }

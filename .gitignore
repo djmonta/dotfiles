@@ -34,3 +34,6 @@
 .atom/blob-store/BLOB
 .atom/blob-store/INVKEYS
 .atom/blob-store/MAP
+/Sublime/User/Sublimerge.tmTheme
+/Sublime/User/SublimergeSummaryPanel.tmTheme
+*.cache

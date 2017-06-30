@@ -108,7 +108,7 @@ PROMPT=$DEFAULT_PROMPT
 # RPROMPT+='[%{${fg[magenta]}%}%D{%Y/%m/%d %H:%M:%S}%{${reset_color}%}]'
 
 # Correct prompt
-SPROMPT="${COLOR_FG_5F8700}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+SPROMPT="${COLOR_FG_5F8700}もしかして: %r [y,n,a,e] ->%{${reset_color}%} "
 
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 

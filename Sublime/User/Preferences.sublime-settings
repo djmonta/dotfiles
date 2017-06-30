@@ -15,7 +15,7 @@
 		"draw_active"
 	],
 	"insert_timestamp_on_save": true,
-	"preview_on_click": false,
+	"preview_on_click": true,
 	"spacegray_fileicons": true,
 	"spacegray_sidebar_tree_small": true,
 	"spacegray_tabs_normal": true,

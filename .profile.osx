@@ -87,6 +87,8 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
 fi
 if hostname | grep -q "Mac-mini\.local$" ; then
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+elif hostname | grep -q "MacBook-Pro\.local$" ; then
+	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
 else
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBA
 fi

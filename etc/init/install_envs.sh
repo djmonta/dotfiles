@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RB_VER=2.3.1
-ND_VER=v4.4.7
+ND_VER=6.10.2
 PY_VER=2.7.10
 PHP_VER=5.6.23
 

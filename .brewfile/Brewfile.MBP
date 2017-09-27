@@ -38,8 +38,6 @@ cask transmit
 cask vagrant
 cask virtualbox
 
-tap caskroom/versions
-
 tap homebrew/core
 brew ansible
 brew autoconf
@@ -102,10 +100,6 @@ brew zeromq
 tap homebrew/php
 brew php70
 brew wp-cli
-
-tap homebrew/services
-
-tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file

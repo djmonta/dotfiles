@@ -22,42 +22,51 @@ cask qlvideo
 cask slack
 cask sublime-text
 
+tap djmonta/gomi
+brew gomi
+
+tap heroku/brew
+brew heroku
+brew heroku-node
+
 tap homebrew/core
-brew boost
+brew sqlite
+brew mackup
 brew cairo
-brew czmq
+brew libtiff
+brew jpeg
+brew go
+brew gdbm
+brew readline
+brew pcre
+brew gobject-introspection
+brew lua
+brew gettext
 brew fontconfig
 brew fontforge
-brew freetype
-brew gdbm
-brew gettext
-brew glib
-brew gobject-introspection
-brew graphite2
-brew harfbuzz
-brew highlight
-brew icu4c
-brew jpeg
-brew libffi
 brew libpng
-brew libsodium
-brew libtiff
-brew libtool
-brew lua
-brew mackup
-brew openssl
-brew openssl@1.1
-brew pango
-brew pcre
-brew peco
-brew pixman
-brew pkg-config
-brew python
-brew readline
-brew sqlite
-brew terminal-notifier
-brew wget
 brew zeromq
+brew boost
+brew pixman
+brew glib
+brew libsodium
+brew freetype
+brew hub
+brew python
+brew czmq
+brew graphite2
+brew libtool
+brew harfbuzz
+brew openssl@1.1
+brew libffi
+brew wget
+brew pango
+brew peco
+brew openssl
+brew terminal-notifier
+brew icu4c
+brew highlight
+brew pkg-config
 
 tap rcmdnk/file
 brew brew-file
@@ -66,15 +75,16 @@ tap sanemat/font
 brew ricty --with-powerline
 
 # App Store applications
-appstore 1091189122 Bear (1.2.2)
-appstore 1024640650 CotEditor (3.2.0)
-appstore 975937182 Fantastical 2 (2.4)
+appstore 1091189122 Bear (1.2.5)
+appstore 1024640650 CotEditor (3.2.1)
+appstore 975937182 Fantastical 2 (2.4.1)
 appstore 682658836 GarageBand (10.2.0)
 appstore 408981434 iMovie (10.1.6)
-appstore 409183694 Keynote (7.2)
-appstore 409203825 Numbers (4.2)
-appstore 409201541 Pages (6.2)
+appstore 409183694 Keynote (7.3)
+appstore 409203825 Numbers (4.3)
+appstore 409201541 Pages (6.3)
 appstore 445189367 PopClip (1.5.7)
 appstore 866773894 Quiver (3.0.7)
 appstore 1006087419 SnippetsLab (1.6.4)
-appstore 425424353 The Unarchiver (3.11.1)
+appstore 425424353 The Unarchiver (3.11.3)
+appstore 961656759 Timeline (1.0)

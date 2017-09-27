@@ -416,7 +416,7 @@ sjis() {
 #
 # emacsclient
 #
-# alias emacsc="emacsclient -t -c"
+alias emacsc="emacsclient -t -c"
 
 ### Complete Messages
 echo "Loading .alias completed!!"

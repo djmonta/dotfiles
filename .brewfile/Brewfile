@@ -1,8 +1,92 @@
 
 # tap repositories and their packages
 
-tap argon/mas
+tap homebrew/core
+brew apple-gcc42
+brew apr
+brew apr-util
+brew autoconf
+brew automake
+brew awscli
+brew bison
+brew bison@2.7
+brew boost
+brew cairo
+brew carthage
+brew cask
+brew coreutils
+brew czmq
+brew direnv
+brew emacs --with-cocoa
+brew emojify
+brew fontconfig
+brew fontforge
+brew freetype
+brew gd
+brew gdbm
+brew gettext
+brew glib
+brew gmp
+brew gnutls
+brew go
+brew gobject-introspection
+brew graphite2
+brew harfbuzz
+brew highlight
+brew icu4c
+brew imagemagick
+brew jasper
+brew jpeg
+brew less
+brew libevent
+brew libffi
+brew libgphoto2
+brew libicns
+brew libpng
+brew libressl
+brew libsodium
+brew libtasn1
+brew libtiff
+brew libtool
+brew libunistring
+brew libusb
+brew libusb-compat
+brew libxml2
+brew little-cms2
+brew lua
+brew makedepend
 brew mas
+brew mcrypt
+brew mhash
+brew mysql
+brew net-snmp
+brew nettle
+brew openssl
+brew openssl@1.1
+brew p11-kit
+brew packer
+brew pandoc
+brew pango
+brew passenger
+brew pcre
+brew peco
+brew perl
+brew pixman
+brew pkg-config
+brew python
+brew python3
+brew re2c
+brew readline
+brew reattach-to-user-namespace
+brew sane-backends
+brew sqlite
+brew subversion
+brew terminal-notifier
+brew tmux
+brew webp
+brew wget
+brew xz
+brew zeromq
 
 tap caskroom/cask
 cask 1password
@@ -12,21 +96,17 @@ cask appcleaner
 cask applepi-baker
 cask atom
 cask bartender
-cask drobo-dashboard
+cask cmd-eikana
 cask dropbox
 cask flip4mac
-cask github-desktop
 cask google-chrome
-cask google-drive
+cask handbrake
 cask ibackup
-cask itsycal
+cask iterm2
 cask java
-cask karabiner
 cask kindle
 cask lastfm
-cask nylas-n1
 cask paparazzi
-cask parallels-desktop
 cask qlcolorcode
 cask qlimagesize
 cask qlmarkdown
@@ -40,87 +120,17 @@ cask transmit
 cask vagrant
 cask xquartz
 
+tap caskroom/drivers
+cask drobo-dashboard
+
 tap caskroom/fonts
 cask font-fontawesome
 cask font-source-han-code-jp
 
-tap caskroom/versions
-
-tap djmonta/cask
+tap argon/mas
 
 tap djmonta/gomi
 brew gomi
-
-tap homebrew/core
-brew autoconf
-brew automake
-brew bison
-brew boost
-brew cairo
-brew carthage
-brew cask
-brew coreutils
-brew czmq
-brew direnv
-brew emacs
-brew fontconfig
-brew fontforge
-brew freetype
-brew gd
-brew gettext
-brew gmp
-brew gnutls
-brew go
-brew gobject-introspection
-brew harfbuzz
-brew highlight
-brew icu4c
-brew imagemagick
-brew jpeg
-brew libevent
-brew libffi
-brew libgphoto2
-brew libicns
-brew libpng
-brew libressl
-brew libsodium
-brew libtasn1
-brew libtiff
-brew libtool
-brew libusb-compat
-brew libxml2
-brew little-cms2
-brew lua
-brew makedepend
-brew mcrypt
-brew mhash
-brew mysql
-brew nettle
-brew openssl
-brew pandoc
-brew pango
-brew pcre
-brew peco
-brew pixman
-brew pkg-config
-brew re2c
-brew readline
-brew reattach-to-user-namespace
-brew sane-backends
-brew sqlite
-brew subversion
-brew tmux
-brew webp
-brew wget
-brew wine
-brew xz
-brew zeromq
-
-tap homebrew/dupes
-brew apple-gcc42
-
-tap homebrew/versions
-brew bison27
 
 tap rcmdnk/file
 brew brew-file
@@ -128,30 +138,45 @@ brew brew-file
 tap sanemat/font
 brew ricty --with-powerline
 
-# Other Homebrew packages
-brew glib
-brew jasper
-brew libusb
-brew packer
-brew passenger
-brew terminal-notifier
+# Cask applications
+cask github-desktop
+cask google-drive
+cask google-photos-backup
+cask parallels-desktop
+cask sqlitebrowser
+cask toggldesktop
 
 # App Store applications
-appstore 953924032 Aura
-appstore 1026349850 Copied
-appstore 422304217 Day One Classic
-appstore 467939042 Growl
-appstore 422293948 IP Scanner Home
-appstore 539883307 LINE
-appstore 969978718 Noiseless
-appstore 568494494 Pocket
-appstore 730422440 Poedit
-appstore 445189367 PopClip
-appstore 866773894 Quiver
-appstore 507257563 Sip
-appstore 803453959 Slack
-appstore 413965349 Soulver
-appstore 425424353 The Unarchiver
-appstore 961656759 Timeline
-appstore 485812721 TweetDeck
-appstore 497799835 Xcode
+appstore 918858936 Airmail 3 (3.5.3)
+appstore 953924032 Aura (1.3.0)
+appstore 1091189122 Bear (1.3.1)
+appstore 417375580 BetterSnapTool (1.8)
+appstore 1290358394 Cardhop (1.0.2)
+appstore 1026349850 Copied (2.0.6)
+appstore 1024640650 CotEditor (3.2.4)
+appstore 422304217 Day One Classic (1.10.6)
+appstore 924726344 Deliveries (3.0.6)
+appstore 975937182 Fantastical 2 (2.4.4)
+appstore 792425898 Flume (2.4.2)
+appstore 467939042 Growl (2.1.3)
+appstore 422293948 IP Scanner Home (3.60)
+appstore 1143896193 Kardnote (1.0.7)
+appstore 409183694 Keynote (7.3.1)
+appstore 1035132445 LGTM (3.2)
+appstore 539883307 LINE (5.4.0)
+appstore 958475217 MW Archiver (1.8.0)
+appstore 969978718 Noiseless (1.3.2)
+appstore 417722018 photomosaic (2.0.9)
+appstore 568494494 Pocket (1.6.2)
+appstore 730422440 Poedit (1.8.11)
+appstore 445189367 PopClip (1.5.8)
+appstore 866773894 Quiver (3.1.1)
+appstore 413449473 ReceiptKeeper (1.1.3)
+appstore 507257563 Sip (4.5.2)
+appstore 803453959 Slack (2.8.2)
+appstore 413965349 Soulver (2.6.6)
+appstore 425424353 The Unarchiver (3.11.3)
+appstore 904280696 Things3 (3.2.1)
+appstore 961656759 Timeline (1.0)
+appstore 485812721 TweetDeck (3.9.889)
+appstore 497799835 Xcode (9.1)

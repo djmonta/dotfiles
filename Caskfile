@@ -1,0 +1,176 @@
+# Cask applications
+# Please copy these lines to your Brewfile and use with `brew-file install`.
+
+# Main tap repository for caskroom/cask
+tap caskroom/cask
+
+# Apps installed by Cask in caskroom/cask
+cask bartender # /Applications/Bartender 2.app
+cask dropbox # /Applications/Dropbox.app
+cask google-chrome # /Applications/Google Chrome.app
+cask mpeg-streamclip # /Applications/MPEG Streamclip.app
+cask mysqlworkbench # /Applications/MySQLWorkbench.app
+cask sequel-pro # /Applications/Sequel Pro.app
+
+# There are new version for following applications.
+cask appcleaner # /Applications/AppCleaner.app
+cask atom # /Applications/Atom.app
+cask cmd-eikana # /Applications/⌘英かな.app
+cask cyberduck # /Applications/Cyberduck.app
+cask iterm2 # /Applications/iTerm.app
+cask kaleidoscope # /Applications/Kaleidoscope.app
+cask kindle # /Applications/Kindle.app
+cask notion # /Applications/Notion.app
+cask postman # /Applications/Postman.app
+cask slack # /Applications/Slack.app
+cask sublime-text # /Applications/Sublime Text.app
+cask tower # /Applications/Tower.app
+cask transmit # /Applications/Transmit.app
+cask virtualbox # /Applications/VirtualBox.app
+
+# Cask is found, but no applications are found (could be fonts, system settins, or installed in other directory.)
+cask qlimagesize
+cask qlmarkdown
+
+# There are new version for following applications.
+cask install fastlane
+cask install qlcolorcode
+cask install qlstephen
+cask install qlvideo
+cask install vagrant
+
+# Apps installed directly instead of by Cask in caskroom/cask
+#cask 1password # /Applications/1Password 6.app
+#cask adobe-creative-cloud # /Applications/Adobe Creative Cloud
+#cask adobe-creative-cloud # /Applications/Utilities/Adobe Creative Cloud
+#cask alfred # /Applications/Alfred 3.app
+#cask astro # /Applications/Astro.app
+#cask console # /Applications/Utilities/Console.app
+#cask coteditor # /Applications/CotEditor.app
+#cask crashplan # /Applications/CrashPlan.app
+#cask dash # /Applications/Dash.app
+#cask dash-dash # /Applications/Dash.app
+#cask docker # /Applications/Docker.app
+#cask etcher # /Applications/Etcher.app
+#cask github # /Applications/GitHub Desktop.app
+#cask google-drive-file-stream # /Applications/Google Drive File Stream.app
+#cask launchcontrol # /Applications/LaunchControl.app
+#cask teamviewer # /Applications/TeamViewer.app
+#cask visual-studio-code # /Applications/Visual Studio Code.app
+#cask wavebox # /Applications/Wavebox.app
+
+# Apps installed from AppStore
+appstore 973134470 Be Focused (1.6.2) # /Applications/Be Focused.app
+appstore 417375580 BetterSnapTool (1.8) # /Applications/BetterSnapTool.app
+appstore 924726344 Deliveries (3.0.6) # /Applications/Deliveries.app
+appstore 549083868 Display Menu (2.2.2) # /Applications/Display Menu.app
+appstore 975937182 Fantastical 2 (2.4.4) # /Applications/Fantastical 2.app
+appstore 792425898 Flume (2.4.2) # /Applications/Flume.app
+appstore 682658836 GarageBand (10.2.0) # /Applications/GarageBand.app
+appstore 408981434 iMovie (10.1.8) # /Applications/iMovie.app
+appstore 915041082 Install OS X Yosemite (1.6.43) # /Applications/Install OS X Yosemite.app
+appstore 422293948 IP Scanner Home (3.60) # /Applications/IP Scanner Home.app
+appstore 409183694 Keynote (7.3.1) # /Applications/Keynote.app
+appstore 539883307 LINE (5.4.0) # /Applications/LINE.app
+appstore 958475217 MW Archiver (1.8.0) # /Applications/MW Archiver.app
+appstore 409201541 Pages (6.3.1) # /Applications/Pages.app
+appstore 445189367 PopClip (1.5.8) # /Applications/PopClip.app
+appstore 866773894 Quiver (3.1.1) # /Applications/Quiver.app
+appstore 413449473 ReceiptKeeper (1.1.3) # /Applications/ReceiptKeeper.app
+appstore 507257563 Sip (4.5.2) # /Applications/Sip.app
+appstore 425955336 Skitch (2.8) # /Applications/Skitch.app
+appstore 425424353 The Unarchiver (3.11.3) # /Applications/The Unarchiver.app
+appstore 904280696 Things3 (3.2.1) # /Applications/Things3.app
+appstore 961656759 Timeline (1.0) # /Applications/Timeline.app
+appstore 957734279 TogglDesktop (7.4.58) # /Applications/TogglDesktop.app
+
+# Apps installed but no casks are available
+# (System applications or directory installed.)
+# /Applications/1Piece.app
+# /Applications/Adobe
+# /Applications/Adobe Acrobat DC
+# /Applications/Adobe Bridge CC 2018
+# /Applications/Adobe Illustrator CC 2017
+# /Applications/Adobe Illustrator CC 2018
+# /Applications/Adobe InDesign CC 2018
+# /Applications/Adobe Lightroom CC
+# /Applications/Adobe Lightroom Classic CC
+# /Applications/Adobe Media Encoder CC 2015.3
+# /Applications/Adobe Media Encoder CC 2017
+# /Applications/Adobe Media Encoder CC 2018
+# /Applications/Adobe Photoshop CC 2017
+# /Applications/Adobe Photoshop CC 2018
+# /Applications/Adobe Premiere Pro CC 2015.3
+# /Applications/Adobe Premiere Pro CC 2017
+# /Applications/Adobe Premiere Pro CC 2018
+# /Applications/Adobe XD CC
+# /Applications/App Store.app
+# /Applications/Automator.app
+# /Applications/Bear.app
+# /Applications/Calculator.app
+# /Applications/Calendar.app
+# /Applications/Chess.app
+# /Applications/Contacts.app
+# /Applications/Dashboard.app
+# /Applications/Day One.app
+# /Applications/Dictionary.app
+# /Applications/DVD Player.app
+# /Applications/FaceTime.app
+# /Applications/FinderPath.app
+# /Applications/Font Book.app
+# /Applications/GIFfun.app
+# /Applications/Google Drive.app
+# /Applications/iBooks.app
+# /Applications/Image Capture.app
+# /Applications/ImageUp.app
+# /Applications/IO.app
+# /Applications/iTunes.app
+# /Applications/JustSystems
+# /Applications/Launchpad.app
+# /Applications/Logi Options.app
+# /Applications/Mail.app
+# /Applications/Maps.app
+# /Applications/Messages.app
+# /Applications/Microsoft Excel.app
+# /Applications/Microsoft PowerPoint.app
+# /Applications/Microsoft Silverlight
+# /Applications/Microsoft Word.app
+# /Applications/Mission Control.app
+# /Applications/Nikon Software
+# /Applications/Notes.app
+# /Applications/Photo Booth.app
+# /Applications/Photos.app
+# /Applications/Preview.app
+# /Applications/QuickTime Player.app
+# /Applications/Reminders.app
+# /Applications/Safari.app
+# /Applications/Siri.app
+# /Applications/SnippetsLab.app
+# /Applications/Stickies.app
+# /Applications/System Preferences.app
+# /Applications/TextEdit.app
+# /Applications/Time Machine.app
+# /Applications/Xcode.app
+# /Applications/Utilities/Activity Monitor.app
+# /Applications/Utilities/Adobe AIR Application Installer.app
+# /Applications/Utilities/Adobe AIR Uninstaller.app
+# /Applications/Utilities/Adobe Application Manager
+# /Applications/Utilities/Adobe Flash Player Install Manager.app
+# /Applications/Utilities/Adobe Installers
+# /Applications/Utilities/Adobe Sync
+# /Applications/Utilities/AirPort Utility.app
+# /Applications/Utilities/Audio MIDI Setup.app
+# /Applications/Utilities/Bluetooth File Exchange.app
+# /Applications/Utilities/Boot Camp Assistant.app
+# /Applications/Utilities/ColorSync Utility.app
+# /Applications/Utilities/Digital Color Meter.app
+# /Applications/Utilities/Disk Utility.app
+# /Applications/Utilities/Grab.app
+# /Applications/Utilities/Grapher.app
+# /Applications/Utilities/Keychain Access.app
+# /Applications/Utilities/LogiMgr Uninstaller.app
+# /Applications/Utilities/Migration Assistant.app
+# /Applications/Utilities/Script Editor.app
+# /Applications/Utilities/System Information.app
+# /Applications/Utilities/Terminal.app
+# /Applications/Utilities/VoiceOver Utility.app

@@ -1,8 +1,80 @@
 
 # tap repositories and their packages
 
-tap argon/mas
+tap homebrew/core
+brew ansible
+brew apr
+brew apr-util
+brew autoconf
+brew automake
+brew awscli
+brew bison@2.7
+brew boost
+brew cairo
+brew carthage
+brew coreutils
+brew czmq
+brew ext4fuse
+brew fontconfig
+brew fontforge
+brew freetype
+brew gcc
+brew gdbm
+brew gettext
+brew glib
+brew gmp
+brew go
+brew gobject-introspection
+brew graphite2
+brew harfbuzz
+brew highlight
+brew icu4c
+brew imagemagick
+brew isl
+brew jpeg
+brew jq
+brew libffi
+brew libiconv
+brew libmpc
+brew libpng
+brew libressl
+brew libsodium
+brew libtiff
+brew libtool
+brew libxml2
+brew libyaml
+brew little-cms2
+brew lua
+brew mackup
 brew mas
+brew mcrypt
+brew mhash
+brew mpfr
+brew mysql
+brew nkf
+brew oniguruma
+brew openssl
+brew openssl@1.1
+brew pango
+brew pcre
+brew peco
+brew pixman
+brew pkg-config
+brew pngquant
+brew python
+brew re2c
+brew readline
+brew rename
+brew sqlite
+brew terminal-notifier
+brew unixodbc
+brew wget
+brew xz
+brew youtube-dl
+brew zeromq
+
+tap homebrew/php
+brew wp-cli
 
 tap caskroom/cask
 cask 1password
@@ -15,7 +87,6 @@ cask cyberduck
 cask dropbox
 cask elmedia-player
 cask fastlane
-cask github-desktop
 cask google-chrome
 cask iterm2
 cask itsycal
@@ -38,68 +109,10 @@ cask transmit
 cask vagrant
 cask virtualbox
 
-tap homebrew/core
-brew ansible
-brew autoconf
-brew automake
-brew awscli
-brew bison@2.7
-brew boost
-brew cairo
-brew carthage
-brew coreutils
-brew czmq
-brew fontconfig
-brew fontforge
-brew freetype
-brew gdbm
-brew gettext
-brew glib
-brew go
-brew gobject-introspection
-brew graphite2
-brew harfbuzz
-brew highlight
-brew icu4c
-brew imagemagick
-brew jpeg
-brew jq
-brew libffi
-brew libpng
-brew libressl
-brew libsodium
-brew libtiff
-brew libtool
-brew libxml2
-brew libyaml
-brew lua
-brew mackup
-brew mcrypt
-brew mhash
-brew mysql
-brew oniguruma
-brew openssl
-brew openssl@1.1
-brew pango
-brew pcre
-brew peco
-brew pixman
-brew pkg-config
-brew python
-brew re2c
-brew readline
-brew rename
-brew sqlite
-brew terminal-notifier
-brew unixodbc
-brew wget
-brew xz
-brew youtube-dl
-brew zeromq
+tap argon/mas
 
-tap homebrew/php
-brew php70
-brew wp-cli
+tap djmonta/gomi
+brew gomi
 
 tap rcmdnk/file
 brew brew-file
@@ -107,33 +120,43 @@ brew brew-file
 tap sanemat/font
 brew ricty --with-powerline
 
+# Other Homebrew packages
+brew bison27
+brew libjpeg
+brew libmcrypt
+
+# Cask applications
+cask github-desktop
+
 # App Store applications
-appstore 918858936 Airmail 3 (3.3.2)
+appstore 918858936 Airmail 3 (3.5.2)
 appstore 953924032 Aura (1.3.0)
-appstore 1091189122 Bear (1.2.1)
-appstore 1024640650 CotEditor (3.2.0)
-appstore 1055511498 Day One (2.3.5)
-appstore 924726344 Deliveries (3.0.3)
+appstore 1091189122 Bear (1.3.1)
+appstore 1024640650 CotEditor (3.2.2)
+appstore 1055511498 Day One (2.5.1)
+appstore 924726344 Deliveries (3.0.5)
 appstore 549083868 Display Menu (2.2.2)
-appstore 975937182 Fantastical 2 (2.4)
+appstore 975937182 Fantastical 2 (2.4.2)
 appstore 792425898 Flume (2.4.2)
 appstore 682658836 GarageBand (10.2.0)
 appstore 1040735952 GIFfun (1.46)
 appstore 979538493 Go for Gmail (2.4)
-appstore 408981434 iMovie (10.1.6)
+appstore 408981434 iMovie (10.1.7)
+appstore 1018109117 Install OS X El Capitan (1.7.50)
+appstore 915041082 Install OS X Yosemite (1.6.43)
 appstore 422293948 IP Scanner Home (3.58)
-appstore 409183694 Keynote (7.2)
-appstore 539883307 LINE (5.2.2)
+appstore 409183694 Keynote (7.3)
+appstore 539883307 LINE (5.3.3)
 appstore 958475217 MW Archiver (1.8.0)
-appstore 409201541 Pages (6.2)
-appstore 445189367 PopClip (1.5.7)
+appstore 409201541 Pages (6.3)
+appstore 445189367 PopClip (1.5.8)
 appstore 866773894 Quiver (3.0.7)
 appstore 413449473 ReceiptKeeper (1.1.3)
 appstore 507257563 Sip (4.5.2)
 appstore 425955336 Skitch (2.8)
-appstore 1006087419 SnippetsLab (1.6.4)
-appstore 425424353 The Unarchiver (3.11.1)
-appstore 904280696 Things3 (3.1)
+appstore 1006087419 SnippetsLab (1.6.6)
+appstore 425424353 The Unarchiver (3.11.3)
+appstore 904280696 Things3 (3.2)
 appstore 961656759 Timeline (1.0)
-appstore 585829637 Todoist (7.0.2)
-appstore 957734279 TogglDesktop (7.4.11)
+appstore 585829637 Todoist (7.0.4)
+appstore 957734279 TogglDesktop (7.4.58)

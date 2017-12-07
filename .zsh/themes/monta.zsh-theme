@@ -108,7 +108,7 @@ PROMPT=$DEFAULT_PROMPT
 # RPROMPT+='[%{${fg[magenta]}%}%D{%Y/%m/%d %H:%M:%S}%{${reset_color}%}]'
 
 # Correct prompt
-SPROMPT="${COLOR_FG_5F8700}もしかして: %r [y,n,a,e] ->%{${reset_color}%} "
+SPROMPT="${COLOR_FG_CC4422}もしかして: %r [y,n,a,e] ->%{${reset_color}%} "
 
 # PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
@@ -122,13 +122,14 @@ function _host() {
 function prompt_git() {
     local ref dirty
     if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-        ZSH_THEME_GIT_PROMPT_DIRTY='± '
+        ZSH_THEME_GIT_PROMPT_DIRTY='△ '
+        ZSH_THEME_GIT_PROMPT_CLEAN='✓ '
         dirty=$(parse_git_dirty)
         ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
         if [[ -n $dirty ]]; then
-            echo -n "${COLOR_BG_D75F00}${COLOR_FG_0087FF}${DIVIDER_HARD} ${COLOR_FG_E4E4E4}${ref/refs\/heads\// }$dirty${COLOR_FG_D75F00}"
+            echo -n "${COLOR_BG_D75F00}${COLOR_FG_0087FF}${DIVIDER_HARD} ${COLOR_FG_E4E4E4}${ref/refs\/heads\//} $dirty${COLOR_FG_D75F00} "
         else
-            echo -n "${COLOR_BG_00AF00}${COLOR_FG_0087FF}${DIVIDER_HARD} ${COLOR_FG_1C1C1C}${ref/refs\/heads\// } ${COLOR_FG_00AF00}"
+            echo -n "${COLOR_BG_00AF00}${COLOR_FG_0087FF}${DIVIDER_HARD} ${COLOR_FG_1C1C1C}${ref/refs\/heads\//} ${COLOR_FG_00AF00} "
         fi
     else
         echo -n "${COLOR_FG_00AFFF}"

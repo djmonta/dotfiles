@@ -50,7 +50,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='hyperzsh'
+ZSH_THEME='termpalm'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.

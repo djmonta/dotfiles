@@ -1,12 +1,12 @@
 #!/bin/bash
 
-RB_VER=2.3.1
-ND_VER=6.10.2
-PY_VER=2.7.10
-PHP_VER=5.6.23
+RB_VER=2.3.5
+ND_VER=8.9.1
+PY_VER=3.6.3
+PHP_VER=7.1.1
 
 rbenv install -l
-echo -n "Which version of ruby to install? (2.3.1): "
+echo -n "Which version of ruby to install? (${RB_VER}): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	RB_VER="$ANSWER"
@@ -16,7 +16,7 @@ rbenv global ${RB_VER}
 rbenv rehash
 
 nodenv install -l
-echo -n "Which version of nodejs to install? (6.10.2): "
+echo -n "Which version of nodejs to install? (${ND_VER}): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	ND_VER="$ANSWER"
@@ -26,7 +26,7 @@ nodenv global ${ND_VER}
 nodenv rehash
 
 pyenv install -l
-echo -n "Which version of python to install? (2.7.10): "
+echo -n "Which version of python to install? (${PY_VER}): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	PY_VER="$ANSWER"
@@ -36,7 +36,7 @@ pyenv global ${PY_VER}
 pyenv rehash
 
 phpenv install -l
-echo -n "Which version of php to install? (5.6.23): "
+echo -n "Which version of php to install? (${PHP_VER}): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	PHP_VER="$ANSWER"

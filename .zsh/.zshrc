@@ -50,7 +50,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='monta'
+ZSH_THEME='hyperzsh'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
@@ -73,23 +73,7 @@ colors
 #  http://d.hatena.ne.jp/kiririmode/20120327/p1
 autoload -Uz add-zsh-hook
 
-
-## Set prompt.
-# if [ ${UID} -eq 0 ]; then
-#     # Prompt for "root" user.
-#     # Note: su - or sudo -s を行った場合は環境変数が引き継がれない
-# #    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%~#%{${reset_color}%}%b "
-#     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %(!.%F{red}.%F{cyan})%n%f:%{$(pwd|([[ $EUID == 0 ]] && GREP_COLORS='mt=01;31' grep --color=always /|| GREP_COLORS='mt=01;34' grep --color=always /))%${#PWD}G%}%(!.%F{red}.)%#%f "
-#     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-#     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-#     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-#         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-# #    PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-# else
-    # Prompt for "normal" user.
-    # Loading theme
-
-### ここから
+## prompt theme {{{
 if [ ${TERM} != dumb ]; then
     if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
         echo "Loading theme: $ZSH_THEME"
@@ -98,17 +82,11 @@ if [ ${TERM} != dumb ]; then
         echo "Error: could not load the theme '$ZSH_THEME'"
     fi
 fi
-### ここまで
 
-# fi
-
-### ここから
+## tmux prompt
 PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-### ここまで
 
 # }}}
-
-# source ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 ### Default shell configuration {{{
 #
@@ -169,81 +147,13 @@ watch="all"                 # 全てのユーザのログイン・ログアウ�
 
 typeset -U path PATH        # PATH環境変数の重複エントリを排除
 
-## zsh editor
-#
-#autoload zed
-
+## zsh editor {{{
+# autoload zed
 # }}}
 
-### Keybind configuration {{{
+## Keybind configuration {{{
 # $ bindkey で現在の割り当てを確認
-#
-bindkey -e                      # emacs like keybind
-bindkey "^[[1~" beginning-of-line # Home gets to line head
-bindkey "^[[4~" end-of-line     # End gets to line end
-bindkey "^[[3~" delete-char     # fn + delete の有効
-bindkey '^D' delete-char        # delete
-bindkey '^T' backward-delete-char # Backspace
-bindkey '^U' backward-kill-line # カーソル位置から後方全削除 override kill-whole-line
-bindkey '^Y' kill-line          # カーソル位置から前方全削除
-# 単語移動
-bindkey "^F" forward-word
-bindkey "^B" backward-word
-bindkey "^W" backward-kill-word # 後方単語削除
-bindkey "^C" send-break         # コマンド入力を実行せずに無視して次の行へ
-#bindkey "^Q" clear-screen      # クリアスクリーン screenのエスケープとかぶるので割り当てなし
-bindkey -r "^O"
-
-# コマンド履歴 ^P/^N
-#
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-bindkey "\\ep" history-beginning-search-backward-end
-bindkey "\\en" history-beginning-search-forward-end
-
-# glob(*)によるインクリメンタルサーチ <http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852>
-#bindkey "^R" history-incremental-pattern-search-backward
-#bindkey "^S" history-incremental-pattern-search-forward
-
-# reverse menu completion binded to Shift-Tab
-#
-bindkey "\e[Z" reverse-menu-complete
-
-# ^でcd ..する
-# http://shakenbu.org/yanagi/d/?date=20120301
-cdup() {
-    if [ -z "$BUFFER" ]; then
-        echo
-        cd ..
-        if type precmd > /dev/null 2>&1; then
-            precmd
-        fi
-        local precmd_func
-        for precmd_func in $precmd_functions; do
-            $precmd_func
-        done
-        zle reset-prompt
-    else
-        zle self-insert '^'
-    fi
-}
-zle -N cdup
-bindkey '\^' cdup
-
-# 表示されているコマンドをクリップボードへ
-#  http://d.hatena.ne.jp/hiboma/20120315/1331821642
-pbcopy-buffer(){
-    # -r エスケープシーケンスを解釈しない
-    # -n 最後に改行を入力しない
-    print -rn $BUFFER | pbcopy
-    zle -M "pbcopy: ${BUFFER}"
-}
-zle -N pbcopy-buffer
-bindkey '^x^p' pbcopy-buffer
-
+source ${HOME}/dotfiles/.zsh/keybind.zsh
 # }}}
 
 ### History configuration {{{
@@ -273,19 +183,21 @@ setopt bang_hist                # !を使ったヒストリ展開を行う
 ### Completion configuration {{{
 #
 # 補完関数のパス(fpath)を登録
-#
+# (N-/): 存在しないディレクトリは登録しない
 typeset -U fpath        # 重複パスを登録しない
-#  zsh-completions
-#   https://github.com/zsh-users/zsh-completions.git
-fpath=(${HOME}/.zsh/functions/Completion/zsh-completions(N-/) ${fpath})
-# homebrewでインストールしたコマンドの補完関数 http://yonchu.hatenablog.com/entry/20120415/1334506855
-# /usr/local 配下
-# (N-/): 存在しないディレクトリは登録しない。
+
+# zsh-completions
+#  https://github.com/zsh-users/zsh-completions.git
+# fpath=(${HOME}/.zsh/functions/Completion/zsh-completions(N-/) ${fpath})
+
+# homebrewでインストールしたコマンドの補完関数 /usr/local 配下
+#  http://yonchu.hatenablog.com/entry/20120415/1334506855 
 fpath=(/usr/local/share/zsh/functions(N-/) /usr/local/share/zsh/site-functions(N-/) ${fpath})
 if type brew >/dev/null 2>&1; then
     BREW_PREFIX=$(brew --prefix)
     fpath=($BREW_PREFIX/share/zsh/functions(N-/) $BREW_PREFIX/share/zsh/site-functions(N-/) ${fpath})
 fi
+
 # ユーザ固有の補完関数
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 
@@ -371,14 +283,14 @@ zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*' completer \
     _oldlist _complete _match _history _ignored _approximate _prefix
 
-## cdr <TAB> (最近移動したディレクトリ履歴からcd)
-#autoload -U chpwd_recent_dirs cdr
-#add-zsh-hook chpwd chpwd_recent_dirs
-#zstyle ":chpwd:*" recent-dirs-default true
-#zstyle ':chpwd:*' recent-dirs-file ${HOME}/.chpwd-recent-dirs
-#zstyle ":chpwd:*" recent-dirs-max 500
-#zstyle ":completion:*" recent-dirs-insert both
-#zstyle ":completion:*:*:cdr:*:*" menu select=2
+## $ cdr <TAB> (最近移動したディレクトリ履歴からcd)
+autoload -U chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ":chpwd:*" recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file ${HOME}/.cd_history
+zstyle ":chpwd:*" recent-dirs-max 50
+zstyle ":completion:*" recent-dirs-insert both
+zstyle ":completion:*:*:cdr:*:*" menu select=2
 
 ## 補完キャッシュの設定
 # 一部のコマンドライン定義は、展開時に時間のかかる処理を行う
@@ -464,8 +376,6 @@ esac
 # Define action when change directory.
 chpwd() {
     ls_abbrev
-    # cdd
-    type _cdd_chpwd >/dev/null 2>&1 && _cdd_chpwd
 }
 ls_abbrev() {
     # -a : Do not ignore entries starting with ..
@@ -510,8 +420,7 @@ function do_enter() {
         return 0
     fi
     echo
-    # ls
-    # ↓おすすめ
+    # ls　↓おすすめ
     ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo
@@ -526,18 +435,28 @@ bindkey '^m' do_enter
 
 # }}}
 
-
 ### Source configuration files {{{
 #
-# pluginの読み込み
+# zplug
 #
-if [ -d ~/.zsh/plugins ]; then
-    for plugin in ~/.zsh/plugins/*.zsh; do
-        if [ -f "$plugin" ]; then
-            echo "Loading plugin: ${plugin##*/}"
-            source "$plugin"
+if [ -f ${HOME}/dotfiles/Cellar/zplug/init.zsh ]; then
+    echo "Loading zplug plugins"
+    export ZPLUG_LOADFILE=${HOME}/dotfiles/.zsh/zplug.zsh
+    source ${HOME}/dotfiles/Cellar/zplug/init.zsh
+
+    # check コマンドで未インストール項目があるかどうか verbose にチェックし
+    # false のとき（つまり未インストール項目がある）y/N プロンプトで
+    # インストールする
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
         fi
-    done
+    fi
+
+    # プラグインを読み込み、コマンドにパスを通す
+    zplug load --verbose
+    echo "zplug plugins loaded."
 fi
 
 
@@ -575,34 +494,7 @@ xterm*|screen*|kterm|kterm-color)
     ;;
 esac
 
-### Emacs automatically running {{{
-#
-#  ログイン時に Emacs Daemon を起動する
-#
-
-# if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-#      /Applications/Emacs.app/Contents/MacOS/Emacs -nw --daemon -q
-# fi
-
-# case "${OSTYPE}" in
-#     linux*)
-#     if [ `emacs --version | grep 'Emacs 24' | wc -l` = 1 ]
-#     then
-#        if [ `ps ux | grep emacs\ --daemon | wc -l` = 1 ]; then
-#            `emacs --daemon`
-#        else
-#            echo 'Emacs daemon is already running.'
-#        fi
-#     else
-#         echo 'Can not run the daemon in this version of Emacs'
-#     fi
-# esac
-
 # }}}
-
-##
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ## load user .zshrc configuration file
 #

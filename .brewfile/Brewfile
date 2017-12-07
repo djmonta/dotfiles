@@ -2,14 +2,10 @@
 # tap repositories and their packages
 
 tap homebrew/core
-brew apple-gcc42
-brew apr
-brew apr-util
 brew autoconf
 brew automake
 brew awscli
 brew bison
-brew bison@2.7
 brew boost
 brew cairo
 brew carthage
@@ -17,25 +13,21 @@ brew cask
 brew coreutils
 brew czmq
 brew direnv
-brew emacs --with-cocoa
 brew emojify
 brew fontconfig
 brew fontforge
 brew freetype
 brew gd
-brew gdbm
 brew gettext
-brew glib
 brew gmp
 brew gnutls
 brew go
 brew gobject-introspection
-brew graphite2
 brew harfbuzz
+brew heroku
 brew highlight
 brew icu4c
 brew imagemagick
-brew jasper
 brew jpeg
 brew less
 brew libevent
@@ -48,8 +40,6 @@ brew libsodium
 brew libtasn1
 brew libtiff
 brew libtool
-brew libunistring
-brew libusb
 brew libusb-compat
 brew libxml2
 brew little-cms2
@@ -61,20 +51,16 @@ brew mhash
 brew mysql
 brew net-snmp
 brew nettle
+brew node
 brew openssl
-brew openssl@1.1
-brew p11-kit
 brew packer
 brew pandoc
 brew pango
 brew passenger
 brew pcre
 brew peco
-brew perl
 brew pixman
 brew pkg-config
-brew python
-brew python3
 brew re2c
 brew readline
 brew reattach-to-user-namespace
@@ -82,6 +68,7 @@ brew sane-backends
 brew sqlite
 brew subversion
 brew terminal-notifier
+brew terraform
 brew tmux
 brew webp
 brew wget
@@ -89,43 +76,49 @@ brew xz
 brew zeromq
 
 tap caskroom/cask
-cask 1password
-cask alfred
-cask android-studio
-cask appcleaner
-cask applepi-baker
 cask atom
-cask bartender
+cask qlmarkdown
+cask transmit
+cask visual-studio-code
+cask appcleaner
+cask qlvideo
 cask cmd-eikana
-cask dropbox
-cask flip4mac
-cask google-chrome
 cask handbrake
-cask ibackup
+cask tower
+cask google-photos-backup-and-sync
+cask transmission
 cask iterm2
-cask java
-cask kindle
-cask lastfm
+cask dropbox
 cask paparazzi
+cask docker
+cask kindle
+cask vagrant
+cask adobe-creative-cloud
+cask sublime-text
+cask android-studio
+cask 1password
+cask lastfm
+cask qlstephen
+cask sequel-pro
 cask qlcolorcode
 cask qlimagesize
-cask qlmarkdown
-cask qlstephen
-cask qlvideo
-cask sequel-pro
-cask sublime-text
-cask tower
-cask transmission
-cask transmit
-cask vagrant
+cask bartender
+cask google-chrome
 cask xquartz
+cask hyper
+cask ibackup
+cask applepi-baker
+cask java
+cask wavebox
+cask flip4mac
+cask alfred
 
 tap caskroom/drivers
 cask drobo-dashboard
 
 tap caskroom/fonts
-cask font-fontawesome
 cask font-source-han-code-jp
+cask font-fontawesome
 
 tap argon/mas
 
@@ -137,14 +130,6 @@ brew brew-file
 
 tap sanemat/font
 brew ricty --with-powerline
-
-# Cask applications
-cask github-desktop
-cask google-drive
-cask google-photos-backup
-cask parallels-desktop
-cask sqlitebrowser
-cask toggldesktop
 
 # App Store applications
 appstore 918858936 Airmail 3 (3.5.3)

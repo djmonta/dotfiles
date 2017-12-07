@@ -50,14 +50,21 @@ if [ -d ${HOME}/.anyenv ] ; then
 	done
 fi
 
+##
+# rbenv
+if [ -x "`which rbenv`" ]; then
+	eval "$(rbenv init -)";
+fi
+# direnv
+if [ -x "`which direnv`" ]; then
+	eval "$(direnv hook zsh)"
+fi
+
 # Go
 if [ -x "`which go`" ]; then
 	PATH=$PATH:/usr/local/opt/go/libexec/bin
 	export GOROOT=/usr/local/opt/go/libexec
 	export GOPATH=$HOME/go	
-fi
-if [ -x "`which direnv`" ]; then
-	eval "$(direnv hook zsh)"
 fi
 
 # fastlane

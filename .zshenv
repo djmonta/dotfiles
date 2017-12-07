@@ -34,7 +34,3 @@
 # If ZDOTDIR is unset, HOME is used instead.
 #
 ZDOTDIR=${HOME}/.zsh
-
-for config_file ($ZDOTDIR/functions/*.zsh); do
-	source $config_file
-done

@@ -1,12 +1,6 @@
-[submodule ".zsh/functions/Completion/zsh-completions"]
-	path = .zsh/functions/Completion/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "Cellar/dircolors-solarized"]
 	path = Cellar/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
-[submodule ".zsh/zsh-syntax-highlighting"]
-	path = .zsh/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule ".zsh/zsh-notify"]
-	path = .zsh/zsh-notify
-	url = https://github.com/marzocchi/zsh-notify.git
+[submodule "Cellar/zplug"]
+	path = Cellar/zplug
+	url = https://djmonta@github.com/zplug/zplug.git

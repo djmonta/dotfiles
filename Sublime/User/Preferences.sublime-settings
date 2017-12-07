@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
 	"draw_indent_guides": true,
 	"enable_tab_scrolling": false,
 	"font_size": 12,
@@ -16,10 +16,11 @@
 	],
 	"insert_timestamp_on_save": true,
 	"preview_on_click": true,
+	"show_full_path": true,
 	"spacegray_fileicons": true,
 	"spacegray_sidebar_tree_small": true,
 	"spacegray_tabs_normal": true,
 	"tab_size": 2,
-	"theme": "Spacegray.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 	"word_wrap": true
 }

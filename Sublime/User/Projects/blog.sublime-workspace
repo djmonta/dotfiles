@@ -1,0 +1,290 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"volum",
+				"volumes"
+			],
+			[
+				"google-",
+				"google-photos-backup-and-sync"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 131.0,
+		"last_filter": "add pro",
+		"selected_items":
+		[
+			[
+				"add pro",
+				"Project Manager: Add New Project"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"boxy",
+				"Boxy Theme: Extras"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"spacegr",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"sideba",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"them",
+				"UI: Select Color Scheme"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"syntax",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"gitsav",
+				"Preferences: GitSavvy Settings"
+			],
+			[
+				"git",
+				"Git: Gui"
+			]
+		],
+		"width": 494.0
+	},
+	"console":
+	{
+		"height": 131.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Volumes/RHD2/Documents/blog"
+	],
+	"file_history":
+	[
+		"/Volumes/RHD2/Documents/laravel-app/app/Providers/AppServiceProvider.php",
+		"/Volumes/RHD2/Documents/laravel-app/app/Providers/AuthServiceProvider.php",
+		"/Volumes/RHD2/Documents/laravel-app/app/newfile.php",
+		"/Volumes/RHD2/Documents/laravel-app/app/Models",
+		"/Volumes/RHD2/Documents/laravel-app/app/User.php",
+		"/Users/monta/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Volumes/RHD2/Documents/blog/_includes/sidebar-icon-links.html",
+		"/Volumes/RHD2/Documents/blog/.gitignore",
+		"/Volumes/RHD2/Documents/blog/assets/package.json",
+		"/Volumes/RHD2/Documents/blog/_includes/sidebar-nav-links.html",
+		"/Volumes/RHD2/Documents/blog/_layouts/post.html",
+		"/Volumes/RHD2/Documents/blog/Gemfile",
+		"/Volumes/RHD2/Documents/blog/_config.yml",
+		"/Volumes/RHD2/Documents/blog/index.md",
+		"/Volumes/RHD2/Documents/blog/index.html",
+		"/Volumes/RHD2/Documents/blog/_includes/favicons.html",
+		"/Users/monta/Downloads/hydeout-master/404.html",
+		"/Volumes/RHD2/Documents/blog/404.html",
+		"/Users/monta/dotfiles/.profile",
+		"/Users/monta/dotfiles/.profile.osx",
+		"/Volumes/RHD2/Documents/til/README.md",
+		"/Users/monta/Desktop/Kelvin.txt",
+		"/Volumes/RHD2/Documents/wordpress/infra/web/default.conf",
+		"/Volumes/RHD2/Documents/wordpress/infra/web/Dockerfile",
+		"/Volumes/RHD2/Documents/wordpress/infra/app/Dockerfile",
+		"/Volumes/RHD2/Documents/wordpress/infra/app/wordpress/wp-config.php",
+		"/Volumes/RHD2/Documents/wordpress/infra/app/bin/wp-plugins.sh",
+		"/Volumes/RHD2/Documents/wordpress/README.md",
+		"/Volumes/RHD2/Documents/wordpress/infra/.env",
+		"/Volumes/RHD2/Documents/wordpress/docker-compose.yml",
+		"/Volumes/RHD2/Documents/docker-wordpress/web/Dockerfile",
+		"/Volumes/RHD2/Documents/docker-wordpress/web/default.conf",
+		"/Volumes/RHD2/Documents/docker-wordpress/wordpress/Dockerfile",
+		"/Volumes/RHD2/Documents/docker-wordpress/docker-compose.yml",
+		"/Volumes/RHD2/Documents/docker-wordpress/app/Dockerfile",
+		"/Volumes/RHD2/Documents/docker-wordpress-nginx-ssh/docker-wordpress/docker-compose.yml",
+		"/private/var/folders/1f/6mr0pmxs39s_9nn1kpz4rh600000gn/T/9AFAB1B1-F41B-49DF-BD05-8CAF9489ACE9/PITCHME.yaml",
+		"/Users/monta/dotfiles/.brewfile/Brewfile"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "blog.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"appser",
+				"app/Providers/AppServiceProvider.php"
+			],
+			[
+				"user",
+				"app/User.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 357.0,
+		"last_filter": "factory",
+		"selected_items":
+		[
+			[
+				"factory",
+				"Factory"
+			],
+			[
+				"regis",
+				"register"
+			],
+			[
+				"register",
+				"register"
+			]
+		],
+		"width": 1010.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

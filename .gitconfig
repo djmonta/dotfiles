@@ -1,6 +1,7 @@
 [user]
 	name = monta
 	email = djmonta@gmail.com
+	signingkey = 46A97814AC63497E
 [mergetool]
 	keepBackup = true
 [color]
@@ -9,6 +10,7 @@
 	excludesfile = ~/.gitignore
 [commit]
 	template = ~/.gittemplate
+	gpgsign = true
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -24,3 +26,5 @@
 	process = git-lfs filter-process
 [credential]
 	helper = osxkeychain
+[gpg]
+	program = /usr/local/bin/gpg

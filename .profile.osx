@@ -37,9 +37,6 @@ PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbi
 # Android SDK
 #PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 
-# For powerline
-#PATH=${HOME}/.local/bin:$PATH
-
 # Add anyenv to PATH for scripting
 if [ -d ${HOME}/.anyenv ] ; then
 	PATH="${HOME}/.anyenv/bin:$PATH"
@@ -50,21 +47,15 @@ if [ -d ${HOME}/.anyenv ] ; then
 	done
 fi
 
-##
-# rbenv
-if [ -x "`which rbenv`" ]; then
-	eval "$(rbenv init -)";
-fi
-# direnv
-if [ -x "`which direnv`" ]; then
-	eval "$(direnv hook zsh)"
-fi
-
 # Go
 if [ -x "`which go`" ]; then
 	PATH=$PATH:/usr/local/opt/go/libexec/bin
 	export GOROOT=/usr/local/opt/go/libexec
 	export GOPATH=$HOME/go	
+fi
+# direnv
+if [ -x "`which direnv`" ]; then
+	eval "$(direnv hook zsh)"
 fi
 
 # fastlane

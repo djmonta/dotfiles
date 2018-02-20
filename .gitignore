@@ -37,3 +37,4 @@
 /Sublime/User/Sublimerge.tmTheme
 /Sublime/User/SublimergeSummaryPanel.tmTheme
 *.cache
+.config/yarn/global/node_modules/

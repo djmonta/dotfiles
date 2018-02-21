@@ -99,7 +99,7 @@ brew youtube-dl
 brew zeromq
 
 tap homebrew/php
-brew php70
+# brew php70
 brew wp-cli
 
 tap homebrew/services
@@ -111,7 +111,7 @@ cask appcleaner
 cask bartender
 cask cmd-eikana
 cask cyberduck
-cask docker
+# cask docker
 cask dropbox
 cask fastlane
 cask google-chrome

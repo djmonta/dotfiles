@@ -1,9 +1,9 @@
 #!/bin/bash
 
-RB_VER=2.3.5
-ND_VER=8.9.1
-PY_VER=3.6.3
-PHP_VER=7.1.1
+RB_VER=2.4.2
+ND_VER=v9.3.0
+PY_VER=2.7.10
+PHP_VER=7.1.9
 
 rbenv install -l
 echo -n "Which version of ruby to install? (${RB_VER}): "
@@ -15,15 +15,15 @@ rbenv install -f ${RB_VER}
 rbenv global ${RB_VER}
 rbenv rehash
 
-nodenv install -l
+ndenv install -l
 echo -n "Which version of nodejs to install? (${ND_VER}): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	ND_VER="$ANSWER"
 fi
-nodenv install -f ${ND_VER}
-nodenv global ${ND_VER}
-nodenv rehash
+ndenv install -f ${ND_VER}
+ndenv global ${ND_VER}
+ndenv rehash
 
 pyenv install -l
 echo -n "Which version of python to install? (${PY_VER}): "

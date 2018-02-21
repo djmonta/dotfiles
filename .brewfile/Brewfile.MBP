@@ -1,28 +1,128 @@
 
 # tap repositories and their packages
 
-tap argon/mas
+tap homebrew/core
+brew adns
+brew ansible
+brew apr
+brew apr-util
+brew autoconf
+brew automake
+brew awscli
+brew bison@2.7
+brew boost
+brew cairo
+brew carthage
+brew coreutils
+brew czmq
+brew ext4fuse
+brew fontconfig
+brew fontforge
+brew freetype
+brew gcc
+brew gd
+brew gdbm
+brew gettext
+brew glib
+brew gmp
+brew gnupg
+brew gnutls
+brew go
+brew gobject-introspection
+brew gpg-agent
+brew graphite2
+brew graphviz
+brew harfbuzz
+brew highlight
+brew icu4c
+brew imagemagick
+brew isl
+brew jpeg
+brew jq
+brew kompose
+brew libassuan
+brew libffi
+brew libgcrypt
+brew libgpg-error
+brew libiconv
+brew libidn2
+brew libksba
+brew libmpc
+brew libpng
+brew libressl
+brew libsodium
+brew libtasn1
+brew libtiff
+brew libtool
+brew libunistring
+brew libusb
+brew libxml2
+brew libyaml
+brew little-cms2
+brew lua
+brew mackup
 brew mas
+brew mcrypt
+brew mhash
+brew mpfr
+brew mysql
+brew nettle
+brew nkf
+brew npth
+brew oniguruma
+brew openssl
+brew openssl@1.1
+brew p11-kit
+brew pango
+brew pcre
+brew peco
+brew pinentry
+brew pinentry-mac
+brew pixman
+brew pkg-config
+brew pngquant
+brew pth
+brew python
+brew python3
+brew re2c
+brew readline
+brew rename
+brew sqlite
+brew terminal-notifier
+brew terraform
+brew unixodbc
+brew webp
+brew wget
+brew xz
+brew yarn --without-node
+brew youtube-dl
+brew zeromq
+
+tap homebrew/php
+# brew php70
+brew wp-cli
+
+tap homebrew/services
 
 tap caskroom/cask
 cask 1password
 cask alfred
 cask appcleaner
-cask atom
 cask bartender
 cask cmd-eikana
 cask cyberduck
+# cask docker
 cask dropbox
-cask elmedia-player
 cask fastlane
-cask github-desktop
 cask google-chrome
+cask hyper
 cask iterm2
-cask itsycal
+cask java
 cask kaleidoscope
 cask kindle
 cask mpeg-streamclip
 cask mysqlworkbench
+cask ngrok
 cask notion
 cask postman
 cask qlcolorcode
@@ -38,102 +138,46 @@ cask transmit
 cask vagrant
 cask virtualbox
 
-tap homebrew/core
-brew ansible
-brew autoconf
-brew automake
-brew awscli
-brew bison@2.7
-brew boost
-brew cairo
-brew carthage
-brew coreutils
-brew czmq
-brew fontconfig
-brew fontforge
-brew freetype
-brew gdbm
-brew gettext
-brew glib
-brew go
-brew gobject-introspection
-brew graphite2
-brew harfbuzz
-brew highlight
-brew icu4c
-brew imagemagick
-brew jpeg
-brew jq
-brew libffi
-brew libpng
-brew libressl
-brew libsodium
-brew libtiff
-brew libtool
-brew libxml2
-brew libyaml
-brew lua
-brew mackup
-brew mcrypt
-brew mhash
-brew mysql
-brew oniguruma
-brew openssl
-brew openssl@1.1
-brew pango
-brew pcre
-brew peco
-brew pixman
-brew pkg-config
-brew python
-brew re2c
-brew readline
-brew rename
-brew sqlite
-brew terminal-notifier
-brew unixodbc
-brew wget
-brew xz
-brew youtube-dl
-brew zeromq
+tap argon/mas
 
-tap homebrew/php
-brew php70
-brew wp-cli
+tap djmonta/gomi
+brew gomi
 
 tap rcmdnk/file
 brew brew-file
 
-tap sanemat/font
+# Other Homebrew packages
 brew ricty --with-powerline
 
+# Cask applications
+cask github-desktop
+
 # App Store applications
-appstore 918858936 Airmail 3 (3.3.2)
-appstore 953924032 Aura (1.3.0)
-appstore 1091189122 Bear (1.2.1)
-appstore 1024640650 CotEditor (3.2.0)
-appstore 1055511498 Day One (2.3.5)
-appstore 924726344 Deliveries (3.0.3)
-appstore 549083868 Display Menu (2.2.2)
-appstore 975937182 Fantastical 2 (2.4)
-appstore 792425898 Flume (2.4.2)
+appstore 1091189122 Bear (1.4.1)
+appstore 1024640650 CotEditor (3.3.2)
+appstore 1055511498 Day One (2.5.10)
+appstore 924726344 Deliveries (3.0.7)
+appstore 549083868 Display Menu (2.2.3)
+appstore 975937182 Fantastical 2 (2.4.5)
 appstore 682658836 GarageBand (10.2.0)
-appstore 1040735952 GIFfun (1.46)
-appstore 979538493 Go for Gmail (2.4)
-appstore 408981434 iMovie (10.1.6)
-appstore 422293948 IP Scanner Home (3.58)
-appstore 409183694 Keynote (7.2)
-appstore 539883307 LINE (5.2.2)
+appstore 408981434 iMovie (10.1.8)
+appstore 944109819 Inboard (1.1.2)
+appstore 422293948 IP Scanner Home (3.65)
+appstore 409183694 Keynote (7.3.1)
+appstore 539883307 LINE (5.6.0)
+appstore 441258766 Magnet (2.1.0)
 appstore 958475217 MW Archiver (1.8.0)
-appstore 409201541 Pages (6.2)
-appstore 445189367 PopClip (1.5.7)
-appstore 866773894 Quiver (3.0.7)
+appstore 409201541 Pages (6.3.1)
+appstore 445189367 PopClip (1.5.8)
+appstore 866773894 Quiver (3.1.2)
 appstore 413449473 ReceiptKeeper (1.1.3)
 appstore 507257563 Sip (4.5.2)
 appstore 425955336 Skitch (2.8)
-appstore 1006087419 SnippetsLab (1.6.4)
-appstore 425424353 The Unarchiver (3.11.1)
-appstore 904280696 Things3 (3.1)
+appstore 1006087419 SnippetsLab (1.7.3)
+appstore 425424353 The Unarchiver (3.11.3)
+appstore 904280696 Things3 (3.3)
 appstore 961656759 Timeline (1.0)
-appstore 585829637 Todoist (7.0.2)
-appstore 957734279 TogglDesktop (7.4.11)
+appstore 957734279 TogglDesktop (7.4.58)
+appstore 1151308717 traumbaum (1.23)
+appstore 557168941 Tweetbot (2.5.4)
+appstore 497799835 Xcode (9.2)

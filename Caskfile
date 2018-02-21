@@ -27,6 +27,12 @@ cask sublime-text # /Applications/Sublime Text.app
 cask tower # /Applications/Tower.app
 cask transmit # /Applications/Transmit.app
 cask xquartz # /Applications/Utilities/XQuartz.app
+cask bartender # /Applications/Bartender 2.app
+cask dropbox # /Applications/Dropbox.app
+cask google-chrome # /Applications/Google Chrome.app
+cask mpeg-streamclip # /Applications/MPEG Streamclip.app
+cask mysqlworkbench # /Applications/MySQLWorkbench.app
+cask sequel-pro # /Applications/Sequel Pro.app
 
 # Cask is found, but no applications are found (could be fonts, system settins, or installed in other directory.)
 cask qlimagesize
@@ -34,6 +40,7 @@ cask qlmarkdown
 
 # There are new version for following applications.
 cask install java
+cask install fastlane
 cask install qlcolorcode
 cask install qlstephen
 cask install qlvideo
@@ -101,14 +108,6 @@ appstore 924726344 Deliveries (3.0.6) # /Applications/Deliveries.app
 appstore 975937182 Fantastical 2 (2.4.4) # /Applications/Fantastical 2.app
 appstore 792425898 Flume (2.4.2) # /Applications/Flume.app
 appstore 467939042 Growl (2.1.3) # /Applications/Growl.app
-appstore 422293948 IP Scanner Home (3.60) # /Applications/IP Scanner Home.app
-appstore 409183694 Keynote (7.3.1) # /Applications/Keynote.app
-appstore 539883307 LINE (5.4.0) # /Applications/LINE.app
-appstore 958475217 MW Archiver (1.8.0) # /Applications/MW Archiver.app
-appstore 969978718 Noiseless (1.3.2) # /Applications/Noiseless.app
-appstore 417722018 photomosaic (2.0.9) # /Applications/photomosaic.app
-appstore 568494494 Pocket (1.6.2) # /Applications/Pocket.app
-appstore 730422440 Poedit (1.8.11) # /Applications/Poedit.app
 appstore 445189367 PopClip (1.5.8) # /Applications/PopClip.app
 appstore 866773894 Quiver (3.1.1) # /Applications/Quiver.app
 appstore 413449473 ReceiptKeeper (1.1.3) # /Applications/ReceiptKeeper.app
@@ -196,6 +195,7 @@ appstore 497799835 Xcode (9.1) # /Applications/Xcode.app
 # /Applications/Time Machine.app
 # /Applications/Unclutter.app
 # /Users/monta/Applications/Chrome Apps.localized
+# /Applications/Xcode.app
 # /Applications/Utilities/Activity Monitor.app
 # /Applications/Utilities/Adobe AIR Application Installer.app
 # /Applications/Utilities/Adobe AIR Uninstaller.app

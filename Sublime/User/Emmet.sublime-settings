@@ -1,5 +1,3 @@
 {
-	"disabled_keymap_actions": "expand_abbreviation",
-	"disabled_keymap_actions": "expand_abbreviation, balance_outward",
-  "disabled_keymap_actions": "reflect_css_value"
+	"disabled_keymap_actions": "balance_outward, reflect_css_value"
 }

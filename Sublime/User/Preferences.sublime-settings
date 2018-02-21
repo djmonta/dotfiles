@@ -5,7 +5,7 @@
 	"draw_indent_guides": true,
 	"enable_tab_scrolling": true,
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 11,
+	"font_size": 11.5,
 	"highlight_line": true,
 	"icon_factory": true,
 	"ignored_packages":
@@ -29,6 +29,6 @@
 	"theme": "Boxy Tomorrow.sublime-theme",
 	"theme_sidebar_folder_mono": true,
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
+	"trim_trailing_white_space_on_save": false,
 	"word_wrap": true
 }

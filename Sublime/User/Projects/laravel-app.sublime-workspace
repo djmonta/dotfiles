@@ -15,14 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/Volumes/RHD2/Documents/laravel-app/tests/Unit/ExampleTest.php",
-			"settings":
-			{
-				"buffer_size": 294,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -37,7 +29,7 @@
 		[
 			[
 				"php s",
-				"Sublime PHPUnit: Run This Test Method"
+				"PHP CS Fixer: format this file"
 			],
 			[
 				"sublime ",
@@ -112,7 +104,7 @@
 	},
 	"console":
 	{
-		"height": 131.0,
+		"height": 387.0,
 		"history":
 		[
 		]
@@ -128,9 +120,7 @@
 	},
 	"expanded_folders":
 	[
-		"/Volumes/RHD2/Documents/laravel-app",
-		"/Volumes/RHD2/Documents/laravel-app/tests",
-		"/Volumes/RHD2/Documents/laravel-app/tests/Unit"
+		"/Volumes/RHD2/Documents/laravel-app"
 	],
 	"file_history":
 	[
@@ -209,39 +199,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/Volumes/RHD2/Documents/laravel-app/tests/Unit/ExampleTest.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 294,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								274,
-								274
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

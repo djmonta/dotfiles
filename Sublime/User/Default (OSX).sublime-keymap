@@ -2,5 +2,5 @@
   { "keys": ["ctrl+shift+q"], "command": "auto_save" },
   { "keys": ["ctrl+shift+t"], "command": "insert_timestamp" },
   { "keys": ["super+t"], "command": "run_single_phpunit_test"},
-  { "keys": ["super+shift+t"], "command": "run_phpunit_test"},
+  { "keys": ["super+shift+t"], "command": "run_phpunit_test"}
 ]

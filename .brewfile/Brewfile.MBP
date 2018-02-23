@@ -15,10 +15,10 @@ brew cairo
 brew carthage
 brew coreutils
 brew czmq
-brew ext4fuse
 brew fontconfig
 brew fontforge
 brew freetype
+brew fzf
 brew gcc
 brew gd
 brew gdbm
@@ -39,7 +39,6 @@ brew imagemagick
 brew isl
 brew jpeg
 brew jq
-brew kompose
 brew libassuan
 brew libffi
 brew libgcrypt
@@ -75,7 +74,6 @@ brew openssl@1.1
 brew p11-kit
 brew pango
 brew pcre
-brew peco
 brew pinentry
 brew pinentry-mac
 brew pixman
@@ -99,44 +97,44 @@ brew youtube-dl
 brew zeromq
 
 tap homebrew/php
-# brew php70
 brew wp-cli
 
 tap homebrew/services
 
 tap caskroom/cask
-cask 1password
-cask alfred
-cask appcleaner
-cask bartender
-cask cmd-eikana
-cask cyberduck
-# cask docker
-cask dropbox
-cask fastlane
-cask google-chrome
-cask hyper
-cask iterm2
-cask java
-cask kaleidoscope
-cask kindle
-cask mpeg-streamclip
-cask mysqlworkbench
-cask ngrok
+cask slack
+cask qlmarkdown
+cask transmit
 cask notion
+cask virtualbox
+cask visual-studio-code
+cask appcleaner
+cask qlvideo
+cask cmd-eikana
+cask tower
 cask postman
+cask iterm2
+cask dropbox
+cask kindle
+cask dash
+cask vagrant
+cask sublime-text
+cask 1password
+cask qlstephen
+cask sequel-pro
 cask qlcolorcode
 cask qlimagesize
-cask qlmarkdown
-cask qlstephen
-cask qlvideo
-cask sequel-pro
-cask slack
-cask sublime-text
-cask tower
-cask transmit
-cask vagrant
-cask virtualbox
+cask bartender
+cask google-chrome
+cask hyper
+cask ngrok
+cask java
+cask alfred
+cask mysqlworkbench
+cask mpeg-streamclip
+cask kaleidoscope
+
+tap caskroom/fonts
 
 tap argon/mas
 
@@ -146,19 +144,12 @@ brew gomi
 tap rcmdnk/file
 brew brew-file
 
-# Other Homebrew packages
-brew ricty --with-powerline
-
-# Cask applications
-cask github-desktop
-
 # App Store applications
 appstore 1091189122 Bear (1.4.1)
 appstore 1024640650 CotEditor (3.3.2)
 appstore 1055511498 Day One (2.5.10)
-appstore 924726344 Deliveries (3.0.7)
 appstore 549083868 Display Menu (2.2.3)
-appstore 975937182 Fantastical 2 (2.4.5)
+appstore 975937182 Fantastical 2 (2.4.6)
 appstore 682658836 GarageBand (10.2.0)
 appstore 408981434 iMovie (10.1.8)
 appstore 944109819 Inboard (1.1.2)
@@ -169,10 +160,10 @@ appstore 441258766 Magnet (2.1.0)
 appstore 958475217 MW Archiver (1.8.0)
 appstore 409201541 Pages (6.3.1)
 appstore 445189367 PopClip (1.5.8)
+appstore 1003160018 Quip (5.2.26)
 appstore 866773894 Quiver (3.1.2)
 appstore 413449473 ReceiptKeeper (1.1.3)
 appstore 507257563 Sip (4.5.2)
-appstore 425955336 Skitch (2.8)
 appstore 1006087419 SnippetsLab (1.7.3)
 appstore 425424353 The Unarchiver (3.11.3)
 appstore 904280696 Things3 (3.3)

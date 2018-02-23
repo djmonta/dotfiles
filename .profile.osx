@@ -51,7 +51,7 @@ fi
 if [ -x "`which go`" ]; then
 	PATH=$PATH:/usr/local/opt/go/libexec/bin
 	export GOROOT=/usr/local/opt/go/libexec
-	export GOPATH=$HOME/go	
+	export GOPATH=$HOME/go
 fi
 # direnv
 if [ -x "`which direnv`" ]; then
@@ -98,6 +98,7 @@ fi
 
 # Terminal Notifier
 export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
+export DOWNLOAD_DIR=${HOME}/Downloads
 
 ### Complete Messages
 echo "Loading .profile.osx completed!!"

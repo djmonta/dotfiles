@@ -191,11 +191,16 @@ typeset -U fpath        # 重複パスを登録しない
 # fpath=(${HOME}/.zsh/functions/Completion/zsh-completions(N-/) ${fpath})
 
 # homebrewでインストールしたコマンドの補完関数 /usr/local 配下
-#  http://yonchu.hatenablog.com/entry/20120415/1334506855 
+#  http://yonchu.hatenablog.com/entry/20120415/1334506855
 fpath=(/usr/local/share/zsh/functions(N-/) /usr/local/share/zsh/site-functions(N-/) ${fpath})
 if type brew >/dev/null 2>&1; then
     BREW_PREFIX=$(brew --prefix)
     fpath=($BREW_PREFIX/share/zsh/functions(N-/) $BREW_PREFIX/share/zsh/site-functions(N-/) ${fpath})
+fi
+
+# fzf completion
+if [ -f ${HOME}/.zsh/.fzf.zsh ]; then
+    source ${HOME}/.zsh/.fzf.zsh
 fi
 
 # ユーザ固有の補完関数
@@ -290,7 +295,8 @@ zstyle ":chpwd:*" recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file ${HOME}/.cd_history
 zstyle ":chpwd:*" recent-dirs-max 50
 zstyle ":completion:*" recent-dirs-insert both
-zstyle ":completion:*:*:cdr:*:*" menu select=2
+# zstyle ":completion:*:*:cdr:*:*" menu select=2
+zstyle ':completion:*:*:cdr:*:*' menu selection
 
 ## 補完キャッシュの設定
 # 一部のコマンドライン定義は、展開時に時間のかかる処理を行う
@@ -500,6 +506,7 @@ esac
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
+zstyle ":anyframe:selector:" command "fzf --ansi"
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

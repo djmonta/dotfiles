@@ -2,6 +2,7 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"CodeComplice"
 	],
 	"installed_packages":
 	[
@@ -13,14 +14,13 @@
 		"Babel",
 		"Boxy Theme",
 		"Boxy Theme Addon - Mono File Icons",
-		"Codecs33",
 		"CodeComplice",
+		"Codecs33",
 		"Color Highlighter",
 		"ConvertToUTF8",
 		"Dayle Rees Color Schemes",
-		"Dockerfile Syntax Highlighting",
-		"Codecs33",
 		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
 		"EditorConfig",
 		"Emmet",
 		"Emoji",
@@ -34,8 +34,8 @@
 		"Package Control",
 		"PackageResourceViewer",
 		"PHP CS Fixer",
-		"ProjectManager",
 		"PHPUnit",
+		"ProjectManager",
 		"rsub",
 		"Sass",
 		"SCSS",

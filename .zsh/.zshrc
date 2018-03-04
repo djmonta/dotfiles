@@ -1,4 +1,4 @@
-# Last Modified: 2017-04-23 20:06:53
+# Last Modified: 2018-03-04 18:56:32
 ### Introduction {{{
 #
 #  .zshrc
@@ -74,17 +74,17 @@ colors
 autoload -Uz add-zsh-hook
 
 ## prompt theme {{{
-if [ ${TERM} != dumb ]; then
-    if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
-        echo "Loading theme: $ZSH_THEME"
-        source ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme
-    else
-        echo "Error: could not load the theme '$ZSH_THEME'"
-    fi
-fi
+# if [ ${TERM} != dumb ]; then
+#    if [ -f ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme ]; then
+#         echo "Loading theme: $ZSH_THEME"
+#         source ${HOME}/.zsh/themes/"$ZSH_THEME".zsh-theme
+#     else
+#         echo "Error: could not load the theme '$ZSH_THEME'"
+#     fi
+# fi
 
 ## tmux prompt
-PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # }}}
 

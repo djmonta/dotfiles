@@ -17,6 +17,11 @@ bindkey "^C" send-break         # コマンド入力を実行せずに無視し�
 #bindkey "^Q" clear-screen      # クリアスクリーン screenのエスケープとかぶるので割り当てなし
 bindkey -r "^O"
 
+bindkey "^xr" anyframe-widget-put-history
+bindkey "^xi" anyframe-widget-execute-history
+bindkey "^xk" anyframe-widget-kill
+bindkey "^xs" anyframe-widget-select-widget
+
 # コマンド履歴 ^P/^N
 #
 autoload history-search-end
@@ -62,7 +67,7 @@ pbcopy-buffer(){
     # -r エスケープシーケンスを解釈しない
     # -n 最後に改行を入力しない
     print -rn $BUFFER | pbcopy
-    zle -M "pbcopy: ${BUFFER}"
+    zle -M "pbcopy copied: ${BUFFER}"
 }
 zle -N pbcopy-buffer
 bindkey '^x^p' pbcopy-buffer

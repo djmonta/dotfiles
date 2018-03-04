@@ -127,3 +127,5 @@ fi
 # script ~/log/`date +%Y%m%d-%H%M%S.log`
 # exit
 # fi
+
+[ -f ${HOME}/dotfiles/.fzf.bash ] && source ${HOME}/dotfiles/.fzf.bash

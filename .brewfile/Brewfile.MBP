@@ -13,6 +13,7 @@ brew bison@2.7
 brew boost
 brew cairo
 brew carthage
+brew cocoapods
 brew coreutils
 brew czmq
 brew fontconfig

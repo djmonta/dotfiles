@@ -1,4 +1,4 @@
-# Last Modified: 2018-03-04 18:56:32
+# Last Modified: 2018-03-11 22:42:44
 ### Introduction {{{
 #
 #  .zshrc
@@ -50,7 +50,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='monta'
+# ZSH_THEME='monta'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
@@ -507,6 +507,12 @@ esac
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
 zstyle ":anyframe:selector:" command "fzf --ansi"
+
+
+## prompt
+autoload -Uz promptinit
+promptinit
+# prompt pure
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

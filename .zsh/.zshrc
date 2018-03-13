@@ -50,7 +50,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='monta'
+ZSH_THEME='spaceship'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
@@ -85,6 +85,10 @@ autoload -Uz add-zsh-hook
 
 ## tmux prompt
 # PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+autoload -Uz promptinit
+promptinit
+# prompt spaceship
 
 # }}}
 

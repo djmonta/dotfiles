@@ -16,10 +16,10 @@ brew carthage
 brew cocoapods
 brew coreutils
 brew czmq
-brew ext4fuse
 brew fontconfig
 brew fontforge
 brew freetype
+brew fribidi
 brew fzf
 brew gcc
 brew gd
@@ -82,6 +82,7 @@ brew pixman
 brew pkg-config
 brew pngquant
 brew pth
+brew python@2
 brew re2c
 brew readline
 brew rename
@@ -97,43 +98,42 @@ brew youtube-dl
 brew zeromq
 
 tap homebrew/php
-# brew php70
-# brew wp-cli
+brew wp-cli
 
 tap homebrew/services
 
 tap caskroom/cask
-cask slack
-cask qlmarkdown
-cask transmit
-cask notion
-cask virtualbox
-cask visual-studio-code
-cask appcleaner
-cask qlvideo
-cask cmd-eikana
-cask tower
-cask postman
-cask iterm2
-cask dropbox
-cask kindle
-cask dash
-cask vagrant
-cask sublime-text
 cask 1password
-cask qlstephen
-cask sequel-pro
-cask qlcolorcode
-cask qlimagesize
+cask alfred
+cask appcleaner
 cask bartender
+cask cmd-eikana
+cask dash
+cask dropbox
 cask google-chrome
 cask hyper
-cask ngrok
+cask iterm2
 cask java
-cask alfred
-cask mysqlworkbench
-cask mpeg-streamclip
 cask kaleidoscope
+cask kindle
+cask mpeg-streamclip
+cask mysqlworkbench
+cask ngrok
+cask notion
+cask postman
+cask qlcolorcode
+cask qlimagesize
+cask qlmarkdown
+cask qlstephen
+cask qlvideo
+cask sequel-pro
+cask slack
+cask sublime-text
+cask tower
+cask transmit
+cask vagrant
+cask virtualbox
+cask visual-studio-code
 
 tap caskroom/fonts
 
@@ -146,41 +146,35 @@ tap rcmdnk/file
 brew brew-file
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.1)
-appstore 1091189122 Bear (1.4.3)
-appstore 1024640650 CotEditor (3.3.4)
-appstore 1055511498 Day One (2.5.11)
+appstore 1107421413 1Blocker (1.4.2)
+appstore 1091189122 Bear (1.5.5)
+appstore 1024640650 CotEditor (3.4.2)
+appstore 1055511498 Day One (2.7)
 appstore 549083868 Display Menu (2.2.3)
-appstore 975937182 Fantastical 2 (2.4.7)
-
-# Cask applications
-cask github-desktop
-
-# App Store applications
-appstore 1091189122 Bear (1.4.1)
-appstore 1024640650 CotEditor (3.3.2)
-appstore 1055511498 Day One (2.5.10)
-appstore 924726344 Deliveries (3.0.7)
-appstore 549083868 Display Menu (2.2.3)
-appstore 975937182 Fantastical 2 (2.4.5)
-appstore 539883307 LINE (5.6.1)
+appstore 975937182 Fantastical 2 (2.4.10)
+appstore 682658836 GarageBand (10.2.0)
+appstore 408981434 iMovie (10.1.9)
+appstore 944109819 Inboard (1.1.3)
+appstore 422293948 IP Scanner Home (3.66)
+appstore 409183694 Keynote (8.0.1)
+appstore 539883307 LINE (5.8.0)
 appstore 441258766 Magnet (2.1.0)
 appstore 1084713122 Markoff (1.0.1)
-appstore 1275176220 MultiMarkdown Composer (4.3.1)
+appstore 1275176220 MultiMarkdown Composer (4.4.4)
 appstore 958475217 MW Archiver (1.8.0)
-appstore 409201541 Pages (6.3.1)
-appstore 568494494 Pocket (1.7.1)
+appstore 409201541 Pages (7.0.1)
+appstore 568494494 Pocket (1.7.9)
 appstore 445189367 PopClip (1.5.8)
-appstore 1003160018 Quip (5.2.31)
-appstore 866773894 Quiver (3.1.2)
+appstore 1003160018 Quip (5.2.97)
+appstore 866773894 Quiver (3.1.3)
 appstore 413449473 ReceiptKeeper (1.1.3)
 appstore 507257563 Sip (4.5.2)
-appstore 1006087419 SnippetsLab (1.7.3)
+appstore 1006087419 SnippetsLab (1.7.4)
+appstore 1176895641 Spark (2.0.4)
 appstore 873245660 Spillo (2.0)
-appstore 425424353 The Unarchiver (3.11.3)
-appstore 904280696 Things3 (3.4.1)
+appstore 425424353 The Unarchiver (3.11.6)
+appstore 904280696 Things3 (3.6)
 appstore 961656759 Timeline (1.0)
 appstore 957734279 TogglDesktop (7.4.129)
-appstore 1151308717 traumbaum (1.23)
-appstore 557168941 Tweetbot (2.5.4)
-appstore 497799835 Xcode (9.2)
+appstore 557168941 Tweetbot (2.5.6)
+appstore 497799835 Xcode (9.4)

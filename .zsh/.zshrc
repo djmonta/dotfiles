@@ -50,7 +50,7 @@ export LANG=ja_JP.UTF-8
 #
 
 # Theme.
-ZSH_THEME='spaceship'
+ZSH_THEME='monta'
 DEFAULT_USER='monta'
 
 # Remove any right prompt from display when accepting a command line.
@@ -88,8 +88,13 @@ autoload -Uz add-zsh-hook
 
 autoload -Uz promptinit
 promptinit
-# prompt spaceship
-
+source ${HOME}/dotfiles/bin/256colorlib.sh
+# Correct prompt
+SPROMPT="${COLOR_FG_CC4422}もしかして: %r [y,n,a,e] ->%{${reset_color}%} "
+CORRECTION='${COLOR_FG_D70000}もしかして: '
+CORRECTION+='${COLOR_FG_0087FF}${STYLE_LINE}%r%{${reset_color}%}'
+CORRECTION+=' [y,n,a,e] -> '
+SPROMPT=$CORRECTION
 # }}}
 
 ### Default shell configuration {{{

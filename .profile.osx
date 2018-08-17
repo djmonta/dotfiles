@@ -18,13 +18,13 @@ export USER_LOCAL
 #
 # デフォルトエディタ
 #
-export ALTERNATE_EDITOR="nano"
-export EDITOR="nano"
-export VISUAL="nano"
+export ALTERNATE_EDITOR="code"
+export EDITOR="code"
+export VISUAL="code"
 
 # Gitでコミット時に起動するエディタを指定
 # 未指定だとコミット時にエラーになる(絶対パス必須)
-export GIT_EDITOR="/usr/bin/nano"
+export GIT_EDITOR="/usr/local/bin/code"
 
 #
 # PATH =========================================================================
@@ -33,7 +33,7 @@ export GIT_EDITOR="/usr/bin/nano"
 #
 
 # PATH
-PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin:$PATH"
+PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/opt:/usr/local/share:/usr/X11/bin:$PATH"
 # Android SDK
 #PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 

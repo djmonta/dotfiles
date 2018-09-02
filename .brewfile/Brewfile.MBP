@@ -12,8 +12,6 @@ brew awscli
 brew bison@2.7
 brew boost
 brew cairo
-brew carthage
-brew cocoapods
 brew coreutils
 brew czmq
 brew fontconfig
@@ -31,15 +29,11 @@ brew gnupg
 brew gnutls
 brew go
 brew gobject-introspection
-brew gpg-agent
 brew graphite2
 brew graphviz
 brew harfbuzz
-brew heroku
 brew highlight
-brew hub
 brew icu4c
-brew imagemagick
 brew isl
 brew jpeg
 brew jq
@@ -70,7 +64,6 @@ brew mhash
 brew mpfr
 brew mysql
 brew nettle
-brew nginx
 brew nkf
 brew node
 brew npth
@@ -95,11 +88,9 @@ brew rename
 brew setweblocthumb
 brew sqlite
 brew terminal-notifier
-brew terraform
 brew unixodbc
 brew webp
 brew wget
-brew wp-cli
 brew xz
 brew yarn --without-node
 brew youtube-dl
@@ -115,38 +106,7 @@ cask appcleaner
 cask cmd-eikana
 cask docker
 cask google-chrome
-cask java
-cask kindle
-cask mysqlworkbench
-cask notion
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask slack
-cask tower
-cask tweet-tray
-cask virtualbox
-
-tap argon/mas
-
-tap djmonta/gomi
-brew gomi
-
-tap heroku/brew
-brew heroku-node
-
-tap rcmdnk/file
-brew brew-file
-
-tap sanemat/font
-brew ricty --with-powerline
-
-# Other Cask applications
-cask alfred
-cask bartender
-cask dash
-cask dropbox
-cask iterm2
+cask itsycal
 cask kaleidoscope
 cask mpeg-streamclip
 cask ngrok
@@ -159,34 +119,68 @@ cask transmit
 cask vagrant
 cask visual-studio-code
 
+tap argon/mas
+
+tap djmonta/gomi
+brew gomi
+
+tap heroku/brew
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+brew ricty --with-powerline
+
+# Other Homebrew packages
+brew gpg-agent
+
+# Other Cask applications
+cask alfred
+cask bartender
+cask dash
+cask dropbox
+cask iterm2
+cask java
+cask kindle
+cask mysqlworkbench
+cask notion
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask slack
+cask tower
+cask tweet-tray
+cask virtualbox
+
 # App Store applications
 appstore 1107421413 1Blocker (1.4.3)
 appstore 1287445660 Agenda (2.3)
 appstore 1091189122 Bear (1.5.5)
-appstore 1024640650 CotEditor (3.5.0)
-appstore 1055511498 Day One (2.7.4)
+appstore 1024640650 CotEditor (3.5.1)
+appstore 1055511498 Day One (2.8.0)
 appstore 1257711898 DeskCover (1.3)
-appstore 975937182 Fantastical 2 (2.5.1)
+appstore 975937182 Fantastical 2 (2.5.2)
 appstore 682658836 GarageBand (10.3.1)
 appstore 408981434 iMovie (10.1.9)
 appstore 422293948 IP Scanner Home (3.66)
 appstore 1142151959 JustFocus (1.6.1)
 appstore 409183694 Keynote (8.1)
 appstore 405399194 Kindle (1.23.3)
-appstore 539883307 LINE (5.9.2)
+appstore 539883307 LINE (5.9.3)
 appstore 441258766 Magnet (2.2.2)
 appstore 1084713122 Markoff (1.0.1)
 appstore 409203825 Numbers (5.1)
 appstore 409201541 Pages (7.1)
 appstore 568494494 Pocket (1.7.9)
 appstore 445189367 PopClip (1.5.8)
-appstore 1003160018 Quip (5.3.35)
+appstore 1003160018 Quip (5.3.50)
 appstore 866773894 Quiver (3.1.3)
-appstore 1176895641 Spark (2.0.9)
+appstore 1176895641 Spark (2.0.10)
 appstore 873245660 Spillo (2.0)
 appstore 425424353 The Unarchiver (4.0.0)
 appstore 904280696 Things3 (3.6.1)
 appstore 957734279 TogglDesktop (7.4.129)
-appstore 557168941 Tweetbot (2.5.7)
-appstore 1384080005 Tweetbot (3.0.6)
+appstore 557168941 Tweetbot (2.5.8)
+appstore 1384080005 Tweetbot (3.1)
 appstore 497799835 Xcode (9.4.1)

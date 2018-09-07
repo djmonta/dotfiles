@@ -22,6 +22,7 @@ brew flac
 brew fontconfig
 brew fontforge
 brew freetype
+brew fribidi
 brew fzf
 brew gd
 brew gdbm
@@ -70,6 +71,7 @@ brew libvorbis
 brew libxml2
 brew little-cms2
 brew lua
+brew lz4
 brew mackup
 brew makedepend
 brew mas
@@ -98,6 +100,7 @@ brew pkg-config
 brew postgresql
 brew pth
 brew python
+brew python@2
 brew re2c
 brew readline
 brew reattach-to-user-namespace
@@ -108,6 +111,7 @@ brew terminal-notifier
 brew terraform
 brew tmux
 brew unixodbc
+brew utf8proc
 brew webp
 brew wget
 brew wxmac
@@ -116,22 +120,28 @@ brew xvid
 brew xz
 brew zeromq
 
-tap homebrew/services
+tap homebrew/cask-fonts
+cask font-fira-code
+cask font-source-han-code-jp
 
-tap argon/mas
-
-tap caskroom/cask
-
-tap caskroom/drivers
-
-tap caskroom/fonts
-
-tap caskroom/versions
+tap homebrew/cask
+cask 1password
+cask alfred
+cask applepi-baker
+cask cmd-eikana
+cask dropbox
+cask google-chrome
+cask ibackup
+cask java
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask sublime-text
+cask transmission
+cask vagrant
 
 tap djmonta/gomi
 brew gomi
-
-tap heroku/brew
 
 tap rcmdnk/file
 brew brew-file
@@ -140,97 +150,47 @@ brew brew-file
 brew gpg-agent
 
 # Other Cask applications
-cask 1password
 cask adobe-creative-cloud
-cask alfred
 cask appcleaner
-cask applepi-baker
-cask atom
 cask bartender
-cask cmd-eikana
 cask docker
-cask dropbox
-cask font-fira-code
 cask font-fontawesome
-cask font-source-han-code-jp
-cask google-chrome
 cask google-photos-backup-and-sync
-cask ibackup
 cask iterm2
-cask java
 cask kindle
-cask qlcolorcode
 cask qlimagesize
-cask qlmarkdown
 cask qlstephen
-cask qlvideo
 cask sequel-pro
-cask sublime-text
 cask tower
-cask transmission
 cask transmit
-cask vagrant
 cask visual-studio-code
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.1)
-appstore 408981426 Aperture (3.6)
-appstore 1091189122 Bear (1.4.1)
-appstore 1091189122 Bear (1.4.3)
-appstore 1024640650 CotEditor (3.3.2)
-appstore 1024640650 CotEditor (3.3.4)
-appstore 1055511498 Day One (2.5.10)
-appstore 1055511498 Day One (2.5.11)
-appstore 924726344 Deliveries (3.0.7)
-appstore 924726344 Deliveries (3.0.7)
-appstore 549083868 Display Menu (2.2.3)
-appstore 975937182 Fantastical 2 (2.4.5)
-appstore 975937182 Fantastical 2 (2.4.7)
-appstore 682658836 GarageBand (10.2.0)
-appstore 467939042 Growl (2.1.3)
-appstore 408981434 iMovie (10.1.8)
-appstore 944109819 Inboard (1.1.2)
-appstore 944109819 Inboard (1.1.2)
-appstore 422293948 IP Scanner Home (3.65)
-appstore 422293948 IP Scanner Home (3.65)
-appstore 409183694 Keynote (7.3.1)
-appstore 409183694 Keynote (7.3.1)
-appstore 539883307 LINE (5.6.0)
-appstore 539883307 LINE (5.6.0)
-appstore 441258766 Magnet (2.1.0)
-appstore 441258766 Magnet (2.1.0)
+appstore 1107421413 1Blocker (1.4.3)
+appstore 1091189122 Bear (1.5.5)
+appstore 1024640650 CotEditor (3.5.1)
+appstore 1055511498 Day One (2.8.0)
+appstore 1368722917 Effortless (2.0.19)
+appstore 975937182 Fantastical 2 (2.5.2)
+appstore 422293948 IP Scanner Home (3.66)
+appstore 409183694 Keynote (8.1)
+appstore 539883307 LINE (5.9.3)
+appstore 441258766 Magnet (2.3)
 appstore 1084713122 Markoff (1.0.1)
-appstore 1088779979 Mini Calendar (1.5.1)
-appstore 1275176220 MultiMarkdown Composer (4.3.1)
-appstore 958475217 MW Archiver (1.8.0)
-appstore 958475217 MW Archiver (1.8.0)
-appstore 409203825 Numbers (4.3.1)
-appstore 409201541 Pages (6.3.1)
-appstore 409201541 Pages (6.3.1)
-appstore 568494494 Pocket (1.7.1)
+appstore 1275176220 MultiMarkdown Composer (4.4.4)
+appstore 409203825 Numbers (5.1)
+appstore 992700627 Omoidebako (2.5)
+appstore 409201541 Pages (7.1)
 appstore 445189367 PopClip (1.5.8)
-appstore 445189367 PopClip (1.5.8)
-appstore 1003160018 Quip (5.2.31)
-appstore 866773894 Quiver (3.1.2)
-appstore 866773894 Quiver (3.1.2)
-appstore 413449473 ReceiptKeeper (1.1.3)
-appstore 413449473 ReceiptKeeper (1.1.3)
+appstore 866773894 Quiver (3.1.3)
 appstore 507257563 Sip (4.5.2)
-appstore 507257563 Sip (4.5.2)
-appstore 425955336 Skitch (2.8.1)
-appstore 803453959 Slack (3.0.5)
-appstore 1006087419 SnippetsLab (1.7.3)
-appstore 425424353 The Unarchiver (3.11.3)
-appstore 425424353 The Unarchiver (3.11.3)
-appstore 904280696 Things3 (3.3)
-appstore 904280696 Things3 (3.4)
+appstore 803453959 Slack (3.2.0)
+appstore 1176895641 Spark (2.0.10)
+appstore 873245660 Spillo (2.0)
+appstore 425424353 The Unarchiver (4.0.0)
+appstore 904280696 Things3 (3.6.1)
 appstore 961656759 Timeline (1.0)
-appstore 961656759 Timeline (1.0)
-appstore 957734279 TogglDesktop (7.4.129)
-appstore 1151308717 traumbaum (1.23)
-appstore 1151308717 traumbaum (1.23)
-appstore 557168941 Tweetbot (2.5.4)
-appstore 557168941 Tweetbot (2.5.4)
-appstore 485812721 TweetDeck (3.9.889)
-appstore 497799835 Xcode (9.2)
-appstore 497799835 Xcode (9.2)
+appstore 957734279 TogglDesktop (7.4.253)
+appstore 557168941 Tweetbot (2.5.8)
+appstore 1384080005 Tweetbot (3.1)
+appstore 497799835 Xcode (9.4.1)

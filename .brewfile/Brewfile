@@ -11,15 +11,14 @@ brew awscli
 brew bison
 brew boost
 brew cairo
-brew carthage
 brew cask
 brew coreutils
 brew czmq
 brew direnv
-brew elixir
 brew emacs
 brew emojify
-brew erlang
+brew ffmpeg
+brew flac
 brew fontconfig
 brew fontforge
 brew freetype
@@ -33,8 +32,8 @@ brew gnupg
 brew gnutls
 brew go
 brew gobject-introspection
-brew gpg-agent
 brew graphite2
+brew handbrake
 brew harfbuzz
 brew heroku
 brew highlight
@@ -42,8 +41,10 @@ brew icu4c
 brew imagemagick
 brew jasper
 brew jpeg
+brew lame
 brew less
 brew libassuan
+brew libebml
 brew libevent
 brew libffi
 brew libgcrypt
@@ -52,6 +53,9 @@ brew libgphoto2
 brew libicns
 brew libidn2
 brew libksba
+brew libmagic
+brew libmatroska
+brew libogg
 brew libpng
 brew libressl
 brew libsass
@@ -62,6 +66,7 @@ brew libtool
 brew libunistring
 brew libusb
 brew libusb-compat
+brew libvorbis
 brew libxml2
 brew little-cms2
 brew lua
@@ -70,6 +75,8 @@ brew makedepend
 brew mas
 brew mcrypt
 brew mhash
+brew mkvtoolnix
+brew mp4v2
 brew mysql
 brew net-snmp
 brew nettle
@@ -79,10 +86,8 @@ brew npth
 brew openssl
 brew openssl@1.1
 brew p11-kit
-brew packer
 brew pandoc
 brew pango
-brew passenger
 brew pcre
 brew peco
 brew perl
@@ -98,7 +103,7 @@ brew readline
 brew reattach-to-user-namespace
 brew sane-backends
 brew sqlite
-brew subversion
+brew ssh-copy-id
 brew terminal-notifier
 brew terraform
 brew tmux
@@ -106,61 +111,22 @@ brew unixodbc
 brew webp
 brew wget
 brew wxmac
+brew x264
+brew xvid
 brew xz
 brew zeromq
 
 tap homebrew/services
 
+tap argon/mas
+
 tap caskroom/cask
-cask atom
-cask qlmarkdown
-cask transmit
-cask visual-studio-code
-cask appcleaner
-cask qlvideo
-cask cmd-eikana
-cask handbrake
-cask tower
-cask google-photos-backup-and-sync
-cask transmission
-cask iterm2
-cask dropbox
-cask paparazzi
-cask docker
-cask kindle
-cask vagrant
-cask adobe-creative-cloud
-cask sublime-text
-cask android-studio
-cask 1password
-cask lastfm
-cask qlstephen
-cask sequel-pro
-cask qlcolorcode
-cask wireshark
-cask qlimagesize
-cask bartender
-cask google-chrome
-cask xquartz
-cask hyper
-cask ibackup
-cask applepi-baker
-cask java
-cask wavebox
-cask flip4mac
-cask alfred
 
 tap caskroom/drivers
-cask drobo-dashboard
 
 tap caskroom/fonts
-cask font-source-han-code-jp
-cask font-fontawesome
-cask font-fira-code
 
 tap caskroom/versions
-
-tap argon/mas
 
 tap djmonta/gomi
 brew gomi
@@ -169,6 +135,42 @@ tap heroku/brew
 
 tap rcmdnk/file
 brew brew-file
+
+# Other Homebrew packages
+brew gpg-agent
+
+# Other Cask applications
+cask 1password
+cask adobe-creative-cloud
+cask alfred
+cask appcleaner
+cask applepi-baker
+cask atom
+cask bartender
+cask cmd-eikana
+cask docker
+cask dropbox
+cask font-fira-code
+cask font-fontawesome
+cask font-source-han-code-jp
+cask google-chrome
+cask google-photos-backup-and-sync
+cask ibackup
+cask iterm2
+cask java
+cask kindle
+cask qlcolorcode
+cask qlimagesize
+cask qlmarkdown
+cask qlstephen
+cask qlvideo
+cask sequel-pro
+cask sublime-text
+cask tower
+cask transmission
+cask transmit
+cask vagrant
+cask visual-studio-code
 
 # App Store applications
 appstore 1107421413 1Blocker (1.4.1)

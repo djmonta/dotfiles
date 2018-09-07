@@ -7,6 +7,7 @@ zplug "mollifier/anyframe"
 zplug "marzocchi/zsh-notify"
 zplug "b4b4r07/emoji-cli"
 zplug "junegunn/fzf-bin", as:command, rename-to:fzf
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, as:theme
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh
+# zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-# zplug "mafredri/zsh-async", use:async.zsh, from:github

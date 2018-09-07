@@ -2,7 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"CodeComplice"
 	],
 	"installed_packages":
 	[
@@ -29,7 +28,7 @@
 		"GithubEmoji",
 		"GitSavvy",
 		"Line Endings Unify",
-		"Markdown Preview",
+		"MarkdownPreview",
 		"Markmon real-time markdown preview",
 		"Modific",
 		"Package Control",

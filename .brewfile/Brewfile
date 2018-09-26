@@ -69,6 +69,7 @@ brew libusb
 brew libusb-compat
 brew libvorbis
 brew libxml2
+brew libzip
 brew little-cms2
 brew lua
 brew lz4
@@ -119,6 +120,7 @@ brew x264
 brew xvid
 brew xz
 brew zeromq
+brew zlib
 
 tap homebrew/cask-fonts
 cask font-fira-code
@@ -127,18 +129,16 @@ cask font-source-han-code-jp
 tap homebrew/cask
 cask 1password
 cask alfred
-cask applepi-baker
-cask cmd-eikana
-cask dropbox
+cask bartender
+cask docker
 cask google-chrome
-cask ibackup
-cask java
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask sublime-text
-cask transmission
-cask vagrant
+cask iterm2
+cask kindle
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask tower
+cask visual-studio-code
 
 tap djmonta/gomi
 brew gomi
@@ -146,28 +146,22 @@ brew gomi
 tap rcmdnk/file
 brew brew-file
 
-# Other Homebrew packages
-brew gpg-agent
-
 # Other Cask applications
 cask adobe-creative-cloud
 cask appcleaner
-cask bartender
-cask docker
+cask cmd-eikana
+cask dropbox
 cask font-fontawesome
-cask google-photos-backup-and-sync
-cask iterm2
-cask kindle
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask tower
+cask font-source-han-sans
+cask ibackup
+cask java
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask sublime-text
 cask transmit
-cask visual-studio-code
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.3)
-appstore 1091189122 Bear (1.6.2)
 appstore 1024640650 CotEditor (3.3.2)
 appstore 1024640650 CotEditor (3.5.4)
 appstore 1055511498 Day One (2.5.10)
@@ -185,7 +179,7 @@ appstore 409183694 Keynote (7.3.1)
 appstore 409183694 Keynote (8.2)
 appstore 539883307 LINE (5.10.0)
 appstore 539883307 LINE (5.6.0)
-appstore  Install macOS Mojave (14022)
+appstore Install macOS Mojave (14022)
 appstore 441258766 Magnet (2.1.0)
 appstore 441258766 Magnet (2.4)
 appstore 1084713122 Markoff (1.0.1)

@@ -139,6 +139,8 @@ cask sequel-pro
 cask tower
 cask visual-studio-code
 
+tap argon/mas
+
 tap djmonta/gomi
 brew gomi
 
@@ -161,34 +163,25 @@ cask sublime-text
 cask transmit
 
 # App Store applications
-appstore 1024640650 CotEditor (3.5.4)
-appstore 1055511498 Day One (2.5.10)
+appstore 1091189122 Bear (1.6.2)
+appstore 1024640650 CotEditor (3.6.0)
+appstore 1055511498 Day One (2.9)
 appstore 924726344 Deliveries (3.0.9)
 appstore 975937182 Fantastical 2 (2.5.4)
 appstore 682658836 GarageBand (10.3.1)
 appstore 408981434 iMovie (10.1.9)
 appstore 422293948 IP Scanner Home (3.66)
-appstore 409183694 Keynote (7.3.1)
 appstore 409183694 Keynote (8.2)
 appstore 539883307 LINE (5.10.0)
 appstore 441258766 Magnet (2.4)
-appstore 1084713122 Markoff (1.0.1)
-appstore 1275176220 MultiMarkdown Composer (4.4.4)
-appstore 958475217 MW Archiver (1.8.0)
-appstore 409203825 Numbers (5.2)
-appstore 992700627 Omoidebako (2.5)
-appstore 409201541 Pages (6.3.1)
 appstore 409201541 Pages (7.2)
+appstore 568494494 Pocket (1.8.1)
 appstore 445189367 PopClip (1.5.8)
 appstore 866773894 Quiver (3.1.3)
 appstore 413449473 ReceiptKeeper (1.1.3)
-appstore 803453959 Slack (3.3.2)
 appstore 1176895641 Spark (2.0.13)
 appstore 873245660 Spillo (2.0)
 appstore 425424353 The Unarchiver (4.0.0)
 appstore 904280696 Things3 (3.7.1)
 appstore 961656759 Timeline (1.0)
-appstore 957734279 TogglDesktop (7.4.253)
-appstore 1151308717 traumbaum (1.23)
-appstore 1384080005 Tweetbot (3.1)
 appstore 497799835 Xcode (10.0)

@@ -1,40 +1,7 @@
-.emacs.d/auto-save-list
-.emacs.d/tramp
 *.elc
 *.spc
 *~
-.emacs.d/elpa/archives/marmalade/archive-contents
-.emacs.d/url/cookies
-.emacs.d/elpa/archives/gnu/archive-contents
-.subversion/auth/svn.simple/8d15925db319a3bdd273223132de0108
-dotfiles.sublime-workspace
-dotfiles.sublime-project
-.emacs.d/elpa/archives/melpa/archive-contents
-.emacs.d/elpa/archives/melpa/archive-contents
-.emacs.d/elpa/*
-.emacs.d/recentf
 .config/configstore
-Sublime/User/Package Control.last-run
-Sublime/User/Package Control.ca-list
-Sublime/User/Package Control.ca-bundle
-Sublime/User/Package Control.system-ca-bundle
-Sublime/User/Package Control.cache/
-Sublime/User/Package Control.ca-certs/
-Sublime/User/encoding_cache.json
-Sublime/User/Package Control.merged-ca-bundle
-Sublime/User/oscrypto-ca-bundle.crt
-Sublime/User/Sublimerge Macros.sublime-commands
-Sublime/User/Color Highlighter/themes/*.tmTheme
-.atom/.apm/
-.atom/.node-gyp/
-.atom/packages/
-.atom/compile-cache/
-.atom/storage/
-.emacs.d/.cask/
-.atom/blob-store/BLOB
-.atom/blob-store/INVKEYS
-.atom/blob-store/MAP
-Sublime/User/Sublimerge.tmTheme
-Sublime/User/SublimergeSummaryPanel.tmTheme
+.config/direnv/*
 *.cache
 .config/yarn/global/node_modules/

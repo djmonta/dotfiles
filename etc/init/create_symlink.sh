@@ -33,31 +33,11 @@ create_dotfiles_symlinks() {
     ## 各種シンボリックリンク作成
     #
     DOT_FILES=(
-        # .ackrc
-        # .agignore
-        .atom
         .bash_profile
         .bashrc
         .brewfile
-        # .config
-        # .emacs.d
         .gitconfig
         .gittemplate
-        # .gitk
-        # .gvimrc
-        # .inputrc
-        # .ipython
-        # .lv
-        # .m2
-        # .my.cnf
-        # .percol.d
-        # .pythonstartup
-        # .screenrc
-        # .subversion
-        # .tmux
-        # .tmux.conf
-        # .vim
-        # .vimrc
         .zsh
         .zshenv)
 
@@ -75,7 +55,7 @@ create_dotfiles_symlinks() {
         create_symlink "$HOME/dotfiles/Cellar/dircolors-solarized/dircolors.256dark" "$HOME/.dir_colors"
 
         # links
-        create_symlink "$HOME/dotfiles.local/links" "$HOME/links"
+        #create_symlink "$HOME/dotfiles.local/links" "$HOME/links"
     )
 }
 

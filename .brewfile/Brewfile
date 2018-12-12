@@ -92,7 +92,6 @@ brew p11-kit
 brew pandoc
 brew pango
 brew pcre
-brew peco
 brew perl
 brew pinentry
 brew pinentry-mac

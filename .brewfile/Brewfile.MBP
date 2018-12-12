@@ -31,6 +31,7 @@ brew go
 brew gobject-introspection
 brew graphite2
 brew graphviz
+brew harfbuzz
 brew highlight
 brew icu4c
 brew isl
@@ -113,8 +114,9 @@ cask postman
 cask qlimagesize
 cask qlstephen
 cask sequel-pro
-cask tower
-cask virtualbox
+cask sublime-text
+cask tweet-tray
+cask visual-studio-code
 
 tap argon/mas
 
@@ -143,30 +145,33 @@ cask qlcolorcode
 cask qlmarkdown
 cask qlvideo
 cask slack
-cask tweet-tray
-cask visual-studio-code
+cask tower
+cask virtualbox
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.3)
-appstore 1024640650 CotEditor (3.5.4)
-appstore 1055511498 Day One (2.9)
-appstore 975937182 Fantastical 2 (2.5.4)
-appstore 682658836 GarageBand (10.3.1)
-appstore 408981434 iMovie (10.1.9)
-appstore 0 Install macOS Mojave (14.0.22)
-appstore 422293948 IP Scanner Home (3.66)
+appstore 1107421413 1Blocker (1.4.4)
+appstore 1287445660 Agenda (2.6)
+appstore 948176063 Boom 2 (1.6.6)
+appstore 1024640650 CotEditor (3.6.8)
+appstore 1055511498 Day One (2.9.2)
+appstore 975937182 Fantastical 2 (2.5.6)
+appstore 682658836 GarageBand (10.3.2)
+appstore 408981434 iMovie (10.1.10)
+appstore 422293948 IP Scanner Home (3.69)
 appstore 1142151959 JustFocus (1.6.1)
-appstore 409183694 Keynote (8.2)
+appstore 1145215534 Kelir (1.5)
+appstore 409183694 Keynote (8.3)
 appstore 405399194 Kindle (1.23.3)
-appstore 539883307 LINE (5.10.0)
+appstore 539883307 LINE (5.11.2)
 appstore 441258766 Magnet (2.4)
 appstore 1084713122 Markoff (1.0.1)
-appstore 409203825 Numbers (5.2)
-appstore 409201541 Pages (7.2)
+appstore 1137020764 NotePlan (1.6.30)
+appstore 409203825 Numbers (5.3)
+appstore 409201541 Pages (7.3)
 appstore 445189367 PopClip (1.5.8)
-appstore 866773894 Quiver (3.1.3)
-appstore 1176895641 Spark (2.0.13)
+appstore 866773894 Quiver (3.2.3)
+appstore 1176895641 Spark (2.1.3)
 appstore 873245660 Spillo (2.0)
-appstore 904280696 Things3 (3.7)
-appstore 1384080005 Tweetbot (3.1)
-appstore 497799835 Xcode (10.0)
+appstore 904280696 Things3 (3.7.4)
+appstore 1384080005 Tweetbot (3.2)
+appstore 497799835 Xcode (10.1)

@@ -59,9 +59,9 @@ if [ -x "`which direnv`" ]; then
 fi
 
 # fastlane
-if [ -d ${HOME}/.fastlane ] ; then
-	PATH="$PATH:${HOME}/.fastlane/bin"
-fi
+# if [ -d ${HOME}/.fastlane ] ; then
+	# PATH="$PATH:${HOME}/.fastlane/bin"
+# fi
 
 export PATH
 
@@ -92,9 +92,9 @@ else
 fi
 
 # Vagrant
-if [ -d "/Applications/Parallels Desktop.app" ]; then
-	export VAGRANT_DEFAULT_PROVIDER=parallels
-fi
+# if [ -d "/Applications/Parallels Desktop.app" ]; then
+# 	export VAGRANT_DEFAULT_PROVIDER=parallels
+# fi
 
 # Terminal Notifier
 export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"

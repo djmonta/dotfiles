@@ -335,107 +335,8 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 # }}}
 
+source ${HOME}/.zsh/utils.zsh
 
-### Terminal configuration {{{
-#
-# ターミナル固有設定
-case "${TERM}" in
-    kterm*|xterm*|screen*)
-        _change_terminal_title_preexec_hook() {
-            if [ "$STY" ]; then
-                # コマンド実行時にコマンド名をタイトルに設定(screen)
-                echo -ne "\ek${1%% *}\e\\"
-            fi
-        }
-        add-zsh-hook preexec _change_terminal_title_preexec_hook
-
-        _change_terminal_title_precmd_hook() {
-            if [ "$STY" ]; then
-                echo -ne "\ek$(basename "$(pwd)")\e\\"
-            else
-                echo -ne "\033]0;$(basename "$(pwd)")\007"
-            fi
-            return 0
-        }
-        add-zsh-hook precmd _change_terminal_title_precmd_hook
-        ;;
-    # for emacs tramp setting
-    dumb)
-        PROMPT="%n@%~%(!.#.$)"
-        RPROMPT=""
-        PS1='%(?..[%?])%!:%~%# '
-        # for tramp to not hang, need the following. cf:
-        # http://www.emacswiki.org/emacs/TrampMode
-        unsetopt zle
-        unsetopt prompt_cr
-        unsetopt prompt_subst
-        unfunction precmd
-        unfunction preexec
-        ;;
-esac
-
-# }}}
-
-
-### Misc {{{
-#
-# Define action when change directory.
-chpwd() {
-    ls_abbrev
-}
-ls_abbrev() {
-    # -a : Do not ignore entries starting with ..
-    # -C : Force multi-column output.
-    # -F : Append indicator (one of */=>@|) to entries.
-    local cmd_ls='ls'
-    local -a opt_ls
-    opt_ls=('-aCF' '--color=always')
-    case "${OSTYPE}" in
-        freebsd*|darwin*)
-            if type gls > /dev/null 2>&1; then
-                cmd_ls='gls'
-            else
-                # -G : Enable colorized output.
-                opt_ls=('-aCFG')
-            fi
-            ;;
-    esac
-
-    local ls_result
-    ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
-
-    local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
-
-    if [ $ls_lines -gt 10 ]; then
-        echo "$ls_result" | head -n 5
-        echo '...'
-        echo "$ls_result" | tail -n 5
-        echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
-    else
-        echo "$ls_result"
-    fi
-}
-# }}}
-
-### ls & git status when hit Enter {{{
-#
-# http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
-function do_enter() {
-    if [ -n "$BUFFER" ]; then
-        zle accept-line
-        return 0
-    fi
-    echo
-    # ls　↓おすすめ
-    ls_abbrev
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        echo
-        echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
-    fi
-    zle reset-prompt
-    return 0
-}
 zle -N do_enter
 bindkey '^m' do_enter
 
@@ -445,23 +346,23 @@ bindkey '^m' do_enter
 #
 # zplug
 #
-if [ -f ${HOME}/dotfiles/Cellar/zplug/init.zsh ]; then
+if [ -f ${HOME}/.zplug/init.zsh ]; then
     echo "Loading zplug plugins"
     export ZPLUG_LOADFILE=${HOME}/dotfiles/.zsh/zplug.zsh
-    source ${HOME}/dotfiles/Cellar/zplug/init.zsh
+    source ${HOME}/.zplug/init.zsh
 
-    # check コマンドで未インストール項目があるかどうか verbose にチェックし
-    # false のとき（つまり未インストール項目がある）y/N プロンプトで
-    # インストールする
-    if ! zplug check --verbose; then
+#     # check コマンドで未インストール項目があるかどうか verbose にチェックし
+#     # false のとき（つまり未インストール項目がある）y/N プロンプトで
+#     # インストールする
+    if ! zplug check; then
         printf "Install? [y/N]: "
         if read -q; then
             echo; zplug install
         fi
     fi
 
-    # プラグインを読み込み、コマンドにパスを通す
-    zplug load --verbose
+#     # プラグインを読み込み、コマンドにパスを通す
+    zplug load
     echo "zplug plugins loaded."
 fi
 
@@ -469,23 +370,23 @@ fi
 #
 # alias設定(共通)
 #
-if [ -f ${HOME}/dotfiles/.alias ]; then
-    source ${HOME}/dotfiles/.alias
-fi
+# if [ -f ${HOME}/dotfiles/.alias ]; then
+#     source ${HOME}/dotfiles/.alias
+# fi
 
 #
 # alias設定(zsh固有)
 #
-if [ -f ${HOME}/.zsh/.zalias ]; then
-    source ${HOME}/.zsh/.zalias
-fi
+# if [ -f ${HOME}/.zsh/.zalias ]; then
+#     source ${HOME}/.zsh/.zalias
+# fi
 
 #
 # local固有設定
 #
-if [ -f ${HOME}/dotfiles.local/.shrc.local ]; then
-    source ${HOME}/dotfiles.local/.shrc.local
-fi
+# if [ -f ${HOME}/dotfiles.local/.shrc.local ]; then
+#     source ${HOME}/dotfiles.local/.shrc.local
+# fi
 
 # }}}
 
@@ -504,8 +405,9 @@ esac
 
 ## load user .zshrc configuration file
 #
-[ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+# [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
+## anyframe
 zstyle ":anyframe:selector:" command "fzf --ansi"
 
 

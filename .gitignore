@@ -1,7 +1,4 @@
 *.elc
 *.spc
 *~
-.config/configstore
-.config/direnv/*
 *.cache
-.config/yarn/global/node_modules/

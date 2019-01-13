@@ -5,13 +5,6 @@ The djmonta's dotfiles
 
 Personal config files.
 
-## Feature
-
-- Zsh
-- Emacs
-- Tmux
-- Git
-
 ## Installation
 
 Run the installation command below in your terminal.

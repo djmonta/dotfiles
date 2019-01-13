@@ -1,6 +1,6 @@
 DOTFILES_TARGET   := $(wildcard .??*) bin
 DOTFILES_DIR      := ${HOME}/dotfiles
-DOTFILES_FILES    := .bash_profile .bashrc .brewfile .dir_colors .gitconfig .gitignore .gittemplate .zshenv .zsh
+DOTFILES_FILES    := .bash_profile .bashrc .brewfile .gitconfig .gitignore .gittemplate .zshenv .zsh
 
 all: update deploy init anyenv
 

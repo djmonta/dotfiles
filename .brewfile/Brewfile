@@ -155,11 +155,6 @@ cask qlvideo
 cask sublime-text
 cask transmit
 
-tap argon/mas
-
-tap djmonta/gomi
-brew gomi
-
 tap rcmdnk/file
 brew brew-file
 

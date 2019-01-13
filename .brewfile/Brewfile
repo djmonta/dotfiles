@@ -43,6 +43,7 @@ brew imagemagick@6
 brew isl
 brew jasper
 brew jpeg
+brew jq
 brew lame
 brew less
 brew libassuan
@@ -90,6 +91,7 @@ brew net-snmp
 brew nettle
 brew node
 brew npth
+brew oniguruma
 brew openjpeg
 brew openssl
 brew openssl@1.1

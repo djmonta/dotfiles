@@ -39,12 +39,12 @@ export LANG=ja_JP.UTF-8
 #         ;;
 # esac
 
-# unset LSCOLORS
-# case "${TERM}" in
-#     xterm*|screen*)
+unset LSCOLORS
+case "${TERM}" in
+    xterm*|screen*)
 #         # lsのカラー化
-#         export CLICOLOR=1
-#         export LSCOLORS=DxGxcxdxCxegedabagacad
+        export CLICOLOR=1
+        export LSCOLORS=DxGxcxdxCxegedabagacad
 
 #         # GNU ls のカラー化
 #         LS_COLORS="no=00:fi=00:di=36:ln=35:pi=30;44:so=35;44:do=35;44"
@@ -52,14 +52,14 @@ export LANG=ja_JP.UTF-8
 #         LS_COLORS="${LS_COLORS}:ex=01;31:su=41;30:sg=46;30:tw=42;30:ow=43;30"
 #         export LS_COLORS
 
-#         if [ -f ${HOME}/.dir_colors ]; then
-#             if type dircolors > /dev/null 2>&1; then
-#                 eval $(dircolors ${HOME}/.dir_colors)
-#             elif type gdircolors > /dev/null 2>&1; then
-#                 eval $(gdircolors ${HOME}/.dir_colors)
-#             fi
-#         fi
-#         ;;
+        if [ -f ${HOME}/.dircolors ]; then
+            if type dircolors > /dev/null 2>&1; then
+                eval $(dircolors ${HOME}/.dircolors)
+            elif type gdircolors > /dev/null 2>&1; then
+                eval $(gdircolors ${HOME}/.dircolors)
+            fi
+        fi
+        ;;
 #     kterm*)
 #         export LSCOLORS=exfxcxdxbxegedabagacad
 #         LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30"
@@ -79,7 +79,7 @@ export LANG=ja_JP.UTF-8
 #         LS_COLORS="${LS_COLORS}:su=41;30:sg=46;30:tw=42;30:ow=43;30"
 #         export LS_COLORS
 #         ;;
-# esac
+esac
 
 #
 # 端末XON/XOFF制御を無効

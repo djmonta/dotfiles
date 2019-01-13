@@ -370,9 +370,9 @@ fi
 #
 # alias設定(共通)
 #
-# if [ -f ${HOME}/dotfiles/.alias ]; then
-#     source ${HOME}/dotfiles/.alias
-# fi
+if [ -f ${HOME}/dotfiles/.alias ]; then
+    source ${HOME}/dotfiles/.alias
+fi
 
 #
 # alias設定(zsh固有)

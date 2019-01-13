@@ -377,9 +377,9 @@ fi
 #
 # alias設定(zsh固有)
 #
-# if [ -f ${HOME}/.zsh/.zalias ]; then
-#     source ${HOME}/.zsh/.zalias
-# fi
+if [ -f ${HOME}/.zsh/.zalias ]; then
+    source ${HOME}/.zsh/.zalias
+fi
 
 #
 # local固有設定

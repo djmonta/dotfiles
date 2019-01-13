@@ -412,9 +412,15 @@ zstyle ":anyframe:selector:" command "fzf --ansi"
 
 
 ## prompt
-autoload -Uz promptinit
-promptinit
 # prompt pure
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_PREFIX=' ['
+SPACESHIP_TIME_SUFFIX="]"
+SPACESHIP_TIME_COLOR=white
+SPACESHIP_DIR_PREFIX=" "
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_GIT_PREFIX=" "
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

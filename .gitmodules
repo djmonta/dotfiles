@@ -1,6 +1,0 @@
-[submodule "Cellar/dircolors-solarized"]
-	path = Cellar/dircolors-solarized
-	url = https://github.com/seebi/dircolors-solarized
-[submodule "Cellar/zplug"]
-	path = Cellar/zplug
-	url = https://djmonta@github.com/zplug/zplug.git

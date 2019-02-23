@@ -127,7 +127,6 @@ cask iterm2
 cask dropbox
 cask paparazzi
 cask docker
-cask kindle
 cask vagrant
 cask adobe-creative-cloud
 cask sublime-text

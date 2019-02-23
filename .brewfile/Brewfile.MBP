@@ -23,6 +23,7 @@ brew gcc
 brew gd
 brew gdbm
 brew gettext
+brew giflib
 brew glib
 brew gmp
 brew gnupg
@@ -48,9 +49,11 @@ brew libmpc
 brew libpng
 brew libressl
 brew libsodium
+brew libspiro
 brew libtasn1
 brew libtiff
 brew libtool
+brew libuninameslist
 brew libunistring
 brew libusb
 brew libxml2
@@ -93,7 +96,7 @@ brew unixodbc
 brew webp
 brew wget
 brew xz
-brew yarn --without-node
+brew yarn
 brew youtube-dl
 brew zeromq
 
@@ -109,14 +112,13 @@ cask docker
 cask google-chrome
 cask itsycal
 cask kaleidoscope
-cask mpeg-streamclip
-cask postman
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask sublime-text
-cask tweet-tray
-cask visual-studio-code
+cask ngrok
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask slack
+cask tower
+cask virtualbox
 
 tap argon/mas
 
@@ -139,39 +141,38 @@ cask dash
 cask dropbox
 cask iterm2
 cask java
-cask kindle
-cask ngrok
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask slack
-cask tower
-cask virtualbox
+cask mpeg-streamclip
+cask postman
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask sublime-text
+cask tweet-tray
+cask visual-studio-code
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.4)
-appstore 1287445660 Agenda (2.6)
+appstore 1107421413 1Blocker (1.4.5)
+appstore 1287445660 Agenda (5.0)
 appstore 948176063 Boom 2 (1.6.6)
-appstore 1024640650 CotEditor (3.6.8)
+appstore 1024640650 CotEditor (3.7.0)
 appstore 1055511498 Day One (2.9.2)
-appstore 975937182 Fantastical 2 (2.5.6)
+appstore 975937182 Fantastical 2 (2.5.7)
 appstore 682658836 GarageBand (10.3.2)
 appstore 408981434 iMovie (10.1.10)
-appstore 422293948 IP Scanner Home (3.69)
+appstore 422293948 IP Scanner Home (3.70)
 appstore 1142151959 JustFocus (1.6.1)
 appstore 1145215534 Kelir (1.5)
 appstore 409183694 Keynote (8.3)
-appstore 405399194 Kindle (1.23.3)
-appstore 539883307 LINE (5.11.2)
-appstore 441258766 Magnet (2.4)
+appstore 539883307 LINE (5.13.1)
+appstore 441258766 Magnet (2.4.2)
 appstore 1084713122 Markoff (1.0.1)
 appstore 1137020764 NotePlan (1.6.30)
 appstore 409203825 Numbers (5.3)
 appstore 409201541 Pages (7.3)
 appstore 445189367 PopClip (1.5.8)
-appstore 866773894 Quiver (3.2.3)
-appstore 1176895641 Spark (2.1.3)
+appstore 866773894 Quiver (3.2.4)
+appstore 1176895641 Spark (2.1.6)
 appstore 873245660 Spillo (2.0)
-appstore 904280696 Things3 (3.7.4)
+appstore 904280696 Things3 (3.8.1)
 appstore 1384080005 Tweetbot (3.2)
 appstore 497799835 Xcode (10.1)

@@ -70,7 +70,10 @@ brew nettle
 brew nkf
 brew node
 brew npth
+brew nspr
+brew nss
 brew oniguruma
+brew openjpeg
 brew openssl
 brew openssl@1.1
 brew p11-kit
@@ -82,9 +85,11 @@ brew pinentry-mac
 brew pixman
 brew pkg-config
 brew pngquant
+brew poppler
 brew pth
 brew python
 brew python@2
+brew qt
 brew re2c
 brew readline
 brew rename
@@ -151,19 +156,19 @@ cask tweet-tray
 cask visual-studio-code
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.5)
+appstore 1107421413 1Blocker (1.4.6)
 appstore 1287445660 Agenda (5.0)
-appstore 948176063 Boom 2 (1.6.6)
-appstore 1024640650 CotEditor (3.7.0)
-appstore 1055511498 Day One (2.9.2)
+appstore 948176063 Boom 2 (1.6.7)
+appstore 1024640650 CotEditor (3.7.1)
+appstore 1055511498 Day One (3.0.1)
 appstore 975937182 Fantastical 2 (2.5.7)
 appstore 682658836 GarageBand (10.3.2)
 appstore 408981434 iMovie (10.1.10)
 appstore 422293948 IP Scanner Home (3.70)
-appstore 1142151959 JustFocus (1.6.1)
+appstore 1142151959 JustFocus (1.6.3)
 appstore 1145215534 Kelir (1.5)
 appstore 409183694 Keynote (8.3)
-appstore 539883307 LINE (5.13.1)
+appstore 539883307 LINE (5.14.0)
 appstore 441258766 Magnet (2.4.2)
 appstore 1084713122 Markoff (1.0.1)
 appstore 1137020764 NotePlan (1.6.30)
@@ -171,8 +176,8 @@ appstore 409203825 Numbers (5.3)
 appstore 409201541 Pages (7.3)
 appstore 445189367 PopClip (1.5.8)
 appstore 866773894 Quiver (3.2.4)
-appstore 1176895641 Spark (2.1.6)
+appstore 1176895641 Spark (2.3.1)
 appstore 873245660 Spillo (2.0)
 appstore 904280696 Things3 (3.8.1)
-appstore 1384080005 Tweetbot (3.2)
+appstore 1384080005 Tweetbot (3.2.2)
 appstore 497799835 Xcode (10.1)

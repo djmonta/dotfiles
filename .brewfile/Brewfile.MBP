@@ -12,6 +12,7 @@ brew awscli
 brew bison@2.7
 brew boost
 brew cairo
+brew carthage
 brew coreutils
 brew czmq
 brew fontconfig
@@ -32,13 +33,16 @@ brew go
 brew gobject-introspection
 brew graphite2
 brew graphviz
+brew gts
 brew harfbuzz
 brew highlight
 brew icu4c
 brew isl
+brew jasper
 brew jpeg
 brew jq
 brew libassuan
+brew libevent
 brew libffi
 brew libgcrypt
 brew libgpg-error
@@ -60,12 +64,14 @@ brew libxml2
 brew libyaml
 brew little-cms2
 brew lua
+brew lzo
 brew mackup
 brew mas
 brew mcrypt
 brew mhash
 brew mpfr
 brew mysql
+brew netpbm
 brew nettle
 brew nkf
 brew node
@@ -97,6 +103,7 @@ brew setweblocthumb
 brew sqlite
 brew terminal-notifier
 brew the_silver_searcher
+brew unbound
 brew unixodbc
 brew webp
 brew wget
@@ -156,28 +163,26 @@ cask tweet-tray
 cask visual-studio-code
 
 # App Store applications
-appstore 1107421413 1Blocker (1.4.6)
-appstore 1287445660 Agenda (5.0)
-appstore 948176063 Boom 2 (1.6.7)
-appstore 1024640650 CotEditor (3.7.1)
-appstore 1055511498 Day One (3.0.1)
-appstore 975937182 Fantastical 2 (2.5.7)
+appstore 1287445660 Agenda (6.0.1)
+appstore 1024640650 CotEditor (3.7.8)
+appstore 1055511498 Day One (4.0)
+appstore 549083868 Display Menu (2.2.3)
+appstore 975937182 Fantastical (2.5.9)
 appstore 682658836 GarageBand (10.3.2)
-appstore 408981434 iMovie (10.1.10)
-appstore 422293948 IP Scanner Home (3.70)
-appstore 1142151959 JustFocus (1.6.3)
+appstore 408981434 iMovie (10.1.12)
+appstore 422293948 IP Scanner (3.84)
+appstore 1142151959 Just Focus (1.6.4)
 appstore 1145215534 Kelir (1.5)
-appstore 409183694 Keynote (8.3)
-appstore 539883307 LINE (5.14.0)
-appstore 441258766 Magnet (2.4.2)
+appstore 409183694 Keynote (9.1)
+appstore 539883307 LINE (5.18.1)
+appstore 441258766 Magnet (2.4.4)
 appstore 1084713122 Markoff (1.0.1)
-appstore 1137020764 NotePlan (1.6.30)
-appstore 409203825 Numbers (5.3)
-appstore 409201541 Pages (7.3)
+appstore 1137020764 NotePlan (2.0.15)
+appstore 409203825 Numbers (6.1)
+appstore 409201541 Pages (8.1)
 appstore 445189367 PopClip (1.5.8)
-appstore 866773894 Quiver (3.2.4)
-appstore 1176895641 Spark (2.3.1)
+appstore 866773894 Quiver (3.2.6)
+appstore 1176895641 Spark (2.3.9)
 appstore 873245660 Spillo (2.0)
-appstore 904280696 Things3 (3.8.1)
-appstore 1384080005 Tweetbot (3.2.2)
-appstore 497799835 Xcode (10.1)
+appstore 904280696 Things (3.9.1)
+appstore 497799835 Xcode (10.3)

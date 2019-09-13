@@ -3,6 +3,7 @@
 
 tap homebrew/core
 brew adns
+brew aom
 brew apr
 brew apr-util
 brew autoconf
@@ -22,11 +23,13 @@ brew flac
 brew fontconfig
 brew fontforge
 brew freetype
+brew frei0r
 brew fribidi
 brew fzf
 brew gd
 brew gdbm
 brew gettext
+brew giflib
 brew glib
 brew gmp
 brew gnupg
@@ -38,6 +41,7 @@ brew handbrake
 brew harfbuzz
 brew highlight
 brew icu4c
+brew ilmbase
 brew imagemagick
 brew imagemagick@6
 brew isl
@@ -45,14 +49,19 @@ brew jasper
 brew jpeg
 brew jq
 brew lame
+brew leptonica
 brew less
+brew libass
 brew libassuan
+brew libbluray
+brew libde265
 brew libebml
 brew libevent
 brew libffi
 brew libgcrypt
 brew libgpg-error
 brew libgphoto2
+brew libheif
 brew libicns
 brew libidn2
 brew libksba
@@ -60,13 +69,19 @@ brew libmagic
 brew libmatroska
 brew libmpc
 brew libogg
+brew libomp
 brew libpng
 brew libressl
+brew libsamplerate
 brew libsass
+brew libsndfile
 brew libsodium
+brew libsoxr
+brew libspiro
 brew libtasn1
 brew libtiff
 brew libtool
+brew libuninameslist
 brew libunistring
 brew libusb
 brew libusb-compat
@@ -77,6 +92,7 @@ brew libzip
 brew little-cms2
 brew lua
 brew lz4
+brew lzo
 brew mackup
 brew makedepend
 brew mas
@@ -92,6 +108,8 @@ brew nettle
 brew node
 brew npth
 brew oniguruma
+brew opencore-amr
+brew openexr
 brew openjpeg
 brew openssl
 brew openssl@1.1
@@ -113,15 +131,22 @@ brew python@2
 brew re2c
 brew readline
 brew reattach-to-user-namespace
+brew rtmpdump
+brew rubberband
 brew sane-backends
 brew sdl2
+brew shared-mime-info
 brew snappy
+brew speex
 brew sqlite
 brew ssh-copy-id
 brew terminal-notifier
 brew terraform
+brew tesseract
+brew tesseract-lang
 brew theora
 brew trash
+brew unbound
 brew unixodbc
 brew utf8proc
 brew webp
@@ -131,6 +156,7 @@ brew x264
 brew x265
 brew xvid
 brew xz
+brew youtube-dl
 brew zeromq
 
 tap homebrew/cask-fonts
@@ -139,7 +165,6 @@ cask font-hack-nerd-font
 cask font-source-han-sans
 
 tap homebrew/cask-versions
-cask java8
 
 tap homebrew/cask
 cask 1password
@@ -150,10 +175,11 @@ cask dropbox
 cask google-chrome
 cask iterm2
 cask kindle
-cask qlmarkdown
-cask qlvideo
-cask sublime-text
-cask transmit
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask tower
+cask visual-studio-code
 
 tap rcmdnk/file
 brew brew-file
@@ -170,39 +196,46 @@ cask font-fontawesome
 cask font-source-han-code-jp
 cask ibackup
 cask java
+cask java8
 cask qlcolorcode
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask tower
-cask visual-studio-code
+cask qlmarkdown
+cask qlvideo
+cask sublime-text
+cask transmit
 
 # App Store applications
-appstore 948176063 Boom 2 (1.6.6)
-appstore 1024640650 CotEditor (3.6.11)
-appstore 1055511498 Day One (2.9.2)
+appstore 1107421413 1Blocker (1.4.8)
+appstore 1432182561 Cascadea (1.4.2)
+appstore 1024640650 CotEditor (3.7.8)
+appstore 1055511498 Day One (3.2)
+appstore 549083868 Display Menu (2.2.3)
 appstore 695406827 Dropzone 3 (3.7.0)
-appstore 408981434 iMovie (10.1.10)
-appstore 422293948 IP Scanner Home (3.70)
-appstore 1142151959 JustFocus (1.6.1)
+appstore 1054607607 Helium (2.0)
+appstore 408981434 iMovie (10.1.12)
+appstore 422293948 IP Scanner (3.84)
+appstore 1142151959 Just Focus (1.6.4)
 appstore 1145215534 Kelir (1.5)
-appstore 409183694 Keynote (8.3)
-appstore 539883307 LINE (5.12.1)
-appstore 441258766 Magnet (2.4)
+appstore 409183694 Keynote (9.1)
+appstore 539883307 LINE (5.17.2)
+appstore 441258766 Magnet (2.4.4)
 appstore 1084713122 Markoff (1.0.1)
-appstore 1137020764 NotePlan (1.6.30)
-appstore 409203825 Numbers (5.3)
-appstore 992700627 Omoidebako (2.5)
-appstore 409201541 Pages (7.3)
-appstore 568494494 Pocket (1.8.1)
+appstore 1137020764 NotePlan (2.0.13)
+appstore 409203825 Numbers (6.1)
+appstore 409201541 Pages (8.1)
+appstore 568494494 Pocket (1.8.2)
 appstore 445189367 PopClip (1.5.8)
-appstore 866773894 Quiver (3.2.3)
+appstore 866773894 Quiver (3.2.6)
+appstore 588726889 ReadKit (2.6.2)
+appstore 880001334 Reeder (3.2.1)
 appstore 819348619 Revisions (3.0.1)
-appstore 803453959 Slack (3.3.3)
-appstore 1176895641 Spark (2.1.4)
+appstore 803453959 Slack (3.4.2)
+appstore 1176895641 Spark (2.3.6)
 appstore 873245660 Spillo (2.0)
-appstore 904280696 Things3 (3.8)
+appstore 1102494854 System Designer (3.6.0)
+appstore 904280696 Things (3.9.1)
 appstore 961656759 Timeline (1.0)
-appstore 1384080005 Tweetbot (3.2)
-appstore 485812721 TweetDeck (3.9.889)
-appstore 497799835 Xcode (10.1)
+appstore 1384080005 Tweetbot (3.3)
+appstore 485812721 TweetDeck (3.16.1)
+appstore 848311469 Write (1.1.8)
+appstore 497799835 Xcode (10.2.1)
+appstore 992700627 おもいでばこ (2.5)

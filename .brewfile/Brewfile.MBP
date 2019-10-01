@@ -62,6 +62,7 @@ brew libunistring
 brew libusb
 brew libxml2
 brew libyaml
+brew libzip
 brew little-cms2
 brew lua
 brew lzo
@@ -124,7 +125,6 @@ cask docker
 cask google-chrome
 cask itsycal
 cask kaleidoscope
-cask ngrok
 cask qlcolorcode
 cask qlmarkdown
 cask qlvideo
@@ -153,36 +153,30 @@ cask dash
 cask dropbox
 cask iterm2
 cask java
-cask mpeg-streamclip
 cask postman
 cask qlimagesize
 cask qlstephen
 cask sequel-pro
 cask sublime-text
-cask tweet-tray
+cask transmit
 cask visual-studio-code
 
 # App Store applications
-appstore 1287445660 Agenda (6.0.1)
 appstore 1024640650 CotEditor (3.7.8)
-appstore 1055511498 Day One (4.0)
+appstore 1055511498 Day One (4.1.1)
 appstore 549083868 Display Menu (2.2.3)
-appstore 975937182 Fantastical (2.5.9)
 appstore 682658836 GarageBand (10.3.2)
 appstore 408981434 iMovie (10.1.12)
-appstore 422293948 IP Scanner (3.84)
 appstore 1142151959 Just Focus (1.6.4)
 appstore 1145215534 Kelir (1.5)
-appstore 409183694 Keynote (9.1)
-appstore 539883307 LINE (5.18.1)
+appstore 409183694 Keynote (9.2)
 appstore 441258766 Magnet (2.4.4)
 appstore 1084713122 Markoff (1.0.1)
-appstore 1137020764 NotePlan (2.0.15)
-appstore 409203825 Numbers (6.1)
-appstore 409201541 Pages (8.1)
-appstore 445189367 PopClip (1.5.8)
-appstore 866773894 Quiver (3.2.6)
-appstore 1176895641 Spark (2.3.9)
+appstore 409203825 Numbers (6.2)
+appstore 409201541 Pages (8.2)
+appstore 445189367 PopClip (2019.9.1)
+appstore 866773894 Quiver (3.2.7)
+appstore 1176895641 Spark (2.3.11)
 appstore 873245660 Spillo (2.0)
-appstore 904280696 Things (3.9.1)
-appstore 497799835 Xcode (10.3)
+appstore 497799835 Xcode (11.0)
+appstore 1221250572 Xnip (1.7.4)

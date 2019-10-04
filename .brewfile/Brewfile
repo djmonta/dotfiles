@@ -174,14 +174,14 @@ cask applepi-baker
 cask cmd-eikana
 cask dropbox
 cask google-chrome
-cask iterm2
-cask java
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask sublime-text
-cask transmit
-cask visual-studio-code
+cask ibackup
+cask itsycal
+cask kindle
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask tower
+cask tweeten
 
 tap argon/mas
 
@@ -195,14 +195,15 @@ cask bartender
 cask docker
 cask font-fontawesome
 cask font-source-han-code-jp
-cask ibackup
-cask itsycal
-cask kindle
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask tower
-cask tweeten
+cask gpg-suite
+cask iterm2
+cask java
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask sublime-text
+cask transmit
+cask visual-studio-code
 
 # App Store applications
 appstore 422293948 com.10baseT.IPScannerHomeMac (3.91)

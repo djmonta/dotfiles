@@ -15,3 +15,4 @@ zplug "seebi/dircolors-solarized"
 # zplug "nmaxcom/nmaxcom-zsh-theme", use:nmaxcom.zsh-theme, as:theme
 # zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "sobolevn/wakatime-zsh-plugin", use:wakatime.plugin.zsh, from:github

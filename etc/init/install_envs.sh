@@ -1,9 +1,9 @@
 #!/bin/bash
 
-RB_VER=2.4.2
-ND_VER=v9.3.0
-PY_VER=2.7.10
-PHP_VER=7.1.9
+RB_VER=2.6.4
+ND_VER=10.16.3
+PY_VER=3.7.4
+PHP_VER=7.2.22
 
 rbenv install -l
 echo -n "Which version of ruby to install? (${RB_VER}): "
@@ -15,15 +15,15 @@ rbenv install -f ${RB_VER}
 rbenv global ${RB_VER}
 rbenv rehash
 
-ndenv install -l
+nodenv install -l
 echo -n "Which version of nodejs to install? (${ND_VER}): "
 read ANSWER
 if [[ "$ANSWER" != "" ]]; then
 	ND_VER="$ANSWER"
 fi
-ndenv install -f ${ND_VER}
-ndenv global ${ND_VER}
-ndenv rehash
+nodenv install -f ${ND_VER}
+nodenv global ${ND_VER}
+nodenv rehash
 
 pyenv install -l
 echo -n "Which version of python to install? (${PY_VER}): "
@@ -42,6 +42,7 @@ if [[ "$ANSWER" != "" ]]; then
 	PHP_VER="$ANSWER"
 fi
 if [[ $OSTYPE == darwin* ]]; then
+	sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 	PHP_BUILD_CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl) --with-libxml-dir=$(brew --prefix libxml2)" PHP_BUILD_EXTRA_MAKE_ARGUMENTS=-j4
 fi
 phpenv install ${PHP_VER}

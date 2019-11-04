@@ -42,7 +42,6 @@ brew harfbuzz
 brew highlight
 brew icu4c
 brew ilmbase
-brew imagemagick
 brew imagemagick@6
 brew isl
 brew jasper
@@ -104,6 +103,7 @@ brew mkvtoolnix
 brew mp4v2
 brew mpfr
 brew mysql
+brew ncurses
 brew net-snmp
 brew nettle
 brew node
@@ -146,6 +146,7 @@ brew terraform
 brew tesseract
 brew tesseract-lang
 brew theora
+brew tmux
 brew trash
 brew unbound
 brew unixodbc
@@ -166,22 +167,24 @@ cask font-hack-nerd-font
 cask font-source-han-sans
 
 tap homebrew/cask-versions
+cask adoptopenjdk8
 
 tap homebrew/cask
 cask 1password
 cask alfred
-cask applepi-baker
-cask cmd-eikana
-cask dropbox
+cask appcleaner
+cask bartender
+cask docker
+cask dynalist
 cask google-chrome
 cask ibackup
 cask itsycal
-cask kindle
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask tower
-cask tweeten
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask sublime-text
+cask transmit
+cask typora
 
 tap argon/mas
 
@@ -190,43 +193,46 @@ brew brew-file
 
 # Other Cask applications
 cask adobe-creative-cloud
-cask appcleaner
-cask bartender
-cask docker
+cask android-sdk
+cask applepi-baker
+cask cmd-eikana
+cask dropbox
 cask font-fontawesome
 cask font-source-han-code-jp
 cask gpg-suite
 cask iterm2
-cask java
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask sublime-text
-cask transmit
+cask kindle
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask tower
+cask tweeten
 cask visual-studio-code
 
 # App Store applications
-appstore 422293948 com.10baseT.IPScannerHomeMac (3.91)
-appstore 497799835 com.apple.dt.Xcode (11.0)
-appstore 409183694 com.apple.iWork.Keynote (9.2)
-appstore 409203825 com.apple.iWork.Numbers (6.2)
-appstore 1055511498 com.bloombuilt.dayone-mac (4.2.0)
-appstore 1432182561 com.cascadea.app (1.4.2)
-appstore 1024640650 com.coteditor.CotEditor (3.7.8)
-appstore 441258766 com.crowdcafe.windowmagnet (2.4.4)
-appstore 904280696 com.culturedcode.ThingsMac (3.9.2)
-appstore 873245660 com.ddeville.spillo (2.0)
-appstore 866773894 com.happenapps.Quiver (3.2.7)
-appstore 1107421413 com.khanov.BlockerMac (1.4.8)
-appstore 445189367 com.pilotmoon.popclip (2019.9.1)
-appstore 1176895641 com.readdle.smartemail-Mac (2.3.12)
-appstore 568494494 com.readitlater.PocketMac (1.8.4)
-appstore 1145215534 com.rimbunesia.osx.Kelir (1.5)
-appstore 1084713122 com.thoughtbot.Markoff (1.0.1)
-appstore 803453959 com.tinyspeck.slackmacgap (4.1.0)
-appstore 549083868 de.milchimgemuesefach.Display-Menu (2.2.3)
-appstore 992700627 jp.buffalo.OmoidebakoMac (2.5)
-appstore 539883307 jp.naver.line.mac (5.19.0)
-appstore 1142151959 me.justinyan.justfocus (1.6.4)
-appstore 848311469 me.tanmay.WriteMac (1.1.8)
-appstore 961656759 net.doublerew.Timeline (1.0)
+appstore 1107421413 1Blocker (1.4.8)
+appstore 955155151 Aspect Ratio Calculator (1.3)
+appstore 1432182561 Cascadea (1.4.3)
+appstore 1024640650 CotEditor (3.8.2)
+appstore 1055511498 Day One (4.2.0)
+appstore 549083868 Display Menu (2.2.3)
+appstore 422293948 IP Scanner (3.91)
+appstore 1142151959 Just Focus (1.6.5)
+appstore 1145215534 Kelir (1.5)
+appstore 409183694 Keynote (9.2)
+appstore 539883307 LINE (5.19.1)
+appstore 441258766 Magnet (2.4.4)
+appstore 1084713122 Markoff (1.0.1)
+appstore 409203825 Numbers (6.2)
+appstore 568494494 Pocket (1.8.4)
+appstore 445189367 PopClip (2019.9.1)
+appstore 866773894 Quiver (3.2.7)
+appstore 803453959 Slack (4.1.0)
+appstore 1176895641 Spark (2.3.13)
+appstore 873245660 Spillo (2.0)
+appstore 904280696 Things (3.10)
+appstore 961656759 Timeline (1.0)
+appstore 899972312 WordService (2.8.2)
+appstore 848311469 Write (1.1.8)
+appstore 497799835 Xcode (11.1)
+appstore 992700627 おもいでばこ (2.5)

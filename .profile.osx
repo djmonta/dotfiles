@@ -98,6 +98,12 @@ fi
 # 	export VAGRANT_DEFAULT_PROVIDER=parallels
 # fi
 
+# ENHANCD
+export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
+
+# fzf
+export FZF_DEFAULT_OPTS='--height 60% --ansi'
+
 # Terminal Notifier
 export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
 export DOWNLOAD_DIR=${HOME}/Downloads

@@ -120,3 +120,13 @@ function do_enter() {
     zle reset-prompt
     return 0
 }
+
+### docker rmi {{{
+#
+# https://github.com/b4b4r07/dotfiles/blob/master/.zsh/30_aliases.zsh#L458
+docker_rmi() {
+    docker images \
+        | fzf --reverse --header-lines=1 --multi --ansi \
+        | awk '{print $3}' \
+        | xargs docker rmi ${1+"$@"}
+}

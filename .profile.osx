@@ -98,6 +98,9 @@ fi
 # 	export VAGRANT_DEFAULT_PROVIDER=parallels
 # fi
 
+# iTerm
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+
 # ENHANCD
 export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
 

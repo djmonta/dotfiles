@@ -72,6 +72,7 @@ brew mcrypt
 brew mhash
 brew mpfr
 brew mysql
+brew ncurses
 brew netpbm
 brew nettle
 brew nkf
@@ -104,6 +105,7 @@ brew setweblocthumb
 brew sqlite
 brew terminal-notifier
 brew the_silver_searcher
+brew tmux
 brew unbound
 brew unixodbc
 brew webp

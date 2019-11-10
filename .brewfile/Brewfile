@@ -114,6 +114,9 @@ tap homebrew/cask-fonts
 cask font-fira-code
 cask font-hack-nerd-font
 
+tap homebrew/cask-versions
+cask sequel-pro-nightly
+
 tap homebrew/cask
 cask 1password
 cask alfred
@@ -127,9 +130,9 @@ cask itsycal
 cask qlcolorcode
 cask qlmarkdown
 cask qlvideo
-cask sublime-text
-cask transmit
-cask typora
+cask tower
+cask tweeten
+cask visual-studio-code
 
 tap beeftornado/rmtree
 
@@ -152,10 +155,9 @@ cask iterm2
 cask kindle
 cask qlimagesize
 cask qlstephen
-cask sequel-pro
-cask tower
-cask tweeten
-cask visual-studio-code
+cask sublime-text
+cask transmit
+cask typora
 
 # App Store applications
 appstore 1107421413 1Blocker (1.4.8)

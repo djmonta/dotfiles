@@ -3,7 +3,6 @@
 
 tap homebrew/core
 brew adns
-brew ansible
 brew apr
 brew apr-util
 brew autoconf
@@ -82,7 +81,6 @@ brew nspr
 brew nss
 brew oniguruma
 brew openjpeg
-brew openssl
 brew openssl@1.1
 brew p11-kit
 brew pango
@@ -94,6 +92,7 @@ brew pixman
 brew pkg-config
 brew pngquant
 brew poppler
+brew protobuf@3.7
 brew pth
 brew python
 brew python@2
@@ -121,18 +120,19 @@ tap homebrew/services
 
 tap homebrew/cask
 cask 1password
-cask appcleaner
-cask cmd-eikana
-cask docker
-cask google-chrome
-cask itsycal
-cask kaleidoscope
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask slack
-cask tower
-cask virtualbox
+cask android-studio
+cask bartender
+cask dash
+cask dropbox
+cask iterm2
+cask java
+cask postman
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask sublime-text
+cask transmit
+cask visual-studio-code
 
 tap argon/mas
 
@@ -150,35 +150,33 @@ brew gpg-agent
 
 # Other Cask applications
 cask alfred
-cask bartender
-cask dash
-cask dropbox
-cask iterm2
-cask java
-cask postman
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask sublime-text
-cask transmit
-cask visual-studio-code
+cask appcleaner
+cask cmd-eikana
+cask docker
+cask google-chrome
+cask itsycal
+cask kaleidoscope
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask slack
+cask tower
+cask virtualbox
 
 # App Store applications
-appstore 1024640650 CotEditor (3.7.8)
-appstore 1055511498 Day One (4.1.1)
+appstore 1107421413 1Blocker (1.4.8)
+appstore 1432182561 Cascadea (1.4.5)
+appstore 1024640650 CotEditor (3.8.7)
+appstore 1055511498 Day One (4.3.1)
 appstore 549083868 Display Menu (2.2.3)
-appstore 682658836 GarageBand (10.3.2)
-appstore 408981434 iMovie (10.1.12)
-appstore 1142151959 Just Focus (1.6.4)
+appstore 422293948 IP Scanner (3.91)
+appstore 1142151959 Just Focus (1.6.6)
 appstore 1145215534 Kelir (1.5)
-appstore 409183694 Keynote (9.2)
-appstore 441258766 Magnet (2.4.4)
-appstore 1084713122 Markoff (1.0.1)
-appstore 409203825 Numbers (6.2)
-appstore 409201541 Pages (8.2)
-appstore 445189367 PopClip (2019.9.1)
-appstore 866773894 Quiver (3.2.7)
-appstore 1176895641 Spark (2.3.11)
+appstore 409183694 Keynote (9.2.1)
+appstore 441258766 Magnet (2.4.5)
+appstore 409203825 Numbers (6.2.1)
+appstore 409201541 Pages (8.2.1)
+appstore 1176895641 Spark (2.5.1)
 appstore 873245660 Spillo (2.0)
-appstore 497799835 Xcode (11.0)
-appstore 1221250572 Xnip (1.7.4)
+appstore 899972312 WordService (2.8.2)
+appstore 497799835 Xcode (11.3)

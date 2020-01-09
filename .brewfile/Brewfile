@@ -38,6 +38,7 @@ brew hr
 brew hub
 brew icu4c
 brew jpeg
+brew jq
 brew lame
 brew leptonica
 brew less
@@ -75,9 +76,9 @@ brew ncurses
 brew nettle
 brew node
 brew npth
+brew oniguruma
 brew opencore-amr
 brew openjpeg
-brew openssl
 brew openssl@1.1
 brew opus
 brew p11-kit
@@ -131,9 +132,9 @@ cask itsycal
 cask qlcolorcode
 cask qlmarkdown
 cask qlvideo
-cask tower
-cask tweeten
-cask visual-studio-code
+cask the-unarchiver
+cask transmit
+cask typora
 
 tap beeftornado/rmtree
 
@@ -142,6 +143,9 @@ brew brew-file
 
 tap vitorgalvao/tiny-scripts
 brew cask-repair
+
+# Other Homebrew packages
+brew openssl
 
 # Other Cask applications
 cask adobe-creative-cloud
@@ -158,34 +162,32 @@ cask kindle
 cask qlimagesize
 cask qlstephen
 cask sublime-text
-cask transmit
-cask typora
+cask tower
+cask tweeten
+cask visual-studio-code
 
 # App Store applications
 appstore 1107421413 1Blocker (1.4.8)
-appstore 955155151 Aspect Ratio Calculator (1.3)
 appstore 1432182561 Cascadea (1.4.4)
-appstore 1024640650 CotEditor (3.8.4)
-appstore 1055511498 Day One (4.2.3)
+appstore 1024640650 CotEditor (3.8.5)
+appstore 1055511498 Day One (4.3.0)
 appstore 549083868 Display Menu (2.2.3)
 appstore 422293948 IP Scanner (3.91)
 appstore 1142151959 Just Focus (1.6.6)
 appstore 1145215534 Kelir (1.5)
-appstore 409183694 Keynote (9.2)
+appstore 409183694 Keynote (9.2.1)
 appstore 539883307 LINE (5.20.1)
 appstore 441258766 Magnet (2.4.5)
-appstore 1084713122 Markoff (1.0.1)
-appstore 409203825 Numbers (6.2)
+appstore 409203825 Numbers (6.2.1)
 appstore 568494494 Pocket (1.8.5)
 appstore 445189367 PopClip (2019.9.1)
 appstore 866773894 Quiver (3.2.7)
 appstore 803453959 Slack (4.1.2)
-appstore 1176895641 Spark (2.3.14)
+appstore 1176895641 Spark (2.3.15)
 appstore 873245660 Spillo (2.0)
 appstore 904280696 Things (3.10.1)
 appstore 961656759 Timeline (1.0)
 appstore 1151308717 traumbaum (1.23)
 appstore 899972312 WordService (2.8.2)
-appstore 848311469 Write (1.1.8)
-appstore 497799835 Xcode (11.2)
+appstore 497799835 Xcode (11.2.1)
 appstore 992700627 おもいでばこ (2.5)

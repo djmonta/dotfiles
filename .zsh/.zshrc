@@ -462,7 +462,7 @@ if [ -f ${HOME}/dotfiles/Cellar/zplug/init.zsh ]; then
     # check コマンドで未インストール項目があるかどうか verbose にチェックし
     # false のとき（つまり未インストール項目がある）y/N プロンプトで
     # インストールする
-    if ! zplug check --verbose; then
+    if ! zplug check; then
         printf "Install? [y/N]: "
         if read -q; then
             echo; zplug install
@@ -470,7 +470,7 @@ if [ -f ${HOME}/dotfiles/Cellar/zplug/init.zsh ]; then
     fi
 
     # プラグインを読み込み、コマンドにパスを通す
-    zplug load --verbose
+    zplug load
     echo "zplug plugins loaded."
 fi
 

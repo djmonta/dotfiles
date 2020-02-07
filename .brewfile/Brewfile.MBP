@@ -12,6 +12,7 @@ brew bison@2.7
 brew boost
 brew cairo
 brew carthage
+brew chmlib
 brew coreutils
 brew czmq
 brew fontconfig
@@ -92,10 +93,12 @@ brew pixman
 brew pkg-config
 brew pngquant
 brew poppler
+brew protobuf
 brew protobuf@3.7
 brew pth
 brew python
 brew python@2
+brew python@3.8
 brew qt
 brew re2c
 brew readline
@@ -124,15 +127,15 @@ cask android-studio
 cask bartender
 cask dash
 cask dropbox
-cask iterm2
-cask java
-cask postman
-cask qlimagesize
-cask qlstephen
-cask sequel-pro
-cask sublime-text
-cask transmit
-cask visual-studio-code
+cask hyper
+cask itsycal
+cask kaleidoscope
+cask qlcolorcode
+cask qlmarkdown
+cask qlvideo
+cask slack
+cask tower
+cask virtualbox
 
 tap argon/mas
 
@@ -154,29 +157,30 @@ cask appcleaner
 cask cmd-eikana
 cask docker
 cask google-chrome
-cask itsycal
-cask kaleidoscope
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask slack
-cask tower
-cask virtualbox
+cask iterm2
+cask java
+cask postman
+cask qlimagesize
+cask qlstephen
+cask sequel-pro
+cask sublime-text
+cask transmit
+cask visual-studio-code
 
 # App Store applications
 appstore 1107421413 1Blocker (1.4.8)
 appstore 1432182561 Cascadea (1.4.5)
-appstore 1024640650 CotEditor (3.8.7)
-appstore 1055511498 Day One (4.3.1)
+appstore 1024640650 CotEditor (3.8.9)
+appstore 1055511498 Day One (4.6)
 appstore 549083868 Display Menu (2.2.3)
-appstore 422293948 IP Scanner (3.91)
+appstore 422293948 IP Scanner (3.93)
 appstore 1142151959 Just Focus (1.6.6)
 appstore 1145215534 Kelir (1.5)
 appstore 409183694 Keynote (9.2.1)
 appstore 441258766 Magnet (2.4.5)
 appstore 409203825 Numbers (6.2.1)
 appstore 409201541 Pages (8.2.1)
-appstore 1176895641 Spark (2.5.1)
+appstore 1176895641 Spark (2.5.2)
 appstore 873245660 Spillo (2.0)
 appstore 899972312 WordService (2.8.2)
-appstore 497799835 Xcode (11.3)
+appstore 497799835 Xcode (11.3.1)

@@ -105,6 +105,7 @@ brew tesseract-lang
 brew theora
 brew tmux
 brew unbound
+brew utf8proc
 brew webp
 brew wget
 brew x264
@@ -115,27 +116,45 @@ brew youtube-dl
 
 tap homebrew/cask-fonts
 cask font-fira-code
+cask font-fontawesome
 cask font-hack-nerd-font
+cask font-source-han-code-jp
 
 tap homebrew/cask-versions
 cask sequel-pro-nightly
 
 tap homebrew/cask
 cask 1password
+cask adobe-creative-cloud
 cask alfred
+cask android-sdk
 cask appcleaner
+cask applepi-baker
 cask bartender
+cask cmd-eikana
 cask cyberduck
+cask docker
 cask dropbox
+cask dynalist
 cask google-chrome
+cask gpg-suite
 cask ibackup
+cask iterm2
 cask itsycal
+cask kaleidoscope
+cask karabiner-elements
 cask kindle
+cask qlcolorcode
 cask qlimagesize
+cask qlmarkdown
 cask qlstephen
+cask qlvideo
 cask sublime-text
+cask the-unarchiver
 cask tower
+cask transmit
 cask tweeten
+cask typora
 cask visual-studio-code
 
 tap beeftornado/rmtree
@@ -146,37 +165,19 @@ brew brew-file
 tap vitorgalvao/tiny-scripts
 brew cask-repair
 
-# Other Cask applications
-cask adobe-creative-cloud
-cask android-sdk
-cask applepi-baker
-cask cmd-eikana
-cask docker
-cask dynalist
-cask font-fontawesome
-cask font-source-han-code-jp
-cask gpg-suite
-cask iterm2
-cask kaleidoscope
-cask qlcolorcode
-cask qlmarkdown
-cask qlvideo
-cask the-unarchiver
-cask transmit
-cask typora
-
 # App Store applications
 appstore 1107421413 1Blocker (1.4.8)
 appstore 1432182561 Cascadea (1.4.5)
-appstore 1024640650 CotEditor (3.8.10)
-appstore 1055511498 Day One (4.6)
+appstore 1024640650 CotEditor (3.8.11)
+appstore 1055511498 Day One (4.8)
 appstore 406056744 Evernote (7.14)
-appstore 422293948 IP Scanner (3.93)
+appstore 422293948 IP Scanner (3.94)
 appstore 1142151959 Just Focus (1.6.6)
 appstore 1145215534 Kelir (1.5)
 appstore 409183694 Keynote (9.2.1)
-appstore 539883307 LINE (5.21.3)
+appstore 539883307 LINE (5.22.0)
 appstore 441258766 Magnet (2.4.5)
+appstore 1295203466 Microsoft Remote Desktop (10.3.8)
 appstore 409203825 Numbers (6.2.1)
 appstore 568494494 Pocket (1.8.5)
 appstore 445189367 PopClip (2019.10)
@@ -184,6 +185,7 @@ appstore 866773894 Quiver (3.2.7)
 appstore 803453959 Slack (4.3.3)
 appstore 1176895641 Spark (2.5.2)
 appstore 873245660 Spillo (2.0)
+appstore 1493327990 Streaks (5.2.4)
 appstore 904280696 Things (3.11.2)
 appstore 961656759 Timeline (1.0)
 appstore 1151308717 traumbaum (1.23)

@@ -123,6 +123,7 @@ tap homebrew/services
 
 tap homebrew/cask
 cask 1password
+cask alacritty
 cask alfred
 cask android-studio
 cask appcleaner

@@ -52,6 +52,7 @@ export LANG=ja_JP.UTF-8
 # Theme.
 # ZSH_THEME='monta'
 DEFAULT_USER='monta'
+DIRCOLORS_SOLARIZED_ZSH_THEME='256dark'
 
 # Remove any right prompt from display when accepting a command line.
 # This may be useful with terminals with other cut/paste methods.

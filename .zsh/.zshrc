@@ -87,6 +87,18 @@ autoload -Uz add-zsh-hook
 ## tmux prompt
 # PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
+autoload -Uz promptinit
+promptinit
+zstyle :prompt:pure:path color 032 #bright blue
+# zstyle :prompt:pure:prompt:success color 227 #light yellow
+source ${HOME}/dotfiles/bin/256colorlib.sh
+# Correct prompt
+SPROMPT="${COLOR_FG_CC4422}もしかして: %r [y,n,a,e] ->%{${reset_color}%} "
+CORRECTION='${COLOR_FG_D70000}もしかして: '
+CORRECTION+='${COLOR_FG_0087FF}${STYLE_LINE}%r%{${reset_color}%}'
+CORRECTION+=' [y,n,a,e] -> '
+SPROMPT=$CORRECTION
+
 # }}}
 
 ### Default shell configuration {{{
@@ -414,14 +426,6 @@ zstyle ":anyframe:selector:" command "fzf --ansi"
 
 ## prompt
 # prompt pure
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_TIME_PREFIX=' ['
-SPACESHIP_TIME_SUFFIX="]"
-SPACESHIP_TIME_COLOR=white
-SPACESHIP_DIR_PREFIX=" "
-SPACESHIP_DIR_TRUNC=0
-SPACESHIP_GIT_PREFIX=" "
 
 ### Complete Messages
 echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"

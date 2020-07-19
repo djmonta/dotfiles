@@ -12,6 +12,7 @@ brew awscli
 brew cairo
 brew cask
 brew coreutils
+brew dav1d
 brew direnv
 brew emacs
 brew emojify
@@ -89,7 +90,6 @@ brew pinentry
 brew pinentry-mac
 brew pixman
 brew pkg-config
-brew python
 brew python@3.8
 brew readline
 brew reattach-to-user-namespace
@@ -99,6 +99,7 @@ brew sdl2
 brew snappy
 brew speex
 brew sqlite
+brew srt
 brew ssh-copy-id
 brew terminal-notifier
 brew tesseract
@@ -142,10 +143,12 @@ cask google-chrome
 cask gpg-suite
 cask iterm2
 cask itsycal
+cask java
 cask kaleidoscope
 cask karabiner-elements
 cask kindle
 cask ngrok
+cask postman
 cask qlcolorcode
 cask qlimagesize
 cask qlmarkdown
@@ -168,30 +171,33 @@ brew brew-file
 tap vitorgalvao/tiny-scripts
 brew cask-repair
 
+# Other Homebrew packages
+brew python
+
 # App Store applications
-appstore 1107421413 1Blocker (3.4)
-appstore 1432182561 Cascadea (1.5.1)
-appstore 1024640650 CotEditor (3.8.12)
-appstore 1055511498 Day One (4.11.1)
+appstore 1107421413 1Blocker (3.7)
+appstore 1432182561 Cascadea (1.5.4)
+appstore 1024640650 CotEditor (3.9.0)
+appstore 1055511498 Day One (4.15.1)
 appstore 406056744 Evernote (7.14)
 appstore 1483172210 Free Ruler (2.0.2)
-appstore 422293948 IP Scanner (3.96)
+appstore 422293948 IP Scanner (3.97)
 appstore 1142151959 Just Focus (1.6.6)
 appstore 1145215534 Kelir (1.5)
 appstore 409183694 Keynote (10.0)
-appstore 539883307 LINE (5.24.1)
+appstore 539883307 LINE (6.0.3)
 appstore 441258766 Magnet (2.4.5)
-appstore 1295203466 Microsoft Remote Desktop (10.3.9)
+appstore 1295203466 Microsoft Remote Desktop (10.3.11)
 appstore 409203825 Numbers (10.0)
 appstore 568494494 Pocket (1.8.5)
 appstore 445189367 PopClip (2019.10)
 appstore 866773894 Quiver (3.2.7)
-appstore 803453959 Slack (4.4.2)
-appstore 1176895641 Spark (2.5.6)
+appstore 803453959 Slack (4.6.0)
+appstore 1176895641 Spark (2.7.0)
 appstore 873245660 Spillo (2.0)
-appstore 1493327990 Streaks (5.2.8)
-appstore 904280696 Things (3.12.2)
+appstore 1493327990 Streaks (5.3.4)
+appstore 904280696 Things (3.12.4)
 appstore 961656759 Timeline (1.0)
 appstore 1151308717 traumbaum (1.23)
-appstore 497799835 Xcode (11.4.1)
+appstore 497799835 Xcode (11.5)
 appstore 992700627 おもいでばこ (2.5)

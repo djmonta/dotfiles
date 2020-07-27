@@ -103,7 +103,6 @@ brew poppler
 brew protobuf
 brew protobuf@3.7
 brew pth
-brew python
 brew python@3.8
 brew qt
 brew re2c
@@ -146,6 +145,7 @@ cask dash
 cask docker
 cask dropbox
 cask google-chrome
+cask gpg-suite
 cask iterm2
 cask itsycal
 cask java
@@ -183,6 +183,7 @@ brew ricty --with-powerline
 # Other Homebrew packages
 brew gomi
 brew gpg-agent
+brew python
 brew python@2
 
 # App Store applications

@@ -59,9 +59,9 @@ if [ -x "`which direnv`" ]; then
 fi
 
 # fastlane
-if [ -d ${HOME}/.fastlane ] ; then
-	PATH="$PATH:${HOME}/.fastlane/bin"
-fi
+# if [ -d ${HOME}/.fastlane ] ; then
+	# PATH="$PATH:${HOME}/.fastlane/bin"
+# fi
 
 export PATH
 
@@ -85,14 +85,27 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
 fi
 if hostname | grep -q "Mac-mini\.local$" ; then
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+elif hostname | grep -q "iMac\.local$" ; then
+	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+elif hostname | grep -q "MacBook-Pro\.local$" ; then
+	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
 else
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
 fi
 
 # Vagrant
-if [ -d "/Applications/Parallels Desktop.app" ]; then
-	export VAGRANT_DEFAULT_PROVIDER=parallels
-fi
+# if [ -d "/Applications/Parallels Desktop.app" ]; then
+# 	export VAGRANT_DEFAULT_PROVIDER=parallels
+# fi
+
+# iTerm
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+
+# ENHANCD
+export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
+
+# fzf
+export FZF_DEFAULT_OPTS='--height 60% --ansi'
 
 # Terminal Notifier
 export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"

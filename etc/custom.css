@@ -1,0 +1,767 @@
+@charset "UTF-8";
+
+/* Google Result Number (Multi-service)
+https://userstyles.org/styles/22244/google-result-number-multi-service */
+body#gsr
+{
+  counter-reset: result !important;
+}
+
+#gsr h3.r:before
+{
+  content: counter(result) ". " !important;
+  counter-increment: result !important;
+}
+
+/* Google Highlighter
+https://userstyles.org/styles/3015/google-highlighter-updated */
+#gsr .s .st em, #gsr .st.s.std em
+{
+  background-color: #fff8c1 !important;
+}
+
+/* GoogleSearch CSS
+https://userstyles.org/styles/104785/googlesearch-css */
+
+/* 横幅修正 */
+#rcnt > div[style="width:0"][class="col"]
+{
+  width: 100%!important;
+}
+
+#desktop-search td[valign="top"]:nth-child(2)
+{
+  width: 100%!important;
+}
+
+#mn
+{
+  table-layout: auto;
+}
+
+#cnt {
+  padding-top: 30px !important;
+}
+
+#logocont.ddl,
+#gsr .sfibbbc {
+  padding-top: 0 !important;
+}
+
+/* Max-width [search results] */
+#cnt > div[class="mw"],
+#center_col
+{
+  max-width: none !important;
+  width: 90%!important;
+}
+
+#rso .s
+{
+  font-size: 12px;
+  margin: 0!important;
+  max-width: none !important;
+  width: 90% !important;
+}
+
+.st
+{
+  word-wrap: normal!important;
+}
+
+/* Result margin */
+li.g
+{
+  margin-bottom: 5px !important;
+}
+
+/* background */
+#gsr
+{
+  background: url(/*[[imageurl]]*/)  no-repeat fixed right bottom !important;
+  background-size: 22.45% auto!important;
+}
+
+.mnr-c
+{
+  background: none!important;
+  box-shadow: none!important;
+}
+
+/* 右に出るwikiなどの解説 */
+#rhscol,
+#rhs_block   /* スクリプト無効時の右側セル */
+{
+  display: none!important;
+}
+
+/*セーフサーチ*/
+#ab_ctl_ss
+{
+  display: none;
+}
+
+
+/* Google 検索ツールをサイドバーへ
+https://userstyles.org/styles/78857/google */
+
+/*------------------------------------
+  検索フォームの高さを小さくする
+*/
+.sfbgx
+{
+  /* 上部の背景色 */
+  height: 75px !important;
+}
+
+#gsr #searchform:not(.jhp)
+{
+  /* ロゴ・検索フォーム・アプリボタン等 */
+  top: 10px;
+}
+
+/*------------------------------------
+  ショッピング検索のサイドバー
+*/
+#leftnavc
+{
+  width: 138px;
+  /* 【サイドバーの幅】 */
+  margin-top: 230px;
+  /* 畳んだ状態のカテゴリ一覧の高さ */
+}
+
+#leftnavc .sr__restricts
+{
+  width: unset;
+}
+
+#leftnavc .sr__restricts .sr__group
+{
+  /* サイドバーの項目 */
+  margin-left: 10px;
+}
+
+/*------------------------------------
+  検索フォームと検索結果の水平位置
+*/
+.col #center_col
+{
+  /* 検索結果 */
+  margin-left: 138px !important;
+  /* 【サイドバーの幅】 */
+}
+
+/*------------------------------------
+  カテゴリ一覧と検索ツール
+*/
+#top_nav
+{
+  /* サイドバー全体 */
+  position: absolute !important;
+  min-width: 0 !important;
+  width: 138px;
+  /* 【サイドバーの幅】 */
+}
+
+#top_nav #hdtb
+{
+  /* サイドバー全体 */
+  margin-top: -10px !important;
+  border-bottom: unset !important;
+  /* 画像を選択したときの背景色 */
+  background: #FFFFFF no-repeat !important;
+}
+
+/*------------------------------------
+  カテゴリ一覧と設定 
+*/
+#top_nav #hdtbSum
+{
+  height: auto !important;
+  background: unset !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb
+{
+  flex-direction: column !important;
+  align-items: unset !important;
+  float: unset !important;
+  min-width: unset !important;
+}
+
+/*------------------------------------
+  カテゴリ
+*/
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem
+{
+  display: block !important;
+  height: unset !important;
+  padding: unset !important;
+  line-height: 23px !important;
+  margin-left: 0 !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem .q
+{
+  /* リンクテキスト */
+  display: block !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem .q:not(:active)
+{
+  color: #000000 !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem .q:hover
+{
+  background: #EEEEEE !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem.hdtb-msel
+{
+  /* 選択されているカテゴリ */
+  border-left-style: solid !important;
+  border-left-width: 6px !important;
+  border-bottom: none !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem .q,
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem.hdtb-msel
+{
+  padding: 5px 0 5px 16px !important;
+}
+
+/*------------------------------------
+  「もっと見る」「設定」「期間を指定」「サイズを指定」ボタン
+*/
+#top_nav #hdtbSum #hdtb-msb .hdtb-mitem .hdtb-dd-b,
+#top_nav #hdtbMenus #cdr_opt #cdrlnk,
+#top_nav #hdtbMenus #isz_ex .exylnk
+{
+  display: inline-block !important;
+  color: #666666 !important;
+  border: solid 1px #DDDDDD !important;
+  background: linear-gradient(to bottom, #FFFFFF, #F5F5F5) !important;
+  border-radius: 4px !important;
+  padding: 0 12px 0 5px !important;
+  line-height: 25px !important;
+  margin: 5px 10px !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb .hdtb-dd-b:hover,
+#top_nav #hdtbMenus #cdr_opt #cdrlnk:hover,
+#top_nav #hdtbMenus #isz_ex .exylnk:hover
+{
+  border-color: #BBBBBB !important;
+  text-decoration: none !important;
+}
+
+#top_nav #hdtbMenus #cdr_opt .cdr_sep
+{
+  /* 「期間を指定」ボタンの上の水平線 */
+  display: none !important;
+}
+
+/*------------------------------------
+  「保存済みの画像を見る」「セーフサーチ」ボタン
+*/
+#top_nav #hdtbSum #ab_ctls
+{
+  position: absolute !important;
+  top: -30px !important;
+  right: calc(-100vw + 185px) !important;
+  line-height: 29px !important;
+}
+
+/*------------------------------------
+  画像検索の「最小サイズ」
+*/
+#top_nav #hdtbMenus #isz_lt .tnv-lt-m
+{
+  padding-right: 15px !important;
+  position: relative !important;
+}
+
+#top_nav #hdtbMenus #isz_lt .tnv-lt-m::after
+{
+  /* ▶マーク */
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0px 4px 4px;
+  border-color: transparent #909090;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -4px;
+}
+
+#top_nav #hdtbMenus #isz_lt .tnv-lt-arw
+{
+  display: none;
+}
+
+/*------------------------------------
+  検索ツール
+*/
+#top_nav #hdtbMenus
+{
+  display: unset !important;
+  position: unset !important;
+}
+
+#top_nav #hdtbMenus .hdtb-mn-cont
+{
+  /* 画像を選択したときの背景色 */
+  height: unset !important;
+}
+
+#top_nav #hdtbSum #hdtb-msb #hdtb-tls
+{
+  /* 「ツール」ボタン */
+  display: none !important;
+}
+
+/*------------------------------------
+  検索ツールの各項目の見出し
+*/
+#top_nav #hdtbMenus .mn-dwn-arw,
+#top_nav #hdtbMenus .hdtb-mn-hd:not([aria-label*=" – "])
+{
+  display: none !important;
+}
+
+#top_nav #hdtbMenus .hdtb-mn-hd
+{
+  /* 日付けで期間が指定されているとき */
+  line-height: unset !important;
+  padding-right: 0 !important;
+  text-align: right !important;
+}
+
+#top_nav #hdtbMenus .hdtb-mn-hd .mn-hd-txt
+{
+  white-space: initial !important;
+}
+
+#top_nav #hdtbMenus .hdtbU
+{
+}
+
+/*------------------------------------
+  検索ツールの各項目の選択肢一覧
+*/
+#top_nav #hdtbMenus .hdtbU
+{
+  display: block !important;
+  position: unset !important;
+  border: unset !important;
+  box-shadow: unset !important;
+  margin-bottom: 10px !important;
+  /* 日付けで期間が指定されているときに、表示されている期間をクリックしたとき */
+  min-width: unset !important;
+  /* 画像検索のライセンス */
+  white-space: initial !important;
+}
+
+/*------------------------------------
+  検索ツールの各項目の選択肢
+*/
+#top_nav #hdtbMenus .hdtbSel,
+#top_nav #hdtbMenus .q
+{
+  padding: 1px 0 1px 10px !important;
+  background: unset !important;
+  color: #222222 !important;
+}
+
+#top_nav #hdtbMenus .q:hover
+{
+  text-decoration: underline !important;
+}
+
+#top_nav #hdtbMenus .hdtbSel
+{
+  /* 選択されている選択肢 */
+  color: #DD4B39 !important;
+  font-weight: bold !important;
+}
+
+/*====================================
+  ヒット件数を常に表示
+*/
+#gsr #resultStats
+{
+  opacity: unset !important;
+  line-height: unset !important;
+  padding-left: 0 !important;
+  position: unset !important;
+}
+#gsr .ab_tnav_wrp {
+  height: 25px !important;
+}
+/*[[categories]]*/
+
+/* Z: Pinboard.in Private Style
+https://userstyles.org/styles/71406/z-pinboard-in-private-style */
+#pinboard div.bookmark
+{
+  margin-bottom: 0.8em!important;
+  padding: 0px 3px 0.8em!important;
+  border: solid #ccc!important;
+  border-width: 0 0 1px!important;
+}
+
+#pinboard div.bookmark.private
+{
+  background: transparent!important;
+}
+
+#pinboard div.bookmark > div.display::after
+{
+  content: "[PUBLIC]";
+  color: #c00;
+  padding-left: 1em;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+#pinboard div.bookmark.private > div.display::after
+{
+  content: "[PRIVATE]";
+  color: #0c8;
+  font-weight: normal;
+}
+
+#pinboard a.unread
+{
+  color: #11a!important;
+}
+
+#pinboard a.unread:visited
+{
+  color: #51a!important;
+}
+
+#pinboard a.unread::before
+{
+  content: "[Unread] ";
+  color: #a81;
+}
+
+#pinboard a.bundle
+{
+  border: solid #c00!important;
+  border-width: 0 0 1px!important;
+}
+
+#pinboard a.bundle.private
+{
+  background: transparent!important;
+  border: solid #0c8!important;
+  border-width: 0 0 1px!important;
+}
+
+/* Pinboard - Clean
+https://userstyles.org/styles/108435/pinboard-clean */
+@-moz-document domain(pinboard.in)
+{
+
+  /* latin-ext */
+  @font-face
+  {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lora'), local('Lora-Regular'), url(http://fonts.gstatic.com/s/lora/v9/tHQOv8O1rd82EIrTHlzvmhTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  }
+  /* latin */
+  @font-face
+  {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lora'), local('Lora-Regular'), url(http://fonts.gstatic.com/s/lora/v9/rAXKWvABQNHjPUk26ixVvhTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  }
+
+  /* latin-ext */
+  @font-face
+  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(http://fonts.gstatic.com/s/opensans/v10/u-WUoqrET9fUeobQW7jkRZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+  }
+  /* latin */
+  @font-face
+  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(http://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+  }
+  /* latin-ext */
+  @font-face
+  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fonts.gstatic.com/s/opensans/v10/MTP_ySUJH_bn48VBG8sNSiYtBUPDK3WL7KRKS_3q7OE.woff2) format('woff2');
+  }
+  /* latin */
+  @font-face
+  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fonts.gstatic.com/s/opensans/v10/MTP_ySUJH_bn48VBG8sNShampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  }
+  /* latin-ext */
+  @font-face
+  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzCYtBUPDK3WL7KRKS_3q7OE.woff2) format('woff2');
+  }
+  /* latin */
+  @font-face
+  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  }
+}
+
+#pinboard #banner
+{
+  opacity: .4;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard #banner:hover
+{
+  opacity: 1;
+}
+
+#pinboard #search_query_field
+  {
+    font-size: 16px;
+    height: 24px;
+    padding: 4px 8px 3px;
+    width: 80%;
+  }
+
+#pinboard #search_query_field:focus
+{
+  outline: none;
+}
+
+#pinboard .search_button
+{
+  margin-top: 6px;
+  text-align: right;
+  width: 86%;
+}
+
+#pinboard .search_button input
+{
+  background: #34495e;
+  border: none;
+  border-radius: 2px;
+  color: #fafafa;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: .06em;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard .search_button input:hover,
+#pinboard .search_button input:hover
+{
+  background: #4A6075;
+}
+
+#pinboard .search_button input:focus
+{
+  outline: none;
+}
+
+#pinboard #content
+{
+  color: #333 !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#pinboard .bookmark
+{
+  padding-bottom: 26px;
+  position: relative;
+  width: 90% !important;
+}
+
+#pinboard .bookmark::after
+{
+  background: #bdc3c7;
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  bottom: 1px;
+  left: 10%;
+  right: 20%;
+  width: 70%;
+}
+
+#pinboard .display
+{
+  width: 100%;
+}
+
+#pinboard .selected_star
+{
+  color: #f1c40f;
+}
+
+#pinboard .bookmark_title,
+#pinboard.bookmark_title:visited
+{
+  color: #333 !important;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#pinboard .star
+{
+  margin-top: -4px;
+}
+
+#pinboard a.url_display
+{
+  display: block;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard a.url_display:hover,
+#pinboard a.url_display:active
+{
+  color: #34495e;
+}
+
+#pinboard .description
+{
+  color: #7f8c8d;
+  font-family: 'Lora', serif;
+  margin-bottom: 16px;
+}
+
+#pinboard .description blockquote
+{
+  color: inherit;
+  margin: 0;
+}
+
+#pinboard a.tag
+{
+  /* background: #85C4ED; */
+  color: #85C4ED !important;
+  font-size: 11px;
+  padding: 1px 4px 2px;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard a.tag:hover
+{
+  background: #3498db;
+  color: white !important;
+}
+
+#pinboard a.when,
+#pinboard a.when:visited
+{
+  color: #bdc3c7 !important;
+  margin-top: 4px;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard a.when:hover,
+#pinboard a.when:active
+{
+  color: #34495e !important;
+}
+
+#pinboard #tag_cloud_header a.tag,
+#pinboard .tag_table a.tag
+{
+  background: none !important;
+  color: #333 !important;
+}
+
+#pinboard #tag_cloud_header a.tag,
+#pinboard .tag_table a.tag:hover
+{
+  color: #3498db !important;
+}
+
+#pinboard .url_link
+{
+  background: none !important;
+  text-decoration: underline;
+}
+
+#pinboard .edit_links
+{
+  float: right;
+  opacity: 0;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard .bookmark:hover .edit_links
+{
+  opacity: 1;
+}
+
+#pinboard a.edit,
+#pinboard a.delete,
+#pinboard a.edit:visited,
+#pinboard a.delete:visited
+{
+  color: #95a5a6;
+}
+
+#pinboard a.edit:hover,
+#pinboard a.delete:hover
+{
+  color: #34495e;
+}
+
+#pinboard #per_page_picker
+{
+  font-size: 14px;
+}
+
+#pinboard #per_page_picker a.per_page_selected
+{
+  background: none;
+  color: #34495e;
+  display: inline-block;
+  font-size: 130%;
+  font-weight: bold;
+  position: relative;
+  top: 1px;
+}
+
+#pinboard #footer
+{
+  opacity: .4;
+  transition: all 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+#pinboard #footer:hover
+{
+  opacity: 1;
+}

@@ -5,14 +5,13 @@ read REPLY
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
 	# Clone anyenv
-	git clone https://github.com/riywo/anyenv ~/.anyenv
+	git clone https://github.com/anyenv/anyenv ~/.anyenv
 
 	# Add PATH
 	export PATH="$HOME/.anyenv/bin:$PATH"
 
 	# Install
 	eval "$(anyenv init -)"
-
 	anyenv install --init
 
 	IS_INSTALLED_RB=$(rbenv version | grep ${RB_VER} | wc -l | xargs echo)

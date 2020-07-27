@@ -7,9 +7,11 @@ brew apr
 brew apr-util
 brew autoconf
 brew automake
+brew avrdude
 brew awscli
 brew bison@2.7
 brew boost
+brew bzip2
 brew cairo
 brew carthage
 brew chmlib
@@ -42,10 +44,14 @@ brew jasper
 brew jpeg
 brew jq
 brew libassuan
+brew libedit
+brew libelf
 brew libevent
 brew libffi
+brew libftdi0
 brew libgcrypt
 brew libgpg-error
+brew libhid
 brew libiconv
 brew libidn2
 brew libksba
@@ -60,6 +66,7 @@ brew libtool
 brew libuninameslist
 brew libunistring
 brew libusb
+brew libusb-compat
 brew libxml2
 brew libyaml
 brew libzip
@@ -106,6 +113,7 @@ brew setweblocthumb
 brew sqlite
 brew terminal-notifier
 brew the_silver_searcher
+brew tidy-html5
 brew tmux
 brew unbound
 brew unixodbc
@@ -116,6 +124,12 @@ brew xz
 brew yarn
 brew youtube-dl
 brew zeromq
+brew zlib
+
+tap homebrew/bundle
+
+tap homebrew/cask-drivers
+cask qmk-toolbox
 
 tap homebrew/cask-fonts
 
@@ -125,7 +139,6 @@ tap homebrew/cask
 cask 1password
 cask alacritty
 cask alfred
-cask android-studio
 cask appcleaner
 cask bartender
 cask cmd-eikana
@@ -133,8 +146,6 @@ cask dash
 cask docker
 cask dropbox
 cask google-chrome
-cask hyper
-cask hyperswitch
 cask iterm2
 cask itsycal
 cask java
@@ -157,6 +168,12 @@ tap argon/mas
 
 tap heroku/brew
 
+tap osx-cross/avr
+brew avr-binutils
+brew avr-gcc@8
+
+tap qmk/qmk
+
 tap rcmdnk/file
 brew brew-file
 
@@ -169,15 +186,18 @@ brew gpg-agent
 brew python@2
 
 # App Store applications
-appstore 1107421413 1Blocker (3.2)
-appstore 1432182561 Cascadea (1.4.5)
-appstore 1024640650 CotEditor (3.8.12)
-appstore 1055511498 Day One (4.8)
-appstore 422293948 IP Scanner (3.94)
+appstore 1107421413 1Blocker (3.7)
+appstore 1432182561 Cascadea (1.5.4)
+appstore 1024640650 CotEditor (3.9.1)
+appstore 1055511498 Day One (4.15.1)
+appstore 1483172210 Free Ruler (2.0.2)
 appstore 1142151959 Just Focus (1.6.6)
 appstore 1145215534 Kelir (1.5)
+appstore 405399194 Kindle (1.28.0)
+appstore 539883307 LINE (6.0.3)
 appstore 441258766 Magnet (2.4.5)
-appstore 409201541 Pages (8.2.1)
-appstore 1176895641 Spark (2.5.5)
+appstore 409201541 Pages (10.0)
+appstore 1176895641 Spark (2.7.0)
 appstore 873245660 Spillo (2.0)
-appstore 497799835 Xcode (11.3.1)
+appstore 904280696 Things (3.12.4)
+appstore 497799835 Xcode (11.5)

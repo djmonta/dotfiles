@@ -75,9 +75,6 @@ alias lld='ls -d'
 alias llt='ll -rt'
 alias lll='ll | less'
 
-source $(dirname $(gem which colorls))/tab_complete.sh
-alias lc='colorls -A'
-
 #
 # cd
 #  -P シンボリックリンクをたどらず実ディレクトリに移動

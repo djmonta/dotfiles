@@ -3,11 +3,11 @@
 
 window:
   dimensions:
-    columns: 80
-    lines: 40
-  #position:
-  #  x: 0
-  #  y: 0
+    columns: 120
+    lines: 60
+  position:
+   x: 2580
+   y: 550
   padding:
     x: 10
     y: 22

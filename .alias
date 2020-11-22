@@ -160,11 +160,6 @@ else
 fi
 alias grepr='grep -R'
 
-# grepの結果をviで表示(gfやgFでカーソル下のファイルへジャンプ)
-grepv () {
-    grep "$@" | vim -R -
-}
-
 
 #
 # find
@@ -202,17 +197,6 @@ alias h='history 32'
 # 全履歴を表示
 history_all() { history -E 1 | less; }
 
-
-#
-# od
-#  16進数でのバイナリダンプコマンド
-#  -tx1 1バイトごとに区切って表示
-#  -Ax アドレスを16進数表示
-#  -v 連続する0をスキップしない
-#
-alias od='od -tx1 -Ax -v'
-# 改行コード判定に使用
-alias oc='od -c'
 
 #
 # chmod
@@ -334,23 +318,6 @@ alias tree="tree -N -a -I '.git|.svn'"
 
 
 #
-# man
-#  jman 日本語(FreeBSD系)
-#    http://www.fan.gr.jp/~sakai/softwares/unix#wordhighlight_id18
-#  lman 日本語(JM Project - Linux/GNU系)
-#    http://linuxjm.sourceforge.jp/
-#  wman ~/work/usr/local 配下にインストールしたコマンドのman
-#
-if type jman >/dev/null 2>&1; then
-    alias jman='env LANG=ja_JP.UTF-8 jman'
-    alias lman='env LANG=ja_JP.UTF-8 jman -M ~/work/usr/local/share/man'
-fi
-
-# ~/work/usr/local配下のコマンドのman
-alias wman='env LANG=C command man -M ~/work/usr/local/share/man'
-
-
-#
 # ack
 #  高機能検索(find + grep)
 #  -a 全てのファイルから検索(拡張子無しも含む) ただし--TYPEが無効
@@ -374,13 +341,8 @@ alias wman='env LANG=C command man -M ~/work/usr/local/share/man'
 #    $ ack 'pattern' -G .*\.txt
 #    $ ack hoge -G "\.(c|cpp|h)$"
 #
-alias acka='ack -a'
-alias ackn='ack -n'
-
-# ackの結果をviで表示(gfやgFでカーソル下のファイルへジャンプ)
-ackv () {
-    ack "$@" | vim -R -
-}
+# alias acka='ack -a'
+# alias ackn='ack -n'
 
 
 #
@@ -391,29 +353,6 @@ ackv () {
 #
 # 文字コードを判定
 alias nkfg='nkf -g'
-
-# utf-8-LFに変換
-utf8() {
-    for i in "$@"; do
-        nkf -w -Lu $i >! /tmp/euc.$$
-        mv -f /tmp/utf8.$$ $i
-    done
-}
-# euc-LFに変換
-euc() {
-    for i in "$@"; do
-        nkf -e -Lu $i >! /tmp/euc.$$
-        mv -f /tmp/euc.$$ $i
-    done
-}
-
-# sjis-CRLF
-sjis() {
-    for i in "$@"; do
-        nkf -s -Lw $i >! /tmp/euc.$$
-        mv -f /tmp/euc.$$ $i
-    done
-}
 
 
 #

@@ -172,8 +172,8 @@ source ${HOME}/dotfiles/.zsh/keybind.zsh
 ### History configuration {{{
 #
 HISTFILE=${HOME}/.zsh_history
-HISTSIZE=10000   # メモリ内の履歴の数
-SAVEHIST=100000  # 保存される履歴の数
+HISTSIZE=1000   # メモリ内の履歴の数
+SAVEHIST=10000  # 保存される履歴の数
 LISTMAX=50       # 補完リストを尋ねる数(0=ウィンドウから溢れる時は尋ねる)
 # rootのコマンドはヒストリに追加しない
 if [ $UID = 0 ]; then
@@ -301,16 +301,6 @@ zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*' completer \
     _oldlist _complete _match _history _ignored _approximate _prefix
 
-## $ cdr <TAB> (最近移動したディレクトリ履歴からcd)
-autoload -U chpwd_recent_dirs cdr
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ":chpwd:*" recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-file ${HOME}/.cd_history
-zstyle ":chpwd:*" recent-dirs-max 50
-zstyle ":completion:*" recent-dirs-insert both
-# zstyle ":completion:*:*:cdr:*:*" menu select=2
-zstyle ':completion:*:*:cdr:*:*' menu selection
-
 ## 補完キャッシュの設定
 # 一部のコマンドライン定義は、展開時に時間のかかる処理を行う
 # apt-get, dpkg (Debian), rpm (Redhat), urpmi (Mandrake), perlの-Mオプション,
@@ -326,21 +316,6 @@ if [ -n "$LS_COLORS" ]; then
 fi
 
 
-## Prediction configuration
-#   先方予測機能(学習機能付き)
-#
-#autoload -U predict-on
-#predict-on
-
-
-# }}}
-
-## Prediction configuration
-#
-#autoload predict-on
-#predict-off
-
-
 ## Alias configuration {{{
 #
 # alias が補完される前に元のコマンドまで転回して✓チェック
@@ -349,9 +324,6 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 # }}}
 
 source ${HOME}/.zsh/utils.zsh
-
-zle -N do_enter
-bindkey '^m' do_enter
 
 # }}}
 

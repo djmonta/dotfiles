@@ -40,6 +40,9 @@ bindkey "\\en" history-beginning-search-forward-end
 #
 bindkey "\e[Z" reverse-menu-complete
 
+zle -N do_enter
+bindkey '^m' do_enter
+
 # ^でcd ..する
 # http://shakenbu.org/yanagi/d/?date=20120301
 cdup() {

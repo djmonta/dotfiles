@@ -98,38 +98,12 @@ alias -g V='| vim -R -'
 #     $ man zsh-lovers
 #
 #
-autoload -Uz zmv
-alias zmv="noglob zmv"
-alias zmvn="zmv -n"
-alias zmvw="zmv -w"
-alias zmvW="zmv -W"
+# autoload -Uz zmv
+# alias zmv="noglob zmv"
+# alias zmvn="zmv -n"
+# alias zmvw="zmv -w"
+# alias zmvW="zmv -W"
 
-# }}}
-
-### Directory aliases {{{
-#  e.x.
-#    $ hash -d hoge=/to/path
-#    $ ls ~hoge
-set_hash_in_links() {
-    local links=~/links
-    [ ! -d "$links" ] && return 0
-    [ $(command ls -1 "$links" | wc -l) -eq 0 ] && return 0
-    local src
-    local target
-    for target in "$links"/*; do
-        src=$(basename "$target")
-        case `uname -s` in
-            Darwin|FreeBSD)
-                target=$(readlink -n $target)
-                ;;
-            *)
-                target=$(readlink -fq $target)
-                ;;
-        esac
-        [ -n "$target" ] && hash -d $src="$target"
-    done
-}
-set_hash_in_links
 # }}}
 
 ### Aliases according to extensions {{{

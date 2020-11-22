@@ -219,6 +219,8 @@ fi
 # ユーザ固有の補完関数
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 
+source ${ZDOTDIR}/zinit.zsh
+
 autoload -U compinit
 
 # -u : 安全ではないファイルを補完しようとした場合に警告を表示しない
@@ -323,7 +325,7 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 # }}}
 
-source ${HOME}/.zsh/utils.zsh
+# source ${HOME}/.zsh/utils.zsh
 
 # }}}
 
@@ -331,26 +333,25 @@ source ${HOME}/.zsh/utils.zsh
 #
 # zplug
 #
-if [ -f ${HOME}/.zplug/init.zsh ]; then
-    echo "Loading zplug plugins"
-    export ZPLUG_LOADFILE=${HOME}/dotfiles/.zsh/zplug.zsh
-    source ${HOME}/.zplug/init.zsh
+# if [ -f ${HOME}/.zplug/init.zsh ]; then
+#     # echo "Loading zplug plugins"
+#     export ZPLUG_LOADFILE=${HOME}/dotfiles/.zsh/zplug.zsh
+#     source ${HOME}/.zplug/init.zsh
 
-#     # check コマンドで未インストール項目があるかどうか verbose にチェックし
-#     # false のとき（つまり未インストール項目がある）y/N プロンプトで
-#     # インストールする
-    if ! zplug check; then
-        printf "Install? [y/N]: "
-        if read -q; then
-            echo; zplug install
-        fi
-    fi
+# #     # check コマンドで未インストール項目があるかどうか verbose にチェックし
+# #     # false のとき（つまり未インストール項目がある）y/N プロンプトで
+# #     # インストールする
+#     if ! zplug check; then
+#         printf "Install? [y/N]: "
+#         if read -q; then
+#             echo; zplug install
+#         fi
+#     fi
 
-#     # プラグインを読み込み、コマンドにパスを通す
-    zplug load
-    echo "zplug plugins loaded."
-fi
-
+# #     # プラグインを読み込み、コマンドにパスを通す
+#     zplug load
+#     # echo "zplug plugins loaded."
+# fi
 
 #
 # alias設定(共通)

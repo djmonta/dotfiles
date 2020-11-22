@@ -103,6 +103,8 @@ export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # ENHANCD
 export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
+export ENHANCD_DISABLE_DOT=1
+export ENHANCD_DISABLE_HOME=1
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 60% --ansi'
@@ -112,4 +114,4 @@ export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
 export DOWNLOAD_DIR=${HOME}/Downloads
 
 ### Complete Messages
-echo "Loading .profile.osx completed!!"
+# echo "Loading .profile.osx completed!!"

@@ -210,4 +210,4 @@ fi
 # fi
 
 ### Complete Messages
-echo "Loading .profile completed!!"
+# echo "Loading .profile completed!!"

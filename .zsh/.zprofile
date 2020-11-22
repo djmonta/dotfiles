@@ -48,4 +48,4 @@ esac
 
 
 ### Complete Messages
-echo "Loading .zprofile completed!! (SHELL=${SHELL})"
+# echo "Loading .zprofile completed!! (SHELL=${SHELL})"

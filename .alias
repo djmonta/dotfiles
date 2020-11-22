@@ -361,5 +361,5 @@ alias nkfg='nkf -g'
 # alias emacsc="emacsclient -t -c"
 
 ### Complete Messages
-echo "Loading .alias completed!!"
+# echo "Loading .alias completed!!"
 

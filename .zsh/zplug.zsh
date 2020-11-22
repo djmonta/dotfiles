@@ -2,7 +2,7 @@ zplug "~/.zsh", from:local, use:"<->_*.zsh"
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
+# zplug "zsh-users/zsh-history-substring-search"
 zplug "mollifier/anyframe"
 zplug "marzocchi/zsh-notify"
 zplug "junegunn/fzf-bin", as:command, rename-to:fzf

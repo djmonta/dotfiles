@@ -18,7 +18,7 @@ zinit ice wait"!0" blockf lucid atpull'zinit creinstall -q .'
 zinit light "zsh-users/zsh-completions"
 
 zinit ice wait"!0" lucid atinit"zpcompinit; zpcdreplay"
-zinit light "zsh-users/zsh-syntax-highlighting"
+zinit light "zdharma/fast-syntax-highlighting"
 
 zinit light "mollifier/anyframe"
 
@@ -30,6 +30,9 @@ zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light trapd00r/LS_COLORS
 zinit light "pinelibg/dircolors-solarized-zsh"
+
+# zinit ice wait"!0" blockf lucid pick"bgnotify.plugin.zsh" as"service"
+# zinit light "t413/zsh-background-notify"
 
 zinit light-mode for \
     pick"async.zsh" src"pure.zsh" \

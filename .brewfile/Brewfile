@@ -22,6 +22,7 @@ brew dfu-util
 brew direnv
 brew emacs
 brew emojify
+brew exa
 brew ffmpeg
 brew flac
 brew fontconfig

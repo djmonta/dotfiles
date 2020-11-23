@@ -14,25 +14,28 @@ autoload -Uz _zinit
 
 zinit snippet "${ZDOTDIR}/utils.zsh"
 
-zinit ice wait"!0" blockf silent
+zinit ice wait"!0" blockf lucid atpull'zinit creinstall -q .'
 zinit light "zsh-users/zsh-completions"
 
-zinit ice wait"!0" silent atinit"zpcompinit; zpcdreplay"
+zinit ice wait"!0" lucid atinit"zpcompinit; zpcdreplay"
 zinit light "zsh-users/zsh-syntax-highlighting"
 
-zinit ice as"command" mv"fzf-* -> fzf" junegunn/fzf-bin
 zinit light "mollifier/anyframe"
 
-zinit ice wait"!0" silent pick"init.sh" "b4b4r07/enhancd"
+zinit ice wait"!0" blockf lucid pick"init.sh"
+zinit light "b4b4r07/enhancd"
 
-zinit ice as"command" mv"zsh-gomi -> gomi" "b4b4r07/zsh-gomi"
-
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
 zinit light "pinelibg/dircolors-solarized-zsh"
 
 zinit light-mode for \
     pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure
 
-zinit ice pick"wakatime.plugin.zsh" "sobolevn/wakatime-zsh-plugin"
+zinit ice wait"!0" blockf lucid pick"wakatime.plugin.zsh"
+zinit light "sobolevn/wakatime-zsh-plugin"
 
 ### End of Zinit's installer chunk

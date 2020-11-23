@@ -379,13 +379,13 @@ fi
 
 # set terminal title including current directory
 #
-case "${TERM}" in
-xterm*|screen*|kterm|kterm-color)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    ;;
-esac
+# case "${TERM}" in
+# xterm*|screen*|kterm|kterm-color)
+#     precmd() {
+#         echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+#     }
+#     ;;
+# esac
 
 # }}}
 

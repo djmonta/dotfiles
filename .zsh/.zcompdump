@@ -1,4 +1,4 @@
-#files: 1106	version: 5.7.1
+#files: 1065	version: 5.7.1
 
 _comps=(
 '-' '_precommand'
@@ -467,6 +467,7 @@ _comps=(
 'eview' '_vim'
 'evim' '_vim'
 'evince' '_evince'
+'exa' '_exa'
 'exec' '_exec'
 'expand' '_unexpand'
 'explodepkg' '_pkgtool'
@@ -479,7 +480,6 @@ _comps=(
 'fail2ban-client' '_fail2ban-client'
 'fakeroot' '_fakeroot'
 'false' '_nothing'
-'fast-theme' '_fast-theme'
 'fc' '_fc'
 'fc-list' '_xft_fonts'
 'fc-match' '_xft_fonts'
@@ -653,7 +653,6 @@ _comps=(
 'go' '_golang'
 'god' '_od'
 'gofmt' '_go'
-'gomi' '_gomi'
 'google' '_google'
 'gpasswd' '_gpasswd'
 'gpaste' '_paste'
@@ -1926,30 +1925,30 @@ autoload -Uz _colorls _afew _android _archlinux-java _artisan \
             _conan _concourse _console _cppcheck _dad \
             _debuild _dget _dhcpcd _diana _docpad \
             _drush _ecdsautil _emulator _envdir _exportfs \
-            _fab _fail2ban-client _fast-theme _ffind _fleetctl \
-            _flutter _force _fwupdmgr _gas _ghc \
-            _gist _git-flow _git-journal _git-pulls _git-revise \
-            _git-wtf _glances _golang _gomi _google \
-            _gtk-launch _hledger _homestead _httpie _ibus \
-            _include-what-you-use _inxi _jmeter _jmeter-plugins _jonas \
-            _jrnl _kak _kitchen _knife _language_codes \
-            _lunchy _mc _middleman _mina _mix \
-            _mussh _mvn _nano _nanoc _nftables \
-            _node _nvm _openssl _optirun _patool \
-            _perf _periscope _pgsql_utils _phing _pixz \
-            _pkcon _play _pm2 _port _protoc \
-            _pygmentize _rails _ralio _redis-cli _rfkill \
-            _rkt _rslsync _rspec _rsvm _rubocop \
-            _sbt _scala _scrub _sdd _setcap \
-            _setup.py _sfdx _showoff _srm _stack \
-            _subl _subliminal _supervisorctl _svm _tarsnap \
-            _teamocil _thor _tmuxinator _tmuxp _tox \
-            _trash-empty _trash-list _trash-put _trash-restore _udisksctl \
-            _ufw _vagrant _virtualbox _vnstat _wemux \
-            _wg-quick _xinput _xsel _yaourt _yarn \
-            _zcash-cli _zinit _aws _brew _brew-file \
-            _brew_cask _hub _aws _brew _brew-file \
-            _brew_cask _hub _SUSEconfig _a2ps _a2utils \
+            _fab _fail2ban-client _ffind _fleetctl _flutter \
+            _force _fwupdmgr _gas _ghc _gist \
+            _git-flow _git-journal _git-pulls _git-revise _git-wtf \
+            _glances _golang _google _gtk-launch _hledger \
+            _homestead _httpie _ibus _include-what-you-use _inxi \
+            _jmeter _jmeter-plugins _jonas _jrnl _kak \
+            _kitchen _knife _language_codes _lunchy _mc \
+            _middleman _mina _mix _mussh _mvn \
+            _nano _nanoc _nftables _node _nvm \
+            _openssl _optirun _patool _perf _periscope \
+            _pgsql_utils _phing _pixz _pkcon _play \
+            _pm2 _port _protoc _pygmentize _rails \
+            _ralio _redis-cli _rfkill _rkt _rslsync \
+            _rspec _rsvm _rubocop _sbt _scala \
+            _scrub _sdd _setcap _setup.py _sfdx \
+            _showoff _srm _stack _subl _subliminal \
+            _supervisorctl _svm _tarsnap _teamocil _thor \
+            _tmuxinator _tmuxp _tox _trash-empty _trash-list \
+            _trash-put _trash-restore _udisksctl _ufw _vagrant \
+            _virtualbox _vnstat _wemux _wg-quick _xinput \
+            _xsel _yaourt _yarn _zcash-cli _zinit \
+            _aws _brew _brew-file _brew_cask _exa \
+            _hub _aws _brew _brew-file _brew_cask \
+            _exa _hub _SUSEconfig _a2ps _a2utils \
             _aap _absolute_command_paths _ack _acpi _acpitool \
             _acroread _adb _add-zle-hook-widget _add-zsh-hook _alias \
             _aliases _all_labels _all_matches _alternative _analyseplugin \

@@ -7,15 +7,18 @@ brew apr
 brew apr-util
 brew autoconf
 brew automake
-brew avrdude
 brew awscli
+brew bison
 brew bison@2.7
 brew boost
+brew brotli
 brew bzip2
+brew c-ares
 brew cairo
 brew carthage
 brew chmlib
 brew coreutils
+brew curl
 brew czmq
 brew fontconfig
 brew fontforge
@@ -26,6 +29,7 @@ brew gcc
 brew gd
 brew gdbm
 brew gettext
+brew gh
 brew giflib
 brew glib
 brew gmp
@@ -41,11 +45,13 @@ brew highlight
 brew icu4c
 brew isl
 brew jasper
+brew jemalloc
 brew jpeg
 brew jq
 brew libassuan
 brew libedit
 brew libelf
+brew libev
 brew libevent
 brew libffi
 brew libftdi0
@@ -55,11 +61,13 @@ brew libhid
 brew libiconv
 brew libidn2
 brew libksba
+brew libmetalink
 brew libmpc
 brew libpng
 brew libressl
 brew libsodium
 brew libspiro
+brew libssh2
 brew libtasn1
 brew libtiff
 brew libtool
@@ -82,6 +90,7 @@ brew mysql
 brew ncurses
 brew netpbm
 brew nettle
+brew nghttp2
 brew nkf
 brew node
 brew npth
@@ -89,11 +98,11 @@ brew nspr
 brew nss
 brew oniguruma
 brew openjpeg
+brew openldap
 brew openssl@1.1
 brew p11-kit
 brew pango
 brew pcre
-brew peco
 brew pinentry
 brew pinentry-mac
 brew pixman
@@ -108,12 +117,12 @@ brew qt
 brew re2c
 brew readline
 brew rename
+brew rtmpdump
 brew setweblocthumb
 brew sqlite
 brew terminal-notifier
 brew the_silver_searcher
 brew tidy-html5
-brew tmux
 brew unbound
 brew unixodbc
 brew utf8proc
@@ -124,15 +133,10 @@ brew yarn
 brew youtube-dl
 brew zeromq
 brew zlib
-
-tap homebrew/bundle
-
-tap homebrew/cask-drivers
-cask qmk-toolbox
+brew zstd
 
 tap homebrew/cask-fonts
-
-tap homebrew/services
+cask font-hack-nerd-font
 
 tap homebrew/cask
 cask 1password
@@ -148,7 +152,6 @@ cask google-chrome
 cask gpg-suite
 cask iterm2
 cask itsycal
-cask java
 cask kaleidoscope
 cask postman
 cask qlcolorcode
@@ -166,13 +169,8 @@ cask visual-studio-code
 
 tap argon/mas
 
-tap heroku/brew
-
 tap osx-cross/avr
-brew avr-binutils
 brew avr-gcc@8
-
-tap qmk/qmk
 
 tap rcmdnk/file
 brew brew-file
@@ -183,8 +181,8 @@ brew ricty --with-powerline
 # Other Homebrew packages
 brew gomi
 brew gpg-agent
-brew python
-brew python@2
+brew libjpeg
+brew openssl
 
 # App Store applications
 appstore 1107421413 1Blocker (3.7)

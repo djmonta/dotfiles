@@ -25,7 +25,7 @@ scrolling:
 
 font:
   normal:
-    family: Hack Nerd Font
+    family: 'Hack Nerd Font'
     #style: Regular
   #bold:
     #family: monospace

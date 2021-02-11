@@ -133,6 +133,7 @@ brew terminal-notifier
 brew tesseract
 brew tesseract-lang
 brew theora
+brew tig
 brew tmux
 brew unbound
 brew utf8proc
@@ -249,7 +250,6 @@ appstore 445189367 PopClip (2020.12)
 appstore 866773894 Quiver (3.2.7)
 appstore 957810159 Raindrop.io for Safari (2.3.9)
 appstore 1289119450 SafariMarkdownLinker (1.0)
-appstore 1477385213 Save to Pocket (1.1)
 appstore 803453959 Slack (4.12.2)
 appstore 1176895641 Spark (2.9.15)
 appstore 873245660 Spillo (2.0)

@@ -4,6 +4,7 @@
 	signingkey = DC1DCB4CF219B351
 [mergetool]
 	keepBackup = true
+	prompt = false
 [color]
 	ui = true
 [core]
@@ -28,3 +29,14 @@
 	helper = osxkeychain
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope

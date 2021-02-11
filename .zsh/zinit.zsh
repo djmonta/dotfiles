@@ -34,6 +34,8 @@ zinit light "pinelibg/dircolors-solarized-zsh"
 # zinit ice wait"!0" blockf lucid pick"bgnotify.plugin.zsh" as"service"
 # zinit light "t413/zsh-background-notify"
 
+zinit light "marzocchi/zsh-notify"
+
 zinit light-mode for \
     pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure

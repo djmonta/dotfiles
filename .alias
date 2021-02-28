@@ -354,6 +354,10 @@ alias tree="tree -N -a -I '.git|.svn'"
 # 文字コードを判定
 alias nkfg='nkf -g'
 
+#
+# imgcat
+#
+alias imgcat='imgcat --iterm2'
 
 #
 # emacsclient

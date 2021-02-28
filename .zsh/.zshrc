@@ -87,6 +87,9 @@ autoload -Uz add-zsh-hook
 ## tmux prompt
 # PROMPT+='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
+## iterm2
+source ${ZDOTDIR}/iterm2_shell_integration.zsh
+
 autoload -Uz promptinit
 promptinit
 zstyle :prompt:pure:path color 032 #bright blue

@@ -17,6 +17,8 @@ zinit snippet "${ZDOTDIR}/utils.zsh"
 zinit ice wait"!0" blockf lucid atpull'zinit creinstall -q .'
 zinit light "zsh-users/zsh-completions"
 
+zinit light "zsh-users/zsh-autosuggestions"
+
 zinit ice wait"!0" lucid atinit"zpcompinit; zpcdreplay"
 zinit light "zdharma/fast-syntax-highlighting"
 

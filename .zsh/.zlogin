@@ -37,4 +37,4 @@ export MANPATH
 
 
 ### Complete Messages
-echo "Loading .zlogin completed!!"
+# echo "Loading .zlogin completed!!"

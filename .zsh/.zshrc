@@ -427,8 +427,8 @@ zstyle ":anyframe:selector:" command "fzf --ansi"
 # prompt pure
 
 ### Complete Messages
-echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"
-echo "Now zsh version $ZSH_VERSION starting!!"
+# echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"
+# echo "Now zsh version $ZSH_VERSION starting!!"
 
 # Print log
 # log

@@ -112,4 +112,4 @@ export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
 export DOWNLOAD_DIR=${HOME}/Downloads
 
 ### Complete Messages
-echo "Loading .profile.osx completed!!"
+# echo "Loading .profile.osx completed!!"

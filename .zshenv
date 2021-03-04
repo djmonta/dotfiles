@@ -28,6 +28,9 @@
 #
 #******************************************************************************
 
+## performance
+# zmodload zsh/zprof && zprof
+
 ### Setup ZDOTDIR
 #
 # The directory to search for shell startup files (.zshrc, etc).

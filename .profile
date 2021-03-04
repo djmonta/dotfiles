@@ -19,26 +19,6 @@ export LANG=ja_JP.UTF-8
 # esac
 
 
-#
-# Terminal configuration
-# http://journal.mycom.co.jp/column/zsh/009/index.html
-#
-# case "${TERM}" in
-#     xterm)
-#         # オリジナルのTERM=xtermはカラー表示できない
-#         export TERM=xterm-color
-#         ;;
-#     kterm)
-#         export TERM=kterm-color
-#         # set BackSpace control character
-#         stty erase
-#         ;;
-#     screen)
-#         # screen の時
-#         export TERM=xterm-color
-#         ;;
-# esac
-
 unset LSCOLORS
 case "${TERM}" in
     xterm*|screen*)
@@ -82,18 +62,6 @@ case "${TERM}" in
 esac
 
 #
-# 端末XON/XOFF制御を無効
-#  vimなどでC-s/C-qを使用するため
-#  ただし、C-s/C-qによる画面停止/再開が行えなくなる
-#  http://www.akamoz.jp/you/uni/shellscript.htm
-#  http://d.hatena.ne.jp/ksmemo/20110214/p1
-#
-# if [ -t 0 ]; then
-#     stty -ixoff -ixon
-# fi
-
-
-#
 # history setting
 #
 HISTSIZE=10000              # ヒストリに保存するコマンド(メモリ)
@@ -106,7 +74,7 @@ export HISTSIZE HISTFILESIZE HISTCONTROL HISTTIMEFORMAT
 #
 # PAGER
 #
-# export PAGER=less
+export PAGER=less
 
 # lessのデフォルトオプションを設定
 #  -F or --quit-if-one-screen  1画面で表示できる場合はそのままコマンド終了
@@ -123,7 +91,7 @@ export HISTSIZE HISTFILESIZE HISTCONTROL HISTTIMEFORMAT
 # export JLESSCHARSET=japanese-utf-8
 # export LESSCHARSET=utf-8
 #export GIT_PAGER="lv -c -l"
-# export GIT_PAGER="less -F"
+export GIT_PAGER="less -F"
 
 #
 # grep
@@ -165,16 +133,6 @@ export BLOCKSIZE=k
 
 
 #
-# rsync
-#  RSYNC_PASSWORDを使うと、自動でパスワードを入力できる
-#  便利だけど危険
-#  rsync では ssh を使う
-#
-#export RSYNC_PASSWORD=xxxx
-# export RSYNC_RSH=ssh
-
-
-#
 # tree
 #  文字コード、ロケールを設定
 export TREE_CHARSET='UTF-8'
@@ -205,9 +163,8 @@ fi
 # if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     # source ~/.gnupg/.gpg-agent-info
     # export GPG_AGENT_INFO
-    # export GPG_TTY=$(tty)
 # else
-    # eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+    # eval $(gpg-agent --daemon)
 # fi
 
 ### Complete Messages

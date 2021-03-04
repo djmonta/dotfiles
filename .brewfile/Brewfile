@@ -8,15 +8,25 @@ brew apr
 brew apr-util
 brew autoconf
 brew automake
+brew avrdude
 brew awscli
+brew bdw-gc
+brew bootloadhid
+brew c-ares
 brew cairo
 brew cask
+brew clang-format
+brew cmatrix
 brew coreutils
 brew dav1d
+brew dfu-programmer
+brew dfu-util
 brew direnv
 brew emacs
 brew emojify
+brew exa
 brew ffmpeg
+brew fish
 brew flac
 brew fontconfig
 brew fontforge
@@ -26,19 +36,26 @@ brew fribidi
 brew fzf
 brew gdbm
 brew gettext
+brew ghostscript
 brew giflib
 brew glib
 brew gmp
 brew gnupg
 brew gnutls
 brew go
+brew gobject-introspection
 brew graphite2
+brew guile
 brew harfbuzz
 brew highlight
 brew hr
 brew hub
+brew hugo
 brew icu4c
 brew imagemagick@6
+brew isl
+brew jansson
+brew jemalloc
 brew jpeg
 brew jq
 brew lame
@@ -47,16 +64,23 @@ brew less
 brew libass
 brew libassuan
 brew libbluray
+brew libelf
+brew libev
 brew libevent
 brew libffi
+brew libftdi0
 brew libgcrypt
 brew libgpg-error
+brew libhid
 brew libidn2
 brew libksba
+brew libmpc
 brew libogg
 brew libpng
+brew libpthread-stubs
 brew libsamplerate
 brew libsndfile
+brew libsodium
 brew libsoxr
 brew libspiro
 brew libtasn1
@@ -69,13 +93,22 @@ brew libusb-compat
 brew libvidstab
 brew libvorbis
 brew libvpx
+brew libx11
+brew libxau
+brew libxcb
+brew libxdmcp
+brew libxext
+brew libxrender
 brew little-cms2
 brew lua
 brew lzo
 brew mackup
 brew mas
+brew mpdecimal
+brew mpfr
 brew ncurses
 brew nettle
+brew nghttp2
 brew node
 brew npth
 brew oniguruma
@@ -86,13 +119,17 @@ brew opus
 brew p11-kit
 brew pango
 brew pcre
+brew pcre2
 brew pinentry
 brew pinentry-mac
 brew pixman
 brew pkg-config
 brew python@3.8
+brew python@3.9
+brew rav1e
 brew readline
 brew reattach-to-user-namespace
+brew rename
 brew rtmpdump
 brew rubberband
 brew sdl2
@@ -101,10 +138,13 @@ brew speex
 brew sqlite
 brew srt
 brew ssh-copy-id
+brew tcl-tk
+brew teensy_loader_cli
 brew terminal-notifier
 brew tesseract
 brew tesseract-lang
 brew theora
+brew tig
 brew tmux
 brew unbound
 brew utf8proc
@@ -112,9 +152,13 @@ brew webp
 brew wget
 brew x264
 brew x265
+brew xorgproto
 brew xvid
 brew xz
+brew yarn
 brew youtube-dl
+brew zeromq
+brew zimg
 
 tap homebrew/cask-fonts
 cask font-fira-code
@@ -130,10 +174,12 @@ cask 1password
 cask adobe-creative-cloud
 cask alacritty
 cask alfred
+cask amethyst
 cask android-sdk
 cask appcleaner
 cask applepi-baker
 cask bartender
+cask calibre
 cask cmd-eikana
 cask cyberduck
 cask docker
@@ -141,13 +187,14 @@ cask dropbox
 cask dynalist
 cask google-chrome
 cask gpg-suite
+cask iina
 cask iterm2
 cask itsycal
-cask java
 cask kaleidoscope
 cask karabiner-elements
 cask kindle
 cask ngrok
+cask openinterminal
 cask postman
 cask qlcolorcode
 cask qlimagesize
@@ -163,7 +210,30 @@ cask typora
 cask virtualbox
 cask visual-studio-code
 
+tap b4b4r07/tap
+brew gomi
+
 tap beeftornado/rmtree
+
+tap eddieantonio/eddieantonio
+brew imgcat
+
+tap koekeishiya/formulae
+brew skhd
+brew yabai
+
+tap osx-cross/arm
+brew arm-gcc-bin@8
+
+tap osx-cross/avr
+brew avr-binutils
+brew avr-gcc@8
+
+tap px4/px4
+brew gcc-arm-none-eabi
+
+tap qmk/qmk
+brew qmk
 
 tap rcmdnk/file
 brew brew-file
@@ -172,32 +242,38 @@ tap vitorgalvao/tiny-scripts
 brew cask-repair
 
 # Other Homebrew packages
-brew python
+brew avr-gcc@7
 
 # App Store applications
-appstore 1107421413 1Blocker (3.7)
-appstore 1432182561 Cascadea (1.5.4)
-appstore 1024640650 CotEditor (3.9.0)
-appstore 1055511498 Day One (4.15.1)
-appstore 406056744 Evernote (7.14)
-appstore 1483172210 Free Ruler (2.0.2)
-appstore 422293948 IP Scanner (3.97)
-appstore 1142151959 Just Focus (1.6.6)
+appstore 1432182561 Cascadea (2.0.5)
+appstore 1024640650 CotEditor (4.0.1)
+appstore 1055511498 Day One (5.9.1)
+appstore 554314609 Dropmark (2.1.1)
+appstore 1526651672 Eagle for Safari (2.1.9)
+appstore 406056744 Evernote (10.8.6)
+appstore 1483172210 Free Ruler (2.0.5)
+appstore 422293948 IP Scanner (3.99)
+appstore 1039633667 Irvue (2.7.9)
+appstore 1142151959 Just Focus (1.6.8)
 appstore 1145215534 Kelir (1.5)
-appstore 409183694 Keynote (10.0)
-appstore 539883307 LINE (6.0.3)
-appstore 441258766 Magnet (2.4.5)
-appstore 1295203466 Microsoft Remote Desktop (10.3.11)
-appstore 409203825 Numbers (10.0)
-appstore 568494494 Pocket (1.8.5)
-appstore 445189367 PopClip (2019.10)
+appstore 409183694 Keynote (10.3.9)
+appstore 539883307 LINE (6.6.0)
+appstore 441258766 Magnet (2.5.0)
+appstore 1295203466 Microsoft Remote Desktop (10.5.1)
+appstore 1505432629 NotePlan 3 (3.0.18)
+appstore 409203825 Numbers (10.3.9)
+appstore 1552590875 Pinboard Tools (1.0.3)
+appstore 568494494 Pocket (1.8.6)
+appstore 445189367 PopClip (2020.12)
 appstore 866773894 Quiver (3.2.7)
-appstore 803453959 Slack (4.6.0)
-appstore 1176895641 Spark (2.7.0)
+appstore 957810159 Raindrop.io for Safari (2.3.9)
+appstore 1289119450 SafariMarkdownLinker (1.0)
+appstore 803453959 Slack (4.13.0)
+appstore 1176895641 Spark (2.9.15)
 appstore 873245660 Spillo (2.0)
-appstore 1493327990 Streaks (5.3.4)
-appstore 904280696 Things (3.12.4)
+appstore 1493327990 Streaks (6.1.2)
+appstore 904280696 Things (3.13.9)
 appstore 961656759 Timeline (1.0)
 appstore 1151308717 traumbaum (1.23)
-appstore 497799835 Xcode (11.5)
+appstore 497799835 Xcode (12.4)
 appstore 992700627 おもいでばこ (2.5)

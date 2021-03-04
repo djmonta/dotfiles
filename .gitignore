@@ -2,3 +2,4 @@
 *.spc
 *~
 *.cache
+.zsh/.zcompdump

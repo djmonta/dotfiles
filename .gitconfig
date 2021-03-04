@@ -4,6 +4,7 @@
 	signingkey = 2E474099ED9CA707
 [mergetool]
 	keepBackup = true
+	prompt = false
 [color]
 	ui = true
 [core]

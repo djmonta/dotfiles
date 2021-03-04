@@ -24,13 +24,13 @@ bindkey "^xs" anyframe-widget-select-widget
 
 # コマンド履歴 ^P/^N
 #
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-bindkey "\\ep" history-beginning-search-backward-end
-bindkey "\\en" history-beginning-search-forward-end
+# autoload history-search-end
+# zle -N history-beginning-search-backward-end history-search-end
+# zle -N history-beginning-search-forward-end history-search-end
+# bindkey "^P" history-beginning-search-backward-end
+# bindkey "^N" history-beginning-search-forward-end
+# bindkey "\\ep" history-beginning-search-backward-end
+# bindkey "\\en" history-beginning-search-forward-end
 
 # glob(*)によるインクリメンタルサーチ <http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852>
 #bindkey "^R" history-incremental-pattern-search-backward
@@ -39,6 +39,9 @@ bindkey "\\en" history-beginning-search-forward-end
 # reverse menu completion binded to Shift-Tab
 #
 bindkey "\e[Z" reverse-menu-complete
+
+# zle -N do_enter
+# bindkey '^m' do_enter
 
 # ^でcd ..する
 # http://shakenbu.org/yanagi/d/?date=20120301

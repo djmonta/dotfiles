@@ -33,7 +33,7 @@ export GIT_EDITOR="/usr/local/bin/code"
 #
 
 # PATH
-PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/opt:/usr/local/share:/usr/X11/bin:$PATH"
+PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin:$PATH"
 # Android SDK
 #PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 
@@ -103,6 +103,8 @@ export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # ENHANCD
 export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
+export ENHANCD_DISABLE_DOT=1
+export ENHANCD_DISABLE_HOME=1
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 60% --ansi'

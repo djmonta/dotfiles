@@ -51,9 +51,6 @@ create_dotfiles_symlinks() {
         # .gitignore
         create_symlink "$HOME/dotfiles/.gitignore.default" "$HOME/.gitignore"
 
-        # .dir_colors
-        create_symlink "$HOME/dotfiles/Cellar/dircolors-solarized/dircolors.256dark" "$HOME/.dir_colors"
-
         # links
         #create_symlink "$HOME/dotfiles.local/links" "$HOME/links"
     )

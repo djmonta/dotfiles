@@ -52,9 +52,6 @@ homebrew:
 
 brew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/40-brewfileinstall.sh
-
-# cask:
-# 	@bash $(DOTFILES_DIR)/etc/init/osx/Caskfile
 endif
 
 clean:

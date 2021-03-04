@@ -18,3 +18,4 @@ Run the installation command below in your terminal.
 
 1. Inspired by [yonchu' dotfiles](https://github.com/yonchu/dotfiles)
 2. Inspired by [b4b4r07's dotfiles](https://github.com/b4b4r07/dotfiles)
+3. any of you

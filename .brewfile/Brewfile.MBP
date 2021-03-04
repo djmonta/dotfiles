@@ -123,6 +123,7 @@ brew sqlite
 brew terminal-notifier
 brew the_silver_searcher
 brew tidy-html5
+brew tree
 brew unbound
 brew unixodbc
 brew utf8proc
@@ -179,6 +180,7 @@ tap sanemat/font
 brew ricty --with-powerline
 
 # Other Homebrew packages
+brew cyberduck
 brew gomi
 brew gpg-agent
 brew libjpeg

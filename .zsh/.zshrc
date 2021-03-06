@@ -167,6 +167,11 @@ typeset -U path PATH        # PATH環境変数の重複エントリを排除
 # autoload zed
 # }}}
 
+## zsh editor {{{
+autoload -Uz edit-command-line
+zle -N edit-command-line
+# }}}
+
 ## Keybind configuration {{{
 # $ bindkey で現在の割り当てを確認
 source ${HOME}/dotfiles/.zsh/keybind.zsh

@@ -18,13 +18,13 @@ export USER_LOCAL
 #
 # デフォルトエディタ
 #
-export EDITOR="subl"
-export VISUAL="subl"
+export EDITOR="nano"
+export VISUAL="nano"
 export ALTERNATE_EDITOR="nano"
 
 # Gitでコミット時に起動するエディタを指定
 # 未指定だとコミット時にエラーになる(絶対パス必須)
-export GIT_EDITOR="/usr/local/bin/subl -w"
+export GIT_EDITOR="/usr/bin/local/subl -w"
 
 #
 # PATH =========================================================================

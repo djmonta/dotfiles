@@ -233,6 +233,7 @@ tap px4/px4
 brew gcc-arm-none-eabi
 
 tap qmk/qmk
+brew mdloader
 brew qmk
 
 tap rcmdnk/file
@@ -257,10 +258,10 @@ appstore 1039633667 Irvue (2.7.9)
 appstore 1142151959 Just Focus (1.6.8)
 appstore 1145215534 Kelir (1.5)
 appstore 409183694 Keynote (10.3.9)
-appstore 539883307 LINE (6.6.0)
+appstore 539883307 LINE (6.7.0)
 appstore 441258766 Magnet (2.5.0)
 appstore 1295203466 Microsoft Remote Desktop (10.5.1)
-appstore 1505432629 NotePlan 3 (3.0.18)
+appstore 1505432629 NotePlan 3 (3.0.19)
 appstore 409203825 Numbers (10.3.9)
 appstore 1552590875 Pinboard Tools (1.0.3)
 appstore 568494494 Pocket (1.8.6)

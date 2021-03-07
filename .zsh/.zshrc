@@ -373,6 +373,17 @@ fi
 #
 # [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
+# notification
+zstyle ':notify:*' command-complete-timeout 10
+zstyle ':notify:*' activate-terminal yes
+zstyle ':notify:*' always-notify-on-failure yes
+zstyle ':notify:*' error-title "Failed"
+zstyle ':notify:*' error-icon "${ZDOTDIR}/themes/icon-error.png"
+zstyle ':notify:*' error-sound "Funk"
+zstyle ':notify:*' success-title "Success"
+zstyle ':notify:*' success-icon "${ZDOTDIR}/themes/icon-success.png"
+zstyle ':notify:*' success-sound "Glass"
+
 ## anyframe
 zstyle ":anyframe:selector:" command "fzf --ansi"
 

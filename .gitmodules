@@ -1,0 +1,3 @@
+[submodule "iterm-notify"]
+	path = iterm-notify
+	url = https://djmonta@github.com/marzocchi/iterm-notify.git

@@ -39,12 +39,7 @@ PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbi
 
 # Add anyenv to PATH for scripting
 if [ -d ${HOME}/.anyenv ] ; then
-	PATH="${HOME}/.anyenv/bin:$PATH"
-	eval "$(anyenv init -)"
-	for D in `\ls ${HOME}/.anyenv/envs`
-	do
-	  PATH="${HOME}/.anyenv/envs/$D/shims:$PATH"
-	done
+	PATH=$HOME/.anyenv/bin:$PATH
 fi
 
 # Go
@@ -53,15 +48,6 @@ if [ -x "`which go`" ]; then
 	export GOROOT=/usr/local/opt/go/libexec
 	export GOPATH=$HOME/go
 fi
-# direnv
-if [ -x "`which direnv`" ]; then
-	eval "$(direnv hook zsh)"
-fi
-
-# fastlane
-# if [ -d ${HOME}/.fastlane ] ; then
-	# PATH="$PATH:${HOME}/.fastlane/bin"
-# fi
 
 export PATH
 
@@ -84,13 +70,13 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
 if hostname | grep -q "Mac-mini\.local$" ; then
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile
 elif hostname | grep -q "iMac\.local$" ; then
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile
 elif hostname | grep -q "MacBook-Pro\.local$" ; then
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile.MBP
 else
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBA
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile.MBA
 fi
 
 # Vagrant
@@ -110,8 +96,8 @@ export ENHANCD_DISABLE_HOME=1
 export FZF_DEFAULT_OPTS='--height 60% --ansi'
 
 # Terminal Notifier
-export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
-export DOWNLOAD_DIR=${HOME}/Downloads
+export SYS_NOTIFIER=/usr/local/bin/terminal-notifier
+export DOWNLOAD_DIR=$HOME/Downloads
 
 ### Complete Messages
 # echo "Loading .profile.osx completed!!"

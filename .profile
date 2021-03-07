@@ -19,46 +19,9 @@ export LANG=ja_JP.UTF-8
 # esac
 
 
-unset LSCOLORS
 case "${TERM}" in
     xterm*|screen*)
-#         # lsのカラー化
-        export CLICOLOR=1
-        export LSCOLORS=DxGxcxdxCxegedabagacad
-
-#         # GNU ls のカラー化
-#         LS_COLORS="no=00:fi=00:di=36:ln=35:pi=30;44:so=35;44:do=35;44"
-#         LS_COLORS="${LS_COLORS}:bd=33;44:cd=37;44:or=05;37;41:mi=05;37;41"
-#         LS_COLORS="${LS_COLORS}:ex=01;31:su=41;30:sg=46;30:tw=42;30:ow=43;30"
-#         export LS_COLORS
-
-        if [ -f ${HOME}/.dircolors ]; then
-            if type dircolors > /dev/null 2>&1; then
-                eval $(dircolors ${HOME}/.dircolors)
-            elif type gdircolors > /dev/null 2>&1; then
-                eval $(gdircolors ${HOME}/.dircolors)
-            fi
-        fi
         ;;
-#     kterm*)
-#         export LSCOLORS=exfxcxdxbxegedabagacad
-#         LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30"
-#         LS_COLORS="${LS_COLORS}:sg=46;30:tw=42;30:ow=43;30"
-#         export LS_COLORS
-#         ;;
-#     cons25)
-#         unset LANG
-#         export LSCOLORS=ExFxCxdxBxegedabagacad
-#         LS_COLORS="di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34"
-#         LS_COLORS="${LS_COLORS}:su=41;30:sg=46;30:tw=42;30:ow=43;30"
-#         export LS_COLORS
-#         ;;
-#     jfbterm-color)
-#         export LSCOLORS=gxFxCxdxBxegedabagacad
-#         LS_COLORS="di=01;36:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34"
-#         LS_COLORS="${LS_COLORS}:su=41;30:sg=46;30:tw=42;30:ow=43;30"
-#         export LS_COLORS
-#         ;;
 esac
 
 #

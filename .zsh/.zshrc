@@ -376,7 +376,15 @@ fi
 ## anyframe
 zstyle ":anyframe:selector:" command "fzf --ansi"
 
+# anyenv
+if [ -f ${HOME}/.anyenv/bin/anyenv ]; then
+    eval "$(anyenv init - --no-rehash)"
+fi
 
+# direnv
+if [ -x "`which direnv`" ]; then
+    eval "$(direnv hook zsh)"
+fi
 ## prompt
 # prompt pure
 

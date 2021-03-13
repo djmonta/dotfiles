@@ -78,6 +78,7 @@ elif hostname | grep -q "MacBook-Pro\.local$" ; then
 else
 	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile.MBA
 fi
+export HOMEBREW_BREWFILE_APPSTORE=1
 
 # Vagrant
 # if [ -d "/Applications/Parallels Desktop.app" ]; then

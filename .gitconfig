@@ -1,7 +1,7 @@
 [user]
 	name = monta
 	email = djmonta@gmail.com
-	signingkey = DC1DCB4CF219B351
+	signingkey = 51F3E100AC4B30813F9AF72CFA019D34F1DD8BC7
 [mergetool]
 	keepBackup = true
 	prompt = false

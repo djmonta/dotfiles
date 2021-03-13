@@ -38,3 +38,4 @@ esac
 
 ### Complete Messages
 # echo "Loading .zprofile completed!! (SHELL=${SHELL})"
+eval "$(/opt/homebrew/bin/brew shellenv)"

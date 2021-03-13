@@ -24,7 +24,7 @@ export ALTERNATE_EDITOR="nano"
 
 # Gitでコミット時に起動するエディタを指定
 # 未指定だとコミット時にエラーになる(絶対パス必須)
-export GIT_EDITOR="/usr/bin/local/subl -w"
+export GIT_EDITOR="${USER_LOCAL}/bin/subl -w"
 
 #
 # PATH =========================================================================
@@ -33,7 +33,7 @@ export GIT_EDITOR="/usr/bin/local/subl -w"
 #
 
 # PATH
-PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin:$PATH"
+PATH="${HOME}/bin:${HOME}/dotfiles/bin:${USER_LOCAL}/bin:${USER_LOCAL}/sbin:/usr/local/share:/usr/X11/bin:$PATH"
 # Android SDK
 #PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 
@@ -66,8 +66,8 @@ export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # BREW-FILE
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
+if [ -f $USER_LOCAL/etc/brew-wrap ];then
+  source $USER_LOCAL/etc/brew-wrap
 fi
 if hostname | grep -q "Mac-mini\.local$" ; then
 	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile

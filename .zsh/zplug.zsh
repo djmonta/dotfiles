@@ -8,7 +8,7 @@ zplug "marzocchi/zsh-notify"
 zplug "junegunn/fzf-bin", as:command, rename-to:fzf
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "b4b4r07/zsh-gomi", as:command, use:bin/gomi, rename-to:gomi, on:junegunn/fzf-bin
+# zplug "b4b4r07/zsh-gomi", as:command, use:bin/gomi, rename-to:gomi, on:junegunn/fzf-bin
 # zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh
 zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 zplug "pinelibg/dircolors-solarized-zsh"

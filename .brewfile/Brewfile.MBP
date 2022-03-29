@@ -3,23 +3,30 @@
 
 tap homebrew/core
 brew adns
+brew aom
 brew apr
 brew apr-util
+brew assimp
 brew autoconf
 brew automake
 brew awscli
+brew bdw-gc
 brew bison
 brew bison@2.7
 brew boost
 brew brotli
 brew bzip2
 brew c-ares
+brew ca-certificates
 brew cairo
 brew carthage
 brew chmlib
 brew coreutils
 brew curl
 brew czmq
+brew dbus
+brew double-conversion
+brew exiftool
 brew fontconfig
 brew fontforge
 brew freetype
@@ -28,6 +35,7 @@ brew fzf
 brew gcc
 brew gd
 brew gdbm
+brew gdk-pixbuf
 brew gettext
 brew gh
 brew giflib
@@ -40,20 +48,28 @@ brew gobject-introspection
 brew graphite2
 brew graphviz
 brew gts
+brew guile
 brew harfbuzz
 brew highlight
+brew hunspell
 brew icu4c
+brew imath
 brew isl
 brew jasper
 brew jemalloc
 brew jpeg
+brew jpeg-xl
 brew jq
 brew libassuan
+brew libavif
+brew libb2
+brew libcbor
 brew libedit
 brew libelf
 brew libev
 brew libevent
 brew libffi
+brew libfido2
 brew libftdi0
 brew libgcrypt
 brew libgpg-error
@@ -62,9 +78,14 @@ brew libiconv
 brew libidn2
 brew libksba
 brew libmetalink
+brew libmng
 brew libmpc
+brew libnghttp2
 brew libpng
+brew libproxy
+brew libpthread-stubs
 brew libressl
+brew librsvg
 brew libsodium
 brew libspiro
 brew libssh2
@@ -75,16 +96,28 @@ brew libuninameslist
 brew libunistring
 brew libusb
 brew libusb-compat
+brew libuv
+brew libvmaf
+brew libx11
+brew libxau
+brew libxcb
+brew libxdmcp
+brew libxext
 brew libxml2
+brew libxrender
 brew libyaml
 brew libzip
 brew little-cms2
 brew lua
+brew lz4
 brew lzo
+brew m4
 brew mackup
 brew mas
 brew mcrypt
+brew md4c
 brew mhash
+brew mpdecimal
 brew mpfr
 brew mysql
 brew ncurses
@@ -97,12 +130,14 @@ brew npth
 brew nspr
 brew nss
 brew oniguruma
+brew openexr
 brew openjpeg
 brew openldap
 brew openssl@1.1
 brew p11-kit
 brew pango
 brew pcre
+brew pcre2
 brew pinentry
 brew pinentry-mac
 brew pixman
@@ -110,16 +145,20 @@ brew pkg-config
 brew pngquant
 brew poppler
 brew protobuf
-brew protobuf@3.7
 brew pth
+brew python@3.10
 brew python@3.8
+brew python@3.9
 brew qt
+brew qt@5
 brew re2c
 brew readline
 brew rename
 brew rtmpdump
 brew setweblocthumb
+brew six
 brew sqlite
+brew tcl-tk
 brew terminal-notifier
 brew the_silver_searcher
 brew tidy-html5
@@ -129,6 +168,7 @@ brew unixodbc
 brew utf8proc
 brew webp
 brew wget
+brew xorgproto
 brew xz
 brew yarn
 brew youtube-dl
@@ -141,10 +181,8 @@ cask font-hack-nerd-font
 
 tap homebrew/cask
 cask 1password
-cask alacritty
 cask alfred
 cask appcleaner
-cask bartender
 cask cmd-eikana
 cask dash
 cask docker
@@ -162,16 +200,13 @@ cask qlstephen
 cask qlvideo
 cask sequel-pro
 cask slack
-cask sublime-text
 cask tower
-cask transmit
 cask virtualbox
 cask visual-studio-code
 
 tap argon/mas
 
 tap osx-cross/avr
-brew avr-gcc@8
 
 tap rcmdnk/file
 brew brew-file
@@ -180,25 +215,20 @@ tap sanemat/font
 brew ricty --with-powerline
 
 # Other Homebrew packages
-brew cyberduck
-brew gomi
 brew gpg-agent
-brew libjpeg
-brew openssl
+brew protobuf@3.7
 
 # App Store applications
-appstore 1107421413 1Blocker (3.7)
-appstore 1432182561 Cascadea (1.5.4)
-appstore 1024640650 CotEditor (3.9.1)
-appstore 1055511498 Day One (4.15.1)
-appstore 1483172210 Free Ruler (2.0.2)
-appstore 1142151959 Just Focus (1.6.6)
-appstore 1145215534 Kelir (1.5)
-appstore 405399194 Kindle (1.28.0)
-appstore 539883307 LINE (6.0.3)
-appstore 441258766 Magnet (2.4.5)
-appstore 409201541 Pages (10.0)
-appstore 1176895641 Spark (2.7.0)
-appstore 873245660 Spillo (2.0)
-appstore 904280696 Things (3.12.4)
-appstore 497799835 Xcode (11.5)
+appstore 1518425043  Boop        (1.4.0)
+appstore 1024640650  CotEditor   (4.1.4)
+appstore 1055511498  Day One     (7.3)
+appstore 1142151959  Just Focus  (2.0.9)
+appstore 1145215534  Kelir       (1.5)
+appstore 409183694   Keynote     (11.2)
+appstore 539883307   LINE        (7.7.0)
+appstore 441258766   Magnet      (2.7.0)
+appstore 1505432629  NotePlan 3  (3.4.1)
+appstore 409203825   Numbers     (11.2)
+appstore 1176895641  Spark       (2.11.15)
+appstore 904280696   Things      (3.15.15)
+appstore 497799835   Xcode       (13.3)

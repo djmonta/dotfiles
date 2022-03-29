@@ -135,7 +135,7 @@ case "${OSTYPE}" in
     # Mac(Unix)
     darwin*)
     #alias rm='trash'
-    alias rm='gomi'
+    # alias rm='gomi'
     ;;
     # Linux
     linux*)

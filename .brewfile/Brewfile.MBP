@@ -192,6 +192,7 @@ cask gpg-suite
 cask iterm2
 cask itsycal
 cask kaleidoscope
+cask obsidian
 cask postman
 cask qlcolorcode
 cask qlimagesize
@@ -220,15 +221,15 @@ brew protobuf@3.7
 
 # App Store applications
 appstore 1518425043  Boop        (1.4.0)
-appstore 1024640650  CotEditor   (4.1.4)
-appstore 1055511498  Day One     (7.3)
+appstore 1024640650  CotEditor   (4.2.1)
+appstore 1055511498  Day One     (7.7)
 appstore 1142151959  Just Focus  (2.0.9)
 appstore 1145215534  Kelir       (1.5)
-appstore 409183694   Keynote     (11.2)
-appstore 539883307   LINE        (7.7.0)
-appstore 441258766   Magnet      (2.7.0)
-appstore 1505432629  NotePlan 3  (3.4.1)
-appstore 409203825   Numbers     (11.2)
-appstore 1176895641  Spark       (2.11.15)
-appstore 904280696   Things      (3.15.15)
-appstore 497799835   Xcode       (13.3)
+appstore 409183694   Keynote     (12.0)
+appstore 539883307   LINE        (7.8.1)
+appstore 441258766   Magnet      (2.8.0)
+appstore 1505432629  NotePlan 3  (3.5.2)
+appstore 409203825   Numbers     (12.0)
+appstore 1176895641  Spark       (2.11.18)
+appstore 904280696   Things      (3.15.16)
+appstore 497799835   Xcode       (13.4)

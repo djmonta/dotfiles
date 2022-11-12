@@ -93,6 +93,9 @@ export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:sele
 export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HOME=1
 
+# Wakatime
+export ZSH_WAKATIME_BIN=/opt/homebrew/bin/wakatime-cli
+
 # fzf
 export FZF_DEFAULT_OPTS='--height 60% --ansi'
 

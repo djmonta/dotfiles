@@ -1,7 +1,7 @@
 
 # tap repositories and their packages
 
-tap homebrew/core
+# tap homebrew/core
 brew adns
 brew aom
 brew apr
@@ -23,6 +23,7 @@ brew ca-certificates
 brew cairo
 brew carthage
 brew chmlib
+brew colordiff
 brew coreutils
 brew curl
 brew czmq
@@ -54,6 +55,7 @@ brew gts
 brew guile
 brew harfbuzz
 brew highlight
+brew highway
 brew hunspell
 brew icu4c
 brew imath
@@ -154,6 +156,7 @@ brew poppler
 brew protobuf
 brew pth
 brew python@3.10
+brew python@3.11
 brew python@3.8
 brew python@3.9
 brew qt
@@ -233,11 +236,12 @@ brew gpg-agent
 brew protobuf@3.7
 
 # App Store applications
-appstore 1518425043  Boop        (1.4.0)
-appstore 1024640650  CotEditor   (4.3.4)
-appstore 1142151959  Just Focus  (2.1.3)
-appstore 539883307   LINE        (7.10.2)
-appstore 441258766   Magnet      (2.9.0)
-appstore 1505432629  NotePlan 3  (3.6.1)
-appstore 1176895641  Spark       (2.11.22)
-appstore 497799835   Xcode       (13.4.1)
+appstore 1518425043  Boop          (1.4.0)
+appstore 1024640650  CotEditor     (4.4.5)
+appstore 549083868   Display Menu  (2.2.4)
+appstore 1142151959  Just Focus    (2.1.3)
+appstore 539883307   LINE          (7.15.0)
+appstore 441258766   Magnet        (2.11.0)
+appstore 1505432629  NotePlan      (3.8.1)
+appstore 1176895641  Spark         (2.11.28)
+appstore 497799835   Xcode         (13.4.1)

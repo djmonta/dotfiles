@@ -167,6 +167,11 @@ typeset -U path PATH        # PATH環境変数の重複エントリを排除
 # autoload zed
 # }}}
 
+## zsh editor {{{
+autoload -Uz edit-command-line
+zle -N edit-command-line
+# }}}
+
 ## Keybind configuration {{{
 # $ bindkey で現在の割り当てを確認
 source ${HOME}/dotfiles/.zsh/keybind.zsh
@@ -368,10 +373,29 @@ fi
 #
 # [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
+# notification
+zstyle ':notify:*' command-complete-timeout 10
+zstyle ':notify:*' activate-terminal yes
+zstyle ':notify:*' always-notify-on-failure yes
+zstyle ':notify:*' error-title "Failed"
+zstyle ':notify:*' error-icon "${ZDOTDIR}/themes/icon-error.png"
+zstyle ':notify:*' error-sound "Funk"
+zstyle ':notify:*' success-title "Success"
+zstyle ':notify:*' success-icon "${ZDOTDIR}/themes/icon-success.png"
+zstyle ':notify:*' success-sound "Glass"
+
 ## anyframe
 zstyle ":anyframe:selector:" command "fzf --ansi"
 
+# anyenv
+if [ -f ${HOME}/.anyenv/bin/anyenv ]; then
+    eval "$(anyenv init - --no-rehash)"
+fi
 
+# direnv
+if [ -x "`which direnv`" ]; then
+    eval "$(direnv hook zsh)"
+fi
 ## prompt
 # prompt pure
 

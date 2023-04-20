@@ -33,18 +33,13 @@ export GIT_EDITOR="/usr/local/bin/code"
 #
 
 # PATH
-PATH="${HOME}/bin:${HOME}/dotfiles/bin:$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/share:/usr/X11/bin:$PATH"
+PATH="${HOME}/bin:${HOME}/dotfiles/bin:${USER_LOCAL}/bin:${USER_LOCAL}/sbin:/usr/local/share:/usr/X11/bin:$PATH"
 # Android SDK
 #PATH=$PATH:/Applications/android-sdk-macosx/platform-tools:/Applications/android-sdk-macosx/tools
 
 # Add anyenv to PATH for scripting
 if [ -d ${HOME}/.anyenv ] ; then
-	PATH="${HOME}/.anyenv/bin:$PATH"
-	eval "$(anyenv init -)"
-	for D in `\ls ${HOME}/.anyenv/envs`
-	do
-	  PATH="${HOME}/.anyenv/envs/$D/shims:$PATH"
-	done
+	PATH=$HOME/.anyenv/bin:$PATH
 fi
 
 # Go
@@ -53,15 +48,6 @@ if [ -x "`which go`" ]; then
 	export GOROOT=/usr/local/opt/go/libexec
 	export GOPATH=$HOME/go
 fi
-# direnv
-if [ -x "`which direnv`" ]; then
-	eval "$(direnv hook zsh)"
-fi
-
-# fastlane
-# if [ -d ${HOME}/.fastlane ] ; then
-	# PATH="$PATH:${HOME}/.fastlane/bin"
-# fi
 
 export PATH
 
@@ -80,18 +66,19 @@ export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # BREW-FILE
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
+if [ -f $USER_LOCAL/etc/brew-wrap ];then
+  source $USER_LOCAL/etc/brew-wrap
 fi
 if hostname | grep -q "Mac-mini\.local$" ; then
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile
 elif hostname | grep -q "iMac\.local$" ; then
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile
 elif hostname | grep -q "MacBook-Pro\.local$" ; then
-	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
+	export HOMEBREW_BREWFILE=$HOME/.brewfile/Brewfile.MBP
 else
 	export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
 fi
+export HOMEBREW_BREWFILE_APPSTORE=1
 
 # Vagrant
 # if [ -d "/Applications/Parallels Desktop.app" ]; then
@@ -107,14 +94,14 @@ export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HOME=1
 
 # Wakatime
-export ZSH_WAKATIME_BIN=/usr/local/bin/wakatime-cli
+export ZSH_WAKATIME_BIN=$USER_LOCAL/wakatime-cli
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 60% --ansi'
 
 # Terminal Notifier
-export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
-export DOWNLOAD_DIR=${HOME}/Downloads
+export SYS_NOTIFIER=$USER_LOCAL/terminal-notifier
+export DOWNLOAD_DIR=$HOME/Downloads
 
 ### Complete Messages
 # echo "Loading .profile.osx completed!!"

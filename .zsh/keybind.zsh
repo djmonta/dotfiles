@@ -7,8 +7,8 @@ bindkey "^[[4~" end-of-line     # End gets to line end
 bindkey "^[[3~" delete-char     # fn + delete の有効
 bindkey '^D' delete-char        # delete
 bindkey '^T' backward-delete-char # Backspace
-bindkey '^U' backward-kill-line # カーソル位置から後方全削除 override kill-whole-line
-bindkey '^Y' kill-line          # カーソル位置から前方全削除
+# bindkey '^U' backward-kill-line # カーソル位置から後方全削除 override kill-whole-line
+# bindkey '^Y' kill-line          # カーソル位置から前方全削除
 # 単語移動
 bindkey "^F" forward-word
 bindkey "^B" backward-word
@@ -21,6 +21,8 @@ bindkey "^xr" anyframe-widget-put-history
 bindkey "^xi" anyframe-widget-execute-history
 bindkey "^xk" anyframe-widget-kill
 bindkey "^xs" anyframe-widget-select-widget
+
+bindkey '^x^e' edit-command-line
 
 # コマンド履歴 ^P/^N
 #

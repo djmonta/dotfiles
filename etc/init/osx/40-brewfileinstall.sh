@@ -16,7 +16,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 	elif hostname | grep -q "MacBook-Pro\.local$" ; then
 		export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
 	else
-  		export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBA
+  		export HOMEBREW_BREWFILE=${HOME}/.brewfile/Brewfile.MBP
 	fi
 
 	brew file install

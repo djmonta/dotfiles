@@ -94,7 +94,7 @@ export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HOME=1
 
 # Wakatime
-export ZSH_WAKATIME_BIN=$USER_LOCAL/wakatime-cli
+export ZSH_WAKATIME_BIN=$USER_LOCAL/bin/wakatime-cli
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 60% --ansi'

@@ -9,7 +9,7 @@
 #
 # User Local Directory
 #
-USER_LOCAL=/usr/local
+USER_LOCAL=/opt/homebrew
 if type brew > /dev/null 2>&1; then
     USER_LOCAL=$(brew --prefix)
 fi

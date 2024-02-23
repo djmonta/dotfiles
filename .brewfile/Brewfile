@@ -2,140 +2,98 @@
 # tap repositories and their packages
 
 tap homebrew/core
-brew adns
 brew aom
-brew apr
-brew apr-util
-brew argon2
-brew aspell
+brew aribb24
 brew autoconf
 brew automake
-brew avrdude
 brew awscli
-brew bdw-gc
+brew bash
 brew bison
-brew boost
-brew bootloadhid
 brew brotli
-brew bzip2
-brew c-ares
 brew ca-certificates
 brew cairo
+brew carthage
 brew cask
+brew cffi
 brew cjson
-brew clang-format
-brew cmatrix
-brew cmocka
-brew confuse
 brew coreutils
 brew curl
 brew dav1d
-brew dfu-programmer
-brew dfu-util
 brew direnv
 brew docbook
 brew docbook-xsl
 brew docker
+brew docker-completion
+brew docutils
 brew emacs
 brew emojify
-brew exa
+brew exiftool
 brew ffmpeg
-brew fish
 brew flac
 brew fontconfig
-brew freetds
 brew freetype
 brew frei0r
 brew fribidi
 brew fzf
 brew gcc
-brew gd
 brew gdbm
 brew gettext
-brew ghostscript
 brew giflib
 brew glib
 brew gmp
-brew gnu-getopt
 brew gnupg
 brew gnutls
 brew go
 brew gobject-introspection
 brew graphite2
-brew guile
+brew grep
 brew harfbuzz
-brew hidapi
-brew highlight
 brew highway
-brew hr
 brew hub
 brew hugo
+brew hwloc
 brew icu4c
-brew ilmbase
-brew imagemagick
-brew imagemagick@6
 brew imath
 brew isl
 brew jansson
-brew jasper
-brew jbig2dec
-brew jemalloc
-brew jpeg
 brew jpeg-turbo
 brew jpeg-xl
 brew jq
-brew krb5
 brew lame
 brew leptonica
 brew less
 brew libarchive
 brew libass
 brew libassuan
-brew libavif
 brew libb2
 brew libbluray
-brew libde265
-brew libedit
-brew libelf
-brew libev
+brew libcbor
 brew libevent
-brew libffi
-brew libftdi
-brew libftdi0
+brew libfido2
 brew libgcrypt
 brew libgpg-error
-brew libheif
-brew libhid
-brew libiconv
-brew libidn
 brew libidn2
-brew libimagequant
 brew libksba
-brew liblqr
+brew libmicrohttpd
 brew libmpc
 brew libnghttp2
 brew libogg
-brew libomp
 brew libpng
-brew libpq
 brew libpthread-stubs
-brew libraqm
-brew libraw
 brew librist
 brew libsamplerate
 brew libsndfile
 brew libsodium
 brew libsoxr
-brew libspiro
+brew libssh
 brew libssh2
 brew libtasn1
 brew libtermkey
 brew libtiff
 brew libtool
-brew libuninameslist
+brew libunibreak
 brew libunistring
 brew libusb
-brew libusb-compat
 brew libuv
 brew libvidstab
 brew libvmaf
@@ -147,9 +105,7 @@ brew libxau
 brew libxcb
 brew libxdmcp
 brew libxext
-brew libxml2
 brew libxrender
-brew libzip
 brew little-cms2
 brew lua
 brew luajit
@@ -158,78 +114,78 @@ brew lz4
 brew lzo
 brew m4
 brew mackup
-brew make
 brew mas
 brew mbedtls
-brew mdcat
 brew mpdecimal
 brew mpfr
+brew mpg123
 brew msgpack
+brew mydumper
+brew mysql-client
 brew ncurses
 brew neovim
 brew nettle
-brew nghttp2
-brew nkf
 brew npth
+brew numpy
 brew oniguruma
+brew openblas
 brew opencore-amr
 brew openexr
 brew openjpeg
 brew openldap
 brew openssl@1.1
+brew openssl@3
+brew openvino
 brew opus
 brew p11-kit
 brew pango
 brew pcre
 brew pcre2
-brew php
-brew pillow
 brew pinentry
 brew pinentry-mac
 brew pixman
 brew pkg-config
+brew pugixml
+brew pycparser
+brew python-brotli
+brew python-certifi
+brew python-docopt
+brew python-mutagen
+brew python-setuptools
 brew python@3.10
+brew python@3.11
+brew python@3.12
 brew python@3.8
 brew python@3.9
 brew rav1e
-brew re2c
 brew readline
-brew reattach-to-user-namespace
-brew rename
 brew rtmpdump
 brew rubberband
-brew s3cmd
 brew sdl2
-brew shared-mime-info
 brew six
 brew snappy
 brew speex
 brew sqlite
 brew srt
 brew ssh-copy-id
-brew stlink
+brew svt-av1
+brew tbb
 brew tbls
 brew tcl-tk
-brew teensy_loader_cli
 brew terminal-notifier
 brew tesseract
-brew tesseract-lang
 brew theora
-brew tidy-html5
-brew tig
 brew tmux
 brew tree
 brew tree-sitter
 brew unbound
 brew unibilium
-brew unixodbc
 brew utf8proc
 brew wakatime-cli
 brew webp
 brew wget
 brew x264
 brew x265
-brew xmlto
 brew xorgproto
 brew xvid
 brew xz
@@ -240,17 +196,6 @@ brew zimg
 brew zlib
 brew zstd
 
-tap homebrew/cask-drivers
-cask qmk-toolbox
-
-tap homebrew/cask-fonts
-cask font-fira-code
-cask font-fontawesome
-cask font-hack-nerd-font
-
-tap homebrew/cask-versions
-cask sequel-pro-nightly
-
 tap homebrew/cask
 cask 1password
 cask 1password-cli
@@ -260,6 +205,7 @@ cask appcleaner
 cask applepi-baker
 cask blobsaver
 cask brooklyn
+cask carbon-copy-cloner
 cask cmd-eikana
 cask coteditor
 cask cyberduck
@@ -270,10 +216,12 @@ cask google-chrome
 cask gpg-suite
 cask iterm2
 cask itsycal
-cask keycastr
+cask karabiner-elements
+cask keybase
 cask kindle
 cask makemkv
 cask mqtt-explorer
+cask mysql-shell
 cask openinterminal
 cask qlimagesize
 cask qlmarkdown
@@ -288,11 +236,22 @@ cask sublime-text
 cask syntax-highlight
 cask tower
 cask transmit
-cask tweeten
 cask typora
 cask via
 cask visual-studio-code
 cask vlc
+
+tap homebrew/cask-drivers
+
+tap homebrew/cask-fonts
+cask font-fira-code
+cask font-fontawesome
+cask font-hack-nerd-font
+cask font-jetbrains-mono
+cask font-jetbrains-mono-nerd-font
+
+tap homebrew/cask-versions
+cask virtualbox-beta
 
 tap 1password/tap
 
@@ -303,7 +262,6 @@ tap b4b4r07/tap
 tap beeftornado/rmtree
 
 tap dart-lang/dart
-brew dart
 
 tap eddieantonio/eddieantonio
 
@@ -312,16 +270,12 @@ tap k1low/tap
 tap minio/stable
 
 tap osx-cross/arm
-brew arm-gcc-bin@8
 
 tap osx-cross/avr
-brew avr-binutils
-brew avr-gcc@8
 
 tap px4/px4
 
 tap qmk/qmk
-brew mdloader
 
 tap rcmdnk/file
 brew brew-file
@@ -332,32 +286,33 @@ tap vitorgalvao/tiny-scripts
 
 # Other Cask applications
 cask font-source-han-code-jp
+cask sequel-pro-nightly
+cask tweeten
 
 # App Store applications
-appstore 1569813296  1Password for Safari  (2.4.1)
-appstore 1518425043  Boop                  (1.4.0)
-appstore 1432182561  Cascadea              (2.1.3)
-appstore 1487937127  Craft                 (2.3.10)
-appstore 1055511498  Day One               (7.19)
-appstore 549083868   Display Menu          (2.2.4)
-appstore 1526651672  Eagle for Safari      (2.7.2)
-appstore 422293948   IP Scanner            (4.06)
-appstore 1142151959  Just Focus            (2.1.3)
-appstore 539883307   LINE                  (7.13.2)
-appstore 441258766   Magnet                (2.10.0)
-appstore 1505432629  NotePlan 3            (3.7)
-appstore 409203825   Numbers               (12.2)
-appstore 1552590875  Pinboard Tools        (1.0.3)
-appstore 1547106997  Pins                  (1.10)
-appstore 445189367   PopClip               (2022.5)
-appstore 545519333   Prime Video           (9.21)
-appstore 866773894   Quiver                (3.2.7)
-appstore 1549370672  Save to Raindrop.io   (5.5.10)
-appstore 803453959   Slack                 (4.28.184)
-appstore 1176895641  Spark                 (2.11.24)
-appstore 1493327990  Streaks               (7.3.1)
-appstore 904280696   Things                (3.16.2)
-appstore 1491071483  Tot                   (1.5.1)
-appstore 1289119450  URL Linker            (1.1)
-appstore 497799835   Xcode                 (14.1)
-appstore 992700627   おもいでばこ                (2.7)
+appstore 1569813296 1Password for Safari (2.20.0)
+appstore 1518425043 Boop (1.4.0)
+appstore 1432182561 Cascadea (2.1.3)
+appstore 1024640650 CotEditor (4.5.4)
+appstore 1055511498 Day One (2024.3)
+appstore 640199958 Developer (10.5)
+appstore 549083868 Display Menu (2.2.4)
+appstore 1526651672 Eagle for Safari (2.8.7)
+appstore 422293948 IP Scanner Home (5.05)
+appstore 1142151959 JustFocus (2.1.3)
+appstore 539883307 LINE (7.16.1)
+appstore 441258766 Magnet (2.11.0)
+appstore 1505432629 NotePlan (3.9)
+appstore 409203825 Numbers (13.2)
+appstore 992700627 Omoidebako (2.7)
+appstore 1552590875 Pinboard Tools (1.0.3)
+appstore 1547106997 Pins (2022.2)
+appstore 445189367 PopClip (2023.9)
+appstore 545519333 Prime Video (10.15.1)
+appstore 866773894 Quiver (3.2.7)
+appstore 1549370672 Save to Raindrop.io (5.6.14)
+appstore 803453959 Slack (4.36.140)
+appstore 1176895641 Spark (2.11.29)
+appstore 904280696 Things3 (3.19.6)
+appstore 1289119450 URL Linker (1.1)
+appstore 497799835 Xcode (14.2)

@@ -2,175 +2,102 @@
 # tap repositories and their packages
 
 tap homebrew/core
-brew aom
-brew argon2
-brew aspell
-brew assimp
 brew awscli
-brew bdw-gc
 brew bison
-brew bison@2.7
-brew boost
 brew brotli
-brew bzip2
 brew c-ares
 brew ca-certificates
 brew cairo
 brew carthage
 brew cffi
-brew chmlib
-brew coreutils
-brew czmq
-brew dbus
 brew docutils
-brew double-conversion
-brew dumpling
 brew fontconfig
-brew fontforge
-brew freetds
 brew freetype
-brew fribidi
 brew fzf
-brew gcc
-brew gd
 brew gdbm
-brew gdk-pixbuf
 brew gettext
-brew giflib
 brew glib
 brew gmp
 brew gnupg
 brew gnutls
 brew go
-brew graphite2
-brew graphviz
-brew gts
-brew guile
-brew harfbuzz
-brew highlight
-brew highway
-brew hunspell
+brew gpgme
 brew icu4c
-brew imath
-brew isl
-brew jasper
-brew jemalloc
 brew jpeg-turbo
-brew jpeg-xl
 brew jq
-brew krb5
 brew libassuan
-brew libavif
-brew libb2
 brew libcbor
-brew libedit
-brew libev
 brew libevent
 brew libfido2
-brew libftdi0
 brew libgcrypt
 brew libgpg-error
-brew libhid
-brew libiconv
 brew libidn2
 brew libksba
-brew libmng
-brew libmpc
 brew libnghttp2
 brew libpng
-brew libressl
-brew librsvg
-brew libsodium
-brew libspiro
-brew libssh2
 brew libtasn1
 brew libtiff
 brew libtool
-brew libuninameslist
 brew libunistring
 brew libusb
-brew libusb-compat
 brew libuv
-brew libvmaf
 brew libx11
 brew libxau
 brew libxcb
 brew libxdmcp
 brew libxext
-brew libxml2
 brew libxrender
-brew libzip
 brew little-cms2
-brew lua
 brew lz4
 brew lzo
 brew m4
 brew mackup
 brew mas
-brew mcrypt
-brew md4c
-brew mhash
 brew mpdecimal
-brew mpfr
 brew mydumper
 brew mysql
 brew mysql-client
-brew ncurses
-brew netpbm
 brew nettle
-brew nghttp2
 brew node
 brew npth
 brew nspr
 brew nss
 brew oniguruma
-brew openexr
 brew openjpeg
 brew openldap
 brew openssl@1.1
 brew openssl@3
 brew p11-kit
-brew pango
 brew pcre
 brew pcre2
 brew pinentry
 brew pinentry-mac
 brew pixman
 brew pkg-config
-brew pngquant
 brew poppler
-brew protobuf
 brew protobuf@21
-brew pth
 brew pycparser
+brew python-docopt
+brew python-setuptools
 brew python@3.11
+brew python@3.12
 brew python@3.8
 brew python@3.9
-brew qt
-brew qt@5
-brew re2c
 brew readline
-brew setweblocthumb
 brew six
 brew sqlite
 brew tbls
 brew tcl-tk
 brew terminal-notifier
 brew the_silver_searcher
-brew tidy-html5
 brew tree
 brew unbound
-brew unixodbc
-brew utf8proc
 brew wakatime-cli
-brew webp
 brew wget
-brew woff2
 brew xorgproto
 brew xz
 brew yarn
 brew youtube-dl
-brew zeromq
 brew zlib
 brew zstd
 
@@ -203,30 +130,35 @@ cask qlstephen
 cask sequel-ace
 cask sequel-pro
 cask slack
+cask sublime-text
 cask syntax-highlight
 cask tower
 cask visual-studio-code
 
 tap homebrew/cask-fonts
 cask font-hack-nerd-font
+cask font-jetbrains-mono
+cask font-jetbrains-mono-nerd-font
+cask font-udev-gothic
+cask font-udev-gothic-nf
 
 tap 1password/tap
 
 tap argon/mas
 
+tap beeftornado/rmtree
+
 tap rcmdnk/file
 brew brew-file
 
-tap sanemat/font
-brew ricty --with-powerline
-
 # App Store applications
 appstore 1518425043 Boop (1.4.0)
-appstore 1024640650 CotEditor (4.7.3)
+appstore 1024640650 CotEditor (4.7.4)
 appstore 1483172210 Free Ruler (2.0.6)
 appstore 1142151959 JustFocus (2.2.4)
 appstore 409183694 Keynote (13.2)
 appstore 441258766 Magnet (2.14.0)
+appstore 1579200037 Medis (2.15.0)
 appstore 409203825 Numbers (13.2)
 appstore 409201541 Pages (13.2)
 appstore 497799835 Xcode (15.2)

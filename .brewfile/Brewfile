@@ -6,7 +6,6 @@ brew aom
 brew aribb24
 brew autoconf
 brew automake
-brew awscli
 brew bash
 brew bison
 brew brotli
@@ -14,6 +13,7 @@ brew ca-certificates
 brew cairo
 brew carthage
 brew cask
+brew certifi
 brew cffi
 brew cjson
 brew coreutils
@@ -106,6 +106,7 @@ brew libxcb
 brew libxdmcp
 brew libxext
 brew libxrender
+brew libyaml
 brew little-cms2
 brew lua
 brew luajit
@@ -148,15 +149,8 @@ brew pkg-config
 brew pugixml
 brew pycparser
 brew python-brotli
-brew python-certifi
-brew python-docopt
-brew python-mutagen
 brew python-setuptools
-brew python@3.10
-brew python@3.11
 brew python@3.12
-brew python@3.8
-brew python@3.9
 brew rav1e
 brew readline
 brew rtmpdump
@@ -211,7 +205,6 @@ cask coteditor
 cask cyberduck
 cask docker
 cask dropbox
-cask duplicacy-web-edition
 cask google-chrome
 cask gpg-suite
 cask iterm2
@@ -241,6 +234,8 @@ cask via
 cask visual-studio-code
 cask vlc
 
+tap homebrew/bundle
+
 tap homebrew/cask-drivers
 
 tap homebrew/cask-fonts
@@ -251,7 +246,6 @@ cask font-jetbrains-mono
 cask font-jetbrains-mono-nerd-font
 
 tap homebrew/cask-versions
-cask virtualbox-beta
 
 tap 1password/tap
 
@@ -261,17 +255,11 @@ tap b4b4r07/tap
 
 tap beeftornado/rmtree
 
-tap dart-lang/dart
-
 tap eddieantonio/eddieantonio
 
 tap k1low/tap
 
 tap minio/stable
-
-tap osx-cross/arm
-
-tap osx-cross/avr
 
 tap px4/px4
 
@@ -280,9 +268,11 @@ tap qmk/qmk
 tap rcmdnk/file
 brew brew-file
 
-tap sass/sass
-
 tap vitorgalvao/tiny-scripts
+
+# Other Homebrew packages
+brew python-docopt
+brew python-mutagen
 
 # Other Cask applications
 cask font-source-han-code-jp
@@ -290,11 +280,11 @@ cask sequel-pro-nightly
 cask tweeten
 
 # App Store applications
-appstore 1569813296 1Password for Safari (2.20.0)
+appstore 1569813296 1Password for Safari (2.21.0)
 appstore 1518425043 Boop (1.4.0)
 appstore 1432182561 Cascadea (2.1.3)
 appstore 1024640650 CotEditor (4.5.4)
-appstore 1055511498 Day One (2024.3)
+appstore 1055511498 Day One (2024.5)
 appstore 640199958 Developer (10.5)
 appstore 549083868 Display Menu (2.2.4)
 appstore 1526651672 Eagle for Safari (2.8.7)
@@ -308,11 +298,11 @@ appstore 992700627 Omoidebako (2.7)
 appstore 1552590875 Pinboard Tools (1.0.3)
 appstore 1547106997 Pins (2022.2)
 appstore 445189367 PopClip (2023.9)
-appstore 545519333 Prime Video (10.15.1)
+appstore 545519333 Prime Video (10.16.2)
 appstore 866773894 Quiver (3.2.7)
 appstore 1549370672 Save to Raindrop.io (5.6.14)
 appstore 803453959 Slack (4.36.140)
 appstore 1176895641 Spark (2.11.29)
-appstore 904280696 Things3 (3.19.6)
+appstore 904280696 Things3 (3.20.2)
 appstore 1289119450 URL Linker (1.1)
-appstore 497799835 Xcode (14.2)
+appstore 497799835 Xcode (15.2)

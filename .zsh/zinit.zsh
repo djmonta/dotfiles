@@ -34,8 +34,8 @@ zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 zinit light "mollifier/anyframe"
 
-zinit ice wait"!0" blockf lucid pick"init.sh"
-zinit light "b4b4r07/enhancd"
+# zinit ice wait"!0" blockf lucid pick"init.sh"
+# zinit light "b4b4r07/enhancd"
 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \

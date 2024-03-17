@@ -89,9 +89,9 @@ export HOMEBREW_BREWFILE_APPSTORE=1
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # ENHANCD
-export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
-export ENHANCD_DISABLE_DOT=1
-export ENHANCD_DISABLE_HOME=1
+# export ENHANCD_FILTER=no-installed:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
+# export ENHANCD_DISABLE_DOT=1
+# export ENHANCD_DISABLE_HOME=1
 
 # Wakatime
 export ZSH_WAKATIME_BIN=/opt/homebrew/bin/wakatime-cli

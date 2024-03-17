@@ -45,9 +45,8 @@ zinit light "pinelibg/dircolors-solarized-zsh"
 
 zinit light "marzocchi/zsh-notify"
 
-zinit light-mode for \
-    pick"async.zsh" src"pure.zsh" \
-                sindresorhus/pure
+zinit ice depth=1;
+zinit light romkatv/powerlevel10k
 
 zinit ice wait"!0" blockf lucid pick"wakatime.plugin.zsh"
 zinit light "sobolevn/wakatime-zsh-plugin"

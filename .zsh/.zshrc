@@ -48,6 +48,13 @@ export LANG=ja_JP.UTF-8
 
 ### The prompt settings {{{
 #
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 # Theme.
 # ZSH_THEME='monta'
@@ -396,8 +403,11 @@ fi
 if [ -x "`which direnv`" ]; then
     eval "$(direnv hook zsh)"
 fi
-## prompt
-# prompt pure
+
+# zoxide
+if [ -x "`which zoxide`" ]; then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
 
 ### Complete Messages
 # echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"
@@ -408,3 +418,6 @@ fi
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
+
+# To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
+[[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh

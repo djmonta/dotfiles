@@ -10,6 +10,7 @@ brew ca-certificates
 brew cairo
 brew carthage
 brew cffi
+brew coreutils
 brew docutils
 brew fontconfig
 brew freetype
@@ -77,7 +78,6 @@ brew pkg-config
 brew poppler
 brew protobuf@21
 brew pycparser
-brew python-docopt
 brew python-setuptools
 brew python@3.11
 brew python@3.12
@@ -99,6 +99,7 @@ brew xz
 brew yarn
 brew youtube-dl
 brew zlib
+brew zoxide
 brew zstd
 
 tap homebrew/cask
@@ -150,6 +151,9 @@ tap beeftornado/rmtree
 
 tap rcmdnk/file
 brew brew-file
+
+# Other Homebrew packages
+brew python-docopt
 
 # App Store applications
 appstore 1518425043 Boop (1.4.0)

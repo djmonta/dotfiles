@@ -10,6 +10,20 @@ set_envs() {
     DOTDIR="$(cd "$(dirname "$0")" && pwd)"
 }
 
+create_xdg_base_directory_if_needed() {
+    mkdir -p "$1"
+    chmod 700 "$1"
+}
+
+create_xdg_base_directories_if_needed() {
+    create_xdg_base_directory_if_needed "${HOME}/.config"
+    create_xdg_base_directory_if_needed "${HOME}/.cache"
+    create_xdg_base_directory_if_needed "${HOME}/.local"
+    create_xdg_base_directory_if_needed "${HOME}/.local/share"
+    create_xdg_base_directory_if_needed "${HOME}/.local/state"
+    create_xdg_base_directory_if_needed "${HOME}/.local/bin"
+}
+
 # 実行確認
 confirm_exe() {
     echo -n "$1 (y/n) --> "
@@ -45,11 +59,14 @@ create_dotfiles_symlinks() {
         .bashrc
         .gitconfig
         .gittemplate
+        .profile
+        .vimrc
         .zshenv
         .config/env.sh
         .config/alias.sh
-        zsh
-        brewfile)
+        .config/zsh
+        .config/brewfile
+        .config/nvim)
 
     (
         cd "$HOME"
@@ -57,12 +74,6 @@ create_dotfiles_symlinks() {
         for file in ${DOT_FILES[@]}; do
             create_symlink "$HOME/dotfiles/$file" "$HOME/$file"
         done
-
-        # .zsh
-        create_symlink "$HOME/dotfiles/zsh" "$XDG_CONFIG_HOME/zsh"
-
-        # .brewfile
-        create_symlink "$HOME/dotfiles/brewfile" "$XDG_CONFIG_HOME/brewfile"
 
         # .gitignore
         create_symlink "$HOME/dotfiles/.gitignore.default" "$HOME/.gitignore"
@@ -74,7 +85,7 @@ create_dotfiles_symlinks() {
 
 
 ## Main --------------------
-
+create_xdg_base_directories_if_needed
 set_envs
 
 # シンボリックリンク作成

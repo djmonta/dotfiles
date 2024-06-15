@@ -2,6 +2,7 @@
 # tap repositories and their packages
 
 tap homebrew/core
+brew anyenv
 brew aom
 brew aribb24
 brew autoconf

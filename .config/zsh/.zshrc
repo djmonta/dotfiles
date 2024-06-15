@@ -109,7 +109,7 @@ fpath=(${ZDOTDIR}/functions/Completion ${fpath})
 
 
 # anyenv
-if [ -f ${XDG_CONFIG_HOME}/anyenv/bin/anyenv ]; then
+if command -v anyenv > /dev/null 2>&1; then
     eval "$(anyenv init - --no-rehash)"
 fi
 

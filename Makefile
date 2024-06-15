@@ -36,7 +36,7 @@ deploy:
 
 anyenv:
 	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
-	@bash $(DOTFILES_DIR)/etc/init/install_envs.sh
+	# @bash $(DOTFILES_DIR)/etc/init/install_envs.sh
 
 init:
 ifeq ($(shell uname), Darwin)

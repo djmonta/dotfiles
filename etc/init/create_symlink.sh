@@ -2,6 +2,14 @@
 
 set -u
 
+set_envs() {
+    export XDG_CONFIG_HOME="${HOME}/.config"
+    export XDG_CACHE_HOME="${HOME}/.cache"
+    export XDG_DATA_HOME="${HOME}/.local/share"
+    export XDG_STATE_HOME="${HOME}/.local/state"
+    DOTDIR="$(cd "$(dirname "$0")" && pwd)"
+}
+
 # 実行確認
 confirm_exe() {
     echo -n "$1 (y/n) --> "
@@ -35,11 +43,13 @@ create_dotfiles_symlinks() {
     DOT_FILES=(
         .bash_profile
         .bashrc
-        .brewfile
         .gitconfig
         .gittemplate
-        .zsh
-        .zshenv)
+        .zshenv
+        .config/env.sh
+        .config/alias.sh
+        zsh
+        brewfile)
 
     (
         cd "$HOME"
@@ -47,6 +57,12 @@ create_dotfiles_symlinks() {
         for file in ${DOT_FILES[@]}; do
             create_symlink "$HOME/dotfiles/$file" "$HOME/$file"
         done
+
+        # .zsh
+        create_symlink "$HOME/dotfiles/zsh" "$XDG_CONFIG_HOME/zsh"
+
+        # .brewfile
+        create_symlink "$HOME/dotfiles/brewfile" "$XDG_CONFIG_HOME/brewfile"
 
         # .gitignore
         create_symlink "$HOME/dotfiles/.gitignore.default" "$HOME/.gitignore"
@@ -58,6 +74,8 @@ create_dotfiles_symlinks() {
 
 
 ## Main --------------------
+
+set_envs
 
 # シンボリックリンク作成
 confirm_exe 'シンボリックリンクを作成しますか？' && create_dotfiles_symlinks

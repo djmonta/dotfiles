@@ -3,3 +3,4 @@
 *~
 *.cache
 .zsh/.zcompdump
+*.zwc

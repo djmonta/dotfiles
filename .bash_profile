@@ -5,30 +5,11 @@
 #
 #*******************************************************************************
 
-#
-# profile設定(共通)
-#
-if [ -f ${HOME}/dotfiles/.profile ]; then
-    source ${HOME}/dotfiles/.profile
+# env
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/env.sh ]; then
+  # shellcheck source=config/sh/env.sh
+  source "${XDG_CONFIG_HOME:-$HOME/.config}"/env.sh
 fi
-
-#
-# profile設定(OS固有)
-#
-case "${OSTYPE}" in
-    # Mac(Unix)
-    darwin*)
-    if [ -f ${HOME}/dotfiles/.profile.osx ]; then
-        source ${HOME}/dotfiles/.profile.osx
-    fi
-    ;;
-    # Linux
-    linux*)
-    if [ -f ${HOME}/dotfiles/.profile.linux ]; then
-        source ${HOME}/dotfiles/.profile.linux
-    fi
-    ;;
-esac
 
 #
 # .bashrc 読み込み

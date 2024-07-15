@@ -24,7 +24,7 @@ export VISUAL="code"
 
 # Gitでコミット時に起動するエディタを指定
 # 未指定だとコミット時にエラーになる(絶対パス必須)
-export GIT_EDITOR="/usr/local/bin/code"
+export GIT_EDITOR="${USER_LOCAL}/bin/code -w"
 
 #
 # PATH =========================================================================

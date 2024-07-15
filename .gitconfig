@@ -1,31 +1,70 @@
 [user]
-	name = monta
-	email = monta@ednity.com
-	signingkey = 2E474099ED9CA707
+    name = monta
+    email = djmonta@gmail.com
+    signingkey = FA019D34F1DD8BC7
+
 [mergetool]
-	keepBackup = true
-	prompt = false
+    keepBackup = true
+    prompt = false
+
 [color]
-	ui = true
+    ui = true
+
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
+    pager = delta
+
 [commit]
-	template = ~/.gittemplate
-	gpgsign = true
+    template = ~/.gittemplate
+    gpgsign = true
+
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
+    required = true
+
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
+
 [gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
+    program = /usr/local/MacGPG2/bin/gpg2
+
+[interactive]
+    diffFilter = delta --color-only --feature=interactive
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[delta]
+    features = decorations
+    line-numbers = true
+    syntax-theme = Visual Studio Dark+
+    tabs = 4
+    true-color = always
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    default-language = php
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax

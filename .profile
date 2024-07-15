@@ -54,7 +54,7 @@ export PAGER=less
 # export JLESSCHARSET=japanese-utf-8
 # export LESSCHARSET=utf-8
 #export GIT_PAGER="lv -c -l"
-export GIT_PAGER="less -F"
+# export GIT_PAGER="less -F"
 
 #
 # grep

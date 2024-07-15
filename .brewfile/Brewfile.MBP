@@ -2,14 +2,16 @@
 # tap repositories and their packages
 
 tap homebrew/core
+brew ansifilter
 brew awscli
+brew bat
+brew bat-extras
 brew bison
 brew brotli
 brew c-ares
 brew ca-certificates
 brew cairo
 brew carthage
-brew cffi
 brew coreutils
 brew docutils
 brew fontconfig
@@ -17,8 +19,10 @@ brew freetype
 brew fzf
 brew gdbm
 brew gettext
+brew git-delta
 brew glib
 brew gmp
+brew gnu-sed
 brew gnupg
 brew gnutls
 brew go
@@ -26,16 +30,19 @@ brew gpgme
 brew icu4c
 brew jpeg-turbo
 brew jq
+brew less
 brew libassuan
 brew libcbor
 brew libevent
 brew libfido2
 brew libgcrypt
+brew libgit2
 brew libgpg-error
 brew libidn2
 brew libksba
 brew libnghttp2
 brew libpng
+brew libssh2
 brew libtasn1
 brew libtiff
 brew libtool
@@ -58,6 +65,7 @@ brew mpdecimal
 brew mydumper
 brew mysql
 brew mysql-client
+brew ncurses
 brew nettle
 brew node
 brew npth
@@ -71,25 +79,24 @@ brew openssl@3
 brew p11-kit
 brew pcre
 brew pcre2
+brew pdf2svg
 brew pinentry
 brew pinentry-mac
 brew pixman
 brew pkg-config
 brew poppler
 brew protobuf@21
-brew pycparser
-brew python-setuptools
 brew python@3.11
 brew python@3.12
 brew python@3.8
 brew python@3.9
 brew readline
-brew six
 brew sqlite
 brew tbls
 brew tcl-tk
 brew terminal-notifier
 brew the_silver_searcher
+brew trash
 brew tree
 brew unbound
 brew wakatime-cli
@@ -106,11 +113,17 @@ tap homebrew/cask
 cask 1password
 cask 1password-cli
 cask alfred
+cask alt-tab
 cask appcleaner
 cask cmd-eikana
 cask dash
 cask docker
 cask dropbox
+cask font-hack-nerd-font
+cask font-jetbrains-mono
+cask font-jetbrains-mono-nerd-font
+cask font-udev-gothic
+cask font-udev-gothic-nf
 cask fontforge
 cask go-agent
 cask google-chrome
@@ -119,7 +132,6 @@ cask gpg-suite
 cask iterm2
 cask itsycal
 cask kaleidoscope
-cask karabiner-elements
 cask klogg
 cask mysql-shell
 cask obsidian
@@ -134,14 +146,10 @@ cask slack
 cask sublime-text
 cask syntax-highlight
 cask tower
+cask typora
 cask visual-studio-code
 
 tap homebrew/cask-fonts
-cask font-hack-nerd-font
-cask font-jetbrains-mono
-cask font-jetbrains-mono-nerd-font
-cask font-udev-gothic
-cask font-udev-gothic-nf
 
 tap 1password/tap
 
@@ -152,17 +160,14 @@ tap beeftornado/rmtree
 tap rcmdnk/file
 brew brew-file
 
-# Other Homebrew packages
-brew python-docopt
-
 # App Store applications
+appstore 1569813296 1Password for Safari (2.25.1)
 appstore 1518425043 Boop (1.4.0)
-appstore 1024640650 CotEditor (4.7.4)
+appstore 1024640650 CotEditor (4.8.7)
 appstore 1483172210 Free Ruler (2.0.6)
 appstore 1142151959 JustFocus (2.2.4)
-appstore 409183694 Keynote (13.2)
+appstore 409183694 Keynote (14.1)
 appstore 441258766 Magnet (2.14.0)
-appstore 1579200037 Medis (2.15.0)
-appstore 409203825 Numbers (13.2)
-appstore 409201541 Pages (13.2)
-appstore 497799835 Xcode (15.2)
+appstore 409203825 Numbers (14.1)
+appstore 409201541 Pages (14.1)
+appstore 497799835 Xcode (15.4)

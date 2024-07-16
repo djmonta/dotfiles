@@ -8,9 +8,9 @@
 [color]
 	ui = true
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/.gitignore.default
 [commit]
-	template = ~/.gittemplate
+	template = ~/.config/git/.gittemplate
 	gpgsign = true
 [filter "media"]
 	clean = git media clean %f

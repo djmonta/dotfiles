@@ -4,3 +4,4 @@
 *.cache
 .zsh/.zcompdump
 *.zwc
+/.config/zsh/.zcompdump

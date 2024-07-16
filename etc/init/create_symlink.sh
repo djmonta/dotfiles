@@ -57,14 +57,13 @@ create_dotfiles_symlinks() {
     DOT_FILES=(
         .bash_profile
         .bashrc
-        .gitconfig
-        .gittemplate
         .profile
         .vimrc
         .zshenv
         .config/env.sh
         .config/alias.sh
         .config/zsh
+        .config/git
         .config/brewfile
         .config/nvim)
 

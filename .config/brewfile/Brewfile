@@ -211,6 +211,7 @@ cask kindle
 cask klogg
 cask makemkv
 cask mysql-shell
+cask popclip
 cask qlimagesize
 cask qlmarkdown
 cask qlstephen
@@ -279,7 +280,6 @@ appstore 1505432629 NotePlan (3.9)
 appstore 409203825 Numbers (14.1)
 appstore 992700627 Omoidebako (3.0)
 appstore 1547106997 Pins (2022.2)
-appstore 445189367 PopClip (2023.9)
 appstore 866773894 Quiver (3.2.7)
 appstore 1549370672 Save to Raindrop.io (5.6.35)
 appstore 803453959 Slack (4.38.125)

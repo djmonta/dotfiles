@@ -3,4 +3,5 @@
 *~
 *.cache
 .zsh/.zcompdump
-.zsh/.zsh_sessions
+*.zwc
+/.config/zsh/.zcompdump

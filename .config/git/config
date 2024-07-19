@@ -11,12 +11,11 @@
     ui = true
 
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/git/.gitignore.default
     pager = delta
 
 [commit]
-    template = ~/.gittemplate
-    gpgsign = true
+    template = ~/.config/git/.gittemplate
 
 [filter "media"]
     clean = git media clean %f

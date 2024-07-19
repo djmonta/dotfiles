@@ -5,10 +5,10 @@ read REPLY
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
 
 	# Clone anyenv
-	git clone https://github.com/anyenv/anyenv ~/.anyenv
+	git clone https://github.com/anyenv/anyenv "$XDG_CONFIG_HOME/anyenv"
 
 	# Add PATH
-	export PATH="$HOME/.anyenv/bin:$PATH"
+	# export PATH="$HOME/.anyenv/bin:$PATH"
 
 	# Install
 	eval "$(anyenv init -)"

@@ -2,6 +2,28 @@
 
 set -u
 
+set_envs() {
+    export XDG_CONFIG_HOME="${HOME}/.config"
+    export XDG_CACHE_HOME="${HOME}/.cache"
+    export XDG_DATA_HOME="${HOME}/.local/share"
+    export XDG_STATE_HOME="${HOME}/.local/state"
+    DOTDIR="$(cd "$(dirname "$0")" && pwd)"
+}
+
+create_xdg_base_directory_if_needed() {
+    mkdir -p "$1"
+    chmod 700 "$1"
+}
+
+create_xdg_base_directories_if_needed() {
+    create_xdg_base_directory_if_needed "${HOME}/.config"
+    create_xdg_base_directory_if_needed "${HOME}/.cache"
+    create_xdg_base_directory_if_needed "${HOME}/.local"
+    create_xdg_base_directory_if_needed "${HOME}/.local/share"
+    create_xdg_base_directory_if_needed "${HOME}/.local/state"
+    create_xdg_base_directory_if_needed "${HOME}/.local/bin"
+}
+
 # 実行確認
 confirm_exe() {
     echo -n "$1 (y/n) --> "
@@ -35,11 +57,15 @@ create_dotfiles_symlinks() {
     DOT_FILES=(
         .bash_profile
         .bashrc
-        .brewfile
-        .gitconfig
-        .gittemplate
-        .zsh
-        .zshenv)
+        .profile
+        .vimrc
+        .zshenv
+        .config/env.sh
+        .config/alias.sh
+        .config/zsh
+        .config/git
+        .config/brewfile
+        .config/nvim)
 
     (
         cd "$HOME"
@@ -58,6 +84,8 @@ create_dotfiles_symlinks() {
 
 
 ## Main --------------------
+create_xdg_base_directories_if_needed
+set_envs
 
 # シンボリックリンク作成
 confirm_exe 'シンボリックリンクを作成しますか？' && create_dotfiles_symlinks

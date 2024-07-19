@@ -1,6 +1,6 @@
 DOTFILES_TARGET   := $(wildcard .??*) bin
 DOTFILES_DIR      := ${HOME}/dotfiles
-DOTFILES_FILES    := .bash_profile .bashrc .brewfile .gitconfig .gitignore .gittemplate .zshenv .zsh
+DOTFILES_FILES    := .bash_profile .bashrc .gitconfig .gitignore .gittemplate .zshenv
 
 all: update deploy init anyenv
 
@@ -36,7 +36,7 @@ deploy:
 
 anyenv:
 	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh
-	@bash $(DOTFILES_DIR)/etc/init/install_envs.sh
+	# @bash $(DOTFILES_DIR)/etc/init/install_envs.sh
 
 init:
 ifeq ($(shell uname), Darwin)

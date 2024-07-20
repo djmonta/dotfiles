@@ -3,6 +3,7 @@
 
 tap homebrew/core
 brew ansifilter
+brew anyenv
 brew awscli
 brew bat
 brew bat-extras
@@ -12,7 +13,9 @@ brew c-ares
 brew ca-certificates
 brew cairo
 brew carthage
+brew cffi
 brew coreutils
+brew cryptography
 brew docutils
 brew fontconfig
 brew freetype
@@ -37,6 +40,7 @@ brew libevent
 brew libfido2
 brew libgcrypt
 brew libgit2
+brew libgit2@1.7
 brew libgpg-error
 brew libidn2
 brew libksba
@@ -86,6 +90,7 @@ brew pixman
 brew pkg-config
 brew poppler
 brew protobuf@21
+brew pycparser
 brew python@3.11
 brew python@3.12
 brew python@3.8
@@ -96,9 +101,11 @@ brew tbls
 brew tcl-tk
 brew terminal-notifier
 brew the_silver_searcher
+brew tmux
 brew trash
 brew tree
 brew unbound
+brew utf8proc
 brew wakatime-cli
 brew wget
 brew xorgproto
@@ -161,7 +168,7 @@ tap rcmdnk/file
 brew brew-file
 
 # App Store applications
-appstore 1569813296 1Password for Safari (2.25.1)
+appstore 1569813296 1Password for Safari (2.26.1)
 appstore 1518425043 Boop (1.4.0)
 appstore 1024640650 CotEditor (4.8.7)
 appstore 1483172210 Free Ruler (2.0.6)

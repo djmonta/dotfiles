@@ -137,7 +137,7 @@ set_aliases_for_ext
 case "${OSTYPE}" in
     # Mac(Unix)
     darwin*)
-    #alias rm='trash'
+    alias rm='trash -F'
     #alias rm='gomi'
     ;;
     # Linux

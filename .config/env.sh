@@ -145,6 +145,9 @@ else
 fi
 export HOMEBREW_BREWFILE_APPSTORE=1
 
+# PHP
+export PATH="$USER_LOCAL"/opt/php@8.1-debug/bin:"$USER_LOCAL"/opt/php@8.1-debug/sbin:"$PATH"
+
 # iTerm
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 

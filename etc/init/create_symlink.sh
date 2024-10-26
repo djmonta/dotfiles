@@ -21,7 +21,7 @@ create_xdg_base_directories_if_needed() {
     create_xdg_base_directory_if_needed "${HOME}/.local"
     create_xdg_base_directory_if_needed "${HOME}/.local/share"
     create_xdg_base_directory_if_needed "${HOME}/.local/state"
-    create_xdg_base_directory_if_needed "${HOME}/.local/bin"
+    # create_xdg_base_directory_if_needed "${HOME}/.local/bin"
 }
 
 # 実行確認
@@ -65,7 +65,10 @@ create_dotfiles_symlinks() {
         .config/zsh
         .config/git
         .config/brewfile
-        .config/nvim)
+        .config/nvim
+        .config/karabiner/karbiner.json
+    )
+
 
     (
         cd "$HOME"
@@ -74,8 +77,8 @@ create_dotfiles_symlinks() {
             create_symlink "$HOME/dotfiles/$file" "$HOME/$file"
         done
 
-        # .gitignore
-        create_symlink "$HOME/dotfiles/.gitignore.default" "$HOME/.gitignore"
+        # .local/bin
+        create_symlink "$HOME/dotfiles/bin" "$HOME/.local/bin"
 
         # links
         #create_symlink "$HOME/dotfiles.local/links" "$HOME/links"

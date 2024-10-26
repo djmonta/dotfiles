@@ -2,8 +2,15 @@
 # tap repositories and their packages
 
 tap homebrew/core
+brew abseil
 brew ansifilter
 brew anyenv
+brew aom
+brew apr
+brew apr-util
+brew argon2
+brew aspell
+brew autoconf
 brew awscli
 brew bat
 brew bat-extras
@@ -14,14 +21,19 @@ brew ca-certificates
 brew cairo
 brew carthage
 brew cffi
+brew composer
 brew coreutils
 brew cryptography
+brew curl
 brew docutils
 brew fontconfig
+brew freetds
 brew freetype
 brew fzf
+brew gd
 brew gdbm
 brew gettext
+brew giflib
 brew git-delta
 brew glib
 brew gmp
@@ -30,22 +42,28 @@ brew gnupg
 brew gnutls
 brew go
 brew gpgme
+brew highway
 brew icu4c
+brew imath
 brew jpeg-turbo
+brew jpeg-xl
 brew jq
+brew krb5
 brew less
 brew libassuan
+brew libavif
 brew libcbor
 brew libevent
 brew libfido2
 brew libgcrypt
-brew libgit2
 brew libgit2@1.7
 brew libgpg-error
 brew libidn2
 brew libksba
 brew libnghttp2
 brew libpng
+brew libpq
+brew libsodium
 brew libssh2
 brew libtasn1
 brew libtiff
@@ -53,12 +71,14 @@ brew libtool
 brew libunistring
 brew libusb
 brew libuv
+brew libvmaf
 brew libx11
 brew libxau
 brew libxcb
 brew libxdmcp
 brew libxext
 brew libxrender
+brew libzip
 brew little-cms2
 brew lz4
 brew lzo
@@ -76,6 +96,7 @@ brew npth
 brew nspr
 brew nss
 brew oniguruma
+brew openexr
 brew openjpeg
 brew openldap
 brew openssl@1.1
@@ -84,29 +105,34 @@ brew p11-kit
 brew pcre
 brew pcre2
 brew pdf2svg
+brew php
 brew pinentry
 brew pinentry-mac
 brew pixman
 brew pkg-config
 brew poppler
-brew protobuf@21
+brew protobuf
 brew pycparser
 brew python@3.11
 brew python@3.12
 brew python@3.8
 brew python@3.9
 brew readline
+brew rtmpdump
 brew sqlite
 brew tbls
 brew tcl-tk
 brew terminal-notifier
 brew the_silver_searcher
+brew tidy-html5
 brew tmux
 brew trash
 brew tree
 brew unbound
+brew unixodbc
 brew utf8proc
 brew wakatime-cli
+brew webp
 brew wget
 brew xorgproto
 brew xz
@@ -123,9 +149,11 @@ cask alfred
 cask alt-tab
 cask appcleaner
 cask cmd-eikana
+cask cyberduck
 cask dash
 cask docker
 cask dropbox
+cask firefox@developer-edition
 cask font-hack-nerd-font
 cask font-jetbrains-mono
 cask font-jetbrains-mono-nerd-font
@@ -138,7 +166,9 @@ cask google-drive
 cask gpg-suite
 cask iterm2
 cask itsycal
+cask jordanbaird-ice
 cask kaleidoscope
+cask karabiner-elements
 cask klogg
 cask mysql-shell
 cask obsidian
@@ -167,14 +197,17 @@ tap beeftornado/rmtree
 tap rcmdnk/file
 brew brew-file
 
+tap shivammathur/php
+brew php@8.1-debug
+
 # App Store applications
-appstore 1569813296 1Password for Safari (2.26.1)
+appstore 1569813296 1Password for Safari (8.10.46)
 appstore 1518425043 Boop (1.4.0)
-appstore 1024640650 CotEditor (4.8.7)
+appstore 1024640650 CotEditor (5.0.3)
 appstore 1483172210 Free Ruler (2.0.6)
 appstore 1142151959 JustFocus (2.2.4)
-appstore 409183694 Keynote (14.1)
-appstore 441258766 Magnet (2.14.0)
-appstore 409203825 Numbers (14.1)
-appstore 409201541 Pages (14.1)
-appstore 497799835 Xcode (15.4)
+appstore 409183694 Keynote (14.2)
+appstore 441258766 Magnet (3.0.2)
+appstore 409203825 Numbers (14.2)
+appstore 409201541 Pages (14.2)
+appstore 497799835 Xcode (16.0)

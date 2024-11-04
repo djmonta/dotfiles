@@ -22,20 +22,18 @@ autoload -Uz _zinit
 
 ### End of Zinit's installer chunk
 
-zinit snippet "${ZDOTDIR}/utils.zsh"
+zinit snippet "$HOME/dotfiles/.config/zsh/utils.zsh"
+zinit snippet "$HOME"/dotfiles/bin/256colorlib.sh
 
-zinit ice wait"!0" blockf lucid atpull'zinit creinstall -q .'
-zinit light "zsh-users/zsh-completions"
-
-zinit light "zsh-users/zsh-autosuggestions"
-
-zinit ice wait"!0" lucid atinit"zpcompinit; zpcdreplay"
-zinit light "zdharma-continuum/fast-syntax-highlighting"
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 zinit light "mollifier/anyframe"
-
-# zinit ice wait"!0" blockf lucid pick"init.sh"
-# zinit light "b4b4r07/enhancd"
 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
@@ -45,8 +43,14 @@ zinit light "pinelibg/dircolors-solarized-zsh"
 
 zinit light "marzocchi/zsh-notify"
 
-zinit ice depth=1;
-zinit light romkatv/powerlevel10k
+# Load starship theme
+# line 1: `starship` binary as command, from github release
+# line 2: starship setup at clone(create init.zsh, completion)
+# line 3: pull behavior same as clone, source init.zsh
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
 
 zinit ice wait"!0" blockf lucid pick"wakatime.plugin.zsh"
 zinit light "sobolevn/wakatime-zsh-plugin"

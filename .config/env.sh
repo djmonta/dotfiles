@@ -1,4 +1,5 @@
 # shellcheck shell=sh
+# zmodload zsh/zprof && zprof
 
 # XDG Base Directory
 export XDG_CONFIG_HOME="$HOME"/.config

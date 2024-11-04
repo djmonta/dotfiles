@@ -4,7 +4,6 @@ The djmonta's dotfiles
 ## Overview
 
 Personal config files.
-zsh
 
 ## Installation
 

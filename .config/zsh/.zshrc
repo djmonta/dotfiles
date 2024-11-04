@@ -15,15 +15,6 @@ export LANG=ja_JP.UTF-8
 ## Default shell configuration
 
 ### The prompt settings {{{
-#
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
 # Theme.
 # ZSH_THEME='monta'
 DEFAULT_USER='monta'
@@ -40,7 +31,7 @@ for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/*.sh; do
 done
 
 # zsh rc
-for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh fzf.zsh .p10k.zsh zalias.zsh; do
+for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh fzf.zsh zalias.zsh; do
   if [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]] || [[ "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f" -nt "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]]; then
     zcompile "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f"
   fi
@@ -49,15 +40,6 @@ for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh fzf.zsh .p10k.
   source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f"
 done
 
-
-## iterm2
-source ${ZDOTDIR}/iterm2_shell_integration.zsh
-
-# autoload -Uz promptinit
-# promptinit
-# zstyle :prompt:pure:path color 032 #bright blue
-# zstyle :prompt:pure:prompt:success color 227 #light yellow
-source ${HOME}/dotfiles/bin/256colorlib.sh
 # Correct prompt
 SPROMPT="${COLOR_FG_CC4422}もしかして: %r [y,n,a,e] ->%{${reset_color}%} "
 CORRECTION='${COLOR_FG_D70000}もしかして: '
@@ -110,17 +92,35 @@ fpath=(${ZDOTDIR}/functions/Completion ${fpath})
 
 # anyenv
 if command -v anyenv > /dev/null 2>&1; then
-    eval "$(anyenv init - --no-rehash)"
+    # eval "$(anyenv init - --no-rehash)"
+    if ! [ -f /tmp/anyenv.cache ]
+    then
+        anyenv init - --no-rehash > /tmp/anyenv.cache
+        zcompile /tmp/anyenv.cache
+    fi
+    source /tmp/anyenv.cache
 fi
 
 # direnv
 if [ -x "`which direnv`" ]; then
-    eval "$(direnv hook zsh)"
+    # eval "$(direnv hook zsh)"
+    if ! [ -f /tmp/direnv.cache ]
+    then
+        direnv hook zsh > /tmp/direnv.cache
+        zcompile /tmp/direnv.cache
+    fi
+    source /tmp/direnv.cache
 fi
 
 # zoxide
 if [ -x "`which zoxide`" ]; then
-    eval "$(zoxide init zsh --cmd cd)"
+    # eval "$(zoxide init zsh --cmd cd)"
+    if ! [ -f /tmp/zioxide.cache ]
+    then
+        zoxide init zsh --cmd cd > /tmp/zioxide.cache
+        zcompile /tmp/zioxide.cache
+    fi
+    source /tmp/zioxide.cache
 fi
 
 ### Complete Messages

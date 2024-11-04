@@ -22,7 +22,8 @@ autoload -Uz _zinit
 
 ### End of Zinit's installer chunk
 
-zinit snippet "${ZDOTDIR}/utils.zsh"
+# zinit snippet "${ZDOTDIR}/utils.zsh"
+zinit snippet "$HOME/.config/zsh/iterm2_shell_integration.zsh"
 
 zinit ice wait"!0" blockf lucid atpull'zinit creinstall -q .'
 zinit light "zsh-users/zsh-completions"

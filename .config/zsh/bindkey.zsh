@@ -22,7 +22,7 @@ bindkey "^xi" anyframe-widget-execute-history
 bindkey "^xk" anyframe-widget-kill
 bindkey "^xs" anyframe-widget-select-widget
 
-bindkey '^x^e' edit-command-line
+# bindkey '^x^e' edit-command-line
 
 # コマンド履歴 ^P/^N
 #

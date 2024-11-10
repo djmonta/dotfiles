@@ -92,7 +92,6 @@ setopt complete_in_word     # カーソル位置で補完する。
 setopt always_last_prompt   # プロンプトを保持したままファイル名一覧を順次その場で表示(default=on)
 setopt glob_complete        # globを展開しないで候補の一覧から補完する。 Ctrl+x g glob展開
 setopt hist_expand          # 補完時にヒストリを自動的に展開する。
-setopt no_beep              # 補完候補がないときなどにビープ音を鳴らさない。
 setopt numeric_glob_sort    # 辞書順ではなく数字順に並べる。
 setopt auto_remove_slash    # 補完で末尾に補われた / をスペース挿入で自動的に削除
 

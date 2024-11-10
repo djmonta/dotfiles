@@ -80,6 +80,8 @@ create_dotfiles_symlinks() {
         # links
         #create_symlink "$HOME/dotfiles.local/links" "$HOME/links"
     )
+
+    create_symlink "$HOME/dotfiles/bin" "$HOME/.local/bin"
 }
 
 

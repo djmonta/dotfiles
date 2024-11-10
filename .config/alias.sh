@@ -168,10 +168,6 @@ alias grepr='grep -R'
 alias findbig='find . -type f -exec ls -s {} \; | sort -n -r | head -5'
 alias findmod='find . -type f -mmin -10'
 
-
-alias lsthumbs='find . -type f -name 'Thumbs.db' -print0 | gxargs -0 ls -a'
-alias delthumbs='find . -type f -name 'Thumbs.db' -print0 | gxargs -0 rm -f'
-
 #  e.g.
 #   find -name '*' -exec grep -n 'name' {} /dev/null ¥;
 #   find . -name \*.c -print0 | xargs -0 grep hogehoge /dev/null

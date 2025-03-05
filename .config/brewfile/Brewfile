@@ -197,6 +197,7 @@ cask blobsaver
 cask brave-browser
 cask brooklyn
 cask coteditor
+cask cursor
 cask docker
 cask dropbox
 cask font-fira-code
@@ -238,8 +239,6 @@ tap 1password/tap
 
 tap argon/mas
 
-tap b4b4r07/tap
-
 tap beeftornado/rmtree
 
 tap eddieantonio/eddieantonio
@@ -271,18 +270,17 @@ appstore 640199958 Developer (10.7.1)
 appstore 549083868 Display Menu (2.2.4)
 appstore 1526651672 Eagle for Safari (3.1.9)
 appstore 424389933 Final Cut Pro (11.0)
-appstore 682658836 GarageBand (10.4.11)
+appstore 682658836 GarageBand (10.4.12)
 appstore 408981434 iMovie (10.4.3)
-appstore 6443819966 IP Scanner (5.27)
 appstore 422293948 IP Scanner Home (5.05)
 appstore 1142151959 JustFocus (2.2.4)
-appstore 409183694 Keynote (14.2)
+appstore 409183694 Keynote (14.3)
 appstore 539883307 LINE (9.5.0)
 appstore 441258766 Magnet (3.0.6)
 appstore 1505432629 NotePlan (3.9)
 appstore 409203825 Numbers (14.3)
 appstore 992700627 Omoidebako (3.0)
-appstore 409201541 Pages (14.2)
+appstore 409201541 Pages (14.3)
 appstore 1547106997 Pins (2022.2)
 appstore 866773894 Quiver (3.2.7)
 appstore 1549370672 Save to Raindrop.io (5.6.71)

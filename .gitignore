@@ -6,3 +6,4 @@
 *.zwc
 /.config/zsh/.zcompdump
 /.config/zsh/.zsh_sessions
+.config/karabiner/automatic_backups

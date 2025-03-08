@@ -43,7 +43,6 @@ brew gnutls
 brew go
 brew gpgme
 brew highway
-brew icu4c
 brew imath
 brew jpeg-turbo
 brew jpeg-xl
@@ -51,8 +50,10 @@ brew jq
 brew krb5
 brew less
 brew libassuan
+brew libassuan@2
 brew libavif
 brew libcbor
+brew libdeflate
 brew libevent
 brew libfido2
 brew libgcrypt
@@ -67,6 +68,7 @@ brew libsodium
 brew libssh2
 brew libtasn1
 brew libtiff
+brew libtommath
 brew libtool
 brew libunistring
 brew libusb
@@ -84,13 +86,15 @@ brew lz4
 brew lzo
 brew m4
 brew mackup
+brew mariadb-connector-c
 brew mas
 brew mpdecimal
 brew mydumper
 brew mysql
-brew mysql-client
 brew ncurses
+brew net-snmp
 brew nettle
+brew nkf
 brew node
 brew npth
 brew nspr
@@ -108,14 +112,15 @@ brew pdf2svg
 brew php
 brew pinentry
 brew pinentry-mac
+brew pipx
 brew pixman
-brew pkg-config
 brew poppler
 brew protobuf
 brew pycparser
+brew python-packaging
 brew python@3.11
 brew python@3.12
-brew python@3.8
+brew python@3.13
 brew python@3.9
 brew readline
 brew rtmpdump
@@ -185,6 +190,7 @@ cask syntax-highlight
 cask tower
 cask typora
 cask visual-studio-code
+cask zen-browser
 
 tap homebrew/cask-fonts
 
@@ -200,14 +206,19 @@ brew brew-file
 tap shivammathur/php
 brew php@8.1-debug
 
+# Other Homebrew packages
+brew icu4c
+brew pkg-config
+
 # App Store applications
-appstore 1569813296 1Password for Safari (8.10.46)
+appstore 1569813296 1Password for Safari (8.10.56)
 appstore 1518425043 Boop (1.4.0)
-appstore 1024640650 CotEditor (5.0.3)
+appstore 1024640650 CotEditor (5.0.7)
 appstore 1483172210 Free Ruler (2.0.6)
 appstore 1142151959 JustFocus (2.2.4)
-appstore 409183694 Keynote (14.2)
-appstore 441258766 Magnet (3.0.2)
-appstore 409203825 Numbers (14.2)
-appstore 409201541 Pages (14.2)
-appstore 497799835 Xcode (16.0)
+appstore 409183694 Keynote (14.3)
+appstore 441258766 Magnet (3.0.6)
+appstore 409203825 Numbers (14.3)
+appstore 409201541 Pages (14.3)
+appstore 1547106997 Pins (2022.2)
+appstore 497799835 Xcode (16.2)

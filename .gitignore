@@ -4,4 +4,5 @@
 *.cache
 .zsh/.zcompdump
 *.zwc
-/.config/zsh/.zcompdump
+.config/zsh/.zcompdump
+.config/karabiner/automatic_backups

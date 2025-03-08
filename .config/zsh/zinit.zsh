@@ -22,6 +22,9 @@ autoload -Uz _zinit
 
 ### End of Zinit's installer chunk
 
+zinit ice depth=1;
+zinit light romkatv/powerlevel10k
+
 # zinit snippet "${ZDOTDIR}/utils.zsh"
 zinit snippet "$HOME/.config/zsh/iterm2_shell_integration.zsh"
 
@@ -46,8 +49,6 @@ zinit light "pinelibg/dircolors-solarized-zsh"
 
 zinit light "marzocchi/zsh-notify"
 
-zinit ice depth=1;
-zinit light romkatv/powerlevel10k
 
 zinit ice wait"!0" blockf lucid pick"wakatime.plugin.zsh"
 zinit light "sobolevn/wakatime-zsh-plugin"

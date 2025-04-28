@@ -1,0 +1,25 @@
+#!/bin/zsh
+ 
+case $@ in
+new-blend-fumidai)
+    SSH_COLOR=#183159
+    ;;
+blend-fumidai)
+    SSH_COLOR=#752019
+    ;;
+blend-cs-fumidai)
+    SSH_COLOR=#466031
+    ;;
+*)
+    SSH_COLOR=#282c34
+    ;;
+esac
+
+echo -ne "\e]11;$SSH_COLOR\e\\"
+
+
+# ssh login
+/usr/bin/ssh "$@"
+
+# set background color(default)
+echo -ne "\e]11;#282c34\e\\"

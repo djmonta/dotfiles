@@ -35,7 +35,7 @@ alias history="history -i"
 alias printfpath='echo $fpath | tr " " "\n"'
 
 # ssh
-alias ssh='ssh-change-profile'
+alias ssh='ssh-change-bg'
 
 # vc command completion
 compdef _command vc

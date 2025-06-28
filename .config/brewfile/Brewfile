@@ -4,7 +4,11 @@
 tap homebrew/core
 brew anyenv
 brew aom
+brew apr
+brew apr-util
+brew argon2
 brew aribb24
+brew aspell
 brew autoconf
 brew automake
 brew bash
@@ -31,11 +35,13 @@ brew exiftool
 brew ffmpeg
 brew flac
 brew fontconfig
+brew freetds
 brew freetype
 brew frei0r
 brew fribidi
 brew fzf
 brew gcc
+brew gd
 brew gettext
 brew giflib
 brew glib
@@ -51,6 +57,8 @@ brew harfbuzz
 brew highway
 brew hub
 brew hugo
+brew icu4c@76
+brew icu4c@77
 brew imath
 brew isl
 brew jansson
@@ -58,6 +66,7 @@ brew jpeg
 brew jpeg-turbo
 brew jpeg-xl
 brew jq
+brew krb5
 brew lame
 brew leptonica
 brew less
@@ -65,6 +74,7 @@ brew libarchive
 brew libass
 brew libassuan
 brew libassuan@2
+brew libavif
 brew libb2
 brew libbluray
 brew libdeflate
@@ -80,6 +90,7 @@ brew libmpc
 brew libnghttp2
 brew libogg
 brew libpng
+brew libpq
 brew librist
 brew libsamplerate
 brew libsndfile
@@ -90,6 +101,7 @@ brew libssh2
 brew libtasn1
 brew libtiff
 brew libtommath
+brew libtool
 brew libunibreak
 brew libunistring
 brew libusb
@@ -98,7 +110,6 @@ brew libvidstab
 brew libvmaf
 brew libvorbis
 brew libvpx
-brew libvterm
 brew libx11
 brew libxau
 brew libxcb
@@ -122,7 +133,6 @@ brew mbedtls
 brew mpdecimal
 brew mpfr
 brew mpg123
-brew msgpack
 brew mydumper
 brew navi
 brew ncurses
@@ -140,9 +150,11 @@ brew p11-kit
 brew pango
 brew pcre
 brew pcre2
+brew php@8.2
 brew pinentry
 brew pinentry-mac
 brew pixman
+brew pkg-config
 brew python-packaging
 brew python@3.12
 brew python@3.13
@@ -170,6 +182,7 @@ brew tree
 brew tree-sitter
 brew unbound
 brew unibilium
+brew unixodbc
 brew utf8proc
 brew wakatime-cli
 brew webp
@@ -214,6 +227,7 @@ cask jordanbaird-ice
 cask karabiner-elements
 cask keybase
 cask klogg
+cask leader-key
 cask makemkv
 cask notion
 cask obsidian
@@ -241,6 +255,8 @@ tap argon/mas
 
 tap beeftornado/rmtree
 
+tap dzirtusss/tap
+
 tap eddieantonio/eddieantonio
 
 tap k1low/tap
@@ -254,9 +270,7 @@ brew brew-file
 
 tap vitorgalvao/tiny-scripts
 
-# Other Homebrew packages
-brew icu4c
-brew pkg-config
+tap vladdoster/formulae
 
 # App Store applications
 appstore 1569813296 1Password for Safari (8.10.56)
@@ -270,17 +284,15 @@ appstore 640199958 Developer (10.7.1)
 appstore 549083868 Display Menu (2.2.4)
 appstore 1526651672 Eagle for Safari (3.1.9)
 appstore 424389933 Final Cut Pro (11.0)
-appstore 682658836 GarageBand (10.4.12)
 appstore 408981434 iMovie (10.4.3)
+appstore 288545208 Instapaper (9.1.2)
 appstore 422293948 IP Scanner Home (5.05)
 appstore 1142151959 JustFocus (2.2.4)
-appstore 409183694 Keynote (14.3)
 appstore 539883307 LINE (9.5.0)
 appstore 441258766 Magnet (3.0.6)
 appstore 1505432629 NotePlan (3.9)
 appstore 409203825 Numbers (14.3)
 appstore 992700627 Omoidebako (3.0)
-appstore 409201541 Pages (14.3)
 appstore 1547106997 Pins (2022.2)
 appstore 866773894 Quiver (3.2.7)
 appstore 1549370672 Save to Raindrop.io (5.6.71)
@@ -289,5 +301,6 @@ appstore 1176895641 Spark (2.11.47)
 appstore 904280696 Things3 (3.21.4)
 appstore 1289119450 URL Linker (1.1)
 appstore 1480933944 Vimari (2.1.1)
+appstore 1584519802 Vimlike (1.5.2)
 appstore 1295203466 Windows App (11.0.9)
 appstore 497799835 Xcode (16.2)

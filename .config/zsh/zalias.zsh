@@ -125,7 +125,7 @@ set_aliases_for_ext() {
         alias -s ${target}=zsh_extracter
     done
 }
-set_aliases_for_ext
+# set_aliases_for_ext
 # }}}
 
 ### Source configuration files {{{

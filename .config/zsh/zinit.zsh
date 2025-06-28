@@ -43,16 +43,12 @@ zinit wait lucid for \
     zsh-users/zsh-autosuggestions
 
 zinit light "mollifier/anyframe"
-zinit light Aloxaf/fzf-tab
 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light trapd00r/LS_COLORS
 zinit light "pinelibg/dircolors-solarized-zsh"
-
-zinit ice wait"!0" blockf lucid pick"ls-colors.zsh"
-zinit light xPMo/zsh-ls-colors
 
 zinit light "marzocchi/zsh-notify"
 

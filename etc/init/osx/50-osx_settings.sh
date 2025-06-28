@@ -72,9 +72,9 @@ set_finder_preferences()
     defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
     defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-    # Set `Desktop` as the default location for new Finder windows
-    defaults write com.apple.finder NewWindowTarget -string "PfDe"
-    #defaults write com.apple.finder NewWindowTargetPath -string "/Users/monta/"
+    # Set `Home` as the default location for new Finder windows
+    defaults write com.apple.finder NewWindowTarget -string "PfLo" &&
+    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
     # Show Status bar in Finder
     defaults write com.apple.finder ShowStatusBar -bool true
@@ -266,10 +266,10 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     set_dock_preferences
     set_finder_preferences
     # set_keyboard_preferences
-#    set_safari_preferences
+    set_safari_preferences
     set_terminal_preferences
     set_trackpad_preferences
-    set_transmission_preferences
+    # set_transmission_preferences
     set_ui_and_ux_preferences
 
     killall cfprefsd
@@ -277,5 +277,5 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     killall Finder
     killall Safari
     killall SystemUIServer
-    killall Transmission
+    # killall Transmission
 fi

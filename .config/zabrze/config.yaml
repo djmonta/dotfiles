@@ -1,0 +1,28 @@
+abbrevs:
+  - name: chrome
+    abbr: chrome
+    snippet: open -a 'Google Chrome'
+    if: '[[ "$OSTYPE" =~ darwin ]]' # only available in macOS
+
+  - name: trash
+    abbr: rm
+    snippet: trash
+    if: (( ${+commands[trash]} )) # available if trash is installed
+
+  - name: rm -r
+    abbr: rm
+    snippet: rm -r # fallback
+
+  - name: rm directory
+    abbr: rmd
+    snippet: rm -ir
+  
+  - name: history
+    abbr: history
+    snippet: history -i
+
+  - name: (git push) --force-with-lease
+    abbr: f
+    snippet: --force-with-lease
+    global: true
+    context: '^git\spush\s'

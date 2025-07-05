@@ -1,0 +1,6 @@
+
+[[Snippets]]
+  Description = "レビューPR"
+  Output = ""
+  Tag = []
+  command = "gh pr list --search \"user-review-requested:@me\" "

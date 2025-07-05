@@ -31,6 +31,11 @@
           "key" : "o",
           "type" : "application",
           "value" : "/Applications/Obsidian.app"
+        },
+        {
+          "key" : "b",
+          "type" : "application",
+          "value" : "/Applications/Brave Browser.app"
         }
       ],
       "iconPath" : "app",
@@ -83,16 +88,21 @@
           "value" : "cleanshot://capture-area"
         },
         {
-          "key" : "p",
+          "key" : "c",
           "label" : "Previous Area",
           "type" : "url",
           "value" : "cleanshot://capture-previous-area"
         }
       ],
       "iconPath" : "camera.metering.center.weighted.average",
-      "key" : "c",
+      "key" : "s",
       "label" : "Capture",
       "type" : "group"
+    },
+    {
+      "key" : "c",
+      "type" : "application",
+      "value" : "/Applications/Zen Browser.app"
     }
   ],
   "type" : "group"

@@ -29,7 +29,7 @@ alias pd="pushd"
 alias po="popd"
 
 # history時間表示
-alias history="history -i"
+# alias history="history -i"
 
 # fpathを表示
 alias printfpath='echo $fpath | tr " " "\n"'
@@ -134,7 +134,7 @@ set_aliases_for_ext() {
 case "${OSTYPE}" in
     # Mac(Unix)
     darwin*)
-    alias rm='trash -F'
+    # alias rm='trash -F'
     #alias rm='gomi'
     ;;
     # Linux

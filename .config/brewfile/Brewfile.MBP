@@ -26,6 +26,7 @@ brew coreutils
 brew cryptography
 brew curl
 brew docutils
+brew expat
 brew fontconfig
 brew freetds
 brew freetype
@@ -43,6 +44,8 @@ brew gnutls
 brew go
 brew gpgme
 brew highway
+brew icu4c@76
+brew icu4c@77
 brew imath
 brew jpeg-turbo
 brew jpeg-xl
@@ -50,14 +53,13 @@ brew jq
 brew krb5
 brew less
 brew libassuan
-brew libassuan@2
 brew libavif
 brew libcbor
 brew libdeflate
 brew libevent
 brew libfido2
 brew libgcrypt
-brew libgit2@1.7
+brew libgit2
 brew libgpg-error
 brew libidn2
 brew libksba
@@ -114,10 +116,11 @@ brew pinentry
 brew pinentry-mac
 brew pipx
 brew pixman
+brew pkg-config
 brew poppler
 brew protobuf
+brew protobuf@29
 brew pycparser
-brew python-packaging
 brew python@3.11
 brew python@3.12
 brew python@3.13
@@ -136,6 +139,7 @@ brew tree
 brew unbound
 brew unixodbc
 brew utf8proc
+brew uv
 brew wakatime-cli
 brew webp
 brew wget
@@ -165,6 +169,7 @@ cask font-jetbrains-mono-nerd-font
 cask font-udev-gothic
 cask font-udev-gothic-nf
 cask fontforge
+cask ghostty
 cask go-agent
 cask google-chrome
 cask google-drive
@@ -175,6 +180,7 @@ cask jordanbaird-ice
 cask kaleidoscope
 cask karabiner-elements
 cask klogg
+cask leader-key
 cask mysql-shell
 cask obsidian
 cask postman
@@ -190,6 +196,7 @@ cask syntax-highlight
 cask tower
 cask typora
 cask visual-studio-code
+cask zed
 cask zen-browser
 
 tap homebrew/cask-fonts
@@ -206,19 +213,16 @@ brew brew-file
 tap shivammathur/php
 brew php@8.1-debug
 
-# Other Homebrew packages
-brew icu4c
-brew pkg-config
-
 # App Store applications
-appstore 1569813296 1Password for Safari (8.10.56)
+appstore 1569813296 1Password for Safari (8.10.82)
+appstore 302584613 Amazon Kindle (7.35)
 appstore 1518425043 Boop (1.4.0)
-appstore 1024640650 CotEditor (5.0.7)
+appstore 1024640650 CotEditor (5.1.8)
 appstore 1483172210 Free Ruler (2.0.6)
-appstore 1142151959 JustFocus (2.2.4)
-appstore 409183694 Keynote (14.3)
-appstore 441258766 Magnet (3.0.6)
-appstore 409203825 Numbers (14.3)
-appstore 409201541 Pages (14.3)
+appstore 1142151959 JustFocus (2.5.14)
+appstore 409183694 Keynote (14.4)
+appstore 441258766 Magnet (3.0.7)
+appstore 409203825 Numbers (14.4)
+appstore 409201541 Pages (14.4)
 appstore 1547106997 Pins (2022.2)
 appstore 497799835 Xcode (16.2)

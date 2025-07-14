@@ -35,7 +35,7 @@ alias history="history -i"
 alias printfpath='echo $fpath | tr " " "\n"'
 
 # ssh
-alias ssh='ssh-change-bg'
+alias ssh='ssh-change-profile'
 
 # vc command completion
 compdef _command vc
@@ -128,7 +128,7 @@ set_aliases_for_ext() {
         alias -s ${target}=zsh_extracter
     done
 }
-set_aliases_for_ext
+# set_aliases_for_ext
 # }}}
 
 ### Source configuration files {{{

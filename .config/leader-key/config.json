@@ -1,0 +1,114 @@
+{
+  "actions" : [
+    {
+      "key" : "t",
+      "type" : "application",
+      "value" : "/Applications/iTerm.app"
+    },
+    {
+      "key" : "v",
+      "type" : "application",
+      "value" : "/Applications/Cursor.app"
+    },
+    {
+      "key" : "c",
+      "type" : "application",
+      "value" : "/Applications/Zen Browser.app"
+    },
+    {
+      "key" : "x",
+      "type" : "application",
+      "value" : "/Applications/Slack.app"
+    },
+    {
+      "key" : "z",
+      "type" : "application",
+      "value" : "/Applications/Setapp/TablePlus.app"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "s",
+          "type" : "application",
+          "value" : "/Applications/Safari.app"
+        },
+        {
+          "key" : "e",
+          "type" : "application",
+          "value" : "/Applications/Spark.app"
+        },
+        {
+          "key" : "i",
+          "type" : "application",
+          "value" : "/System/Applications/Music.app"
+        },
+        {
+          "key" : "o",
+          "type" : "application",
+          "value" : "/Applications/Obsidian.app"
+        }
+      ],
+      "iconPath" : "app",
+      "key" : "o",
+      "label" : "Apps",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "e",
+          "label" : "emoji",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key" : "p",
+          "label" : "confetti",
+          "type" : "url",
+          "value" : "raycast://confetti"
+        }
+      ],
+      "key" : "r",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "w",
+          "label" : "Window",
+          "type" : "url",
+          "value" : "cleanshot://capture-window"
+        },
+        {
+          "key" : "f",
+          "label" : "Fullscreen",
+          "type" : "url",
+          "value" : "cleanshot://capture-fullscreen"
+        },
+        {
+          "key" : "v",
+          "label" : "Record Screen",
+          "type" : "url",
+          "value" : "cleanshot://record-screen"
+        },
+        {
+          "key" : "a",
+          "label" : "Area",
+          "type" : "url",
+          "value" : "cleanshot://capture-area"
+        },
+        {
+          "key" : "p",
+          "label" : "Previous Area",
+          "type" : "url",
+          "value" : "cleanshot://capture-previous-area"
+        }
+      ],
+      "iconPath" : "camera.metering.center.weighted.average",
+      "key" : "s",
+      "label" : "Capture",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}

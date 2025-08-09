@@ -46,6 +46,11 @@
           "key" : "o",
           "type" : "application",
           "value" : "/Applications/Obsidian.app"
+        },
+        {
+          "key" : "l",
+          "type" : "application",
+          "value" : "/Applications/Logseq.app"
         }
       ],
       "iconPath" : "app",
@@ -66,6 +71,12 @@
           "label" : "confetti",
           "type" : "url",
           "value" : "raycast://confetti"
+        },
+        {
+          "key" : "r",
+          "label" : "release",
+          "type" : "url",
+          "value" : "raycast://script-commands/release-script"
         }
       ],
       "key" : "r",

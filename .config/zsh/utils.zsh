@@ -23,40 +23,40 @@ function pcolor() {
 ### Terminal configuration {{{
 #
 # ターミナル固有設定
-case "${TERM}" in
-    kterm*|xterm*|screen*)
-        _change_terminal_title_preexec_hook() {
-            if [ "$STY" ]; then
-                # コマンド実行時にコマンド名をタイトルに設定(screen)
-                echo -ne "\ek${1%% *}\e\\"
-            fi
-        }
-        add-zsh-hook preexec _change_terminal_title_preexec_hook
+# case "${TERM}" in
+#     kterm*|xterm*|screen*)
+#         _change_terminal_title_preexec_hook() {
+#             if [ "$STY" ]; then
+#                 # コマンド実行時にコマンド名をタイトルに設定(screen)
+#                 echo -ne "\ek${1%% *}\e\\"
+#             fi
+#         }
+#         add-zsh-hook preexec _change_terminal_title_preexec_hook
 
-        _change_terminal_title_precmd_hook() {
-            if [ "$STY" ]; then
-                echo -ne "\ek$(basename "$(pwd)")\e\\"
-            else
-                echo -ne "\033]0;$(basename "$(pwd)")\007"
-            fi
-            return 0
-        }
-        add-zsh-hook precmd _change_terminal_title_precmd_hook
-        ;;
-    # for emacs tramp setting
-    dumb)
-        PROMPT="%n@%~%(!.#.$)"
-        RPROMPT=""
-        PS1='%(?..[%?])%!:%~%# '
-        # for tramp to not hang, need the following. cf:
-        # http://www.emacswiki.org/emacs/TrampMode
-        unsetopt zle
-        unsetopt prompt_cr
-        unsetopt prompt_subst
-        unfunction precmd
-        unfunction preexec
-        ;;
-esac
+#         _change_terminal_title_precmd_hook() {
+#             if [ "$STY" ]; then
+#                 echo -ne "\ek$(basename "$(pwd)")\e\\"
+#             else
+#                 echo -ne "\033]0;$(basename "$(pwd)")\007"
+#             fi
+#             return 0
+#         }
+#         add-zsh-hook precmd _change_terminal_title_precmd_hook
+#         ;;
+#     # for emacs tramp setting
+#     dumb)
+#         PROMPT="%n@%~%(!.#.$)"
+#         RPROMPT=""
+#         PS1='%(?..[%?])%!:%~%# '
+#         # for tramp to not hang, need the following. cf:
+#         # http://www.emacswiki.org/emacs/TrampMode
+#         unsetopt zle
+#         unsetopt prompt_cr
+#         unsetopt prompt_subst
+#         unfunction precmd
+#         unfunction preexec
+#         ;;
+# esac
 
 # }}}
 

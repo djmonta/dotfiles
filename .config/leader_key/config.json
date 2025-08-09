@@ -36,6 +36,11 @@
           "key" : "b",
           "type" : "application",
           "value" : "/Applications/Brave Browser.app"
+        },
+        {
+          "key" : "l",
+          "type" : "application",
+          "value" : "/Applications/Logseq.app"
         }
       ],
       "iconPath" : "app",

@@ -123,6 +123,15 @@ if [ -x "`which zoxide`" ]; then
     source /tmp/zioxide.cache
 fi
 
+if [ -x "`which zabrze`" ]; then
+    if ! [ -f /tmp/zabrze.cache ]
+    then
+        zabrze init --bind-keys > /tmp/zabrze.cache
+        zcompile /tmp/zabrze.cache
+    fi
+    source /tmp/zabrze.cache
+fi
+
 ### Complete Messages
 # echo "Loading .zshrc completed!! (ZDOTDIR=${ZDOTDIR})"
 # echo "Now zsh version $ZSH_VERSION starting!!"

@@ -43,6 +43,7 @@ brew gnupg
 brew gnutls
 brew go
 brew gpgme
+brew gpgmepp
 brew highway
 brew icu4c@76
 brew icu4c@77
@@ -64,6 +65,8 @@ brew libgpg-error
 brew libidn2
 brew libksba
 brew libnghttp2
+brew libnghttp3
+brew libngtcp2
 brew libpng
 brew libpq
 brew libsodium
@@ -125,6 +128,7 @@ brew python@3.13
 brew python@3.9
 brew readline
 brew rtmpdump
+brew simdjson
 brew sqlite
 brew tbls
 brew tcl-tk
@@ -199,8 +203,6 @@ cask visual-studio-code
 cask zed
 cask zen-browser
 
-tap homebrew/cask-fonts
-
 tap 1password/tap
 
 tap argon/mas
@@ -215,7 +217,7 @@ brew php@8.1-debug
 
 # App Store applications
 appstore 1569813296 1Password for Safari (8.10.82)
-appstore 302584613 Amazon Kindle (7.37)
+appstore 302584613 Amazon Kindle (7.38.1)
 appstore 1518425043 Boop (1.4.0)
 appstore 1024640650 CotEditor (5.2.2)
 appstore 1483172210 Free Ruler (2.0.6)

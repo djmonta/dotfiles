@@ -92,44 +92,17 @@ fpath=(${ZDOTDIR}/functions/Completion ${fpath})
 
 # anyenv
 if command -v anyenv > /dev/null 2>&1; then
-    # eval "$(anyenv init - --no-rehash)"
-    if ! [ -f /tmp/anyenv.cache ]
-    then
-        anyenv init - --no-rehash > /tmp/anyenv.cache
-        zcompile /tmp/anyenv.cache
-    fi
-    source /tmp/anyenv.cache
+    eval "$(anyenv init - --no-rehash)"
 fi
 
 # direnv
 if [ -x "`which direnv`" ]; then
-    # eval "$(direnv hook zsh)"
-    if ! [ -f /tmp/direnv.cache ]
-    then
-        direnv hook zsh > /tmp/direnv.cache
-        zcompile /tmp/direnv.cache
-    fi
-    source /tmp/direnv.cache
+    eval "$(direnv hook zsh)"
 fi
 
 # zoxide
 if [ -x "`which zoxide`" ]; then
-    # eval "$(zoxide init zsh --cmd cd)"
-    if ! [ -f /tmp/zioxide.cache ]
-    then
-        zoxide init zsh --cmd cd > /tmp/zioxide.cache
-        zcompile /tmp/zioxide.cache
-    fi
-    source /tmp/zioxide.cache
-fi
-
-if [ -x "`which zabrze`" ]; then
-    if ! [ -f /tmp/zabrze.cache ]
-    then
-        zabrze init --bind-keys > /tmp/zabrze.cache
-        zcompile /tmp/zabrze.cache
-    fi
-    source /tmp/zabrze.cache
+    eval "$(zoxide init zsh --cmd cd)"
 fi
 
 ### Complete Messages

@@ -93,7 +93,7 @@
           "value" : "cleanshot://capture-area"
         },
         {
-          "key" : "c",
+          "key" : "p",
           "label" : "Previous Area",
           "type" : "url",
           "value" : "cleanshot://capture-previous-area"

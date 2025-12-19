@@ -20,10 +20,8 @@ brew c-ares
 brew ca-certificates
 brew cairo
 brew carthage
-brew cffi
 brew composer
 brew coreutils
-brew cryptography
 brew curl
 brew docutils
 brew expat
@@ -47,6 +45,7 @@ brew gpgmepp
 brew highway
 brew icu4c@76
 brew icu4c@77
+brew icu4c@78
 brew imath
 brew jpeg-turbo
 brew jpeg-xl
@@ -95,7 +94,7 @@ brew mariadb-connector-c
 brew mas
 brew mpdecimal
 brew mydumper
-brew mysql
+brew mysql@8.4
 brew ncurses
 brew net-snmp
 brew nettle
@@ -121,8 +120,7 @@ brew pipx
 brew pixman
 brew pkg-config
 brew poppler
-brew protobuf@29
-brew pycparser
+brew protobuf
 brew python@3.11
 brew python@3.13
 brew python@3.9
@@ -188,7 +186,6 @@ cask mysql-shell
 cask obsidian
 cask postman
 cask qlcolorcode
-cask qlimagesize
 cask qlmarkdown
 cask qlstephen
 cask sequel-ace
@@ -215,16 +212,20 @@ brew brew-file
 tap shivammathur/php
 brew php@8.1-debug
 
+# Other Cask applications
+cask qlimagesize
+
 # App Store applications
-appstore 1569813296 1Password for Safari (8.10.82)
-appstore 302584613 Amazon Kindle (7.38.1)
+appstore 1569813296 1Password for Safari (8.11.18)
+appstore 302584613 Amazon Kindle (7.45.1)
 appstore 1518425043 Boop (1.4.0)
-appstore 1024640650 CotEditor (5.2.2)
+appstore 1024640650 CotEditor (5.2.3)
 appstore 1483172210 Free Ruler (2.0.6)
-appstore 1142151959 JustFocus (2.5.14)
+appstore 1142151959 JustFocus (2.6.5)
 appstore 409183694 Keynote (14.4)
 appstore 441258766 Magnet (3.0.7)
 appstore 409203825 Numbers (14.4)
 appstore 409201541 Pages (14.4)
 appstore 1547106997 Pins (2022.2)
+appstore 1151308717 traumbaum (1.23)
 appstore 497799835 Xcode (16.2)

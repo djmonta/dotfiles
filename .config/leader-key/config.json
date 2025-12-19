@@ -77,6 +77,12 @@
           "label" : "release",
           "type" : "url",
           "value" : "raycast://script-commands/release-script"
+        },
+        {
+          "key" : "v",
+          "label" : "vpn",
+          "type" : "url",
+          "value" : "raycast://script-commands/vpn"
         }
       ],
       "key" : "r",

@@ -148,6 +148,14 @@ export HOMEBREW_BREWFILE_APPSTORE=1
 # PHP
 export PATH="$USER_LOCAL"/opt/php@8.1-debug/bin:"$USER_LOCAL"/opt/php@8.1-debug/sbin:"$PATH"
 
+# MySQL
+if [ -d "$USER_LOCAL"/opt/mysql@8.4/ ]; then
+    export PATH="$USER_LOCAL/opt/mysql@8.4/bin:$PATH"
+    export LDFLAGS="-L$USER_LOCAL/opt/mysql@8.4/lib"
+    export CPPFLAGS="-I$USER_LOCAL/opt/mysql@8.4/include"
+    export PKG_CONFIG_PATH="$USER_LOCAL/opt/mysql@8.4/lib/pkgconfig"
+fi
+
 # iTerm
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 

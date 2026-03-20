@@ -97,6 +97,9 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export TS_NODE_HISTORY="$XDG_DATA_HOME"/ts-node/history
 export PATH="$PATH":"$XDG_DATA_HOME"/npm/bin
 
+# opencode
+export PATH="$HOME"/.opencode/bin:"$PATH"
+
 # export DENO_INSTALL_ROOT="$XDG_DATA_HOME"/deno
 # if [ ! -d "$DENO_INSTALL_ROOT" ]; then
 #   mkdir -m 700 "$DENO_INSTALL_ROOT"

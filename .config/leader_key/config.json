@@ -1,26 +1,21 @@
 {
   "actions" : [
     {
-      "key" : "t",
+      "key" : "c",
       "type" : "application",
-      "value" : "/Applications/iTerm.app"
-    },
-    {
-      "key" : "v",
-      "type" : "application",
-      "value" : "/Applications/Cursor.app"
+      "value" : "/Applications/Zen Browser.app"
     },
     {
       "actions" : [
         {
-          "key" : "s",
+          "key" : "b",
           "type" : "application",
-          "value" : "/Applications/Safari.app"
+          "value" : "/Applications/Brave Browser.app"
         },
         {
           "key" : "e",
           "type" : "application",
-          "value" : "/Applications/Spark.app"
+          "value" : "/Applications/Setapp/Spark Mail.app"
         },
         {
           "key" : "i",
@@ -33,14 +28,14 @@
           "value" : "/Applications/Obsidian.app"
         },
         {
-          "key" : "b",
+          "key" : "s",
           "type" : "application",
-          "value" : "/Applications/Brave Browser.app"
+          "value" : "/Applications/Safari.app"
         },
         {
-          "key" : "l",
+          "key" : "u",
           "type" : "application",
-          "value" : "/Applications/Logseq.app"
+          "value" : "/Applications/Orion.app"
         }
       ],
       "iconPath" : "app",
@@ -69,10 +64,10 @@
     {
       "actions" : [
         {
-          "key" : "w",
-          "label" : "Window",
+          "key" : "a",
+          "label" : "Area",
           "type" : "url",
-          "value" : "cleanshot://capture-window"
+          "value" : "cleanshot://capture-area"
         },
         {
           "key" : "f",
@@ -81,22 +76,22 @@
           "value" : "cleanshot://capture-fullscreen"
         },
         {
+          "key" : "p",
+          "label" : "Previous Area",
+          "type" : "url",
+          "value" : "cleanshot://capture-previous-area"
+        },
+        {
           "key" : "v",
           "label" : "Record Screen",
           "type" : "url",
           "value" : "cleanshot://record-screen"
         },
         {
-          "key" : "a",
-          "label" : "Area",
+          "key" : "w",
+          "label" : "Window",
           "type" : "url",
-          "value" : "cleanshot://capture-area"
-        },
-        {
-          "key" : "p",
-          "label" : "Previous Area",
-          "type" : "url",
-          "value" : "cleanshot://capture-previous-area"
+          "value" : "cleanshot://capture-window"
         }
       ],
       "iconPath" : "camera.metering.center.weighted.average",
@@ -105,9 +100,14 @@
       "type" : "group"
     },
     {
-      "key" : "c",
+      "key" : "t",
       "type" : "application",
-      "value" : "/Applications/Zen Browser.app"
+      "value" : "/Applications/iTerm.app"
+    },
+    {
+      "key" : "v",
+      "type" : "application",
+      "value" : "/Applications/Cursor.app"
     }
   ],
   "type" : "group"

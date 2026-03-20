@@ -30,6 +30,13 @@ set_dock_preferences()
     # Magnificate the Dock
     defaults write com.apple.dock magnification -bool true
 
+    # Disable the delay when hiding the Dock
+    defaults write com.apple.dock autohide-delay -float 0.2
+    defaults write com.apple.dock autohide-time-modifier -float 0.2
+
+    # 𝗠𝗮𝗸𝗲 𝗛𝗶𝗱𝗱𝗲𝗻 𝗔𝗽𝗽𝘀 𝗧𝗿𝗮𝗻𝘀𝗽𝗮𝗿𝗲𝗻𝘁
+    defaults write com.apple.Dock showhidden -bool true
+
     # Hot corners
     # Possible values:
     #  0: no-op

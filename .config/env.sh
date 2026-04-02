@@ -172,6 +172,9 @@ if command -v terminal-notifier >/dev/null 2>&1; then
   export SYS_NOTIFIER="$USER_LOCAL"/bin/terminal-notifier
 fi
 
+# Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
 export DOWNLOAD_DIR="$HOME"/Downloads
 
 # # aqua

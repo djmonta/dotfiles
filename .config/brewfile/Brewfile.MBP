@@ -3,6 +3,7 @@
 
 tap homebrew/core
 brew abseil
+brew ada-url
 brew ansifilter
 brew anyenv
 brew aom
@@ -23,8 +24,10 @@ brew carthage
 brew composer
 brew coreutils
 brew curl
+brew dav1d
 brew docutils
 brew expat
+brew fmt
 brew fontconfig
 brew freetds
 brew freetype
@@ -42,9 +45,9 @@ brew gnutls
 brew go
 brew gpgme
 brew gpgmepp
+brew hdrhistogram_c
 brew highway
 brew icu4c@76
-brew icu4c@77
 brew icu4c@78
 brew imath
 brew jpeg-turbo
@@ -86,15 +89,18 @@ brew libxext
 brew libxrender
 brew libzip
 brew little-cms2
+brew llhttp
 brew lz4
 brew lzo
 brew m4
 brew mackup
 brew mariadb-connector-c
 brew mas
+brew merve
 brew mpdecimal
 brew mydumper
 brew mysql@8.4
+brew nbytes
 brew ncurses
 brew net-snmp
 brew nettle
@@ -106,8 +112,8 @@ brew nss
 brew oniguruma
 brew openexr
 brew openjpeg
+brew openjph
 brew openldap
-brew openssl@1.1
 brew openssl@3
 brew p11-kit
 brew pcre
@@ -122,11 +128,11 @@ brew pkg-config
 brew poppler
 brew protobuf
 brew python@3.11
-brew python@3.13
+brew python@3.14
 brew python@3.9
 brew readline
-brew rtmpdump
 brew simdjson
+brew simdutf
 brew sqlite
 brew tbls
 brew tcl-tk
@@ -140,14 +146,15 @@ brew unbound
 brew unixodbc
 brew utf8proc
 brew uv
+brew uvwasi
 brew wakatime-cli
 brew webp
 brew wget
 brew xorgproto
 brew xz
 brew yarn
-brew youtube-dl
 brew zlib
+brew zlib-ng-compat
 brew zoxide
 brew zstd
 
@@ -158,6 +165,7 @@ cask alfred
 cask alt-tab
 cask appcleaner
 cask cmd-eikana
+cask cursor-cli
 cask cyberduck
 cask dash
 cask docker
@@ -189,11 +197,11 @@ cask qlcolorcode
 cask qlmarkdown
 cask qlstephen
 cask sequel-ace
-cask sequel-pro
 cask slack
 cask sublime-text
 cask syncthing-app
 cask syntax-highlight
+cask tailscale-app
 cask tower
 cask typora
 cask visual-studio-code
@@ -212,20 +220,22 @@ brew brew-file
 tap shivammathur/php
 brew php@8.1-debug
 
+# Other Homebrew packages
+brew openssl@1.1
+brew youtube-dl
+
 # Other Cask applications
 cask qlimagesize
+cask sequel-pro
 
 # App Store applications
-appstore 1569813296 1Password for Safari (8.11.18)
-appstore 302584613 Amazon Kindle (7.45.1)
-appstore 1518425043 Boop (1.4.0)
+appstore 1569813296 1Password for Safari (8.12.12)
+appstore 302584613 Amazon Kindle (7.57)
 appstore 1024640650 CotEditor (5.2.3)
-appstore 1483172210 Free Ruler (2.0.6)
-appstore 1142151959 JustFocus (2.6.5)
-appstore 409183694 Keynote (14.4)
-appstore 441258766 Magnet (3.0.7)
-appstore 409203825 Numbers (14.4)
-appstore 409201541 Pages (14.4)
+appstore 1438243180 Dark Reader for Safari (2.1.8)
+appstore 1142151959 JustFocus (2.6.11)
+appstore 409203825 Numbers (14.5)
 appstore 1547106997 Pins (2022.2)
+appstore 904280696 Things3 (3.22.11)
 appstore 1151308717 traumbaum (1.23)
 appstore 497799835 Xcode (16.2)

@@ -129,3 +129,5 @@ fi
 # fi
 
 [ -f ${HOME}/dotfiles/.fzf.bash ] && source ${HOME}/dotfiles/.fzf.bash
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"

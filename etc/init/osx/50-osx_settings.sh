@@ -273,8 +273,8 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     set_dock_preferences
     set_finder_preferences
     # set_keyboard_preferences
-    set_safari_preferences
-    set_terminal_preferences
+    # set_safari_preferences
+    # set_terminal_preferences
     set_trackpad_preferences
     # set_transmission_preferences
     set_ui_and_ux_preferences
@@ -282,7 +282,7 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     killall cfprefsd
     killall Dock
     killall Finder
-    killall Safari
+    # killall Safari
     killall SystemUIServer
     # killall Transmission
 fi

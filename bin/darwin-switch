@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+
+nix --extra-experimental-features 'nix-command flakes' \
+  run "${ROOT}#darwin-rebuild" -- switch --flake "${ROOT}#monta"

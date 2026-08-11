@@ -9,3 +9,4 @@
 .config/karabiner/automatic_backups
 result
 *.hm-backup
+.direnv/

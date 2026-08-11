@@ -21,9 +21,7 @@ brew exiftool
 brew fmt
 brew fontconfig
 brew freetype
-brew fzf
 brew gettext
-brew gh
 brew giflib
 brew glib
 brew gmp
@@ -92,6 +90,7 @@ brew openssl@3
 brew p11-kit
 brew pcre2
 brew pixman
+brew pkgconf
 brew python-packaging
 brew python@3.14
 brew rav1e

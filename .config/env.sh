@@ -121,11 +121,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # export WASMER_CACHE_DIR="$XDG_CACHE_HOME"/wasmer
 # export PATH="$PATH:$WASMER_DIR/bin:$WASMER_DIR/globals/wapm_packages/.bin"
 
-# Add anyenv to PATH for scripting
-if [ -d "$XDG_CONFIG_HOME"/anyenv ] ; then
-	export PATH="$XDG_CONFIG_HOME"/anyenv/bin:$PATH
-fi
-
 USER_LOCAL=/usr/local
 if command -v brew > /dev/null 2>&1; then
     USER_LOCAL=$(brew --prefix)

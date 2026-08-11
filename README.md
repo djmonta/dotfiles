@@ -3,7 +3,7 @@ The djmonta's dotfiles
 
 ## Overview
 
-Personal config files. New machines use Nix + home-manager to place them.
+Personal config files. New machines use Nix + home-manager / nix-darwin.
 
 ## Installation
 
@@ -24,6 +24,21 @@ That downloads `etc/install`, which will:
 Already cloned:
 
 ```bash
-make darwin   # nix-darwin + home-manager (this Mac)
+cd ~/dotfiles
+make darwin   # nix-darwin + home-manager
 make hm       # home-manager only
 ```
+
+## Languages / project shells
+
+Global CLIs (`node`, `python3`, `uv`, `go`) come from `home.packages`.
+
+Pin versions per project with a flake and direnv (nix-direnv is enabled):
+
+```bash
+# in a project
+echo 'use flake' > .envrc
+direnv allow
+```
+
+This repo itself uses `.envrc` + `devShells.default` (nixfmt, shellcheck).

@@ -90,10 +90,7 @@ fpath=(${ZDOTDIR}/functions/Completion ${fpath})
 # compinit -u -d ${HOME}/.zcompdump
 
 
-# anyenv
-if command -v anyenv > /dev/null 2>&1; then
-    eval "$(anyenv init - --no-rehash)"
-fi
+# anyenv removed — use per-project flake + direnv (see .envrc / flake.nix).
 
 # starship / zoxide / direnv (home-manager)
 if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh" ]]; then

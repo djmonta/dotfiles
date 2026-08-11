@@ -71,11 +71,16 @@ in
     nix-direnv.enable = true;
   };
 
-  # Starter CLI. Homebrew copies can coexist; Nix is usually first on PATH.
+  # Starter CLI + minimal global language runtimes.
+  # Pin versions per project with a flake + .envrc (direnv), not anyenv.
   home.packages = with pkgs; [
     ripgrep
     fzf
     gh
     neovim
+    nodejs
+    python3
+    uv
+    go
   ];
 }

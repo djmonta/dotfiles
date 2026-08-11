@@ -96,6 +96,13 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export TS_NODE_HISTORY="$XDG_DATA_HOME"/ts-node/history
 export PATH="$PATH":"$XDG_DATA_HOME"/npm/bin
+
+# opencode
+export PATH="$HOME"/.opencode/bin:"$PATH"
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # export DENO_INSTALL_ROOT="$XDG_DATA_HOME"/deno
 # if [ ! -d "$DENO_INSTALL_ROOT" ]; then
 #   mkdir -m 700 "$DENO_INSTALL_ROOT"
@@ -124,6 +131,9 @@ if command -v brew > /dev/null 2>&1; then
     USER_LOCAL=$(brew --prefix)
 fi
 export USER_LOCAL
+
+# PHP
+export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
 
 # Homebrew
 export PATH="$USER_LOCAL"/bin:"$USER_LOCAL"/sbin:"$USER_LOCAL"/opt/coreutils/libexec/gnubin:"$PATH"
@@ -165,6 +175,9 @@ if command -v terminal-notifier >/dev/null 2>&1; then
   export SYS_NOTIFIER="$USER_LOCAL"/bin/terminal-notifier
 fi
 
+# Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
 export DOWNLOAD_DIR="$HOME"/Downloads
 
 # # aqua
@@ -178,6 +191,3 @@ if [ -n "${WSL_INTEROP:-}" ]; then
     . "$XDG_CONFIG_HOME"/wsl/env.sh
   fi
 fi
-
-# $HOME/.local/bin
-export PATH="$HOME"/.local/bin:"$PATH"

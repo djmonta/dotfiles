@@ -4,33 +4,39 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Launch",
                         "manipulators": [
                             {
+                                "description": "Change caps_lock to f18.",
                                 "from": {
-                                    "key_code": "z",
-                                    "modifiers": {
-                                        "mandatory": ["left_command", "left_shift", "left_alt", "left_control"],
-                                        "optional": ["any"]
-                                    }
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open '/Applications/Safari.app'" }],
+                                "to": [{ "key_code": "f18" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "［ US ］左右のコマンドキー（⌘）を、単独で押したときは 英数・かな キー として扱う（左⌘は 英数、右⌘は かな）",
+                        "manipulators": [
+                            {
+                                "description": " LEFT COMMAND → EISUU ",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_command" }],
+                                "to_if_alone": [{ "key_code": "japanese_eisuu" }],
                                 "type": "basic"
                             },
                             {
+                                "description": " RIGHT COMMAND → KANA ",
                                 "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": ["right_shift"],
-                                        "optional": ["any"]
-                                    }
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [
-                                    {
-                                        "apple_vendor_keyboard_key_code": "mission_control",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
+                                "to": [{ "key_code": "right_command" }],
+                                "to_if_alone": [{ "key_code": "japanese_kana" }],
                                 "type": "basic"
                             }
                         ]

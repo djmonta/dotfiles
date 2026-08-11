@@ -18,6 +18,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.config/git/.gitignore.default
+	quotepath = false
 [commit]
 	template = ~/.config/git/.gittemplate
 	gpgsign = true
@@ -39,3 +40,6 @@
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
 
+[i18n]
+	logoutputencoding = utf-8
+	commitencoding = utf-8

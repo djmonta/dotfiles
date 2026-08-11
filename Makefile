@@ -11,6 +11,9 @@ help:
 	@echo "make list           #=> List the files"
 	@echo "make update         #=> Fetch changes"
 	@echo "make deploy         #=> Create symlink"
+	@echo "make hm             #=> Apply home-manager (standalone)"
+	@echo "make darwin         #=> Apply nix-darwin + home-manager"
+	@echo "make nix            #=> Install Determinate Nix if missing"
 	@echo "make init           #=> Setup environment"
 	@echo "make install        #=> Updating, deploying and initializng"
 	@echo "make clean          #=> Remove the dotfiles"
@@ -33,6 +36,17 @@ deploy:
 	@echo 'If this is "dotdir", curretly it is ignored and copy your hand.'
 	@echo ''
 	@bash $(DOTFILES_DIR)/etc/init/create_symlink.sh
+
+NIX := nix --extra-experimental-features 'nix-command flakes'
+
+nix:
+	@bash $(DOTFILES_DIR)/etc/init/install_nix.sh
+
+hm:
+	$(NIX) run $(DOTFILES_DIR)#home-manager -- switch --flake $(DOTFILES_DIR)#monta -b hm-backup
+
+darwin:
+	$(NIX) run $(DOTFILES_DIR)#darwin-rebuild -- switch --flake $(DOTFILES_DIR)#monta
 
 anyenv:
 	@bash $(DOTFILES_DIR)/etc/init/install_anyenv.sh

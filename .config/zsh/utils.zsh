@@ -23,40 +23,40 @@ function pcolor() {
 ### Terminal configuration {{{
 #
 # ターミナル固有設定
-case "${TERM}" in
-    kterm*|xterm*|screen*)
-        _change_terminal_title_preexec_hook() {
-            if [ "$STY" ]; then
-                # コマンド実行時にコマンド名をタイトルに設定(screen)
-                echo -ne "\ek${1%% *}\e\\"
-            fi
-        }
-        add-zsh-hook preexec _change_terminal_title_preexec_hook
+# case "${TERM}" in
+#     kterm*|xterm*|screen*)
+#         _change_terminal_title_preexec_hook() {
+#             if [ "$STY" ]; then
+#                 # コマンド実行時にコマンド名をタイトルに設定(screen)
+#                 echo -ne "\ek${1%% *}\e\\"
+#             fi
+#         }
+#         add-zsh-hook preexec _change_terminal_title_preexec_hook
 
-        _change_terminal_title_precmd_hook() {
-            if [ "$STY" ]; then
-                echo -ne "\ek$(basename "$(pwd)")\e\\"
-            else
-                echo -ne "\033]0;$(basename "$(pwd)")\007"
-            fi
-            return 0
-        }
-        add-zsh-hook precmd _change_terminal_title_precmd_hook
-        ;;
-    # for emacs tramp setting
-    dumb)
-        PROMPT="%n@%~%(!.#.$)"
-        RPROMPT=""
-        PS1='%(?..[%?])%!:%~%# '
-        # for tramp to not hang, need the following. cf:
-        # http://www.emacswiki.org/emacs/TrampMode
-        unsetopt zle
-        unsetopt prompt_cr
-        unsetopt prompt_subst
-        unfunction precmd
-        unfunction preexec
-        ;;
-esac
+#         _change_terminal_title_precmd_hook() {
+#             if [ "$STY" ]; then
+#                 echo -ne "\ek$(basename "$(pwd)")\e\\"
+#             else
+#                 echo -ne "\033]0;$(basename "$(pwd)")\007"
+#             fi
+#             return 0
+#         }
+#         add-zsh-hook precmd _change_terminal_title_precmd_hook
+#         ;;
+#     # for emacs tramp setting
+#     dumb)
+#         PROMPT="%n@%~%(!.#.$)"
+#         RPROMPT=""
+#         PS1='%(?..[%?])%!:%~%# '
+#         # for tramp to not hang, need the following. cf:
+#         # http://www.emacswiki.org/emacs/TrampMode
+#         unsetopt zle
+#         unsetopt prompt_cr
+#         unsetopt prompt_subst
+#         unfunction precmd
+#         unfunction preexec
+#         ;;
+# esac
 
 # }}}
 
@@ -112,12 +112,12 @@ function do_enter() {
     echo
     # ls　↓おすすめ
     ls_abbrev
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        echo
-        echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
-    fi
-    zle reset-prompt
+    # if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    #     echo
+    #     echo -e "\e[0;33m--- git status ---\e[0m"
+    #     git status -sb
+    # fi
+    # zle reset-prompt
     return 0
 }
 
@@ -130,3 +130,18 @@ docker_rmi() {
         | awk '{print $3}' \
         | xargs docker rmi ${1+"$@"}
 }
+
+# pet
+# [knqyf263/pet: Simple command-line snippet manager](https://github.com/knqyf263/pet?tab=readme-ov-file#register-the-previous-command-easily)
+function prev() {
+    PREV=$(fc -lrn | head -n 1)
+    sh -c "pet new `printf %q "$PREV"`"
+}
+
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon

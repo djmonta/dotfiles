@@ -15,6 +15,9 @@ set -u
 if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 #}}}
 
+# Dock / Finder / tap-to-click basics now live in darwin.nix (nix-darwin).
+# This script remains for settings not yet migrated.
+
 # Dock {{{1
 set_dock_preferences()
 {
@@ -29,6 +32,13 @@ set_dock_preferences()
 
     # Magnificate the Dock
     defaults write com.apple.dock magnification -bool true
+
+    # Disable the delay when hiding the Dock
+    defaults write com.apple.dock autohide-delay -float 0.2
+    defaults write com.apple.dock autohide-time-modifier -float 0.2
+
+    # 𝗠𝗮𝗸𝗲 𝗛𝗶𝗱𝗱𝗲𝗻 𝗔𝗽𝗽𝘀 𝗧𝗿𝗮𝗻𝘀𝗽𝗮𝗿𝗲𝗻𝘁
+    defaults write com.apple.Dock showhidden -bool true
 
     # Hot corners
     # Possible values:
@@ -72,9 +82,9 @@ set_finder_preferences()
     defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
     defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-    # Set `Desktop` as the default location for new Finder windows
-    defaults write com.apple.finder NewWindowTarget -string "PfDe"
-    #defaults write com.apple.finder NewWindowTargetPath -string "/Users/monta/"
+    # Set `Home` as the default location for new Finder windows
+    defaults write com.apple.finder NewWindowTarget -string "PfLo" &&
+    defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
     # Show Status bar in Finder
     defaults write com.apple.finder ShowStatusBar -bool true
@@ -266,16 +276,16 @@ if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     set_dock_preferences
     set_finder_preferences
     # set_keyboard_preferences
-    set_safari_preferences
-    set_terminal_preferences
+    # set_safari_preferences
+    # set_terminal_preferences
     set_trackpad_preferences
-    set_transmission_preferences
+    # set_transmission_preferences
     set_ui_and_ux_preferences
 
     killall cfprefsd
     killall Dock
     killall Finder
-    killall Safari
+    # killall Safari
     killall SystemUIServer
-    killall Transmission
+    # killall Transmission
 fi

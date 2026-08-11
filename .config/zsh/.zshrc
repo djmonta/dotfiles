@@ -31,7 +31,7 @@ for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/*.sh; do
 done
 
 # zsh rc
-for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh fzf.zsh zalias.zsh; do
+for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh fzf.zsh zalias.zsh utils.zsh; do
   if [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]] || [[ "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f" -nt "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]]; then
     zcompile "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f"
   fi
@@ -92,35 +92,12 @@ fpath=(${ZDOTDIR}/functions/Completion ${fpath})
 
 # anyenv
 if command -v anyenv > /dev/null 2>&1; then
-    # eval "$(anyenv init - --no-rehash)"
-    if ! [ -f /tmp/anyenv.cache ]
-    then
-        anyenv init - --no-rehash > /tmp/anyenv.cache
-        zcompile /tmp/anyenv.cache
-    fi
-    source /tmp/anyenv.cache
+    eval "$(anyenv init - --no-rehash)"
 fi
 
-# direnv
-if [ -x "`which direnv`" ]; then
-    # eval "$(direnv hook zsh)"
-    if ! [ -f /tmp/direnv.cache ]
-    then
-        direnv hook zsh > /tmp/direnv.cache
-        zcompile /tmp/direnv.cache
-    fi
-    source /tmp/direnv.cache
-fi
-
-# zoxide
-if [ -x "`which zoxide`" ]; then
-    # eval "$(zoxide init zsh --cmd cd)"
-    if ! [ -f /tmp/zioxide.cache ]
-    then
-        zoxide init zsh --cmd cd > /tmp/zioxide.cache
-        zcompile /tmp/zioxide.cache
-    fi
-    source /tmp/zioxide.cache
+# starship / zoxide / direnv (home-manager)
+if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh"
 fi
 
 ### Complete Messages

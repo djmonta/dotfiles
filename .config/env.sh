@@ -100,6 +100,9 @@ export PATH="$PATH":"$XDG_DATA_HOME"/npm/bin
 # opencode
 export PATH="$HOME"/.opencode/bin:"$PATH"
 
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # export DENO_INSTALL_ROOT="$XDG_DATA_HOME"/deno
 # if [ ! -d "$DENO_INSTALL_ROOT" ]; then
 #   mkdir -m 700 "$DENO_INSTALL_ROOT"
@@ -188,6 +191,3 @@ if [ -n "${WSL_INTEROP:-}" ]; then
     . "$XDG_CONFIG_HOME"/wsl/env.sh
   fi
 fi
-
-# $HOME/.local/bin
-export PATH="$HOME"/.local/bin:"$PATH"

@@ -92,7 +92,6 @@ brew openssl@3
 brew p11-kit
 brew pcre2
 brew pixman
-brew pkg-config
 brew python-packaging
 brew python@3.14
 brew rav1e

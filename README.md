@@ -24,5 +24,6 @@ That downloads `etc/install`, which will:
 Already cloned:
 
 ```bash
-make hm
+make darwin   # nix-darwin + home-manager (this Mac)
+make hm       # home-manager only
 ```

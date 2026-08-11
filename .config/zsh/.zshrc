@@ -95,14 +95,9 @@ if command -v anyenv > /dev/null 2>&1; then
     eval "$(anyenv init - --no-rehash)"
 fi
 
-# direnv
-if [ -x "`which direnv`" ]; then
-    eval "$(direnv hook zsh)"
-fi
-
-# zoxide
-if [ -x "`which zoxide`" ]; then
-    eval "$(zoxide init zsh --cmd cd)"
+# starship / zoxide / direnv (home-manager)
+if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh" ]]; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh"
 fi
 
 ### Complete Messages

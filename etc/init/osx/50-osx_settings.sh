@@ -15,6 +15,9 @@ set -u
 if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 #}}}
 
+# Dock / Finder / tap-to-click basics now live in darwin.nix (nix-darwin).
+# This script remains for settings not yet migrated.
+
 # Dock {{{1
 set_dock_preferences()
 {

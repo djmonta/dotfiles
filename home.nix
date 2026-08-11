@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -36,15 +37,39 @@ in
     "brewfile".source = link ".config/brewfile";
     "nvim".source = link ".config/nvim";
     # ~/.config/nix already points at this repo dir; linking nix.conf here loops.
+    # Live-editable; programs.starship.settings is unused on purpose.
     "starship.toml".source = link ".config/starship.toml";
     "tmux".source = link ".config/tmux";
     "ghostty".source = link ".config/ghostty";
     "pet".source = link ".config/pet";
     "zabrze".source = link ".config/zabrze";
     "leader_key".source = link ".config/leader_key";
+    "home-manager/zsh-integrations.zsh".text = ''
+      eval "$(starship init zsh)"
+      eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"
+      eval "$(direnv hook zsh)"
+    '';
   };
 
   programs.home-manager.enable = true;
+
+  # ZDOTDIR is ~/.config/zsh (repo-managed). Do not let HM generate ~/.zshrc.
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = false;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = false;
+    options = [ "--cmd" "cd" ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = false;
+    nix-direnv.enable = true;
+  };
 
   # Starter CLI. Homebrew copies can coexist; Nix is usually first on PATH.
   home.packages = with pkgs; [
@@ -52,7 +77,5 @@ in
     fzf
     gh
     neovim
-    zoxide
-    starship
   ];
 }

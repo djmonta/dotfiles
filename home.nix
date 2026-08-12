@@ -18,8 +18,6 @@ in
   xdg.enable = true;
 
   home.file = {
-    ".bash_profile".source = link ".bash_profile";
-    ".bashrc".source = link ".bashrc";
     ".profile".source = link ".profile";
     ".vimrc".source = link ".vimrc";
     ".zshenv".source = link ".zshenv";
@@ -48,6 +46,7 @@ in
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"
       eval "$(direnv hook zsh)"
+      eval "$(fzf --zsh)"
     '';
   };
 
@@ -71,11 +70,23 @@ in
     nix-direnv.enable = true;
   };
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = false;
+    defaultCommand = "rg --files --hidden --glob '!.git'";
+    defaultOptions = [
+      "--height"
+      "50%"
+      "--reverse"
+      "--border"
+      "--ansi"
+    ];
+  };
+
   # Starter CLI + minimal global language runtimes.
   # Pin versions per project with a flake + .envrc (direnv), not anyenv.
   home.packages = with pkgs; [
     ripgrep
-    fzf
     gh
     neovim
     nodejs

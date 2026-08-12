@@ -61,11 +61,7 @@ fi
 #   mkdir -m 700 "$XDG_DATA_HOME"/tig
 # fi
 
-# fzf
-if command -v fzf >/dev/null 2>&1; then
-  export FZF_DEFAULT_OPTS='--height 50% --reverse --border --ansi'
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-fi
+# fzf defaults live in home.nix (programs.fzf).
 
 # Docker
 if command -v docker >/dev/null 2>&1; then

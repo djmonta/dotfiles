@@ -14,7 +14,7 @@ help:
 	@echo "make update         -> Fetch changes"
 	@echo "make deploy         -> Create symlink"
 	@echo "make hm             -> Apply home-manager (standalone)"
-	@echo "make darwin         -> Apply nix-darwin + home-manager"
+	@echo "make darwin         -> Apply nix-darwin + home-manager (sudo)"
 	@echo "make nix            -> Install Determinate Nix if missing"
 	@echo "make init           -> Setup environment"
 	@echo "make install        -> Updating, deploying and initializng"

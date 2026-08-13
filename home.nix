@@ -92,5 +92,8 @@ in
     python3
     uv
     go
+    delta
+    wakatime-cli
+    terminal-notifier
   ];
 }

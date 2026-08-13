@@ -157,13 +157,13 @@ fi
 export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
 # Wakatime
 if command -v wakatime-cli >/dev/null 2>&1; then
-  export ZSH_WAKATIME_BIN="$USER_LOCAL"/bin/wakatime-cli
+  export ZSH_WAKATIME_BIN="$(command -v wakatime-cli)"
 fi
 
 
 # Terminal Notifier
 if command -v terminal-notifier >/dev/null 2>&1; then
-  export SYS_NOTIFIER="$USER_LOCAL"/bin/terminal-notifier
+  export SYS_NOTIFIER="$(command -v terminal-notifier)"
 fi
 
 # Obsidian

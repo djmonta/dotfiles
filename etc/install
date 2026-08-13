@@ -17,7 +17,7 @@ cat <<-'EOT'
 *** WHAT'S INSIDE? ***
   1. Clone or update https://github.com/djmonta/dotfiles.git
   2. Install Determinate Nix if missing (optional)
-  3. Apply home-manager (dotfile deploy)
+  3. Apply nix-darwin + home-manager (macOS), or home-manager only
   4. Run etc/init/* (optional: bash -c "$(curl ...)" init)
 
 See the README for documentation.
@@ -91,14 +91,28 @@ deploy() {
   cd "$DOTFILES"
   e_header 'Deploying dotfiles...'
 
-  if is_exist nix; then
-    if make hm; then
-      e_success 'done (home-manager)'
-      return 0
+  if ! is_exist nix; then
+    e_error 'nix not found; falling back to symlinks'
+    if make deploy; then
+      e_success 'done (symlinks)'
     fi
-    e_error 'home-manager failed; falling back to symlinks'
+    return
   fi
 
+  if [[ "$(uname)" == Darwin ]]; then
+    if make darwin; then
+      e_success 'done (nix-darwin + home-manager)'
+      return 0
+    fi
+    e_error 'nix-darwin failed; falling back to home-manager'
+  fi
+
+  if make hm; then
+    e_success 'done (home-manager)'
+    return 0
+  fi
+
+  e_error 'home-manager failed; falling back to symlinks'
   if make deploy; then
     e_success 'done (symlinks)'
   fi

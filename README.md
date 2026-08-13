@@ -18,15 +18,15 @@ That downloads `etc/install`, which will:
 
 1. Clone or update `~/dotfiles` (it will not `rm -rf` an existing clone)
 2. Offer to install [Determinate Nix](https://install.determinate.systems/) if `nix` is missing
-3. Run `make hm` (home-manager). Falls back to `make deploy` without Nix
+3. Run `make darwin` on macOS (nix-darwin + home-manager; prompts for sudo). Falls back to `make hm`, then symlinks
 4. With `init` appended, also run `make init` (Xcode / Homebrew / macOS defaults)
 
 Already cloned:
 
 ```bash
 cd ~/dotfiles
-make darwin   # nix-darwin + home-manager
-make hm       # home-manager only
+make darwin   # nix-darwin + home-manager (prompts for sudo)
+make hm       # home-manager only (no sudo)
 ```
 
 ## Languages / project shells

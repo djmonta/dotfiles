@@ -161,16 +161,7 @@ brew zstd
 tap homebrew/cask
 cask 1password
 cask 1password-cli
-cask alfred
-cask alt-tab
-cask appcleaner
-cask cmd-eikana
-cask cursor-cli
-cask cyberduck
-cask dash
 cask docker
-cask dropbox
-cask firefox@developer-edition
 cask font-hack-nerd-font
 cask font-jetbrains-mono
 cask font-jetbrains-mono-nerd-font
@@ -178,35 +169,23 @@ cask font-udev-gothic
 cask font-udev-gothic-nf
 cask fontforge
 cask ghostty
-cask go-agent
 cask google-chrome
 cask google-drive
-cask gpg-suite
 cask iterm2
-cask itsycal
 cask jordanbaird-ice
 cask kaleidoscope
-cask karabiner-elements
-cask klogg
 cask leader-key
 cask logseq
-cask mysql-shell
 cask obsidian
 cask postman
-cask qlcolorcode
 cask qlmarkdown
-cask qlstephen
 cask sequel-ace
 cask slack
-cask sublime-text
 cask syncthing-app
 cask syntax-highlight
 cask tailscale-app
 cask tower
 cask typora
-cask visual-studio-code
-cask zed
-cask zen-browser
 
 tap 1password/tap
 
@@ -230,9 +209,9 @@ cask sequel-pro
 
 # App Store applications
 appstore 1569813296 1Password for Safari (8.12.12)
-appstore 302584613 Amazon Kindle (7.57)
+appstore 302584613 Amazon Kindle (7.60)
 appstore 1024640650 CotEditor (5.2.3)
-appstore 1438243180 Dark Reader for Safari (2.1.8)
+appstore 1438243180 Dark Reader for Safari (2.1.9)
 appstore 1142151959 JustFocus (2.6.11)
 appstore 409203825 Numbers (14.5)
 appstore 1547106997 Pins (2022.2)

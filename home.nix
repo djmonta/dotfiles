@@ -39,9 +39,8 @@ in
     "starship.toml".source = link ".config/starship.toml";
     "tmux".source = link ".config/tmux";
     "ghostty".source = link ".config/ghostty";
-    "pet".source = link ".config/pet";
-    "zabrze".source = link ".config/zabrze";
     "leader_key".source = link ".config/leader_key";
+    "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
     "home-manager/zsh-integrations.zsh".text = ''
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"

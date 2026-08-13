@@ -124,7 +124,7 @@ fi
 export USER_LOCAL
 
 # PHP
-export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
+# export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
 
 # Homebrew
 export PATH="$USER_LOCAL"/bin:"$USER_LOCAL"/sbin:"$USER_LOCAL"/opt/coreutils/libexec/gnubin:"$PATH"

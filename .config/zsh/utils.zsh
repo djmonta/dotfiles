@@ -131,17 +131,4 @@ docker_rmi() {
         | xargs docker rmi ${1+"$@"}
 }
 
-# pet
-# [knqyf263/pet: Simple command-line snippet manager](https://github.com/knqyf263/pet?tab=readme-ov-file#register-the-previous-command-easily)
-function prev() {
-    PREV=$(fc -lrn | head -n 1)
-    sh -c "pet new `printf %q "$PREV"`"
-}
-
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N pet-select
 stty -ixon

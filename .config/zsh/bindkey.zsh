@@ -17,8 +17,6 @@ bindkey "^C" send-break         # コマンド入力を実行せずに無視し�
 #bindkey "^Q" clear-screen      # クリアスクリーン screenのエスケープとかぶるので割り当てなし
 bindkey -r "^O"
 
-bindkey '^s' pet-select
-
 # reverse menu completion binded to Shift-Tab
 #
 bindkey "\e[Z" reverse-menu-complete

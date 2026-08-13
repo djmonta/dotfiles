@@ -43,7 +43,3 @@ zinit light "marzocchi/zsh-notify"
 
 zinit ice wait"!0" blockf lucid pick"wakatime.plugin.zsh"
 zinit light "sobolevn/wakatime-zsh-plugin"
-
-zinit blockf light-mode as"program" from"gh-r" for \
-    atload'eval "$(zabrze init --bind-keys)"' \
-    Ryooooooga/zabrze

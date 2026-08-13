@@ -19,8 +19,6 @@ in
   # Needed so /etc/zshrc loads nix-darwin environment.
   programs.zsh.enable = true;
 
-  # Minimal slice of etc/init/osx/50-osx_settings.sh.
-  # Leave Homebrew, keyboard remap, Safari, and Dock contents to later.
   system.defaults = {
     dock = {
       autohide = true;
@@ -43,6 +41,10 @@ in
       ShowPathbar = true;
       ShowStatusBar = true;
     };
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowDayOfWeek = true;
+    };
     screencapture.type = "png";
     NSGlobalDomain.AppleShowScrollBars = "WhenScrolling";
     NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
@@ -52,16 +54,19 @@ in
     NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
     NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
     NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
+    LaunchServices.LSQuarantine = false;
     CustomUserPreferences = {
       "com.apple.Safari" = {
         "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" = true;
-        "com.apple.Safari.IncludeDevelopMenu" = true;
-        "com.apple.Safari.WebKitDeveloperExtrasEnabledPreferenceKey" = true;
-        "com.apple.Safari.IncludeInternalDebugMenu" = true;
-        "com.apple.Safari.ShowFullURLInSmartSearchField" = true;
-        "com.apple.Safari.ShowStatusBar" = true;
-        "com.apple.Safari.AutoFillPasswords" = false;
+        "IncludeDevelopMenu" = true;
+        "WebKitDeveloperExtrasEnabledPreferenceKey" = true;
+        "IncludeInternalDebugMenu" = true;
+        "ShowFullURLInSmartSearchField" = true;
+        "ShowStatusBar" = true;
+        "AutoFillPasswords" = false;
       };
+      "com.apple.desktopservices".DSDontWriteNetworkStores = true;
+      "com.apple.print.PrintingPrefs"."Quit When Finished" = true;
     };
   };
   system.keyboard = {

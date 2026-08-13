@@ -52,8 +52,6 @@ darwin:
 init:
 ifeq ($(shell uname), Darwin)
 	@$(foreach val, $(wildcard ./etc/init/osx/*.sh), bash $(val);)
-else ifeq ($(shell uname), Linux)
-	@$(foreach val, $(wildcard ./etc/init/debian/*.sh), bash $(val);)
 endif
 
 ifeq ($(shell uname), Darwin)

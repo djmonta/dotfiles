@@ -53,9 +53,6 @@ in
     "env.sh".source = link ".config/env.sh";
     "alias.sh".source = link ".config/alias.sh";
     "zsh".source = link ".config/zsh";
-    "git/repo.conf".source = link ".config/git/repo.conf";
-    "git/.gittemplate".source = link ".config/git/.gittemplate";
-    "git/.gitignore.default".source = link ".config/git/.gitignore.default";
     "brewfile".source = link ".config/brewfile";
     "nvim".source = link ".config/nvim";
     # ~/.config/nix already points at this repo dir; linking nix.conf here loops.
@@ -132,7 +129,7 @@ in
     };
     extraConfig = {
       credential.helper = "osxkeychain";
-      include.path = "~/.config/git/repo.conf";
+      include.path = "${dotfiles}/.config/git/repo.conf";
     };
   };
 

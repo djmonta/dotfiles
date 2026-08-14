@@ -72,15 +72,12 @@ brew luv
 brew lz4
 brew lzo
 brew m4
-brew mackup
-brew mas
 brew mbedtls@3
 brew merve
 brew mpdecimal
 brew navi
 brew nbytes
 brew ncurses
-brew neovim
 brew nettle
 brew node
 brew opencode
@@ -93,14 +90,12 @@ brew python-packaging
 brew python@3.14
 brew rav1e
 brew readline
-brew ripgrep
 brew sdl2
 brew sdl3
 brew simdjson
 brew simdutf
 brew sqlite
 brew ssh-copy-id
-brew terminal-notifier
 brew tree-sitter
 brew unibilium
 brew utf8proc
@@ -172,7 +167,6 @@ tap eddieantonio/eddieantonio
 tap k1low/tap
 
 tap rcmdnk/file
-brew brew-file
 
 tap vitorgalvao/tiny-scripts
 

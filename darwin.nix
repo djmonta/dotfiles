@@ -93,5 +93,8 @@ in
     { name = "rcmdnk/file/brew-file"; trusted = true; }
     "mackup"
   ];
-  # casks / masApps は後から少しずつ
+  # Declarative casks (add gradually; Brewfile duplicates OK while cleanup=none).
+  homebrew.casks = [
+    "gpg-suite"
+  ];
 }

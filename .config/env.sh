@@ -7,25 +7,53 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
-# Editor, pager, less, git editor, wakatime, notifier, download dir: home.sessionVariables in home.nix
+# Editor
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+fi
 
-# Less / wakatime dirs (mkdir until home.activation covers them)
+# Pager
+export PAGER=less
+
+# Less
 if [ ! -d "$XDG_CONFIG_HOME"/less ]; then
   mkdir -m 700 "$XDG_CONFIG_HOME"/less
 fi
 if [ ! -d "$XDG_CACHE_HOME"/less ]; then
   mkdir -m 700 "$XDG_CACHE_HOME"/less
 fi
-if [ ! -d "$XDG_CONFIG_HOME"/wakatime ]; then
-  mkdir -m 700 "$XDG_CONFIG_HOME"/wakatime
-fi
+export LESS='-fiMRfFx4X'
+export LESSCHARSET='utf-8'
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
-# Readline path is set in home.sessionVariables; keep file reference for non-HM shells.
+# LESS man page colors (makes Man pages more readable).
+LESS_TERMCAP_mb=$(printf "\e[01;31m")
+LESS_TERMCAP_md=$(printf "\e[01;31m")
+LESS_TERMCAP_me=$(printf "\e[0m")
+LESS_TERMCAP_se=$(printf "\e[0m")
+LESS_TERMCAP_so=$(printf "\e[00;44;37m")
+LESS_TERMCAP_ue=$(printf "\e[0m")
+LESS_TERMCAP_us=$(printf "\e[01;32m")
+export LESS_TERMCAP_mb
+export LESS_TERMCAP_md
+export LESS_TERMCAP_me
+export LESS_TERMCAP_se
+export LESS_TERMCAP_so
+export LESS_TERMCAP_ue
+export LESS_TERMCAP_us
+
+# Readline
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
-# Git pager: programs.git.delta in home.nix
+# Git editor. Pager: programs.git.delta in home.nix
+export GIT_EDITOR="$EDITOR"
 
-# fzf defaults live in home.nix (programs.fzf).
+# fzf (binary + zsh widget: programs.fzf in home.nix)
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+export FZF_DEFAULT_OPTS="--height 50% --reverse --border --ansi"
 
 # Docker
 if command -v docker >/dev/null 2>&1; then
@@ -62,6 +90,9 @@ export PATH="$HOME"/.opencode/bin:"$PATH"
 
 # Hermes Agent — ensure ~/.local/bin is on PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Repo scripts (do not replace ~/.local/bin)
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 # export DENO_INSTALL_ROOT="$XDG_DATA_HOME"/deno
 # if [ ! -d "$DENO_INSTALL_ROOT" ]; then
@@ -116,8 +147,23 @@ export HOMEBREW_BREWFILE_APPSTORE=1
 # iTerm
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
+if [ ! -d "$XDG_CONFIG_HOME"/wakatime ]; then
+  mkdir -m 700 "$XDG_CONFIG_HOME"/wakatime
+fi
+export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
+if command -v wakatime-cli >/dev/null 2>&1; then
+  export ZSH_WAKATIME_BIN="$(command -v wakatime-cli)"
+fi
+
+# Terminal Notifier
+if command -v terminal-notifier >/dev/null 2>&1; then
+  export SYS_NOTIFIER="$(command -v terminal-notifier)"
+fi
+
 # Obsidian
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
+export DOWNLOAD_DIR="$HOME"/Downloads
 
 # wsl
 if [ -n "${WSL_INTEROP:-}" ]; then

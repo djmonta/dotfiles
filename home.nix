@@ -68,14 +68,13 @@ in
       eval "$(direnv hook zsh)"
       eval "$(fzf --zsh)"
     '';
-    "home-manager/zsh-autosuggestions.zsh".text = ''
-      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    '';
-    "home-manager/zsh-completions.zsh".text = ''
-      fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
-    '';
-    "home-manager/zsh-fast-syntax-highlighting.zsh".text = ''
-      source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+    # Nix store paths for zsh plugins — sourced from .config/zsh/plugins.zsh only.
+    "home-manager/zsh-plugin-paths.zsh".text = let
+      fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
+    in ''
+      export ZSH_COMPLETIONS_DIR="${pkgs.zsh-completions}/share/zsh/site-functions"
+      export ZSH_FSH_DIR="${fshDir}"
+      export ZSH_AUTOSUGGESTIONS="${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     '';
   };
 

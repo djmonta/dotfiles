@@ -25,14 +25,6 @@ autoload -Uz _zinit
 # zinit snippet "$HOME"/dotfiles/.config/zsh/utils.zsh
 zinit snippet "$HOME"/dotfiles/bin/256colorlib.sh
 
-# Match pre-HM order: compinit replay + fast-syntax (deferred), then autosuggestions.
-zinit ice wait lucid \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
-zinit snippet "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-fast-syntax-highlighting.zsh"
-
-zinit ice wait"0" lucid
-zinit snippet "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-autosuggestions.zsh"
-
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'

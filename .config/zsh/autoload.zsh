@@ -5,10 +5,7 @@ if [[ ! -d "$XDG_CACHE_HOME"/zsh ]]; then
   mkdir -m 700 "$XDG_CACHE_HOME"/zsh
 fi
 
-# home-manager zsh plugins (order matters)
-if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-completions.zsh" ]]; then
-  source "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-completions.zsh"
-fi
+zsh_plugins_setup_completions
 
 autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME"/zsh/compdump
 

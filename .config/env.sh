@@ -7,6 +7,8 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
+export LANG=ja_JP.UTF-8
+
 # Editor
 if command -v nvim >/dev/null 2>&1; then
   export EDITOR=nvim

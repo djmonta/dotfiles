@@ -2,10 +2,11 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+FLAKE_ATTR="${1:-monta}"
 
 # nix-darwin activation runs as root (since ~2025). Re-exec with sudo when needed.
 if [[ ${EUID:-} -ne 0 ]]; then
-  exec sudo -- "$0" "$@"
+  exec sudo -- "$0" "$FLAKE_ATTR"
 fi
 
 cd "$ROOT"
@@ -13,7 +14,7 @@ cd "$ROOT"
 NIX=(nix --extra-experimental-features 'nix-command flakes')
 
 if command -v darwin-rebuild >/dev/null 2>&1; then
-  darwin-rebuild switch --flake "${ROOT}#monta"
+  darwin-rebuild switch --flake "${ROOT}#${FLAKE_ATTR}"
 else
-  "${NIX[@]}" run "${ROOT}#darwin-rebuild" -- switch --flake "${ROOT}#monta"
+  "${NIX[@]}" run "${ROOT}#darwin-rebuild" -- switch --flake "${ROOT}#${FLAKE_ATTR}"
 fi

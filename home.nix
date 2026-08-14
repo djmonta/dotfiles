@@ -17,6 +17,28 @@ in
 
   xdg.enable = true;
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    PAGER = "less";
+    LESS = "-fiMRfFx4X";
+    LESSCHARSET = "utf-8";
+    LESSKEY = "${config.xdg.configHome}/less/lesskey";
+    LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
+    LESS_TERMCAP_mb = ''\e[01;31m'';
+    LESS_TERMCAP_md = ''\e[01;31m'';
+    LESS_TERMCAP_me = ''\e[0m'';
+    LESS_TERMCAP_se = ''\e[0m'';
+    LESS_TERMCAP_so = ''\e[00;44;37m'';
+    LESS_TERMCAP_ue = ''\e[0m'';
+    LESS_TERMCAP_us = ''\e[01;32m'';
+    INPUTRC = "${config.xdg.configHome}/readline/inputrc";
+    GIT_EDITOR = "nvim";
+    WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
+    ZSH_WAKATIME_BIN = "wakatime-cli";
+    SYS_NOTIFIER = "terminal-notifier";
+    DOWNLOAD_DIR = "${config.home.homeDirectory}/Downloads";
+  };
+
   home.file = {
     ".profile".source = link ".profile";
     ".vimrc".source = link ".vimrc";

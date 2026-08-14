@@ -80,4 +80,9 @@ in
       chflags nohidden ${home}/Library
     fi
   '';
+
+  homebrew.enable = true;
+  homebrew.onActivation.cleanup = "none";  # 重要: 既存を消さない
+  homebrew.brews = [ "mas" "brew-file" "mackup" ];
+  # casks / masApps は後から少しずつ
 }

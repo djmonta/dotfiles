@@ -43,8 +43,6 @@ do
 done
 
 declare -a BREW_PACKAGES=(
-  "mas"
-  "brew-file"
   "mackup"
 )
 

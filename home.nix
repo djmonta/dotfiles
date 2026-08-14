@@ -49,6 +49,9 @@ in
       eval "$(direnv hook zsh)"
       eval "$(fzf --zsh)"
     '';
+    "home-manager/zsh-autosuggestions.zsh".text = ''
+      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    '';
   };
 
   programs.home-manager.enable = true;
@@ -71,6 +74,12 @@ in
     nix-direnv.enable = true;
     silent = true;
     config.global.hide_env_diff = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableZshIntegration = false;
   };
 
   programs.fzf = {

@@ -154,7 +154,7 @@ in
     delta
     wakatime-cli
     terminal-notifier
-    syncthing
+    ssh-copy-id
     zsh-autosuggestions
     zsh-completions
     zsh-fast-syntax-highlighting

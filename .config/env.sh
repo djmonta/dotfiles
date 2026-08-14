@@ -82,16 +82,18 @@ export PATH="$HOME/.local/bin:$PATH"
 # export PATH="$PATH:$WASMER_DIR/bin:$WASMER_DIR/globals/wapm_packages/.bin"
 
 USER_LOCAL=/usr/local
-if command -v brew > /dev/null 2>&1; then
-    USER_LOCAL=$(brew --prefix)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  USER_LOCAL=/opt/homebrew
+elif command -v brew > /dev/null 2>&1; then
+  USER_LOCAL=$(brew --prefix)
 fi
 export USER_LOCAL
 
 # PHP
 # export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
 
-# Homebrew
-export PATH="$USER_LOCAL"/bin:"$USER_LOCAL"/sbin:"$USER_LOCAL"/opt/coreutils/libexec/gnubin:"$PATH"
+# Homebrew — append so home.packages (~/.nix-profile/bin) wins for duplicate CLIs.
+export PATH="$PATH:$USER_LOCAL/bin:$USER_LOCAL/sbin:$USER_LOCAL/opt/coreutils/libexec/gnubin"
 
 # HOMEBREW CASK
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

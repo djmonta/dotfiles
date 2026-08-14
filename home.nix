@@ -17,6 +17,28 @@ in
 
   xdg.enable = true;
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    PAGER = "less";
+    LESS = "-fiMRfFx4X";
+    LESSCHARSET = "utf-8";
+    LESSKEY = "${config.xdg.configHome}/less/lesskey";
+    LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
+    LESS_TERMCAP_mb = ''\e[01;31m'';
+    LESS_TERMCAP_md = ''\e[01;31m'';
+    LESS_TERMCAP_me = ''\e[0m'';
+    LESS_TERMCAP_se = ''\e[0m'';
+    LESS_TERMCAP_so = ''\e[00;44;37m'';
+    LESS_TERMCAP_ue = ''\e[0m'';
+    LESS_TERMCAP_us = ''\e[01;32m'';
+    INPUTRC = "${config.xdg.configHome}/readline/inputrc";
+    GIT_EDITOR = "nvim";
+    WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
+    ZSH_WAKATIME_BIN = "wakatime-cli";
+    SYS_NOTIFIER = "terminal-notifier";
+    DOWNLOAD_DIR = "${config.home.homeDirectory}/Downloads";
+  };
+
   home.file = {
     ".profile".source = link ".profile";
     ".vimrc".source = link ".vimrc";
@@ -31,7 +53,6 @@ in
     "env.sh".source = link ".config/env.sh";
     "alias.sh".source = link ".config/alias.sh";
     "zsh".source = link ".config/zsh";
-    "git".source = link ".config/git";
     "brewfile".source = link ".config/brewfile";
     "nvim".source = link ".config/nvim";
     # ~/.config/nix already points at this repo dir; linking nix.conf here loops.
@@ -41,11 +62,22 @@ in
     "ghostty".source = link ".config/ghostty";
     "leader_key".source = link ".config/leader_key";
     "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
+    "git/repo.conf".source = link ".config/git/repo.conf";
+    "git/.gittemplate".source = link ".config/git/.gittemplate";
+    "git/.commit_help".source = link ".config/git/.commit_help";
     "home-manager/zsh-integrations.zsh".text = ''
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"
       eval "$(direnv hook zsh)"
       eval "$(fzf --zsh)"
+    '';
+    # Nix store paths for zsh plugins — sourced from .config/zsh/plugins.zsh only.
+    "home-manager/zsh-plugin-paths.zsh".text = let
+      fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
+    in ''
+      export ZSH_COMPLETIONS_DIR="${pkgs.zsh-completions}/share/zsh/site-functions"
+      export ZSH_FSH_DIR="${fshDir}"
+      export ZSH_AUTOSUGGESTIONS="${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     '';
   };
 
@@ -84,9 +116,34 @@ in
     ];
   };
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
+  programs.git = {
+    enable = true;
+    package = pkgs.git;
+    settings = {
+      alias = {
+        l = "log";
+        lg = "log --graph";
+        lk = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'";
+        lo = "log --oneline";
+        lp = "log --patch";
+        lt = "log --topo-order";
+        branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'";
+        branch-delete-merged = "!git branch-list-merged | xargs git branch -d";
+      };
+      credential.helper = "osxkeychain";
+      include.path = "${dotfiles}/.config/git/repo.conf";
+    };
+  };
+
   # Starter CLI + minimal global language runtimes.
   # Pin versions per project with a flake + .envrc (direnv), not anyenv.
   home.packages = with pkgs; [
+    git
     ripgrep
     gh
     neovim
@@ -97,5 +154,9 @@ in
     delta
     wakatime-cli
     terminal-notifier
+    ssh-copy-id
+    zsh-autosuggestions
+    zsh-completions
+    zsh-fast-syntax-highlighting
   ];
 }

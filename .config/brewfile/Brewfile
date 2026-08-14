@@ -8,30 +8,21 @@ brew apr
 brew argon2
 brew autoconf
 brew automake
-brew bash
 brew brotli
 brew c-ares
 brew ca-certificates
-brew cairo
 brew cjson
 brew coreutils
 brew curl
 brew docker
-brew exiftool
 brew fmt
-brew fontconfig
-brew freetype
 brew gettext
 brew giflib
-brew glib
 brew gmp
 brew gnutls
-brew go
-brew gobject-introspection
 brew graphite2
 brew hdrhistogram_c
 brew highway
-brew hugo
 brew icu4c@78
 brew imath
 brew jpeg-turbo
@@ -58,21 +49,11 @@ brew libunistring
 brew libuv
 brew libvidstab
 brew libvmaf
-brew libx11
-brew libxau
-brew libxcb
-brew libxdmcp
-brew libxext
 brew libxml2
-brew libxrender
 brew libyaml
 brew little-cms2
 brew llhttp
-brew lpeg
-brew luajit
-brew luv
 brew lz4
-brew lzo
 brew m4
 brew mackup
 brew mas
@@ -81,16 +62,12 @@ brew merve
 brew mpdecimal
 brew navi
 brew nbytes
-brew ncurses
-brew neovim
 brew nettle
 brew node
 brew opencode
 brew openssl@3
 brew p11-kit
 brew pcre2
-brew pixman
-brew pkgconf
 brew python-packaging
 brew python@3.14
 brew rav1e
@@ -101,16 +78,10 @@ brew sdl3
 brew simdjson
 brew simdutf
 brew sqlite
-brew ssh-copy-id
-brew syncthing
-brew terminal-notifier
 brew tree-sitter
-brew unibilium
-brew utf8proc
 brew uvwasi
 brew webp
 brew x264
-brew xorgproto
 brew xz
 brew zstd
 
@@ -194,7 +165,7 @@ appstore 422293948 IP Scanner Home (5.05)
 appstore 1622835804 Kagi for Safari (2.2.3)
 appstore 1547106997 Pins (2024.1)
 appstore 1640236961 Save to Reader (0.17.5)
-appstore 803453959 Slack (4.51.180)
-appstore 904280696 Things3 (3.22.12)
+appstore 803453959 Slack (4.51.185)
+appstore 904280696 Things3 (3.22.13)
 appstore 1289119450 URL Linker (1.1)
 appstore 497799835 Xcode (26.6)

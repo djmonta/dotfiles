@@ -31,7 +31,7 @@ for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/*.sh; do
 done
 
 # zsh rc
-for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh zalias.zsh utils.zsh; do
+for f in plugins.zsh autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh zalias.zsh utils.zsh; do
   if [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]] || [[ "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f" -nt "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]]; then
     zcompile "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f"
   fi

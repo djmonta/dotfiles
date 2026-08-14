@@ -7,59 +7,23 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
-# Editor
-if command -v nvim >/dev/null 2>&1; then
-  export EDITOR=nvim
-else
-  export EDITOR=vim
-fi
+# Editor, pager, less, git editor, wakatime, notifier, download dir: home.sessionVariables in home.nix
 
-# Pager
-export PAGER=less
-
-# Less
+# Less / wakatime dirs (mkdir until home.activation covers them)
 if [ ! -d "$XDG_CONFIG_HOME"/less ]; then
   mkdir -m 700 "$XDG_CONFIG_HOME"/less
 fi
 if [ ! -d "$XDG_CACHE_HOME"/less ]; then
   mkdir -m 700 "$XDG_CACHE_HOME"/less
 fi
-export LESS='-fiMRfFx4X'
-export LESSCHARSET='utf-8'
-export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-
-# LESS man page colors (makes Man pages more readable).
-LESS_TERMCAP_mb=$(printf "\e[01;31m")
-LESS_TERMCAP_md=$(printf "\e[01;31m")
-LESS_TERMCAP_me=$(printf "\e[0m")
-LESS_TERMCAP_se=$(printf "\e[0m")
-LESS_TERMCAP_so=$(printf "\e[00;44;37m")
-LESS_TERMCAP_ue=$(printf "\e[0m")
-LESS_TERMCAP_us=$(printf "\e[01;32m")
-export LESS_TERMCAP_mb
-export LESS_TERMCAP_md
-export LESS_TERMCAP_me
-export LESS_TERMCAP_se
-export LESS_TERMCAP_so
-export LESS_TERMCAP_ue
-export LESS_TERMCAP_us
-
-# Readline
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-
-# Git
-export GIT_EDITOR="$EDITOR"
-if command -v delta >/dev/null 2>&1; then
-  export GIT_PAGER=delta
-else
-  export GIT_PAGER="$PAGER"
+if [ ! -d "$XDG_CONFIG_HOME"/wakatime ]; then
+  mkdir -m 700 "$XDG_CONFIG_HOME"/wakatime
 fi
 
-# # tig
-# if [ ! -d "$XDG_DATA_HOME"/tig ]; then
-#   mkdir -m 700 "$XDG_DATA_HOME"/tig
-# fi
+# Readline path is set in home.sessionVariables; keep file reference for non-HM shells.
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+
+# Git pager: programs.git.delta in home.nix
 
 # fzf defaults live in home.nix (programs.fzf).
 
@@ -118,16 +82,18 @@ export PATH="$HOME/.local/bin:$PATH"
 # export PATH="$PATH:$WASMER_DIR/bin:$WASMER_DIR/globals/wapm_packages/.bin"
 
 USER_LOCAL=/usr/local
-if command -v brew > /dev/null 2>&1; then
-    USER_LOCAL=$(brew --prefix)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  USER_LOCAL=/opt/homebrew
+elif command -v brew > /dev/null 2>&1; then
+  USER_LOCAL=$(brew --prefix)
 fi
 export USER_LOCAL
 
 # PHP
 # export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
 
-# Homebrew
-export PATH="$USER_LOCAL"/bin:"$USER_LOCAL"/sbin:"$USER_LOCAL"/opt/coreutils/libexec/gnubin:"$PATH"
+# Homebrew — append so home.packages (~/.nix-profile/bin) wins for duplicate CLIs.
+export PATH="$PATH:$USER_LOCAL/bin:$USER_LOCAL/sbin:$USER_LOCAL/opt/coreutils/libexec/gnubin"
 
 # HOMEBREW CASK
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -150,30 +116,8 @@ export HOMEBREW_BREWFILE_APPSTORE=1
 # iTerm
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
-
-if [ ! -d "$XDG_CONFIG_HOME"/wakatime ]; then
-  mkdir -m 700 "$XDG_CONFIG_HOME"/wakatime
-fi
-export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
-# Wakatime
-if command -v wakatime-cli >/dev/null 2>&1; then
-  export ZSH_WAKATIME_BIN="$(command -v wakatime-cli)"
-fi
-
-
-# Terminal Notifier
-if command -v terminal-notifier >/dev/null 2>&1; then
-  export SYS_NOTIFIER="$(command -v terminal-notifier)"
-fi
-
 # Obsidian
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
-
-export DOWNLOAD_DIR="$HOME"/Downloads
-
-# # aqua
-# export AQUA_GLOBAL_CONFIG="$XDG_CONFIG_HOME"/aquaproj-aqua/aqua.yaml
-# export PATH="$XDG_DATA_HOME"/aquaproj-aqua/bin:"$PATH"
 
 # wsl
 if [ -n "${WSL_INTEROP:-}" ]; then

@@ -25,18 +25,12 @@ autoload -Uz _zinit
 # zinit snippet "$HOME"/dotfiles/.config/zsh/utils.zsh
 zinit snippet "$HOME"/dotfiles/bin/256colorlib.sh
 
-zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
+# Still on zinit (no nixpkgs package):
+#   pinelibg/dircolors-solarized-zsh, marzocchi/zsh-notify, wakatime-zsh-plugin
+# HM-managed plugins: see .config/zsh/plugins.zsh
+# DIRCOLORS_SOLARIZED_ZSH_THEME in .zshrc; list-colors in zstyle.zsh
 
-zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zinit light trapd00r/LS_COLORS
+zinit ice atclone'git submodule update --init --recursive' atpull'%atclone'
 zinit light "pinelibg/dircolors-solarized-zsh"
 
 zinit light "marzocchi/zsh-notify"

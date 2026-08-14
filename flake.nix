@@ -35,24 +35,43 @@
         };
 
       mkDarwin =
-        { hostPlatform }:
+        { hostPlatform, profile ? "full" }:
         nix-darwin.lib.darwinSystem {
-          modules = [
-            ./darwin.nix
-            { nixpkgs.hostPlatform = hostPlatform; }
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hm-backup";
-              home-manager.users.monta = import ./home.nix;
-            }
-          ];
+          modules =
+            [
+              { nixpkgs.hostPlatform = hostPlatform; }
+            ]
+            ++ (
+              if profile == "full" then
+                [ ./darwin.nix ]
+              else
+                [
+                  ./darwin/base.nix
+                  ./darwin/homebrew.nix
+                ]
+            )
+            ++ nixpkgs.lib.optionals (profile == "full") [
+              home-manager.darwinModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.backupFileExtension = "hm-backup";
+                home-manager.users.monta = import ./home.nix;
+              }
+            ];
         };
     in
     {
       darwinConfigurations.monta = mkDarwin { hostPlatform = "aarch64-darwin"; };
+      darwinConfigurations.monta-brew = mkDarwin {
+        hostPlatform = "aarch64-darwin";
+        profile = "brew";
+      };
       darwinConfigurations.monta-x86_64 = mkDarwin { hostPlatform = "x86_64-darwin"; };
+      darwinConfigurations.monta-x86_64-brew = mkDarwin {
+        hostPlatform = "x86_64-darwin";
+        profile = "brew";
+      };
 
       homeConfigurations.monta = mkHome "aarch64-darwin";
       homeConfigurations.monta-x86_64 = mkHome "x86_64-darwin";

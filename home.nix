@@ -104,14 +104,6 @@ in
     config.global.hide_env_diff = true;
   };
 
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    enableZshIntegration = false;
-  };
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = false;
@@ -157,5 +149,8 @@ in
     delta
     wakatime-cli
     terminal-notifier
+    zsh-autosuggestions
+    zsh-completions
+    zsh-syntax-highlighting
   ];
 }

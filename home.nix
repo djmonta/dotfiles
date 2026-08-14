@@ -31,7 +31,9 @@ in
     "env.sh".source = link ".config/env.sh";
     "alias.sh".source = link ".config/alias.sh";
     "zsh".source = link ".config/zsh";
-    "git".source = link ".config/git";
+    "git/repo.conf".source = link ".config/git/repo.conf";
+    "git/.gittemplate".source = link ".config/git/.gittemplate";
+    "git/.gitignore.default".source = link ".config/git/.gitignore.default";
     "brewfile".source = link ".config/brewfile";
     "nvim".source = link ".config/nvim";
     # ~/.config/nix already points at this repo dir; linking nix.conf here loops.
@@ -82,6 +84,25 @@ in
       "--border"
       "--ansi"
     ];
+  };
+
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    aliases = {
+      l = "log";
+      lg = "log --graph";
+      lk = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'";
+      lo = "log --oneline";
+      lp = "log --patch";
+      lt = "log --topo-order";
+      branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'";
+      branch-delete-merged = "!git branch-list-merged | xargs git branch -d";
+    };
+    extraConfig = {
+      credential.helper = "osxkeychain";
+      include.path = "~/.config/git/repo.conf";
+    };
   };
 
   # Starter CLI + minimal global language runtimes.

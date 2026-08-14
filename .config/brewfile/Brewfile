@@ -17,7 +17,6 @@ brew cjson
 brew coreutils
 brew curl
 brew docker
-brew exiftool
 brew fmt
 brew fontconfig
 brew freetype
@@ -31,7 +30,6 @@ brew gobject-introspection
 brew graphite2
 brew hdrhistogram_c
 brew highway
-brew hugo
 brew icu4c@78
 brew imath
 brew jpeg-turbo
@@ -102,7 +100,6 @@ brew simdjson
 brew simdutf
 brew sqlite
 brew ssh-copy-id
-brew syncthing
 brew terminal-notifier
 brew tree-sitter
 brew unibilium
@@ -194,7 +191,7 @@ appstore 422293948 IP Scanner Home (5.05)
 appstore 1622835804 Kagi for Safari (2.2.3)
 appstore 1547106997 Pins (2024.1)
 appstore 1640236961 Save to Reader (0.17.5)
-appstore 803453959 Slack (4.51.180)
-appstore 904280696 Things3 (3.22.12)
+appstore 803453959 Slack (4.51.185)
+appstore 904280696 Things3 (3.22.13)
 appstore 1289119450 URL Linker (1.1)
 appstore 497799835 Xcode (26.6)

@@ -74,8 +74,8 @@ in
     "home-manager/zsh-completions.zsh".text = ''
       fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
     '';
-    "home-manager/zsh-syntax-highlighting.zsh".text = ''
-      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    "home-manager/zsh-fast-syntax-highlighting.zsh".text = ''
+      source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
     '';
   };
 
@@ -149,6 +149,6 @@ in
     syncthing
     zsh-autosuggestions
     zsh-completions
-    zsh-syntax-highlighting
+    zsh-fast-syntax-highlighting
   ];
 }

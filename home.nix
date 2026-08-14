@@ -112,7 +112,6 @@ in
   # Starter CLI + minimal global language runtimes.
   # Pin versions per project with a flake + .envrc (direnv), not anyenv.
   home.packages = with pkgs; [
-    git
     ripgrep
     gh
     neovim
@@ -120,7 +119,7 @@ in
     python3
     uv
     go
-    delta
+    coreutils
     wakatime-cli
     terminal-notifier
     ssh-copy-id

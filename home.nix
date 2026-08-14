@@ -77,6 +77,9 @@ in
     "home-manager/zsh-completions.zsh".text = ''
       fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
     '';
+    "home-manager/zsh-syntax-highlighting.zsh".text = ''
+      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    '';
   };
 
   programs.home-manager.enable = true;
@@ -105,6 +108,7 @@ in
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
+    syntaxHighlighting.enable = true;
     enableZshIntegration = false;
   };
 

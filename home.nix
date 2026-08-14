@@ -52,6 +52,9 @@ in
     "home-manager/zsh-autosuggestions.zsh".text = ''
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     '';
+    "home-manager/zsh-completions.zsh".text = ''
+      fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
+    '';
   };
 
   programs.home-manager.enable = true;
@@ -79,6 +82,7 @@ in
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
+    enableCompletion = true;
     enableZshIntegration = false;
   };
 

@@ -25,11 +25,12 @@ autoload -Uz _zinit
 # zinit snippet "$HOME"/dotfiles/.config/zsh/utils.zsh
 zinit snippet "$HOME"/dotfiles/bin/256colorlib.sh
 
+[[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-completions.zsh" ]] \
+  && source "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-completions.zsh"
+
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions
+    zdharma-continuum/fast-syntax-highlighting
 
 zinit ice wait"0" lucid
 zinit snippet "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-autosuggestions.zsh"

@@ -31,7 +31,7 @@ for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/*.sh; do
 done
 
 # zsh rc
-for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh fzf.zsh zalias.zsh utils.zsh; do
+for f in autoload.zsh bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh zalias.zsh utils.zsh; do
   if [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]] || [[ "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f" -nt "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f".zwc ]]; then
     zcompile "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/"$f"
   fi
@@ -90,12 +90,9 @@ fpath=(${ZDOTDIR}/functions/Completion ${fpath})
 # compinit -u -d ${HOME}/.zcompdump
 
 
-# anyenv
-if command -v anyenv > /dev/null 2>&1; then
-    eval "$(anyenv init - --no-rehash)"
-fi
+# anyenv removed — use per-project flake + direnv (see .envrc / flake.nix).
 
-# starship / zoxide / direnv (home-manager)
+# starship / zoxide / direnv / fzf (home-manager)
 if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh" ]]; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-integrations.zsh"
 fi

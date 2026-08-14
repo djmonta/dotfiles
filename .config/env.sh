@@ -61,11 +61,7 @@ fi
 #   mkdir -m 700 "$XDG_DATA_HOME"/tig
 # fi
 
-# fzf
-if command -v fzf >/dev/null 2>&1; then
-  export FZF_DEFAULT_OPTS='--height 50% --reverse --border --ansi'
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-fi
+# fzf defaults live in home.nix (programs.fzf).
 
 # Docker
 if command -v docker >/dev/null 2>&1; then
@@ -121,11 +117,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # export WASMER_CACHE_DIR="$XDG_CACHE_HOME"/wasmer
 # export PATH="$PATH:$WASMER_DIR/bin:$WASMER_DIR/globals/wapm_packages/.bin"
 
-# Add anyenv to PATH for scripting
-if [ -d "$XDG_CONFIG_HOME"/anyenv ] ; then
-	export PATH="$XDG_CONFIG_HOME"/anyenv/bin:$PATH
-fi
-
 USER_LOCAL=/usr/local
 if command -v brew > /dev/null 2>&1; then
     USER_LOCAL=$(brew --prefix)
@@ -133,7 +124,7 @@ fi
 export USER_LOCAL
 
 # PHP
-export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
+# export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
 
 # Homebrew
 export PATH="$USER_LOCAL"/bin:"$USER_LOCAL"/sbin:"$USER_LOCAL"/opt/coreutils/libexec/gnubin:"$PATH"
@@ -166,13 +157,13 @@ fi
 export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
 # Wakatime
 if command -v wakatime-cli >/dev/null 2>&1; then
-  export ZSH_WAKATIME_BIN="$USER_LOCAL"/bin/wakatime-cli
+  export ZSH_WAKATIME_BIN="$(command -v wakatime-cli)"
 fi
 
 
 # Terminal Notifier
 if command -v terminal-notifier >/dev/null 2>&1; then
-  export SYS_NOTIFIER="$USER_LOCAL"/bin/terminal-notifier
+  export SYS_NOTIFIER="$(command -v terminal-notifier)"
 fi
 
 # Obsidian

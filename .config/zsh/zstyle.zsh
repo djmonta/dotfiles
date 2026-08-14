@@ -67,6 +67,3 @@ zstyle ':notify:*' error-sound "Funk"
 zstyle ':notify:*' success-title "Success"
 zstyle ':notify:*' success-icon "${ZDOTDIR}/themes/icon-success.png"
 zstyle ':notify:*' success-sound "Glass"
-
-## anyframe
-zstyle ":anyframe:selector:" command "fzf --ansi"

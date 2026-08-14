@@ -18,8 +18,6 @@ in
   xdg.enable = true;
 
   home.file = {
-    ".bash_profile".source = link ".bash_profile";
-    ".bashrc".source = link ".bashrc";
     ".profile".source = link ".profile";
     ".vimrc".source = link ".vimrc";
     ".zshenv".source = link ".zshenv";
@@ -41,13 +39,13 @@ in
     "starship.toml".source = link ".config/starship.toml";
     "tmux".source = link ".config/tmux";
     "ghostty".source = link ".config/ghostty";
-    "pet".source = link ".config/pet";
-    "zabrze".source = link ".config/zabrze";
     "leader_key".source = link ".config/leader_key";
+    "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
     "home-manager/zsh-integrations.zsh".text = ''
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"
       eval "$(direnv hook zsh)"
+      eval "$(fzf --zsh)"
     '';
   };
 
@@ -69,13 +67,35 @@ in
     enable = true;
     enableZshIntegration = false;
     nix-direnv.enable = true;
+    silent = true;
+    config.global.hide_env_diff = true;
   };
 
-  # Starter CLI. Homebrew copies can coexist; Nix is usually first on PATH.
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = false;
+    defaultCommand = "rg --files --hidden --glob '!.git'";
+    defaultOptions = [
+      "--height"
+      "50%"
+      "--reverse"
+      "--border"
+      "--ansi"
+    ];
+  };
+
+  # Starter CLI + minimal global language runtimes.
+  # Pin versions per project with a flake + .envrc (direnv), not anyenv.
   home.packages = with pkgs; [
     ripgrep
-    fzf
     gh
     neovim
+    nodejs
+    python3
+    uv
+    go
+    delta
+    wakatime-cli
+    terminal-notifier
   ];
 }

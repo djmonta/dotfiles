@@ -21,6 +21,12 @@
       ...
     }:
     let
+      systems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+
       mkHome =
         system:
         home-manager.lib.homeManagerConfiguration {
@@ -51,13 +57,20 @@
       homeConfigurations.monta = mkHome "aarch64-darwin";
       homeConfigurations.monta-x86_64 = mkHome "x86_64-darwin";
 
-      packages.aarch64-darwin = {
-        home-manager = home-manager.packages.aarch64-darwin.default;
-        darwin-rebuild = nix-darwin.packages.aarch64-darwin.darwin-rebuild;
-      };
-      packages.x86_64-darwin = {
-        home-manager = home-manager.packages.x86_64-darwin.default;
-        darwin-rebuild = nix-darwin.packages.x86_64-darwin.darwin-rebuild;
-      };
+      packages = forAllSystems (pkgs: {
+        home-manager = home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        darwin-rebuild = nix-darwin.packages.${pkgs.stdenv.hostPlatform.system}.darwin-rebuild;
+      });
+
+      # Dotfiles tooling. Other projects use their own flake + direnv.
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            nixfmt-rfc-style
+            shellcheck
+            git
+          ];
+        };
+      });
     };
 }

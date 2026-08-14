@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+# nix-darwin activation runs as root (since ~2025). Re-exec with sudo when needed.
+if [[ ${EUID:-} -ne 0 ]]; then
+  exec sudo -- "$0" "$@"
+fi
+
+cd "$ROOT"
+
+NIX=(nix --extra-experimental-features 'nix-command flakes')
+
+if command -v darwin-rebuild >/dev/null 2>&1; then
+  darwin-rebuild switch --flake "${ROOT}#monta"
+else
+  "${NIX[@]}" run "${ROOT}#darwin-rebuild" -- switch --flake "${ROOT}#monta"
+fi

@@ -22,19 +22,7 @@
 [commit]
 	template = ~/.config/git/.gittemplate
 	gpgsign = true
-[filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+
 [credential]
 	helper = osxkeychain
 [gpg]

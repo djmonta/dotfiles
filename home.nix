@@ -149,6 +149,7 @@ in
     delta
     wakatime-cli
     terminal-notifier
+    syncthing
     zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting

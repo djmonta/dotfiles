@@ -62,6 +62,9 @@ in
     "ghostty".source = link ".config/ghostty";
     "leader_key".source = link ".config/leader_key";
     "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
+    "git/repo.conf".source = link ".config/git/repo.conf";
+    "git/.gittemplate".source = link ".config/git/.gittemplate";
+    "git/.commit_help".source = link ".config/git/.commit_help";
     "home-manager/zsh-integrations.zsh".text = ''
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"
@@ -113,20 +116,25 @@ in
     ];
   };
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   programs.git = {
     enable = true;
-    delta.enable = true;
-    aliases = {
-      l = "log";
-      lg = "log --graph";
-      lk = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'";
-      lo = "log --oneline";
-      lp = "log --patch";
-      lt = "log --topo-order";
-      branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'";
-      branch-delete-merged = "!git branch-list-merged | xargs git branch -d";
-    };
-    extraConfig = {
+    package = pkgs.git;
+    settings = {
+      alias = {
+        l = "log";
+        lg = "log --graph";
+        lk = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'";
+        lo = "log --oneline";
+        lp = "log --patch";
+        lt = "log --topo-order";
+        branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'";
+        branch-delete-merged = "!git branch-list-merged | xargs git branch -d";
+      };
       credential.helper = "osxkeychain";
       include.path = "${dotfiles}/.config/git/repo.conf";
     };
@@ -135,6 +143,7 @@ in
   # Starter CLI + minimal global language runtimes.
   # Pin versions per project with a flake + .envrc (direnv), not anyenv.
   home.packages = with pkgs; [
+    git
     ripgrep
     gh
     neovim

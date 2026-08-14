@@ -63,7 +63,10 @@ create_dotfiles_symlinks() {
         .config/env.sh
         .config/alias.sh
         .config/zsh
-        .config/git
+        .config/git/repo.conf
+        .config/git/.gittemplate
+        .config/git/.gitignore.default
+        .config/git/.commit_help
         .config/brewfile
         .config/nvim)
 

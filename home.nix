@@ -17,37 +17,13 @@ in
 
   xdg.enable = true;
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    PAGER = "less";
-    LESS = "-fiMRfFx4X";
-    LESSCHARSET = "utf-8";
-    LESSKEY = "${config.xdg.configHome}/less/lesskey";
-    LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
-    LESS_TERMCAP_mb = ''\e[01;31m'';
-    LESS_TERMCAP_md = ''\e[01;31m'';
-    LESS_TERMCAP_me = ''\e[0m'';
-    LESS_TERMCAP_se = ''\e[0m'';
-    LESS_TERMCAP_so = ''\e[00;44;37m'';
-    LESS_TERMCAP_ue = ''\e[0m'';
-    LESS_TERMCAP_us = ''\e[01;32m'';
-    INPUTRC = "${config.xdg.configHome}/readline/inputrc";
-    GIT_EDITOR = "nvim";
-    WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
-    ZSH_WAKATIME_BIN = "wakatime-cli";
-    SYS_NOTIFIER = "terminal-notifier";
-    DOWNLOAD_DIR = "${config.home.homeDirectory}/Downloads";
-  };
-
+  # Session env (EDITOR, LESS, FZF_*, PATH): .config/env.sh
   home.file = {
     ".profile".source = link ".profile";
     ".vimrc".source = link ".vimrc";
     ".zshenv".source = link ".zshenv";
     ".gitignore".source = link ".config/git/.gitignore.default";
   };
-
-  # Do not replace ~/.local/bin (Hermes etc. live there). Put repo scripts on PATH instead.
-  home.sessionPath = [ "${dotfiles}/bin" ];
 
   xdg.configFile = {
     "env.sh".source = link ".config/env.sh";
@@ -106,14 +82,7 @@ in
   programs.fzf = {
     enable = true;
     enableZshIntegration = false;
-    defaultCommand = "rg --files --hidden --glob '!.git'";
-    defaultOptions = [
-      "--height"
-      "50%"
-      "--reverse"
-      "--border"
-      "--ansi"
-    ];
+    # FZF_DEFAULT_* live in .config/env.sh
   };
 
   programs.delta = {

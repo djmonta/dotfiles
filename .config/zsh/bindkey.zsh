@@ -6,7 +6,7 @@ bindkey "^[[1~" beginning-of-line # Home gets to line head
 bindkey "^[[4~" end-of-line     # End gets to line end
 bindkey "^[[3~" delete-char     # fn + delete の有効
 bindkey '^D' delete-char        # delete
-bindkey '^T' backward-delete-char # Backspace
+# bindkey '^T' backward-delete-char # Backspace
 # bindkey '^U' backward-kill-line # カーソル位置から後方全削除 override kill-whole-line
 # bindkey '^Y' kill-line          # カーソル位置から前方全削除
 # 単語移動

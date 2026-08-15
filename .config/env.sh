@@ -53,9 +53,7 @@ export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 # Git editor. Pager: programs.git.delta in home.nix
 export GIT_EDITOR="$EDITOR"
 
-# fzf (binary + zsh widget: programs.fzf in home.nix)
-export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
-export FZF_DEFAULT_OPTS="--height 50% --reverse --border --ansi"
+# fzf defaults: programs.fzf in home.nix (FZF_DEFAULT_* via hm-session-vars)
 
 # Docker
 if command -v docker >/dev/null 2>&1; then

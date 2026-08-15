@@ -57,8 +57,12 @@ alias quit='exit';
 #
 case "${OSTYPE}" in
 freebsd*|darwin*)
+    # Homebrew coreutils → gls; Nix home.packages.coreutils → GNU ls as `ls`
     if type gls > /dev/null 2>&1; then
         alias ls='gls -aFhv --color=auto --show-control-chars'
+        alias ll='ls -l --time-style=long-iso'
+    elif ls --color=auto / >/dev/null 2>&1; then
+        alias ls='ls -aFhv --color=auto --show-control-chars'
         alias ll='ls -l --time-style=long-iso'
     else
         alias ls='ls -aFGhv'

@@ -59,10 +59,8 @@ create_dotfiles_symlinks() {
         .bashrc
         .profile
         .vimrc
-        .zshenv
         .config/env.sh
         .config/alias.sh
-        .config/zsh
         .config/git/repo.conf
         .config/git/.gittemplate
         .config/git/.gitignore.default

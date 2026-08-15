@@ -9,6 +9,7 @@ let
   # mkOutOfStoreSymlink keeps files editable without home-manager switch.
   dotfiles = "${config.home.homeDirectory}/dotfiles";
   link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
+  zshDir = "${dotfiles}/.config/zsh";
 in
 {
   home.username = "monta";
@@ -17,18 +18,17 @@ in
 
   xdg.enable = true;
 
-  # Session env (EDITOR, LESS, FZF_*, PATH): .config/env.sh
+  # Session env (EDITOR, LESS, PATH): .config/env.sh (sourced from programs.zsh.envExtra)
   home.file = {
     ".profile".source = link ".profile";
     ".vimrc".source = link ".vimrc";
-    ".zshenv".source = link ".zshenv";
+    # .zshenv / ~/.config/zsh: programs.zsh (not OutOfStoreSymlink of whole dir)
     ".gitignore".source = link ".config/git/.gitignore.default";
   };
 
   xdg.configFile = {
     "env.sh".source = link ".config/env.sh";
     "alias.sh".source = link ".config/alias.sh";
-    "zsh".source = link ".config/zsh";
     "brewfile".source = link ".config/brewfile";
     "nvim".source = link ".config/nvim";
     # ~/.config/nix already points at this repo dir; linking nix.conf here loops.
@@ -41,13 +41,7 @@ in
     "git/repo.conf".source = link ".config/git/repo.conf";
     "git/.gittemplate".source = link ".config/git/.gittemplate";
     "git/.commit_help".source = link ".config/git/.commit_help";
-    "home-manager/zsh-integrations.zsh".text = ''
-      eval "$(starship init zsh)"
-      eval "$(zoxide init zsh ${lib.escapeShellArgs config.programs.zoxide.options})"
-      eval "$(direnv hook zsh)"
-      eval "$(fzf --zsh)"
-    '';
-    # Nix store paths for zsh plugins — sourced from .config/zsh/plugins.zsh only.
+    # Nix store paths for zsh plugins — sourced from plugins.zsh only.
     "home-manager/zsh-plugin-paths.zsh".text = let
       fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
     in ''
@@ -59,21 +53,107 @@ in
 
   programs.home-manager.enable = true;
 
-  # ZDOTDIR is ~/.config/zsh (repo-managed). Do not let HM generate ~/.zshrc.
+  # ZDOTDIR = ~/.config/zsh (HM-generated). Modular *.zsh stay in ${zshDir} (live).
+  programs.zsh = {
+    enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
+    defaultKeymap = "emacs";
+    completionInit = ''
+      autoload -Uz compinit && compinit -u -d "$XDG_CACHE_HOME/zsh/compdump"
+    '';
+    history = {
+      path = "${config.xdg.stateHome}/zsh/history";
+      size = 1000000;
+      save = 1000000;
+    };
+    envExtra = ''
+      # Hand-written session env (EDITOR, PATH, …)
+      if [ -f "${config.xdg.configHome}/env.sh" ]; then
+        # shellcheck source=/dev/null
+        . "${config.xdg.configHome}/env.sh"
+      fi
+
+      typeset -U path PATH
+      typeset -U fpath
+
+      unset SUDO_PATH
+      typeset -xT SUDO_PATH sudo_path
+      typeset -U sudo_path
+      sudo_path=({/usr/local,/usr,}/sbin(N-/))
+      export SUDO_PATH
+
+      typeset -U cdpath
+      cdpath=($HOME{,/links}(N-/))
+    '';
+    initContent = lib.mkMerge [
+      # Before compinit (was initExtraBeforeCompInit)
+      (lib.mkOrder 550 ''
+        DEFAULT_USER='monta'
+        DIRCOLORS_SOLARIZED_ZSH_THEME='256dark'
+
+        for f in ${zshDir}/plugins.zsh ${zshDir}/autoload.zsh; do
+          # shellcheck disable=SC1090
+          source "$f"
+        done
+      '')
+      (lib.mkOrder 1000 ''
+        if [[ ! -d "${config.xdg.stateHome}/zsh" ]]; then
+          mkdir -m 700 "${config.xdg.stateHome}/zsh"
+        fi
+
+        LISTMAX=50
+        if [[ $UID -eq 0 ]]; then
+          unset HISTFILE
+          SAVEHIST=0
+        fi
+
+        # Interactive sh configs (alias.sh, …). env.sh already loaded in envExtra.
+        for f in "${config.xdg.configHome}"/*.sh; do
+          [[ -f "$f" ]] || continue
+          if [[ ! -f "$f".zwc ]] || [[ "$f" -nt "$f".zwc ]]; then
+            zcompile "$f"
+          fi
+          # shellcheck disable=SC1090
+          source "$f"
+        done
+
+        for f in bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh zalias.zsh utils.zsh; do
+          _z="${zshDir}/$f"
+          if [[ ! -f "$_z".zwc ]] || [[ "$_z" -nt "$_z".zwc ]]; then
+            zcompile "$_z"
+          fi
+          # shellcheck disable=SC1090
+          source "$_z"
+        done
+        unset _z
+
+        # After 256colorlib (zinit snippet)
+        SPROMPT="''${COLOR_FG_D70000}もしかして: ''${COLOR_FG_0087FF}''${STYLE_LINE}%r%{''${reset_color}%} [y,n,a,e] -> "
+
+        fpath=(/usr/local/share/zsh/functions(N-/) /usr/local/share/zsh/site-functions(N-/) $fpath)
+        if (( $+commands[brew] )); then
+          BREW_PREFIX=$(brew --prefix)
+          fpath=($BREW_PREFIX/share/zsh/functions(N-/) $BREW_PREFIX/share/zsh/site-functions(N-/) $fpath)
+        fi
+        fpath=(${zshDir}/functions/Completion(N-/) $fpath)
+      '')
+    ];
+  };
+
   programs.starship = {
     enable = true;
-    enableZshIntegration = false;
+    enableZshIntegration = true;
   };
 
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = false;
+    enableZshIntegration = true;
     options = [ "--cmd" "cd" ];
   };
 
   programs.direnv = {
     enable = true;
-    enableZshIntegration = false;
+    enableZshIntegration = true;
     nix-direnv.enable = true;
     silent = true;
     config.global.hide_env_diff = true;
@@ -81,8 +161,15 @@ in
 
   programs.fzf = {
     enable = true;
-    enableZshIntegration = false;
-    # FZF_DEFAULT_* live in .config/env.sh
+    enableZshIntegration = true;
+    defaultCommand = "rg --files --hidden --glob '!.git'";
+    defaultOptions = [
+      "--height"
+      "50%"
+      "--reverse"
+      "--border"
+      "--ansi"
+    ];
   };
 
   programs.delta = {

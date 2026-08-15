@@ -1,7 +1,7 @@
 # shellcheck shell=sh
-# zmodload zsh/zprof && zprof
+# Session environment. Sourced from programs.zsh.envExtra (and .profile).
 
-# XDG Base Directory
+# XDG
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
@@ -9,15 +9,15 @@ export XDG_STATE_HOME="$HOME"/.local/state
 
 export LANG=ja_JP.UTF-8
 
-# Editor
+# Editor / pager
 if command -v nvim >/dev/null 2>&1; then
   export EDITOR=nvim
 else
   export EDITOR=vim
 fi
-
-# Pager
 export PAGER=less
+export GIT_EDITOR="$EDITOR"
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
 # Less
 if [ ! -d "$XDG_CONFIG_HOME"/less ]; then
@@ -30,8 +30,6 @@ export LESS='-fiMRfFx4X'
 export LESSCHARSET='utf-8'
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-
-# LESS man page colors (makes Man pages more readable).
 LESS_TERMCAP_mb=$(printf "\e[01;31m")
 LESS_TERMCAP_md=$(printf "\e[01;31m")
 LESS_TERMCAP_me=$(printf "\e[0m")
@@ -39,114 +37,64 @@ LESS_TERMCAP_se=$(printf "\e[0m")
 LESS_TERMCAP_so=$(printf "\e[00;44;37m")
 LESS_TERMCAP_ue=$(printf "\e[0m")
 LESS_TERMCAP_us=$(printf "\e[01;32m")
-export LESS_TERMCAP_mb
-export LESS_TERMCAP_md
-export LESS_TERMCAP_me
-export LESS_TERMCAP_se
-export LESS_TERMCAP_so
-export LESS_TERMCAP_ue
-export LESS_TERMCAP_us
-
-# Readline
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-
-# Git editor. Pager: programs.git.delta in home.nix
-export GIT_EDITOR="$EDITOR"
+export LESS_TERMCAP_mb LESS_TERMCAP_md LESS_TERMCAP_me
+export LESS_TERMCAP_se LESS_TERMCAP_so LESS_TERMCAP_ue LESS_TERMCAP_us
 
 # fzf defaults: programs.fzf in home.nix (FZF_DEFAULT_* via hm-session-vars)
 
-# Docker
+# Tool config dirs (only when the CLI exists)
 if command -v docker >/dev/null 2>&1; then
   export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 fi
-
-# AWS CLI
 if command -v aws >/dev/null 2>&1; then
   export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
   export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
 fi
 
-# Redis
-export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/rediscli_history
-export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
-
-# Rust
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export PATH="$PATH":"$CARGO_HOME"/bin
-
-# Go
+# Language toolchains — append to PATH
 export GOPATH="$XDG_DATA_HOME"/go
-export PATH="$PATH":"$GOPATH"/bin
-
-# JavaScript / TypeScript
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export TS_NODE_HISTORY="$XDG_DATA_HOME"/ts-node/history
-export PATH="$PATH":"$XDG_DATA_HOME"/npm/bin
+export PATH="$PATH:$GOPATH/bin:$XDG_DATA_HOME/npm/bin"
 
-# opencode
-export PATH="$HOME"/.opencode/bin:"$PATH"
+# User / repo bins — prepend (only if present)
+if [ -d "$HOME"/.opencode/bin ]; then
+  export PATH="$HOME"/.opencode/bin:"$PATH"
+fi
+export PATH="$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
 
-# Hermes Agent — ensure ~/.local/bin is on PATH
-export PATH="$HOME/.local/bin:$PATH"
-
-# Repo scripts (do not replace ~/.local/bin)
-export PATH="$HOME/dotfiles/bin:$PATH"
-
-# export DENO_INSTALL_ROOT="$XDG_DATA_HOME"/deno
-# if [ ! -d "$DENO_INSTALL_ROOT" ]; then
-#   mkdir -m 700 "$DENO_INSTALL_ROOT"
-# fi
-# export PATH="$PATH":"$DENO_INSTALL_ROOT"/bin
-
-# export VOLTA_HOME="$XDG_DATA_HOME"/volta
-# export PATH="$PATH":"$VOLTA_HOME"/bin
-
-# Wasmtime
-# export WASMTIME_HOME="$XDG_DATA_HOME"/wasmtime
-# export PATH="$PATH":"$WASMTIME_HOME"/bin
-
-# Wasmer
-# export WASMER_DIR="$XDG_DATA_HOME"/wasmer
-# export WASMER_CACHE_DIR="$XDG_CACHE_HOME"/wasmer
-# export PATH="$PATH:$WASMER_DIR/bin:$WASMER_DIR/globals/wapm_packages/.bin"
-
+# Homebrew — append so ~/.nix-profile/bin wins for duplicate CLIs
 USER_LOCAL=/usr/local
-if [[ -x /opt/homebrew/bin/brew ]]; then
+if [ -x /opt/homebrew/bin/brew ]; then
   USER_LOCAL=/opt/homebrew
-elif command -v brew > /dev/null 2>&1; then
+elif command -v brew >/dev/null 2>&1; then
   USER_LOCAL=$(brew --prefix)
 fi
 export USER_LOCAL
-
-# PHP
-# export PATH="$USER_LOCAL"/opt/php@8.2/bin:"$USER_LOCAL"/opt/php@8.2/sbin:"$PATH"
-
-# Homebrew — append so home.packages (~/.nix-profile/bin) wins for duplicate CLIs.
 export PATH="$PATH:$USER_LOCAL/bin:$USER_LOCAL/sbin:$USER_LOCAL/opt/coreutils/libexec/gnubin"
-
-# HOMEBREW CASK
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# BREW-FILE
-if [ -f "$USER_LOCAL"/etc/brew-wrap ];then
-  source "$USER_LOCAL"/etc/brew-wrap
+if [ -f "$USER_LOCAL"/etc/brew-wrap ]; then
+  # shellcheck source=/dev/null
+  . "$USER_LOCAL"/etc/brew-wrap
 fi
-if hostname | grep -q "Mac-mini\.local$" ; then
-	export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile
-elif hostname | grep -q "iMac\.local$" ; then
-	export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile
-elif hostname | grep -q "MacBook-Pro\.local$" ; then
-	export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBP
+if hostname | grep -q "Mac-mini\.local$"; then
+  export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile
+elif hostname | grep -q "iMac\.local$"; then
+  export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile
+elif hostname | grep -q "MacBook-Pro\.local$"; then
+  export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBP
 else
-	export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBA
+  export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBA
 fi
 export HOMEBREW_BREWFILE_APPSTORE=1
 
-# iTerm
+# iTerm2 (integration sourced from programs.zsh.initContent)
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+export ITERM2_SQUELCH_MARK=1
 
+# Wakatime / notifier
 if [ ! -d "$XDG_CONFIG_HOME"/wakatime ]; then
   mkdir -m 700 "$XDG_CONFIG_HOME"/wakatime
 fi
@@ -154,21 +102,18 @@ export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
 if command -v wakatime-cli >/dev/null 2>&1; then
   export ZSH_WAKATIME_BIN="$(command -v wakatime-cli)"
 fi
-
-# Terminal Notifier
 if command -v terminal-notifier >/dev/null 2>&1; then
   export SYS_NOTIFIER="$(command -v terminal-notifier)"
 fi
 
-# Obsidian
-export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+if [ -d /Applications/Obsidian.app/Contents/MacOS ]; then
+  export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+fi
 
 export DOWNLOAD_DIR="$HOME"/Downloads
 
-# wsl
-if [ -n "${WSL_INTEROP:-}" ]; then
-  if [ -f "$XDG_CONFIG_HOME"/wsl/env.sh ]; then
-    # shellcheck source=windows/wsl/.config/wsl/env.sh
-    . "$XDG_CONFIG_HOME"/wsl/env.sh
-  fi
+# WSL
+if [ -n "${WSL_INTEROP:-}" ] && [ -f "$XDG_CONFIG_HOME"/wsl/env.sh ]; then
+  # shellcheck source=/dev/null
+  . "$XDG_CONFIG_HOME"/wsl/env.sh
 fi

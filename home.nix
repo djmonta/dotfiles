@@ -158,6 +158,8 @@ in
     uv
     go
     coreutils
+    tree
+    nkf
     navi
     wakatime-cli
     terminal-notifier

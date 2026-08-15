@@ -17,5 +17,8 @@
   # Declarative casks (add gradually; Brewfile duplicates OK while cleanup=none).
   homebrew.casks = [
     "gpg-suite"
+    "iterm2"
+    "itsycal"
+    "popclip"
   ];
 }

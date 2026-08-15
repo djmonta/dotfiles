@@ -16,10 +16,7 @@ brew libpsl
 brew libssh2
 brew libtiff
 brew lz4
-brew mackup
-brew mas
 brew mpdecimal
-brew navi
 brew openssl@3
 brew python@3.14
 brew readline
@@ -51,8 +48,6 @@ cask font-jetbrains-mono
 cask font-jetbrains-mono-nerd-font
 cask gpg-suite
 cask heptabase
-cask iterm2
-cask itsycal
 cask jordanbaird-ice
 cask karabiner-elements
 cask klogg
@@ -76,11 +71,6 @@ cask visual-studio-code
 cask zen-browser
 
 tap 1password/tap
-
-tap argon/mas
-
-tap rcmdnk/file
-brew brew-file
 
 # App Store applications
 appstore 1569813296 1Password for Safari (8.12.29)

@@ -214,6 +214,7 @@ in
     uv
     go
     coreutils
+    navi
     wakatime-cli
     terminal-notifier
     ssh-copy-id

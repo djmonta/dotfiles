@@ -67,82 +67,26 @@ in
       save = 1000000;
     };
     envExtra = ''
-      # Hand-written session env (EDITOR, PATH, …)
       if [ -f "${config.xdg.configHome}/env.sh" ]; then
-        # shellcheck source=/dev/null
         . "${config.xdg.configHome}/env.sh"
       fi
-
-      typeset -U path PATH
-      typeset -U fpath
-
-      unset SUDO_PATH
-      typeset -xT SUDO_PATH sudo_path
-      typeset -U sudo_path
-      sudo_path=({/usr/local,/usr,}/sbin(N-/))
-      export SUDO_PATH
-
-      typeset -U cdpath
-      cdpath=($HOME{,/links}(N-/))
+      source "${zshDir}/env-extra.zsh"
     '';
     initContent = lib.mkMerge [
-      # Before compinit (was initExtraBeforeCompInit)
       (lib.mkOrder 550 ''
-        DEFAULT_USER='monta'
-        DIRCOLORS_SOLARIZED_ZSH_THEME='256dark'
-
-        for f in ${zshDir}/plugins.zsh ${zshDir}/autoload.zsh; do
-          # shellcheck disable=SC1090
-          source "$f"
-        done
+        source "${zshDir}/plugins.zsh"
+        source "${zshDir}/autoload.zsh"
       '')
       (lib.mkOrder 1000 ''
-        if [[ ! -d "${config.xdg.stateHome}/zsh" ]]; then
-          mkdir -m 700 "${config.xdg.stateHome}/zsh"
-        fi
-
-        LISTMAX=50
-        if [[ $UID -eq 0 ]]; then
-          unset HISTFILE
-          SAVEHIST=0
-        fi
-
-        # Interactive sh configs (alias.sh, …). env.sh already loaded in envExtra.
-        for f in "${config.xdg.configHome}"/*.sh; do
-          [[ -f "$f" ]] || continue
-          if [[ ! -f "$f".zwc ]] || [[ "$f" -nt "$f".zwc ]]; then
-            zcompile "$f"
-          fi
-          # shellcheck disable=SC1090
-          source "$f"
-        done
-
-        for f in bindkey.zsh setopt.zsh zinit.zsh zstyle.zsh zalias.zsh utils.zsh; do
-          _z="${zshDir}/$f"
-          if [[ ! -f "$_z".zwc ]] || [[ "$_z" -nt "$_z".zwc ]]; then
-            zcompile "$_z"
-          fi
-          # shellcheck disable=SC1090
-          source "$_z"
-        done
-        unset _z
-
-        # iTerm2 marks / cwd reporting (starship owns PS1 → squelch prompt wrap)
-        export ITERM2_SQUELCH_MARK=1
-        if [[ -f "${zshDir}/iterm2_shell_integration.zsh" ]]; then
-          # shellcheck disable=SC1090
-          source "${zshDir}/iterm2_shell_integration.zsh"
-        fi
-
-        # After 256colorlib (zinit snippet)
-        SPROMPT="''${COLOR_FG_D70000}もしかして: ''${COLOR_FG_0087FF}''${STYLE_LINE}%r%{''${reset_color}%} [y,n,a,e] -> "
-
-        fpath=(/usr/local/share/zsh/functions(N-/) /usr/local/share/zsh/site-functions(N-/) $fpath)
-        if (( $+commands[brew] )); then
-          BREW_PREFIX=$(brew --prefix)
-          fpath=($BREW_PREFIX/share/zsh/functions(N-/) $BREW_PREFIX/share/zsh/site-functions(N-/) $fpath)
-        fi
-        fpath=(${zshDir}/functions/Completion(N-/) $fpath)
+        source "${config.xdg.configHome}/alias.sh"
+        source "${zshDir}/bindkey.zsh"
+        source "${zshDir}/setopt.zsh"
+        source "${zshDir}/zinit.zsh"
+        source "${zshDir}/prompt.zsh"
+        source "${zshDir}/zstyle.zsh"
+        source "${zshDir}/zalias.zsh"
+        source "${zshDir}/utils.zsh"
+        source "${zshDir}/iterm2_shell_integration.zsh"
       '')
     ];
   };

@@ -27,8 +27,8 @@ zinit snippet "$HOME"/dotfiles/bin/256colorlib.sh
 
 # Still on zinit (no nixpkgs package):
 #   pinelibg/dircolors-solarized-zsh, marzocchi/zsh-notify, wakatime-zsh-plugin
-# HM-managed plugins: see .config/zsh/plugins.zsh
-# DIRCOLORS_SOLARIZED_ZSH_THEME in .zshrc; list-colors in zstyle.zsh
+# DIRCOLORS_SOLARIZED_ZSH_THEME: plugins.zsh; list-colors: zstyle.zsh
+# HM-managed plugins: plugins.zsh
 
 zinit ice atclone'git submodule update --init --recursive' atpull'%atclone'
 zinit light "pinelibg/dircolors-solarized-zsh"

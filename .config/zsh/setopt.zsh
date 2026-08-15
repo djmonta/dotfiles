@@ -73,6 +73,15 @@ setopt append_history           # 履歴を追加 (毎回 .zhistory を作らな
 setopt hist_verify              # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
 setopt bang_hist                # !を使ったヒストリ展開を行う
 
+LISTMAX=50
+if [[ ! -d "${XDG_STATE_HOME:-$HOME/.local/state}/zsh" ]]; then
+  mkdir -m 700 "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+fi
+if [[ $UID -eq 0 ]]; then
+  unset HISTFILE
+  SAVEHIST=0
+fi
+
 # }}}
 
 ### Completion configuration {{{

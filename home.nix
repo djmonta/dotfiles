@@ -127,6 +127,13 @@ in
         done
         unset _z
 
+        # iTerm2 marks / cwd reporting (starship owns PS1 → squelch prompt wrap)
+        export ITERM2_SQUELCH_MARK=1
+        if [[ -f "${zshDir}/iterm2_shell_integration.zsh" ]]; then
+          # shellcheck disable=SC1090
+          source "${zshDir}/iterm2_shell_integration.zsh"
+        fi
+
         # After 256colorlib (zinit snippet)
         SPROMPT="''${COLOR_FG_D70000}もしかして: ''${COLOR_FG_0087FF}''${STYLE_LINE}%r%{''${reset_color}%} [y,n,a,e] -> "
 

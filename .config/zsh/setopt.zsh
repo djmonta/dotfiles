@@ -73,6 +73,15 @@ setopt append_history           # 履歴を追加 (毎回 .zhistory を作らな
 setopt hist_verify              # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
 setopt bang_hist                # !を使ったヒストリ展開を行う
 
+LISTMAX=50
+if [[ ! -d "${XDG_STATE_HOME:-$HOME/.local/state}/zsh" ]]; then
+  mkdir -m 700 "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+fi
+if [[ $UID -eq 0 ]]; then
+  unset HISTFILE
+  SAVEHIST=0
+fi
+
 # }}}
 
 ### Completion configuration {{{
@@ -92,7 +101,6 @@ setopt complete_in_word     # カーソル位置で補完する。
 setopt always_last_prompt   # プロンプトを保持したままファイル名一覧を順次その場で表示(default=on)
 setopt glob_complete        # globを展開しないで候補の一覧から補完する。 Ctrl+x g glob展開
 setopt hist_expand          # 補完時にヒストリを自動的に展開する。
-setopt no_beep              # 補完候補がないときなどにビープ音を鳴らさない。
 setopt numeric_glob_sort    # 辞書順ではなく数字順に並べる。
 setopt auto_remove_slash    # 補完で末尾に補われた / をスペース挿入で自動的に削除
 

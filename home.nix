@@ -1,0 +1,171 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  # Repo is the live source, same as create_symlink.sh.
+  # mkOutOfStoreSymlink keeps files editable without home-manager switch.
+  dotfiles = "${config.home.homeDirectory}/dotfiles";
+  link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
+  zshDir = "${dotfiles}/.config/zsh";
+in
+{
+  home.username = "monta";
+  home.homeDirectory = "/Users/monta";
+  home.stateVersion = "25.11";
+
+  xdg.enable = true;
+
+  # Session env (EDITOR, LESS, PATH): .config/env.sh (sourced from programs.zsh.envExtra)
+  home.file = {
+    ".profile".source = link ".profile";
+    ".vimrc".source = link ".vimrc";
+    # .zshenv / ~/.config/zsh: programs.zsh (not OutOfStoreSymlink of whole dir)
+    ".gitignore".source = link ".config/git/.gitignore.default";
+  };
+
+  xdg.configFile = {
+    "env.sh".source = link ".config/env.sh";
+    "alias.sh".source = link ".config/alias.sh";
+    "brewfile".source = link ".config/brewfile";
+    "nvim".source = link ".config/nvim";
+    # ~/.config/nix already points at this repo dir; linking nix.conf here loops.
+    # Live-editable; programs.starship.settings is unused on purpose.
+    "starship.toml".source = link ".config/starship.toml";
+    "tmux".source = link ".config/tmux";
+    "ghostty".source = link ".config/ghostty";
+    "leader_key".source = link ".config/leader_key";
+    "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
+    "git/repo.conf".source = link ".config/git/repo.conf";
+    "git/.gittemplate".source = link ".config/git/.gittemplate";
+    "git/.commit_help".source = link ".config/git/.commit_help";
+    # Nix store paths for zsh plugins — sourced from plugins.zsh only.
+    "home-manager/zsh-plugin-paths.zsh".text = let
+      fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
+    in ''
+      export ZSH_COMPLETIONS_DIR="${pkgs.zsh-completions}/share/zsh/site-functions"
+      export ZSH_FSH_DIR="${fshDir}"
+      export ZSH_AUTOSUGGESTIONS="${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    '';
+  };
+
+  programs.home-manager.enable = true;
+
+  # ZDOTDIR = ~/.config/zsh (HM-generated). Modular *.zsh stay in ${zshDir} (live).
+  programs.zsh = {
+    enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
+    defaultKeymap = "emacs";
+    completionInit = ''
+      autoload -Uz compinit && compinit -u -d "$XDG_CACHE_HOME/zsh/compdump"
+    '';
+    history = {
+      path = "${config.xdg.stateHome}/zsh/history";
+      size = 1000000;
+      save = 1000000;
+    };
+    envExtra = ''
+      if [ -f "${config.xdg.configHome}/env.sh" ]; then
+        . "${config.xdg.configHome}/env.sh"
+      fi
+      source "${zshDir}/env-extra.zsh"
+    '';
+    initContent = lib.mkMerge [
+      (lib.mkOrder 550 ''
+        source "${zshDir}/plugins.zsh"
+        source "${zshDir}/autoload.zsh"
+      '')
+      (lib.mkOrder 1000 ''
+        source "${config.xdg.configHome}/alias.sh"
+        source "${zshDir}/bindkey.zsh"
+        source "${zshDir}/setopt.zsh"
+        source "${zshDir}/zinit.zsh"
+        source "${zshDir}/prompt.zsh"
+        source "${zshDir}/zstyle.zsh"
+        source "${zshDir}/zalias.zsh"
+        source "${zshDir}/utils.zsh"
+        source "${zshDir}/iterm2_shell_integration.zsh"
+      '')
+    ];
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [ "--cmd" "cd" ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+    silent = true;
+    config.global.hide_env_diff = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "rg --files --hidden --glob '!.git'";
+    defaultOptions = [
+      "--height"
+      "50%"
+      "--reverse"
+      "--border"
+      "--ansi"
+    ];
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
+  programs.git = {
+    enable = true;
+    package = pkgs.git;
+    settings = {
+      alias = {
+        l = "log";
+        lg = "log --graph";
+        lk = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'";
+        lo = "log --oneline";
+        lp = "log --patch";
+        lt = "log --topo-order";
+        branch-list-merged = "!git branch --merged master | grep -v -E '(develop|origin|master)'";
+        branch-delete-merged = "!git branch-list-merged | xargs git branch -d";
+      };
+      credential.helper = "osxkeychain";
+      include.path = "${dotfiles}/.config/git/repo.conf";
+    };
+  };
+
+  # Starter CLI + minimal global language runtimes.
+  # Pin versions per project with a flake + .envrc (direnv), not anyenv.
+  home.packages = with pkgs; [
+    ripgrep
+    gh
+    neovim
+    nodejs
+    python3
+    uv
+    go
+    coreutils
+    tree
+    nkf
+    navi
+    wakatime-cli
+    terminal-notifier
+    ssh-copy-id
+    zsh-autosuggestions
+    zsh-completions
+    zsh-fast-syntax-highlighting
+  ];
+}

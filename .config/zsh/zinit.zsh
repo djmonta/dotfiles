@@ -22,34 +22,18 @@ autoload -Uz _zinit
 
 ### End of Zinit's installer chunk
 
-zinit ice depth=1;
-zinit light romkatv/powerlevel10k
+# zinit snippet "$HOME"/dotfiles/.config/zsh/utils.zsh
+zinit snippet "$HOME"/dotfiles/bin/256colorlib.sh
 
-# zinit snippet "${ZDOTDIR}/utils.zsh"
-zinit snippet "$HOME/.config/zsh/iterm2_shell_integration.zsh"
+# Still on zinit (no nixpkgs package):
+#   pinelibg/dircolors-solarized-zsh, marzocchi/zsh-notify, wakatime-zsh-plugin
+# DIRCOLORS_SOLARIZED_ZSH_THEME: plugins.zsh; list-colors: zstyle.zsh
+# HM-managed plugins: plugins.zsh
 
-zinit ice wait"!0" blockf lucid atpull'zinit creinstall -q .'
-zinit light "zsh-users/zsh-completions"
-
-zinit light "zsh-users/zsh-autosuggestions"
-
-zinit ice wait"!0" lucid atinit"zpcompinit; zpcdreplay"
-zinit light "zdharma-continuum/fast-syntax-highlighting"
-
-zinit light "mollifier/anyframe"
-
-# zinit ice wait"!0" blockf lucid pick"init.sh"
-# zinit light "b4b4r07/enhancd"
-
-zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zinit light trapd00r/LS_COLORS
+zinit ice atclone'git submodule update --init --recursive' atpull'%atclone'
 zinit light "pinelibg/dircolors-solarized-zsh"
 
 zinit light "marzocchi/zsh-notify"
 
-
 zinit ice wait"!0" blockf lucid pick"wakatime.plugin.zsh"
 zinit light "sobolevn/wakatime-zsh-plugin"
-

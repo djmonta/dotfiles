@@ -59,11 +59,12 @@ create_dotfiles_symlinks() {
         .bashrc
         .profile
         .vimrc
-        .zshenv
         .config/env.sh
         .config/alias.sh
-        .config/zsh
-        .config/git
+        .config/git/repo.conf
+        .config/git/.gittemplate
+        .config/git/.gitignore.default
+        .config/git/.commit_help
         .config/brewfile
         .config/nvim
         .config/karabiner/karbiner.json
@@ -83,6 +84,8 @@ create_dotfiles_symlinks() {
         # links
         #create_symlink "$HOME/dotfiles.local/links" "$HOME/links"
     )
+
+    create_symlink "$HOME/dotfiles/bin" "$HOME/.local/bin"
 }
 
 

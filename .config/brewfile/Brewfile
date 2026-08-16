@@ -46,17 +46,13 @@ cask font-fontawesome
 cask font-hack-nerd-font
 cask font-jetbrains-mono
 cask font-jetbrains-mono-nerd-font
-cask gpg-suite
 cask heptabase
 cask jordanbaird-ice
-cask karabiner-elements
 cask klogg
-cask leader-key
 cask makemkv
 cask ngrok
 cask notion
 cask obsidian
-cask popclip
 cask prusaslicer
 cask qlmarkdown
 cask raycast

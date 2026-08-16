@@ -36,7 +36,7 @@ in
     "starship.toml".source = link ".config/starship.toml";
     "tmux".source = link ".config/tmux";
     "ghostty".source = link ".config/ghostty";
-    "leader_key".source = link ".config/leader_key";
+    "leader-key".source = link ".config/leader-key";
     "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
     "git/repo.conf".source = link ".config/git/repo.conf";
     "git/.gittemplate".source = link ".config/git/.gittemplate";

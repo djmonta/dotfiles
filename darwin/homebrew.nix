@@ -20,5 +20,7 @@
     "iterm2"
     "itsycal"
     "popclip"
+    "karabiner-elements"
+    "leader-key"
   ];
 }

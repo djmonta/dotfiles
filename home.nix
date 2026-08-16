@@ -161,6 +161,7 @@ in
     tree
     nkf
     navi
+    darwin.trash
     wakatime-cli
     terminal-notifier
     ssh-copy-id

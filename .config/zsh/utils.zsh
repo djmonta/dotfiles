@@ -75,10 +75,11 @@ ls_abbrev() {
     opt_ls=('-aCF' '--color=always')
     case "${OSTYPE}" in
         freebsd*|darwin*)
+            # Homebrew coreutils → gls; Nix coreutils → GNU ls as `ls`
             if type gls > /dev/null 2>&1; then
                 cmd_ls='gls'
-            else
-                # -G : Enable colorized output.
+            elif ! command ls --color=always / >/dev/null 2>&1; then
+                # BSD ls: -G enables color
                 opt_ls=('-aCFG')
             fi
             ;;

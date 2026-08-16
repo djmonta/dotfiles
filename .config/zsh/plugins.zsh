@@ -1,6 +1,9 @@
 # HM zsh plugin paths (home.nix) + load order (this file).
 # home.packages: zsh-completions, zsh-fast-syntax-highlighting, zsh-autosuggestions
 
+DEFAULT_USER='monta'
+DIRCOLORS_SOLARIZED_ZSH_THEME='256dark'
+
 _zsh_plugin_paths="${XDG_CONFIG_HOME:-$HOME/.config}/home-manager/zsh-plugin-paths.zsh"
 [[ -f "$_zsh_plugin_paths" ]] && source "$_zsh_plugin_paths"
 unset _zsh_plugin_paths

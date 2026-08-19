@@ -24,6 +24,8 @@ in
     ".vimrc".source = link ".vimrc";
     # .zshenv / ~/.config/zsh: programs.zsh (not OutOfStoreSymlink of whole dir)
     ".gitignore".source = link ".config/git/.gitignore.default";
+    # Docker Desktop ignores DOCKER_CONFIG; symlink keeps XDG layout intact.
+    ".docker".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/docker";
   };
 
   xdg.configFile = {

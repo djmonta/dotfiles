@@ -22,5 +22,6 @@
     "popclip"
     "karabiner-elements"
     "leader-key"
+    "docker-desktop"
   ];
 }

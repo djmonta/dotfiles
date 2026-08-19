@@ -23,5 +23,6 @@
     "karabiner-elements"
     "leader-key"
     "docker-desktop"
+    "raycast"
   ];
 }

@@ -43,6 +43,8 @@ in
     "git/repo.conf".source = link ".config/git/repo.conf";
     "git/.gittemplate".source = link ".config/git/.gittemplate";
     "git/.commit_help".source = link ".config/git/.commit_help";
+    # Secrets filled by: make wakatime-cfg (op inject). Do not link generated .wakatime.cfg.
+    "wakatime/wakatime.cfg.tpl".source = link ".config/wakatime/wakatime.cfg.tpl";
     # Nix store paths for zsh plugins — sourced from plugins.zsh only.
     "home-manager/zsh-plugin-paths.zsh".text = let
       fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";

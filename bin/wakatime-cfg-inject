@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Inject WakaTime config from 1Password template (no secrets in git).
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+WAKATIME_HOME="${WAKATIME_HOME:-$XDG_CONFIG_HOME/wakatime}"
+
+TPL="${XDG_CONFIG_HOME}/wakatime/wakatime.cfg.tpl"
+if [[ ! -f "$TPL" ]]; then
+  TPL="${ROOT}/.config/wakatime/wakatime.cfg.tpl"
+fi
+OUT="${WAKATIME_HOME}/.wakatime.cfg"
+
+if ! command -v op >/dev/null 2>&1; then
+  echo "error: 1Password CLI (op) not found" >&2
+  exit 1
+fi
+if [[ ! -f "$TPL" ]]; then
+  echo "error: template not found: $TPL" >&2
+  exit 1
+fi
+
+mkdir -m 700 -p "$WAKATIME_HOME"
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+
+op inject -i "$TPL" -o "$tmp"
+chmod 600 "$tmp"
+mv "$tmp" "$OUT"
+trap - EXIT
+
+# Editors often read ~/.wakatime.cfg (ignore WAKATIME_HOME).
+ln -sfn "$OUT" "$HOME/.wakatime.cfg"
+
+echo "wrote $OUT"
+echo "linked $HOME/.wakatime.cfg -> $OUT"

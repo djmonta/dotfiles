@@ -2,18 +2,10 @@
 # tap repositories and their packages
 
 tap homebrew/core
-brew brotli
 brew ca-certificates
-brew curl
-brew docker
 brew giflib
 brew jpeg-turbo
-brew libnghttp2
-brew libnghttp3
-brew libngtcp2
 brew libpng
-brew libpsl
-brew libssh2
 brew libtiff
 brew lz4
 brew mpdecimal
@@ -39,27 +31,21 @@ cask claude
 cask claude-code
 cask coteditor
 cask cursor
-cask docker
 cask dropbox
 cask font-fira-code
 cask font-fontawesome
 cask font-hack-nerd-font
 cask font-jetbrains-mono
 cask font-jetbrains-mono-nerd-font
-cask gpg-suite
 cask heptabase
 cask jordanbaird-ice
-cask karabiner-elements
 cask klogg
-cask leader-key
 cask makemkv
 cask ngrok
 cask notion
 cask obsidian
-cask popclip
 cask prusaslicer
 cask qlmarkdown
-cask raycast
 cask setapp
 cask subler
 cask sublime-text
@@ -73,7 +59,7 @@ cask zen-browser
 tap 1password/tap
 
 # App Store applications
-appstore 1569813296 1Password for Safari (8.12.29)
+appstore 1569813296 1Password for Safari (8.12.33)
 appstore 425264550 Blackmagic Disk Speed Test (3.4.3)
 appstore 1438243180 Dark Reader for Safari (2.1.10)
 appstore 1055511498 Day One (2026.16)

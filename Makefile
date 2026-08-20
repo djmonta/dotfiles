@@ -2,7 +2,7 @@ DOTFILES_TARGET   := $(wildcard .??*) bin
 DOTFILES_DIR      := ${HOME}/dotfiles
 DOTFILES_FILES    := .bash_profile .bashrc .gitconfig .gitignore .gittemplate .zshenv
 
-.PHONY: all install help list update deploy nix hm darwin darwin-brew init homebrew brew clean
+.PHONY: all install help list update deploy nix hm darwin darwin-brew init homebrew brew wakatime-cfg clean
 
 all: update deploy init
 
@@ -22,6 +22,7 @@ help:
 	@echo "make clean          -> Remove the dotfiles"
 	@echo "make homebrew       -> Install homebrew without it"
 	@echo "make brew           -> Update brew/cask/mas packages"
+	@echo "make wakatime-cfg   -> Inject WakaTime cfg via 1Password (op inject)"
 
 list:
 	@$(foreach val, $(DOTFILES_FILES), ls -dF $(val);)
@@ -65,6 +66,9 @@ homebrew:
 brew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/40-brewfileinstall.sh
 endif
+
+wakatime-cfg:
+	@bash $(DOTFILES_DIR)/bin/wakatime-cfg-inject
 
 clean:
 	@echo 'Remove dot files in your home directory...'

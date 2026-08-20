@@ -20,6 +20,9 @@
     "iterm2"
     "itsycal"
     "popclip"
+    "karabiner-elements"
     "leader-key"
+    "docker-desktop"
+    "raycast"
   ];
 }

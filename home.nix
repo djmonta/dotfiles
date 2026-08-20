@@ -41,6 +41,7 @@ in
     "git/repo.conf".source = link ".config/git/repo.conf";
     "git/.gittemplate".source = link ".config/git/.gittemplate";
     "git/.commit_help".source = link ".config/git/.commit_help";
+    "mackup/mackup.cfg".source = link ".config/mackup/mackup.cfg";
     # Nix store paths for zsh plugins — sourced from plugins.zsh only.
     "home-manager/zsh-plugin-paths.zsh".text = let
       fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";

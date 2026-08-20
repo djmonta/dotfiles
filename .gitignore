@@ -9,4 +9,3 @@
 result
 *.hm-backup
 .direnv/
-/.config/git/config

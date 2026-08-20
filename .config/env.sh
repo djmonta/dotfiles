@@ -86,7 +86,7 @@ elif hostname | grep -q "iMac\.local$"; then
 elif hostname | grep -q "MacBook-Pro\.local$"; then
   export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBP
 else
-  export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBA
+  export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME"/brewfile/Brewfile.MBP
 fi
 export HOMEBREW_BREWFILE_APPSTORE=1
 

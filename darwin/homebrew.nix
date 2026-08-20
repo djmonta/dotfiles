@@ -20,5 +20,6 @@
     "iterm2"
     "itsycal"
     "popclip"
+    "leader-key"
   ];
 }

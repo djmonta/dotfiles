@@ -24,6 +24,8 @@ in
     ".vimrc".source = link ".vimrc";
     # .zshenv / ~/.config/zsh: programs.zsh (not OutOfStoreSymlink of whole dir)
     ".gitignore".source = link ".config/git/.gitignore.default";
+    # Docker Desktop ignores DOCKER_CONFIG; symlink keeps XDG layout intact.
+    ".docker".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/docker";
   };
 
   xdg.configFile = {
@@ -36,11 +38,13 @@ in
     "starship.toml".source = link ".config/starship.toml";
     "tmux".source = link ".config/tmux";
     "ghostty".source = link ".config/ghostty";
-    "leader_key".source = link ".config/leader_key";
+    "leader-key".source = link ".config/leader-key";
     "karabiner/karabiner.json".source = link ".config/karabiner/karabiner.json";
     "git/repo.conf".source = link ".config/git/repo.conf";
     "git/.gittemplate".source = link ".config/git/.gittemplate";
     "git/.commit_help".source = link ".config/git/.commit_help";
+    # Secrets filled by: make wakatime-cfg (op inject). Do not link generated .wakatime.cfg.
+    "wakatime/wakatime.cfg.tpl".source = link ".config/wakatime/wakatime.cfg.tpl";
     # Nix store paths for zsh plugins — sourced from plugins.zsh only.
     "home-manager/zsh-plugin-paths.zsh".text = let
       fshDir = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
@@ -161,6 +165,7 @@ in
     tree
     nkf
     navi
+    darwin.trash
     wakatime-cli
     terminal-notifier
     ssh-copy-id

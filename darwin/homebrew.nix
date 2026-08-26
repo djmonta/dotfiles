@@ -24,5 +24,6 @@
     "leader-key"
     "docker-desktop"
     "raycast"
+    "codex"
   ];
 }

@@ -4,6 +4,8 @@
 Commands. It runs locally on macOS and sends the value directly to an iTerm2
 session using Apple Events. It does not use the clipboard or simulate keystrokes.
 No changes to the bastion or destination server are needed.
+The command uses Raycast's `silent` mode: the Raycast window closes and the
+completion message appears as a HUD notification.
 
 ## Setup
 

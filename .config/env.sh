@@ -64,6 +64,11 @@ if [ -d "$HOME"/.opencode/bin ]; then
 fi
 export PATH="$HOME/.local/bin:$HOME/dotfiles/bin:$PATH"
 
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:$HOME/.docker/bin"
+# End of Docker Desktop section.
+
+
 # Homebrew — append so ~/.nix-profile/bin wins for duplicate CLIs
 USER_LOCAL=/usr/local
 if [ -x /opt/homebrew/bin/brew ]; then

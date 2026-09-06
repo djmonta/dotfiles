@@ -1,7 +1,7 @@
 #!/usr/bin/swift
 // @raycast.schemaVersion 1
 // @raycast.title Type SSH Passphrase in iTerm2
-// @raycast.mode compact
+// @raycast.mode silent
 // @raycast.icon 🔐
 // @raycast.argument1 {"type":"dropdown","placeholder":"Passphrase","data":[{"title":"mw_user","value":"1"},{"title":"miyamoto","value":"2"}]}
 // @raycast.description Type a 1Password passphrase into the unchanged iTerm2 SSH prompt.

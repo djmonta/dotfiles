@@ -1,45 +1,56 @@
-# SSH passphrase from 1Password into iTerm2
+# SSH passphrase or sudo password from 1Password into iTerm2
 
-`ssh-passphrase.swift` adds **Type SSH Passphrase in iTerm2** to Raycast Script
+`ssh-passphrase.sh` adds **Type SSH or sudo secret in iTerm2** to Raycast Script
 Commands. It runs locally on macOS and sends the value directly to an iTerm2
 session using Apple Events. It does not use the clipboard or simulate keystrokes.
 No changes to the bastion or destination server are needed.
 The command uses Raycast's `silent` mode: the Raycast window closes and the
 completion message appears as a HUD notification.
+The visible prompt chooses the secret: an OpenSSH key-passphrase prompt uses the
+SSH references, and a sudo password prompt uses the sudo references.
+
+The first run (and any later run after the Swift or AppleScript sources change)
+compiles a cached binary and `.scpt` into `~/.cache/ssh-passphrase/`. Later
+invocations reuse that cache. If a hotkey was bound to the old
+`ssh-passphrase.swift` command, assign it to this script instead.
 
 ## Setup
 
-1. Save the existing remote key's passphrase in a password field in 1Password.
-   Importing an SSH key does not necessarily preserve its original passphrase;
-   create a separate password field if needed. Do not select the private-key field.
+1. Save the existing remote key's passphrase and each account's sudo password in
+   separate password fields in 1Password. Importing an SSH key does not necessarily
+   preserve its original passphrase; create a separate password field if needed.
+   Do not select the private-key field.
 2. Enable **Integrate with 1Password CLI** in 1Password's developer settings.
-   This script uses Homebrew's `op` and Apple's Swift (Xcode Command Line Tools).
+   This script uses Homebrew's `op` and Apple's Swift compiler (Xcode Command Line Tools).
 3. Copy each field's **secret reference** (`op://vault/item/field`), not its value.
-   Save the first reference in `~/.config/ssh-passphrase/reference.txt` and the
-   second in `~/.config/ssh-passphrase/reference2.txt`. Existing `reference.txt`
-   configuration continues to work as **Key 1**.
+   Save SSH passphrases in `~/.config/ssh-passphrase/reference.txt` (Key 1) and
+   `reference2.txt` (Key 2). Save sudo passwords in `sudo.txt` and `sudo2.txt`.
+   Existing `reference.txt` configuration continues to work as **Key 1**.
 4. Add this repository's `raycast` directory in Raycast's Script Commands settings.
-   Assign **Type SSH Passphrase in iTerm2** a hotkey if desired.
+   Assign **Type SSH or sudo secret in iTerm2** a hotkey if desired.
 5. In iTerm2, select the session waiting at an empty OpenSSH
-   `Enter passphrase for key '…':` prompt, then invoke the Raycast command and
+   `Enter passphrase for key '…':` prompt, or at a sudo `Password:` /
+   `[sudo] password for …:` prompt, then invoke the Raycast command and
    choose **Key 1** or **Key 2** in its required argument dropdown.
    Allow macOS Automation access to iTerm2 for the requesting app when prompted.
    Accessibility permission is not needed by this implementation.
 6. Approve 1Password authentication. Do not switch iTerm2 tabs/panes or type during
-   authentication. The script enters the passphrase without a newline; return to
+   authentication. The script enters the secret without a newline; return to
    iTerm2 and press Enter yourself.
 
-Example local configuration (replace both example references):
+Example local configuration (replace the example references):
 
 ```sh
 mkdir -p ~/.config/ssh-passphrase
 printf '%s\n' 'op://Private/Remote SSH 1/passphrase' > ~/.config/ssh-passphrase/reference.txt
 printf '%s\n' 'op://Private/Remote SSH 2/passphrase' > ~/.config/ssh-passphrase/reference2.txt
+printf '%s\n' 'op://Private/mw_user/password' > ~/.config/ssh-passphrase/sudo.txt
+printf '%s\n' 'op://Private/miyamoto/password' > ~/.config/ssh-passphrase/sudo2.txt
 ```
 
 The argument values are `1` and `2`. A missing or unknown argument is rejected;
 there is no automatic fallback to another key. To rename the Raycast choices,
-edit only the `title` fields in `@raycast.argument1` at the top of the script
+edit only the `title` fields in `@raycast.argument1` at the top of `ssh-passphrase.sh`
 (for example, `Work` and `Personal`); keep the `value` fields as `1` and `2`.
 The [Raycast argument metadata](https://github.com/raycast/script-commands/blob/master/documentation/ARGUMENTS.md)
 defines the dropdown labels and values.
@@ -47,13 +58,15 @@ defines the dropdown labels and values.
 ## Input checks and limitations
 
 - Before reading the secret, the script captures the current iTerm2 session ID
-  and visible contents. The last nonblank line must match the standard English
-  OpenSSH key-passphrase prompt. Wrapped or localized prompts are not supported.
+  and visible contents. The last nonblank line must match a standard English
+  OpenSSH key-passphrase prompt, a macOS sudo `Password:` prompt, or a
+  `[sudo] password for …:` prompt. Wrapped or localized prompts are not supported.
 - Immediately before sending, it checks that the current session ID and visible
   contents are unchanged. A mismatch aborts without typing. Retry from the prompt.
-- These checks are guardrails, not proof that the remote process is SSH or that
-  terminal echo is disabled. Use only at a known SSH passphrase prompt. A remote
-  process could imitate it; process state can also change without visible output.
+- These checks are guardrails, not proof that the remote process is SSH or sudo,
+  or that terminal echo is disabled. Use only at a known SSH passphrase or sudo
+  password prompt. A remote process could imitate it; process state can also
+  change without visible output. A bare `Password:` prompt is treated as sudo.
 - The secret travels through an in-memory pipe and an Apple-event parameter.
   It is never embedded in script source, command arguments, files, or script
   output. iTerm2 and the remote receiving process necessarily receive the value.
@@ -61,7 +74,7 @@ defines the dropdown labels and values.
   and Unicode are passed as data, not interpreted as script code.
 - AppleScript support is deprecated by iTerm2 but remains available in the locally
   installed app. No iTerm2 Python API setup is required.
-- First test with a dummy 1Password field at a disposable SSH passphrase prompt.
+- First test with a dummy 1Password field at a disposable SSH or sudo prompt.
   After real use succeeds, delete the old Raycast Snippet and any earlier
   clipboard-history entries containing the passphrase.
 

@@ -1,12 +1,3 @@
-#!/usr/bin/swift
-// @raycast.schemaVersion 1
-// @raycast.title Type SSH Passphrase in iTerm2
-// @raycast.mode silent
-// @raycast.icon 🔐
-// @raycast.argument1 {"type":"dropdown","placeholder":"Passphrase","data":[{"title":"mw_user","value":"1"},{"title":"miyamoto","value":"2"}]}
-// @raycast.description Type a 1Password passphrase into the unchanged iTerm2 SSH prompt.
-
-import AppKit
 import Foundation
 
 func fail(_ message: String) -> Never {
@@ -15,29 +6,13 @@ func fail(_ message: String) -> Never {
     exit(1)
 }
 
-// Secrets are passed as Apple-event parameters, never interpolated into source.
-let scriptSource = """
-on snapshot()
-    tell application id "com.googlecode.iterm2"
-        if not running then error "iTerm2 is not running"
-        if (count of windows) is 0 then error "No window"
-        set targetSession to current session of current window
-        return {unique ID of targetSession, contents of targetSession}
-    end tell
-end snapshot
-
-on deliver(expectedID, expectedContents, passphrase)
-    tell application id "com.googlecode.iterm2"
-        if (count of windows) is 0 then error "No window"
-        set targetSession to current session of current window
-        if unique ID of targetSession is not expectedID then error "Session changed"
-        if contents of targetSession is not expectedContents then error "Screen changed"
-        tell targetSession to write text passphrase newline no
-    end tell
-    return "sent"
-end deliver
-"""
-guard let script = NSAppleScript(source: scriptSource) else { fail("Could not create iTerm2 automation.") }
+let cacheScpt = FileManager.default.homeDirectoryForCurrentUser
+    .appendingPathComponent(".cache/ssh-passphrase/iterm.scpt")
+let scptPath = ProcessInfo.processInfo.environment["SSH_PASSPHRASE_SCPT"] ?? cacheScpt.path
+var loadError: NSDictionary?
+guard let script = NSAppleScript(contentsOf: URL(fileURLWithPath: scptPath), error: &loadError) else {
+    fail("Could not load iTerm2 automation. Rebuild the command cache and retry.")
+}
 func callHandler(_ name: String, _ values: [String] = []) -> NSAppleEventDescriptor {
     let event = NSAppleEventDescriptor(eventClass: 0x61736372, eventID: 0x70736272,
         targetDescriptor: nil, returnID: -1, transactionID: 0)
@@ -50,24 +25,32 @@ func callHandler(_ name: String, _ values: [String] = []) -> NSAppleEventDescrip
     var error: NSDictionary?
     let result = script.executeAppleEvent(event, error: &error)
     guard error == nil else {
-        fail("iTerm2 automation failed or the session changed. Check Automation permissions and retry at the SSH passphrase prompt.")
+        fail("iTerm2 automation failed or the session changed. Check Automation permissions and retry at the SSH or sudo prompt.")
     }
     return result
+}
+
+enum PromptKind {
+    case sshKey
+    case sudo
+}
+
+func promptKind(from prompt: String) -> PromptKind? {
+    if prompt.hasPrefix("Enter passphrase for key "), prompt.hasSuffix(":") {
+        return .sshKey
+    }
+    if prompt.hasPrefix("[sudo] password for "), prompt.hasSuffix(":") {
+        return .sudo
+    }
+    if prompt == "Password:" {
+        return .sudo
+    }
+    return nil
 }
 
 let arguments = Array(CommandLine.arguments.dropFirst())
 guard arguments.count == 1, ["1", "2"].contains(arguments[0]) else {
     fail("Select Key 1 or Key 2 (argument: 1 or 2).")
-}
-// Keep the original reference.txt as Key 1 for existing installations.
-let filename = arguments[0] == "1" ? "reference.txt" : "reference2.txt"
-let config = FileManager.default.homeDirectoryForCurrentUser
-    .appendingPathComponent(".config/ssh-passphrase/" + filename)
-let reference = ((try? String(contentsOf: config, encoding: .utf8)) ?? "")
-    .trimmingCharacters(in: .whitespacesAndNewlines)
-guard reference.hasPrefix("op://"),
-      !reference.unicodeScalars.contains(where: { CharacterSet.controlCharacters.contains($0) }) else {
-    fail("Set an op:// reference in ~/.config/ssh-passphrase/" + filename + ".")
 }
 let candidates = ["/opt/homebrew/bin/op", "/usr/local/bin/op"]
 guard let executable = candidates.first(where: { FileManager.default.isExecutableFile(atPath: $0) }) else {
@@ -83,8 +66,25 @@ guard let sessionID = snapshot.atIndex(1)?.stringValue, !sessionID.isEmpty,
 let prompt = screen.components(separatedBy: .newlines)
     .map { $0.trimmingCharacters(in: .whitespaces) }
     .last(where: { !$0.isEmpty }) ?? ""
-guard prompt.hasPrefix("Enter passphrase for key "), prompt.hasSuffix(":") else {
-    fail("iTerm2 must be waiting at an OpenSSH 'Enter passphrase for key …:' prompt.")
+guard let kind = promptKind(from: prompt) else {
+    fail("iTerm2 must be waiting at an OpenSSH key-passphrase or sudo password prompt.")
+}
+// Keep the original reference.txt as Key 1 for existing installations.
+let filename: String
+switch (arguments[0], kind) {
+case ("1", .sshKey): filename = "reference.txt"
+case ("2", .sshKey): filename = "reference2.txt"
+case ("1", .sudo): filename = "sudo.txt"
+case ("2", .sudo): filename = "sudo2.txt"
+default: fail("Select Key 1 or Key 2 (argument: 1 or 2).")
+}
+let config = FileManager.default.homeDirectoryForCurrentUser
+    .appendingPathComponent(".config/ssh-passphrase/" + filename)
+let reference = ((try? String(contentsOf: config, encoding: .utf8)) ?? "")
+    .trimmingCharacters(in: .whitespacesAndNewlines)
+guard reference.hasPrefix("op://"),
+      !reference.unicodeScalars.contains(where: { CharacterSet.controlCharacters.contains($0) }) else {
+    fail("Set an op:// reference in ~/.config/ssh-passphrase/" + filename + ".")
 }
 
 let request = Process()
@@ -106,4 +106,9 @@ guard let secret = String(data: data, encoding: .utf8), !secret.isEmpty,
 }
 
 _ = callHandler("deliver", [sessionID, screen, secret])
-print("Passphrase entered in iTerm2. Press Enter there to submit.")
+switch kind {
+case .sshKey:
+    print("Passphrase entered in iTerm2. Press Enter there to submit.")
+case .sudo:
+    print("Password entered in iTerm2. Press Enter there to submit.")
+}
